@@ -1,0 +1,328 @@
+@font-face {
+    font-family: 'mplus-bold';
+    src:    url('../assets/font/Mplus1p-Bold.woff2') format('woff2'),
+            url('../assets/font/Mplus1p-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'mplus-medium';
+    src:    url('../assets/font/Mplus1p-Medium.woff2') format('woff2'),
+            url('../assets/font/Mplus1p-Medium.woff') format('woff');
+    font-display: swap;
+}
+
+body {
+    height: 2000px;
+}
+
+nav {
+    background-color: #fff;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.a-div>a,
+.a-div>li {
+    text-align: right;
+    float: right;
+    color: black;
+    font-weight: 500;
+}
+
+.a-div>li>a {
+    color: black
+}
+
+.a-div>a:hover,
+.a-div>li:hover>a {
+    color: #363F73;
+}
+
+/* Para redimensionar o logo que se encontra na navbar de forma a que os restantes elementos da navbar fiquem sempre centrados horizontal e vericalmente */
+#imgLogo {
+    width: 115px
+}
+
+.search-bar {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+    position: relative;
+}
+
+input[type="search"] {
+    border-radius: 100px;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding-right: 35px;
+    /* Remover outline, glow e sombra do input que o Bootstrap adiciona automaticamente */
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0;
+    outline: 0 none;
+}
+
+input[type="search"]:focus {
+    background-color: #f2f2f2;
+}
+
+/* Remover outline, glow e sombra dos componentes, que o Bootstrap adiciona automaticamente, quando são focados */
+input[type="search"]:focus,
+.btn:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0;
+    outline: 0 none;
+
+}
+
+.search-button-div {
+    position: absolute;
+    right: 4px;
+    top: 0px;
+    bottom: 4px;
+    z-index: 9;
+}
+
+.fa-magnifying-glass {
+    transition: all .1s linear;
+}
+
+#navbarSupportedContent>.row {
+    width: 100%;
+}
+
+.btn-entrar {
+    background-color: #45BF63;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.btn-entrar:hover {
+    color: #fff;
+    background-color: #7bbe8c;
+}
+
+.menu-hamburguer div {
+    height: 4px;
+    width: 4px;
+    background-color: black;
+}
+
+.menu-hamburguer {
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 2px;
+}
+
+.menu-hamburguer:hover .verde,
+.menu-hamburguer:hover .verde-1,
+.menu-hamburguer:hover .verde-2 {
+    background-color: green;
+}
+
+.menu-hamburguer:hover .amarelo {
+    background-color: yellow;
+}
+
+.menu-hamburguer:hover .vermelho,
+.menu-hamburguer:hover .vermelho-1,
+.menu-hamburguer:hover .vermelho-2 {
+    background-color: red;
+}
+
+.ultimo {
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
+.primeiro {
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+
+.sair-1 {
+    animation: goUp 0.3s;
+}
+
+@keyframes goUp {
+    100% {
+        transform: translateY(-6px);
+
+    }
+}
+
+.sair-2 {
+    animation: goDown 0.3s;
+    opacity: 0;
+}
+
+@keyframes goDown {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(6px);
+        opacity: 0;
+    }
+}
+
+.menu-hamburguer-after {
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 2px;
+}
+
+.menu-hamburguer-after div {
+    height: 4px;
+    width: 12px;
+}
+
+#divHamburguer {
+    position: relative;
+}
+
+.first-bar-1,
+.second-bar-1 {
+    z-index: 3;
+    background: linear-gradient(to right, green, green 70%, yellow 70%, yellow 95%, red 95%)
+}
+
+.first-bar-1 {
+    animation: rotate-1 0.5s;
+    transform: rotate(25deg);
+    transform-origin: left center;
+
+}
+/* 
+@keyframes rotate-1 {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: left center;
+    }
+
+    100% {
+        transform: rotate(25deg);
+        transform-origin: left center;
+    }
+} */
+
+.first-bar-2 {
+    animation: rotate-2 0.5s;
+    transform: rotate(-25deg);
+    transform-origin: right center;
+}
+/* 
+@keyframes rotate-2 {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: right center;
+    }
+
+    100% {
+        transform: rotate(-25deg);
+        transform-origin: right center;
+    }
+} */
+
+.second-bar-1 {
+    animation: rotate-3 0.5s;
+    transform: rotate(-25deg);
+    transform-origin: left center;
+}
+/* 
+@keyframes rotate-3 {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: left center;
+    }
+
+    100% {
+        transform: rotate(-25deg);
+        transform-origin: left center;
+    }
+} */
+
+.second-bar-2 {
+    animation: rotate-4 0.5s;
+    transform: rotate(25deg);
+    transform-origin: right center;
+}
+/* 
+@keyframes rotate-4 {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: right center;
+    }
+
+    100% {
+        transform: rotate(25deg);
+        transform-origin: right center;
+    }
+} */
+
+.first-bar-2,
+.second-bar-2 {
+    z-index: 3;
+    background: red
+}
+
+.mid-bar {
+    z-index: 3;
+    background: linear-gradient(to right, white, white 33.33%, yellow 33.33%, yellow 50%, white 50%)
+}
+
+#navbarToggleExternal{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(125%);
+    height:100px;
+    width: 200px;
+    background-color: #363F73;
+}
+
+#top10, #sobre, #aprender, #btnEntrarNavBar{
+    font-family: 'mplus-bold'
+}
+
+#imputProcurar, #ulResources{
+   font-family: 'mplus-medium'; 
+}
+
+/* https://medium.com/@rion.mrk/how-to-remove-x-icon-from-search-input-field-or-input-type-search-db3c808405fb */
+
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------------------------- */
