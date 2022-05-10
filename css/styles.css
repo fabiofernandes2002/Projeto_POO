@@ -1,26 +1,54 @@
-@font-face {
-    font-family: 'mplus-bold';
-    src:    url('../assets/font/Mplus1p-Bold.woff2') format('woff2'),
-            url('../assets/font/Mplus1p-Bold.woff') format('woff');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'mplus-medium';
-    src:    url('../assets/font/Mplus1p-Medium.woff2') format('woff2'),
-            url('../assets/font/Mplus1p-Medium.woff') format('woff');
-    font-display: swap;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
     height: 2000px;
 }
 
+/* || FONTES */
+
+@font-face {
+    font-family: 'mplus-bold';
+    src:    url('../assets/fonts/Mplus1p-Bold.woff2') format('woff2'),
+            url('../assets/fonts/Mplus1p-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'mplus-medium';
+    src:    url('../assets/fonts/Mplus1p-Medium.woff2') format('woff2'),
+            url('../assets/fonts/Mplus1p-Medium.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'rufina';
+    src:    url('../assets/fonts/Rufina-Bold.woff2') format('woff2'),
+            url('../assets/fonts/Rufina-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+#top10, #sobre, #aprender, #btnEntrarNavBar, #btnLandingPage{
+    font-family: 'mplus-bold'
+}
+
+#imputProcurar, #ulResources, #pLandingPage{
+   font-family: 'mplus-medium'; 
+}
+
+#headerLandingPage{
+    font-family: 'rufina'
+}
+
+/* || NAVBAR */
+
 nav {
-    background-color: #fff;
-    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    position: relative;
+    background-color: transparent;
+    /* -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
+    transition: top 0.3s;
 }
 
 .a-div>a,
@@ -40,7 +68,6 @@ nav {
     color: #363F73;
 }
 
-/* Para redimensionar o logo que se encontra na navbar de forma a que os restantes elementos da navbar fiquem sempre centrados horizontal e vericalmente */
 #imgLogo {
     width: 115px
 }
@@ -103,6 +130,10 @@ input[type="search"]:focus,
     color: #fff;
     font-weight: bold;
 
+}
+
+#sobre:hover, #top10:hover, #navbarDropdown:hover, .fa-magnifying-glass:hover{
+    color: #4b86ca;
 }
 
 .btn-entrar:hover {
@@ -294,13 +325,47 @@ input[type="search"]:focus,
     background-color: #363F73;
 }
 
-#top10, #sobre, #aprender, #btnEntrarNavBar{
-    font-family: 'mplus-bold'
+#ulResources{
+    z-index: 10;
 }
 
-#imputProcurar, #ulResources{
-   font-family: 'mplus-medium'; 
+/* || index.html (landing page) */
+
+#imgBackground{
+    z-index: -1;
+    width: 100%; 
+    position:absolute; 
+    top: 0; 
+    left: 0;
 }
+
+.img-history{
+    height: 1000px;
+}
+#divImgHistory{
+    height: 768px
+}
+
+#imgHistory{
+    margin-top:100px;
+    width: 430px
+}
+
+#divTextLandingPage{
+    margin-top:200px;
+}
+
+#pLandingPage{
+    color: #737373;
+}
+
+#btnLandingPage{
+    color: white;
+    background-color: #3DAAC5;
+    border-radius: 90px;
+}
+
+/* || REMOVER O X DO SEARCH INPUT */
 
 /* https://medium.com/@rion.mrk/how-to-remove-x-icon-from-search-input-field-or-input-type-search-db3c808405fb */
 
