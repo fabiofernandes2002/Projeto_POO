@@ -30,7 +30,7 @@ body {
     font-display: swap;
 }
 
-#top10, #sobre, #aprender, #btnEntrarNavBar, #btnLandingPage{
+#top10, #sobre, #aprender, #btnEntrarNavBar, #btnLandingPage, #btnEntrarLogin, #btnLevarRegisto{
     font-family: 'mplus-bold'
 }
 
@@ -391,3 +391,139 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 /* -------------------------------------------------------------------------------------------- */
+
+/* css de modais */
+.modal-title{
+    font-family: 'rufina';
+    color: #fff;
+}
+
+.modal-body{
+    font-family:'mplus-medium';
+}
+
+.modal-header{
+    background-color: #3DAAC5;
+}
+
+#modalLogin{
+   border-radius: 10px;
+   border-style: none;
+}
+
+#btnEntrarLogin{
+    border: none;
+    background-color: #45BF63;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    width: 100px;
+}
+
+#btnEntrarLogin:hover {
+    color: #fff;
+    background-color: #7bbe8c;
+}
+
+.btn-close{
+    background-color: #F24444;
+    color: #fff;
+}
+
+#txtNameUser, #txtEmail, #txtCity, #txtBirthDate{
+    font-family:'mplus-medium' ;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left-style: none;
+    
+}
+#userPassword, #userPasswordConfirm{
+    border-left-style: none;
+    border-right-style: none;
+}
+
+#pModalLogin{
+    position: absolute;
+    left: 510px;
+    top: -2px;
+    font-family: 'mplus-medium';
+    font-weight: 50;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    display: flex;
+    float: left;
+}
+#pModalLogin2{
+    position: absolute;
+    left: 465px;
+    top: 20px;
+    font-family: 'mplus-medium';
+    font-weight: 50;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    display: flex;
+    float: left;
+}
+
+#btnLevarRegisto{
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid #45BF63;
+}
+
+#btnLevarRegisto:hover{
+    background-color: #3DAAC5;
+    border-style: none;
+}
+
+.bi-eye{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fff;
+}
+
+.input-group-text{
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#btnCreateAccount, #btnHaveAccount{
+    font-size: 'mplus-bold';
+    border-radius: 25px;
+} 
+#btnCreateAccount{
+    background-color: #363F73;
+    border-style: none;
+}
+#btnHaveAccount{
+    border: 2px solid #363F73;
+}
+
+#btnHaveAccount:hover{
+    background-color: #3DAAC5;
+    border-style: none;
+}
+
+input[type="text"]:focus {
+    background-color: #f2f2f2;
+    border-style: none;
+    box-shadow: none;
+}
+input[type="email"]:focus {
+    background-color: #f2f2f2;
+    border-style: none;
+    box-shadow: none;
+}
+input[type="password"]:focus {
+    background-color: #f2f2f2;
+    border-style: none;
+    box-shadow: none;
+}
+/* #eye{
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+} */
