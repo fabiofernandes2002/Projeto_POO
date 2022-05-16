@@ -32,7 +32,7 @@
 
             <div class="col-lg-2 col-md-2 col-sm-2 col-2">
                 <a class="navbar-brand" href="#">
-                    <img src="assets/img/logo1.svg" alt="" id="imgLogo">
+                    <img src="/assets/img/logo1.svg" alt="" id="imgLogo">
                 </a>
             </div>
 
@@ -193,7 +193,7 @@
                             <div class=" input-group mb-5">
                                 <!-- <label for="txtNameUser" class="form-label">Nome de Utilizador</label> -->
                                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                                <input type="text" class="form-control" id="txtNameUser" aria-describedby="basic-addon1" placeholder="Introduza o nome de utilizador">
+                                <input type="text" class="form-control" id="txtNameUserLogin" aria-describedby="basic-addon1" placeholder="Introduza o nome de utilizador">
                             </div>
                         </div>
     
@@ -209,12 +209,12 @@
                             <div class=" input-group mb-5">
                                 <!-- <label for="userPassword" class="form-label">Palavra-passe</label> -->
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" id="userPassword" placeholder="Introduza a palavra-passe">
+                                <input type="password" class="form-control" id="userPasswordLogin" placeholder="Introduza a palavra-passe">
                                 <span class="input-group-text"><i class="bi bi-eye"></i></span>
                             </div>
                         </div>
                         <div class="col-6 text-center">
-                            <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto" data-bs-target="#modalRegisto" data-bs-toggle="modal">Registrar-me</button>
+                            <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto" data-bs-target="#modalRegisto" data-bs-dismiss="modal" data-bs-toggle="modal">Registrar-me</button>
                         </div>
                     </div>
                     <div class="col-6 text-end">
@@ -245,7 +245,7 @@
                   <label for="txtNameUser" class="form-label">Nome</label>
                   <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                    <input type="text" class="form-control" id="txtNameUser" value="Mark" required>
+                    <input type="text" class="form-control" id="txtNameUserRegister" value="Mark" required>
                     <div class="valid-feedback">
                         Looks good!
                       </div>
@@ -283,10 +283,10 @@
                     </div>
                 </div>
                 <div class="col-6 text-center">
-                    <label for="userPassword" class="form-label">Palavra-passe</label>
+                    <label for="userPasswordRegister" class="form-label">Palavra-passe</label>
                     <div class="input-group">
                       <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-lock"></i></i></span>
-                      <input type="password" class="form-control" id="userPassword" aria-describedby="inputGroupPrepend" required>
+                      <input type="password" class="form-control" id="userPasswordRegister" aria-describedby="inputGroupPrepend" required>
                       <span class="input-group-text"><i class="bi bi-eye"></i></span>
                       <div class="invalid-feedback">
                         Please choose a username.
@@ -312,7 +312,7 @@
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-gender-female"></i></span>
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                             </div> -->
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioFemale" value="option1">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioFemale" value="option1" checked>
                             <label class="form-check-label" for="radioFemale">Femenino</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -324,10 +324,10 @@
                 <div class="col-12 text-end">
                   <button class="btn btn-primary" type="submit" id="btnCreateAccount">Criar conta</button>
                 </div>
-                <div class="col-12 text-end">
-                    <button class="btn btn-outline-secondary" data-bs-target="#modalLogin" data-bs-toggle="modal" id="btnHaveAccount">Já tenho conta? Inicie sessão.</button>
+            </form>
+                <div class="modal-footer text-end">
+                <button class="btn btn-outline-secondary" data-bs-target="#modalLogin" data-bs-toggle="modal" data-bs-dismiss="modal" id="btnHaveAccount">Já tenho conta? Inicie sessão.</button>
                 </div>
-              </form>
             </div>
           </div>
         </div>

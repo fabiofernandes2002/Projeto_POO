@@ -438,14 +438,14 @@ input[type="search"]::-webkit-search-results-decoration {
     color: #fff;
 }
 
-#txtNameUser, #txtEmail, #txtCity, #txtBirthDate{
+#txtNameUserLogin, #txtEmail, #txtCity, #txtBirthDate, #txtNameUserRegister{
     font-family:'mplus-medium' ;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-left-style: none;
     
 }
-#userPassword, #userPasswordConfirm{
+#userPasswordLogin,#userPasswordRegister, #userPasswordConfirm{
     border-left-style: none;
     border-right-style: none;
 }
@@ -486,11 +486,11 @@ input[type="search"]::-webkit-search-results-decoration {
     border-style: none;
 }
 
-.bi-eye{
+/* .bi-eye{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #fff;
-}
+} */
 
 .input-group-text{
     background-color: #fff;
