@@ -330,7 +330,7 @@ input[type="search"]:focus,
     transform: translateY(110%);
     height:200px;
     width: 300px;
-    background-color: white;
+    background-color: green;
 }
 
 #ulResources{

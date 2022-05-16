@@ -179,7 +179,7 @@ for (const element of document.querySelectorAll(".menu-hamburguer, .menu-hamburg
 
 // https://www.w3schools.com/howto/howto_js_media_queries.asp 
 /**
- * Faz mudanças à página de acordo com a largura desta
+ * Muda o layout da página de acordo com a largura desta
  */
 function resizeContent() {
 
