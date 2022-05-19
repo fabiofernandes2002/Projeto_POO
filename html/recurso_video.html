@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recurso escolhido</title>
+    
+        <!-- Bootstrap icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+        <link href="/css/styles.css" rel="stylesheet">
+    
+        <!-- Fonts awesome -->
+        <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <!-- Nav bar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+        <div class="container d-flex align-items-center">
+
+            <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                <a class="navbar-brand" href="#">
+                    <img src="/assets/img/logo1.svg" alt="" id="imgLogo">
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-4 d-none d-sm-block">
+                <div class="col-md-10 offset-md-4 col-sm-10 offset-sm-6">
+                    <form>
+
+                        <!-- Barra de pesquisa -->
+                        <div class="search-bar">
+                            <input type="search" class="form-control" id="imputProcurar" placeholder="Procurar"
+                                aria-label="Search">
+                            <div class="search-button-div">
+                                <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-3 d-none d-md-block a-div position-relative">
+
+                <li class="nav-item dropdown " style="display: none; transform: translateX(25px); list-style-type: none;"
+                    id="aprender">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Aprender <i id="iconArrow" class="fa-solid fa-chevron-down"></i></a>
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="ulResources">
+                        <li><a class="dropdown-item" href="/html/seculo.html">Ver todos os recursos</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Tempo dos Descobrimentos</a></li>
+                        <li>
+                            <a href="" class="dropdown-item"></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Da Únião Ibérica à 
+                        </a></li>
+                        <li><a class="dropdown-item" href="#">Restauração da
+                                Independência</a></li> 
+
+                    </ul>
+                </li>
+
+                <a class="nav-link active d-inline" id="top10" style="display: none; transform: translateX(25px)"
+                    aria-current="page" href="#">Top
+                    10</a>
+                <a class="nav-link active d-inline" id="sobre" style="display: none; transform: translateX(25px)"
+                    aria-current="page" href="#">Sobre</a>
+
+            </div>
+
+            <div class="col-lg-2 col-md-3 offset-md-0 col-sm-3 offset-sm-2 col-4 offset-5 text-center position-relative"
+                id="divBtnEntrar">
+
+                <!-- Botão Entrar -->
+                <button type="button" class="btn btn-entrar w-50" id="btnEntrarNavBar" data-bs-toggle="modal" data-bs-target="#modalLogin">Entrar</button>
+            </div>
+
+            <div class=" d-lg-none col-md-1 col-sm-1 col-1" id="divHamburguer">
+                <button class="btn">
+
+                    <!-- Menu hambúrguer antes de clicamo-lo-->
+                    <div class="menu-hamburguer">
+                        <div class="verde first-div"></div>
+                        <div class="verde"></div>
+                        <div class="amarelo"></div>
+                        <div class="vermelho"></div>
+                        <div class="vermelho"></div>
+                        <div class="vermelho last-div"></div>
+                        <div class="verde-2 first-div"></div>
+                        <div class="verde-2"></div>
+                        <div class="amarelo"></div>
+                        <div class="vermelho"></div>
+                        <div class="vermelho-2"></div>
+                        <div class="vermelho-2 last-div"></div>
+                        <div class="verde first-div"></div>
+                        <div class="verde "></div>
+                        <div class="amarelo"></div>
+                        <div class="vermelho"></div>
+                        <div class="vermelho"></div>
+                        <div class="vermelho last-div"></div>
+                    </div>
+
+                    <!-- Menu hambúrguer depois de clicamo-lo-->
+                    <div class="menu-hamburguer-after position-relative" style="display:none;">
+                        <div class="first-bar-1"></div>
+                        <div class="first-bar-2"></div>
+                        <div class="mid-bar" visibility="hidden"></div>
+                        <div class="mid-bar"></div>
+                        <div class="second-bar-1"></div>
+                        <div class="second-bar-2"></div>
+
+                        <div class="position-absolute" id="navbarToggleExternal" style="font-family: mplus-bold;">
+                            <div style="width:100%;text-align:left;" class="mt-2 ms-2">
+                                <h6>Top 10</h6> 
+                                
+                            </div>
+                            <hr class="mt-4">
+                            <div style="width:100%;text-align:left;" class="ms-2">
+                                <h6>Aprender</h6> 
+                                <p style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Tempo dos Descobrimentos</p>
+                                <p style="font-family: mplus-medium;font-size:14px">Da Únião Ibérica à Restauração da
+                                    Independência</p>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <section style="background-color: #fff; height: 60px;"></section>
+    <section  style="background-color: #F2F2F2;">
+        <div class="container d-flex align-items-center">
+            <div class="row">
+                <div class="col-6" style="margin-top: 40px; margin-bottom: 40px">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 id="" style="font-size: 20px; font-family: 'mplus-bold';">Tempo dos Descobrimentos</h1>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-8">
+                            <p style="font-size: 14px; font-family: mplus-medium;">Todo o que precisas saber do seculo XV e XVI:
+                        os marcos mais importantes do império português que o levar a ser o que é hoje</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="/assets/img/img_card.jpg" style="position: absolute; right: 0;" class="img-fluid" width="200" height="265" alt="">
+                        
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section style="margin-top: 20px;">
+        <div class="container" style="font-family: mplus-medium; font-size: 14px;" >
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Início do séc. XV
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body" style="background-color: #F2F2F2;">
+                        <div class="shadow-lg p-3 mb-2 bg-body">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 1200"><path fill="currentColor" d="M600 1200C268.65 1200 0 931.35 0 600S268.65 0 600 0s600 268.65 600 600s-268.65 600-600 600zM450 300.45v599.1L900 600L450 300.45z"/></svg>
+                            <a href="#modalVideoTutorial" data-bs-toggle="modal" role="button" style="text-decoration: none; color: black;"><span style="margin-left: 10px;">Chegada a Cabo Branco</span></a>
+                        </div>                 
+                        <div class="shadow-sm p-3 mb-2 bg-body">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 1200"><path fill="currentColor" d="M600 1200C268.65 1200 0 931.35 0 600S268.65 0 600 0s600 268.65 600 600s-268.65 600-600 600zM450 300.45v599.1L900 600L450 300.45z"/></svg>
+                            <span style="margin-left: 10px;"> Publicação das Ordenações Afonsinas - Descoberta das ilhas de Cabo Verde</span>
+                        </div>
+                        <div class="shadow-sm p-3 mb-2 bg-body">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 1200"><path fill="currentColor" d="M600 1200C268.65 1200 0 931.35 0 600S268.65 0 600 0s600 268.65 600 600s-268.65 600-600 600zM450 300.45v599.1L900 600L450 300.45z"/></svg>
+                            <span style="margin-left: 10px;">Chegada à Serra Leoa</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Meados do séc. XV
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Finais do séc. XV
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M23.5 4h-1.67A3.001 3.001 0 0 0 19 2h-6a3.001 3.001 0 0 0-2.83 2H8.5A3.5 3.5 0 0 0 5 7.5v19A3.5 3.5 0 0 0 8.5 30h5.546a2.49 2.49 0 0 1 .032-1.129l.791-3.051a4.159 4.159 0 0 1 1.01-1.82H11a1 1 0 1 1 0-2h6.86l6.652-6.706A4.36 4.36 0 0 1 27 14.042V7.5A3.5 3.5 0 0 0 23.5 4ZM13 4h6a1 1 0 1 1 0 2h-6a1 1 0 1 1 0-2Zm-3 9a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H11a1 1 0 0 1-1-1Zm1 4h5a1 1 0 1 1 0 2h-5a1 1 0 1 1 0-2Zm18.652 3.425l-8.613 8.543c-.352.349-.79.598-1.27.721l-3.02.778a1 1 0 0 1-1.218-1.22l.79-3.051c.118-.456.355-.872.687-1.206l8.57-8.64a2.88 2.88 0 1 1 4.074 4.075Z"/></svg>
+                        <span style="margin-left: 10px;">Teste de avaliação</span>
+                      </button>
+                    </h2>
+                  </div>
+              </div>
+        </div>
+    </section>
+
+    <!-- Modal do video de tutorial -->
+    <!-- Full screen modal -->
+        <div id="modalVideoTutorial" class="modal">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Video do Tutorial</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 id="tituloVideo">Chegada a Cabo Branco</h3>
+                        <p class="col-8">O cabo dá nome à península da qual é a extremidade, onde se situa a pequena
+                            localidade de Lagouira, parte do Saara Ocidental controlado de facto por Marrocos, 
+                            e Nouadhibou (Port Étienne durante a época da colonização francesa), a segunda 
+                            maior cidade da Mauritânia.
+                        </p>
+                        <div class="row">
+                            <div class="col-8">
+                                <iframe width="700" height="400"
+                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
+                                </iframe>
+                            </div>
+                            <div class="col-4">
+                                <h3 style="font-family: 'mplus-bold'; font-size:16px">Capítulos</h3>
+                                <ul style="list-style-type: none;">
+                                    <li><span style="color: #3DAAC5;">0:00</span> Introdução</li>
+                                    <li><span style="color: #3DAAC5;">0:20</span> O cabo dá nome à península</li>
+                                    <li><span style="color: #3DAAC5;">1:22</span> O cabo dá nome à península</li>
+                                    <li><span style="color: #3DAAC5;">3:56</span> Gomes Eanes de Zurara, na Crónica da Conquista e Descobrimento da Guiné</li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <div class="col-1 mt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0z"/></g></svg>
+                                    167
+                                </div>
+                                <div class="col-1 mt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M885.9 533.7c16.8-22.2 26.1-49.4 26.1-77.7c0-44.9-25.1-87.4-65.5-111.1a67.67 67.67 0 0 0-34.3-9.3H572.4l6-122.9c1.4-29.7-9.1-57.9-29.5-79.4A106.62 106.62 0 0 0 471 99.9c-52 0-98 35-111.8 85.1l-85.9 311H144c-17.7 0-32 14.3-32 32v364c0 17.7 14.3 32 32 32h601.3c9.2 0 18.2-1.8 26.5-5.4c47.6-20.3 78.3-66.8 78.3-118.4c0-12.6-1.8-25-5.4-37c16.8-22.2 26.1-49.4 26.1-77.7c0-12.6-1.8-25-5.4-37c16.8-22.2 26.1-49.4 26.1-77.7c-.2-12.6-2-25.1-5.6-37.1zM184 852V568h81v284h-81zm636.4-353l-21.9 19l13.9 25.4a56.2 56.2 0 0 1 6.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19l13.9 25.4a56.2 56.2 0 0 1 6.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19l13.9 25.4a56.2 56.2 0 0 1 6.9 27.3c0 22.4-13.2 42.6-33.6 51.8H329V564.8l99.5-360.5a44.1 44.1 0 0 1 42.2-32.3c7.6 0 15.1 2.2 21.1 6.7c9.9 7.4 15.2 18.6 14.6 30.5l-9.6 198.4h314.4C829 418.5 840 436.9 840 456c0 16.5-7.2 32.1-19.6 43z"/></svg>
+                                    167
+                                </div>
+                                <div class="col-2 mt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m26 4l18 18l-18 17V28C12 28 6 43 6 43c0-17 5-28 20-28V4Z"/></svg>
+                                    Compartilhar
+                                </div>
+                            </div>
+                            <hr class="mt-3">
+                            <div>
+                                <form action="">
+                                    <div class="col-6">
+                                        <label for="" class="form-label">Comentários</label>
+                                        <input type="text" style="box-shadow: none !important;background: none;border-width: 0 0 1px 0;" class="form-control" name="" placeholder="adicionar comentário" required="required">
+                                    </div>
+                                    <div class="col-6 mt-2 text-end">
+                                        <button type="button" class="btn btn-outline-primary">Comentar</button>
+                                        
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="/js/index.js"></script>
+</body>
+</html>
