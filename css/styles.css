@@ -5,6 +5,7 @@
 
 body {
     height: 2000px;
+    overflow-x: hidden;
 }
 
 /* || FONTES */
