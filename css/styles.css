@@ -31,7 +31,7 @@ body {
     font-display: swap;
 }
 
-#top10, #sobre, #aprender, #btnEntrarNavBar, #btnLandingPage{
+#top10, #sobre, #aprender, #btnEntrarNavBar, #btnLandingPage, #btnEntrarLogin, #btnLevarRegisto{
     font-family: 'mplus-bold'
 }
 
@@ -49,7 +49,7 @@ nav {
     background-color: transparent;
     /* -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
-    transition: top 0.3s;
+    transition: top 0.2s;
 }
 
 .a-div>a,
@@ -125,7 +125,7 @@ input[type="search"]:focus,
     width: 100%;
 }
 
-.btn-entrar {
+#btnEntrarNavBar {
     background-color: #45BF63;
     border-radius: 100px;
     color: #fff;
@@ -137,7 +137,7 @@ input[type="search"]:focus,
     color: #4b86ca;
 }
 
-.btn-entrar:hover {
+#btnEntrarNavBar:hover {
     color: #fff;
     background-color: #7bbe8c;
 }
@@ -172,14 +172,14 @@ input[type="search"]:focus,
     background-color: red;
 }
 
-.ultimo {
-    border-top-right-radius: 200px;
-    border-bottom-right-radius: 200px;
-}
-
-.primeiro {
+.first-div{
     border-top-left-radius: 200px;
     border-bottom-left-radius: 200px;
+}
+
+.last-div{
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
 }
 
 .sair-1 {
@@ -189,7 +189,6 @@ input[type="search"]:focus,
 @keyframes goUp {
     100% {
         transform: translateY(-6px);
-
     }
 }
 
@@ -228,17 +227,25 @@ input[type="search"]:focus,
 
 .first-bar-1,
 .second-bar-1 {
-    z-index: 3;
+    z-index: 500;
     background: linear-gradient(to right, green, green 70%, yellow 70%, yellow 95%, red 95%)
 }
 
+.first-bar-2,
+.second-bar-2 {
+    z-index: 500;
+    background: red
+}
+
 .first-bar-1 {
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
     animation: rotate-1 0.5s;
     transform: rotate(25deg);
     transform-origin: left center;
 
 }
-/* 
+
 @keyframes rotate-1 {
     0% {
         transform: rotate(0deg);
@@ -249,14 +256,16 @@ input[type="search"]:focus,
         transform: rotate(25deg);
         transform-origin: left center;
     }
-} */
+} 
 
 .first-bar-2 {
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
     animation: rotate-2 0.5s;
     transform: rotate(-25deg);
     transform-origin: right center;
 }
-/* 
+
 @keyframes rotate-2 {
     0% {
         transform: rotate(0deg);
@@ -267,14 +276,16 @@ input[type="search"]:focus,
         transform: rotate(-25deg);
         transform-origin: right center;
     }
-} */
+}
 
 .second-bar-1 {
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
     animation: rotate-3 0.5s;
     transform: rotate(-25deg);
     transform-origin: left center;
 }
-/* 
+
 @keyframes rotate-3 {
     0% {
         transform: rotate(0deg);
@@ -285,14 +296,16 @@ input[type="search"]:focus,
         transform: rotate(-25deg);
         transform-origin: left center;
     }
-} */
+}
 
 .second-bar-2 {
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
     animation: rotate-4 0.5s;
     transform: rotate(25deg);
     transform-origin: right center;
 }
-/* 
+ 
 @keyframes rotate-4 {
     0% {
         transform: rotate(0deg);
@@ -303,12 +316,6 @@ input[type="search"]:focus,
         transform: rotate(25deg);
         transform-origin: right center;
     }
-} */
-
-.first-bar-2,
-.second-bar-2 {
-    z-index: 3;
-    background: red
 }
 
 .mid-bar {
@@ -318,12 +325,13 @@ input[type="search"]:focus,
 
 #navbarToggleExternal{
     position: absolute;
+    z-index: 1;
     bottom: 0;
     right: 0;
-    transform: translateY(125%);
-    height:100px;
-    width: 200px;
-    background-color: #363F73;
+    transform: translateY(110%);
+    height:200px;
+    width: 300px;
+    background-color: green;
 }
 
 #ulResources{
@@ -392,3 +400,139 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 /* -------------------------------------------------------------------------------------------- */
+
+/* css de modais */
+.modal-title{
+    font-family: 'rufina';
+    color: #fff;
+}
+
+.modal-body{
+    font-family:'mplus-medium';
+}
+
+.modal-header{
+    background-color: #3DAAC5;
+}
+
+#modalLogin{
+   border-radius: 10px;
+   border-style: none;
+}
+
+#btnEntrarLogin{
+    border: none;
+    background-color: #45BF63;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    width: 100px;
+}
+
+#btnEntrarLogin:hover {
+    color: #fff;
+    background-color: #7bbe8c;
+}
+
+.btn-close{
+    background-color: #F24444;
+    color: #fff;
+}
+
+#txtNameUserLogin, #txtEmail, #txtCity, #txtBirthDate, #txtNameUserRegister{
+    font-family:'mplus-medium' ;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left-style: none;
+    
+}
+#userPasswordLogin,#userPasswordRegister, #userPasswordConfirm{
+    border-left-style: none;
+    border-right-style: none;
+}
+
+#pModalLogin{
+    position: absolute;
+    left: 510px;
+    top: -2px;
+    font-family: 'mplus-medium';
+    font-weight: 50;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    display: flex;
+    float: left;
+}
+#pModalLogin2{
+    position: absolute;
+    left: 465px;
+    top: 20px;
+    font-family: 'mplus-medium';
+    font-weight: 50;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    display: flex;
+    float: left;
+}
+
+#btnLevarRegisto{
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid #45BF63;
+}
+
+#btnLevarRegisto:hover{
+    background-color: #3DAAC5;
+    border-style: none;
+}
+
+/* .bi-eye{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fff;
+} */
+
+.input-group-text{
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#btnCreateAccount, #btnHaveAccount{
+    font-size: 'mplus-bold';
+    border-radius: 25px;
+} 
+#btnCreateAccount{
+    background-color: #363F73;
+    border-style: none;
+}
+#btnHaveAccount{
+    border: 2px solid #363F73;
+}
+
+#btnHaveAccount:hover{
+    background-color: #3DAAC5;
+    border-style: none;
+}
+
+input[type="text"]:focus {
+    background-color: #f2f2f2;
+    border-style: none;
+    box-shadow: none;
+}
+input[type="email"]:focus {
+    background-color: #f2f2f2;
+    border-style: none;
+    box-shadow: none;
+}
+input[type="password"]:focus {
+    background-color: #f2f2f2;
+    border-style: none;
+    box-shadow: none;
+}
+/* #eye{
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+} */
