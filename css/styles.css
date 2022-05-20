@@ -5,6 +5,7 @@
 
 body {
     height: 2000px;
+    overflow-x: hidden;
 }
 
 /* || FONTES */
@@ -469,8 +470,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* -------------------------------------------------------------------------------------------- */
 
-/* css de modais */
-.modal-title {
+/* css de modais de login e register */
+.modal-title{
     font-family: 'rufina';
     color: #fff;
 }
@@ -618,3 +619,41 @@ input[type="password"]:focus {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 } */
+
+/* style da pagina do recurso de video tutorial */
+
+#accordionFlushExample{
+    font-family: 'mplus-medium';
+}
+
+#tituloVideo{
+    font-family: 'mplus-bold';
+    font-size: 20px;
+}
+
+.modal-body{
+    font-family: 'mplus-medium';
+}
+
+/* Style da pagina dos seculos */
+.card-title{
+    font-family: 'mplus-bold';
+    font-size: 18px;
+}
+
+.card-text{
+    font-family: 'mplus-medium';
+    font-size: 14px;
+}
+
+#recursoSeculo{
+    font-family: 'rufina';
+    margin-top:100px;
+}
+
+#btnAprenderSeculo{
+    font-family: 'mplus-bold';
+    background-color: #3DAAC5;
+    border-style: none;
+    box-shadow: none;
+}
