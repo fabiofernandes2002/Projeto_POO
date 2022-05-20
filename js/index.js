@@ -1,5 +1,3 @@
-
-
 /**
  * Elemento <<a>a> que contêm o texto "Aprender" e o ícone da seta que, por defeito, está apontada para baixo
  * @description Elemento que aparece na Navbar em dispositivos com uma largura maior do que 768px
@@ -78,25 +76,38 @@ window.onscroll = function () {
      */
     const navbar = document.querySelector(".navbar")
 
+    /**
+     * Elemento <<a>div>
+     * @description Menu que aparece quando clicamos no menu hamburguer
+     * @type {HTMLElement}
+     */
+    const menuDropdown = document.querySelector("#containerMenuDropdown")
+
     //Se o site foi deslizado menos do que 65px (altura da navbar) para cima, ainda conseguimos ver a navbar fixa no topo da página com o fundo transparente
     if (currentScrollPos <= 65) {
-        
+
         navbar.classList.remove("shadow-sm")
         navbar.style.top = `-${currentScrollPos}px`;
         navbar.style.backgroundColor = "transparent";
-        
 
-    } //Caso contrário, se o site foi deslizado para baixo, i.e, fizemos scroll para cima, aparece a navbar com um fundo branco e com uma sombra
+        menuDropdown.style.top = `-${currentScrollPos}px`;
+        document.querySelector("#navbarToggleExternal").style.border = "none"
+
+    } //Caso contrário, se fizermos scroll para cima, aparece a navbar com um fundo branco e com uma sombra
     else if (prevScrollpos > currentScrollPos) {
-        
+
         navbar.classList.add("shadow-sm")
         navbar.style.backgroundColor = "#fff";
         navbar.style.top = "0px";
-        
 
-    } //Caso contrário, se o site foi deslizado para cima, i.e, fizemos scroll para baixo, a navbar desaparece   
+        menuDropdown.style.top = `0px`;
+        document.querySelector("#navbarToggleExternal").style.border = "0.1px solid rgba(0, 0, 0, 0.189)"
+
+    } //Caso contrário, se fizermos scroll para baixo, a navbar desaparece   
     else {
         navbar.style.top = "-65px";
+        menuDropdown.style.top = `-63px`;
+        document.querySelector("#navbarToggleExternal").style.border = "0.1px solid rgba(0, 0, 0, 0.189)"
     }
     prevScrollpos = currentScrollPos;
 }
@@ -149,12 +160,24 @@ for (const element of document.querySelectorAll(".menu-hamburguer, .menu-hamburg
                 () => {
                     document.querySelector(".menu-hamburguer").style.display = "none"
                     document.querySelector(".menu-hamburguer-after").style.display = ""
+
+                    document.querySelector("#navbarToggleExternal").style.display = ""
+                    document.querySelector("#navbarToggleExternal").classList.add("menuShow")
+                    document.querySelector("#navbarToggleExternal").classList.remove("menuHide")
                 }, 400);
 
-            //Se clicarmos no menu hamburguer no momento em que estiver representado por duas barras em forma de "X",
-            //o mesmo passará a ser representado por três barras deitadas na horizontal
-        } else {
 
+
+
+        } else { //Se clicarmos no menu hamburguer no momento em que estiver representado por duas barras em forma de "X",
+            //o mesmo passará a ser representado por três barras deitadas na horizontal
+
+            document.querySelector("#navbarToggleExternal").classList.remove("menuShow")
+            document.querySelector("#navbarToggleExternal").classList.add("menuHide")
+            setTimeout(() => {
+               document.querySelector("#navbarToggleExternal").style.display = "none" 
+            }, 400);
+            
             document.querySelector(".menu-hamburguer").style.display = ""
             document.querySelector(".menu-hamburguer-after").style.display = "none"
 
@@ -204,12 +227,13 @@ function resizeContent() {
         document.querySelector("#sobre").classList.add("d-inline");
         document.querySelector("#aprender").classList.add("d-inline");
         document.querySelector("#aprender").style.transform = "translateX(25px)"
+        document.querySelector("#top10").style.transform = "translateX(25px)";
 
         //A largura do logo é fixa --> 115px 
         document.querySelector("#imgLogo").style.width = "115px"
 
 
-        
+
     } // Se a largura da página for maior ou igual que 768px e menor que 991px
     else if (window.matchMedia("(min-width: 768px) and (max-width: 991px)").matches) {
 
@@ -221,16 +245,15 @@ function resizeContent() {
         document.querySelector("#btnEntrarNavBar").classList.add("position-absolute", "end-0", "top-50", "translate-middle-y")
 
         //"Aprender" fica visível e fica mais encostado ao botão, exceto "Top10", "Sobre"
-        document.querySelector("#aprender").style.display = "";
-        document.querySelector("#aprender").style.transform = "translateX(75px)"
-        document.querySelector("#top10").classList.remove("d-inline");
+        document.querySelector("#aprender").classList.remove("d-inline");
+        document.querySelector("#top10").style.transform = "translateX(60px)";
         document.querySelector("#sobre").classList.remove("d-inline");
 
         //A largura do logo é fixa --> 115px 
         document.querySelector("#imgLogo").style.width = "115px"
 
 
-        
+
     } // Se a largura da página for maior ou igual que 576px e menor que 767px
     else if (window.matchMedia("(min-width: 576px) and (max-width: 767px)").matches) {
 
@@ -243,7 +266,7 @@ function resizeContent() {
         document.querySelector("#btnEntrarNavBar").classList.add("position-absolute", "end-0", "top-50", "translate-middle-y")
 
         //"Top10", "Sobre" e "Aprender" ficam invisíveis
-        document.querySelector("#top10").classList.remove("d-inline");
+
         document.querySelector("#sobre").classList.remove("d-inline");
         document.querySelector("#aprender").classList.remove("d-inline");
         document.querySelector("#aprender").style.display = "none";
@@ -252,7 +275,7 @@ function resizeContent() {
         //A largura do logo é fixa --> 115px 
         document.querySelector("#imgLogo").style.width = "115px"
 
-        
+
     } // Se a largura da página for maior ou igual que 450px e menor que 575px
     else if (window.matchMedia("(min-width: 450px) and (max-width: 575px)").matches) {
 
@@ -268,7 +291,7 @@ function resizeContent() {
         document.querySelector("#imgLogo").style.width = "115px"
 
 
-        
+
     } // Se a largura da página for maior ou igual que 350px e menor que 449px
     else if (window.matchMedia("(min-width: 350px) and (max-width: 449px)").matches) {
 
@@ -284,7 +307,7 @@ function resizeContent() {
         //A largura do logo é fixa --> 115px 
         document.querySelector("#imgLogo").style.width = "115px"
 
-        
+
     } // Se a largura da página for menor que 349px
     else {
 
@@ -297,15 +320,17 @@ function resizeContent() {
 }
 
 /**
- * Chama a função que foi passada como argumento para a função debounce 300 milisegundos deois da página ter 
+ * Chama a função que foi passada como argumento para a função debounce 300 milisegundos depois da página ter 
  * sido redimensionada
  * @param {function} func - Função definida no addEventListener 
  * @returns {function} - Função que declará a variável "timer" com um setTimeout quando pararmos de redimensionar a página
  */
-function debounce(func) {    // função debouncing inspirada do site https://flaviocopes.com/canvas/
+function debounce(func) { // função debouncing inspirada do site https://flaviocopes.com/canvas/
     let timer;
     return () => {
-        if (timer) { clearTimeout(timer) }    // if(timer) se timer tiver um valor, caso contrário não funciona
+        if (timer) {
+            clearTimeout(timer)
+        } // if(timer) se timer tiver um valor, caso contrário não funciona
         timer = window.setTimeout(func, 300)
     };
 };
@@ -315,3 +340,20 @@ window.addEventListener('resize', debounce(() => {
 }))
 
 resizeContent()
+
+//Quando digitamos algo no input da barra de pesquisa da navbar, a lupa desloca-se para a direita e aparece o "X"
+document.querySelector("#imputProcurar").addEventListener("input", ()=> {
+    if (document.querySelector("#imputProcurar").value === "") {
+        document.querySelector('.search-button-div').style.transform="translate(0,0)"
+        document.querySelector('#x').style.display="none"
+    }else{
+        document.querySelector('.search-button-div').style.transform="translate(40px,0)"
+        document.querySelector('#x').style.display=""
+    }
+})
+
+document.querySelector('#x').addEventListener('click', ()=> {
+    document.querySelector("#imputProcurar").value = ""
+    document.querySelector('.search-button-div').style.transform="translate(0,0)"
+    document.querySelector('#x').style.display="none"
+})
