@@ -12,34 +12,43 @@ body {
 
 @font-face {
     font-family: 'mplus-bold';
-    src:    url('../assets/fonts/Mplus1p-Bold.woff2') format('woff2'),
-            url('../assets/fonts/Mplus1p-Bold.woff') format('woff');
+    src: url('../assets/fonts/Mplus1p-Bold.woff2') format('woff2'),
+        url('../assets/fonts/Mplus1p-Bold.woff') format('woff');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'mplus-medium';
-    src:    url('../assets/fonts/Mplus1p-Medium.woff2') format('woff2'),
-            url('../assets/fonts/Mplus1p-Medium.woff') format('woff');
+    src: url('../assets/fonts/Mplus1p-Medium.woff2') format('woff2'),
+        url('../assets/fonts/Mplus1p-Medium.woff') format('woff');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'rufina';
-    src:    url('../assets/fonts/Rufina-Bold.woff2') format('woff2'),
-            url('../assets/fonts/Rufina-Bold.woff') format('woff');
+    src: url('../assets/fonts/Rufina-Bold.woff2') format('woff2'),
+        url('../assets/fonts/Rufina-Bold.woff') format('woff');
     font-display: swap;
 }
 
-#top10, #sobre, #aprender, #btnEntrarNavBar, #btnLandingPage, #btnEntrarLogin, #btnLevarRegisto{
+#top10,
+#sobre,
+#aprender,
+#btnEntrarNavBar,
+#btnLandingPage,
+#btnEntrarLogin,
+#btnLevarRegisto {
     font-family: 'mplus-bold'
 }
 
-#imputProcurar, #ulResources, #pLandingPage{
-   font-family: 'mplus-medium'; 
+#imputProcurar,
+#imputProcurarMenu,
+#ulResources,
+#pLandingPage {
+    font-family: 'mplus-medium';
 }
 
-#headerLandingPage{
+#headerLandingPage {
     font-family: 'rufina'
 }
 
@@ -50,6 +59,7 @@ nav {
     /* -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
     transition: top 0.2s;
+    z-index: 2;
 }
 
 .a-div>a,
@@ -115,6 +125,17 @@ input[type="search"]:focus,
     top: 0px;
     bottom: 4px;
     z-index: 9;
+    transition: transform 0.5s cubic-bezier(0, 1.12, 1, 1.02);
+}
+
+#x {
+    vertical-align: -0.125em;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    transform: translate(0, 11px);
+    cursor:pointer;
+    z-index:10;
 }
 
 .fa-magnifying-glass {
@@ -133,7 +154,10 @@ input[type="search"]:focus,
 
 }
 
-#sobre:hover, #top10:hover, #navbarDropdown:hover, .fa-magnifying-glass:hover{
+#sobre:hover,
+#top10:hover,
+#navbarDropdown:hover,
+.fa-magnifying-glass:hover {
     color: #4b86ca;
 }
 
@@ -172,12 +196,12 @@ input[type="search"]:focus,
     background-color: red;
 }
 
-.first-div{
+.first-div {
     border-top-left-radius: 200px;
     border-bottom-left-radius: 200px;
 }
 
-.last-div{
+.last-div {
     border-top-right-radius: 200px;
     border-bottom-right-radius: 200px;
 }
@@ -256,7 +280,7 @@ input[type="search"]:focus,
         transform: rotate(25deg);
         transform-origin: left center;
     }
-} 
+}
 
 .first-bar-2 {
     border-top-right-radius: 200px;
@@ -305,7 +329,7 @@ input[type="search"]:focus,
     transform: rotate(25deg);
     transform-origin: right center;
 }
- 
+
 @keyframes rotate-4 {
     0% {
         transform: rotate(0deg);
@@ -318,57 +342,102 @@ input[type="search"]:focus,
     }
 }
 
+.menuShow {
+    animation: showMenu 0.5s;
+}
+
+@keyframes showMenu {
+    0% {
+        transform: translate(-15px, -60px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-15px, 0);
+        opacity: 1;
+    }
+}
+
+.menuHide {
+    animation: hideMenu 0.5s;
+}
+
+@keyframes hideMenu {
+    0% {
+        transform: translate(-15px, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-15px, -60px);
+        opacity: 0;
+    }
+}
+
 .mid-bar {
     z-index: 3;
     background: linear-gradient(to right, white, white 33.33%, yellow 33.33%, yellow 50%, white 50%)
 }
 
-#navbarToggleExternal{
+#navbarToggleExternal {
     position: absolute;
-    z-index: 1;
-    bottom: 0;
+    top: 63px;
     right: 0;
-    transform: translateY(110%);
-    height:200px;
+    transform: translate(-15px, 0);
     width: 300px;
-    background-color: green;
+    background-color: white;
+    transition: top 1s;
+    transition: opacity 1s;
 }
 
-#ulResources{
+#containerMenuDropdown {
+    z-index: 2;
+    transition: top 0.2s;
+
+}
+
+#ulResources {
     z-index: 10;
+}
+
+#ulResources .dropdown-item {
+    width: 300px;
+    white-space: normal;
 }
 
 /* || index.html (landing page) */
 
-#imgBackground{
+#imgBackground {
     z-index: -1;
-    width: 100%; 
-    position:absolute; 
-    top: 0; 
+    width: 100%;
+    position: absolute;
+    top: 0;
     left: 0;
 }
 
-.img-history{
+.img-history {
     height: 1000px;
 }
-#divImgHistory{
-    height: 768px
+
+#divImgHistory {
+    height: 768px;
+    z-index: -1;
 }
 
-#imgHistory{
-    margin-top:100px;
+#imgHistory {
+    margin-top: 100px;
     width: 430px
 }
 
-#divTextLandingPage{
-    margin-top:200px;
+#divTextLandingPage {
+    margin-top: 200px;
 }
 
-#pLandingPage{
+#pLandingPage {
     color: #737373;
 }
 
-#btnLandingPage{
+#btnLandingPage {
     color: white;
     background-color: #3DAAC5;
     border-radius: 90px;
@@ -407,20 +476,20 @@ input[type="search"]::-webkit-search-results-decoration {
     color: #fff;
 }
 
-.modal-body{
-    font-family:'mplus-medium';
+.modal-body {
+    font-family: 'mplus-medium';
 }
 
-.modal-header{
+.modal-header {
     background-color: #3DAAC5;
 }
 
-#modalLogin{
-   border-radius: 10px;
-   border-style: none;
+#modalLogin {
+    border-radius: 10px;
+    border-style: none;
 }
 
-#btnEntrarLogin{
+#btnEntrarLogin {
     border: none;
     background-color: #45BF63;
     border-radius: 25px;
@@ -434,24 +503,31 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: #7bbe8c;
 }
 
-.btn-close{
+.btn-close {
     background-color: #F24444;
     color: #fff;
 }
 
-#txtNameUserLogin, #txtEmail, #txtCity, #txtBirthDate, #txtNameUserRegister{
-    font-family:'mplus-medium' ;
+#txtNameUserLogin,
+#txtEmail,
+#txtCity,
+#txtBirthDate,
+#txtNameUserRegister {
+    font-family: 'mplus-medium';
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-left-style: none;
-    
+
 }
-#userPasswordLogin,#userPasswordRegister, #userPasswordConfirm{
+
+#userPasswordLogin,
+#userPasswordRegister,
+#userPasswordConfirm {
     border-left-style: none;
     border-right-style: none;
 }
 
-#pModalLogin{
+#pModalLogin {
     position: absolute;
     left: 510px;
     top: -2px;
@@ -463,7 +539,8 @@ input[type="search"]::-webkit-search-results-decoration {
     display: flex;
     float: left;
 }
-#pModalLogin2{
+
+#pModalLogin2 {
     position: absolute;
     left: 465px;
     top: 20px;
@@ -476,13 +553,13 @@ input[type="search"]::-webkit-search-results-decoration {
     float: left;
 }
 
-#btnLevarRegisto{
+#btnLevarRegisto {
     width: 200px;
     border-radius: 10px;
     border: 2px solid #45BF63;
 }
 
-#btnLevarRegisto:hover{
+#btnLevarRegisto:hover {
     background-color: #3DAAC5;
     border-style: none;
 }
@@ -493,25 +570,28 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: #fff;
 } */
 
-.input-group-text{
+.input-group-text {
     background-color: #fff;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-#btnCreateAccount, #btnHaveAccount{
+#btnCreateAccount,
+#btnHaveAccount {
     font-size: 'mplus-bold';
     border-radius: 25px;
-} 
-#btnCreateAccount{
+}
+
+#btnCreateAccount {
     background-color: #363F73;
     border-style: none;
 }
-#btnHaveAccount{
+
+#btnHaveAccount {
     border: 2px solid #363F73;
 }
 
-#btnHaveAccount:hover{
+#btnHaveAccount:hover {
     background-color: #3DAAC5;
     border-style: none;
 }
@@ -521,16 +601,19 @@ input[type="text"]:focus {
     border-style: none;
     box-shadow: none;
 }
+
 input[type="email"]:focus {
     background-color: #f2f2f2;
     border-style: none;
     box-shadow: none;
 }
+
 input[type="password"]:focus {
     background-color: #f2f2f2;
     border-style: none;
     box-shadow: none;
 }
+
 /* #eye{
     background-color: #fff;
     border-top-right-radius: 10px;

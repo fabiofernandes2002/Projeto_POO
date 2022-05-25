@@ -44,8 +44,16 @@
                         <div class="search-bar">
                             <input type="search" class="form-control" id="imputProcurar" placeholder="Procurar"
                                 aria-label="Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
+                                style="display: none" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8L2.146 2.854Z" />
+                            </svg>
                             <div class="search-button-div">
-                                <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button class="btn" type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
                             </div>
                         </div>
 
@@ -55,7 +63,7 @@
 
             <div class="col-lg-4 col-md-3 d-none d-md-block a-div position-relative">
 
-                <li class="nav-item dropdown " style="display: none; transform: translateX(25px); list-style-type: none;"
+                <li class="nav-item dropdown" style="display: none; transform: translateX(25px); list-style-type: none;"
                     id="aprender">
                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                         data-toggle="dropdown" aria-expanded="false">
@@ -70,10 +78,9 @@
                         <li>
                             <a href="" class="dropdown-item"></a>
                         </li>
-                        <li><a class="dropdown-item" href="#">Da Únião Ibérica à 
-                        </a></li>
-                        <li><a class="dropdown-item" href="#">Restauração da
-                                Independência</a></li> 
+                        <li><a class="dropdown-item" href="#">Da Únião Ibérica à Restauração da
+                                Independência
+                            </a></li>
 
                     </ul>
                 </li>
@@ -90,7 +97,8 @@
                 id="divBtnEntrar">
 
                 <!-- Botão Entrar -->
-                <button type="button" class="btn btn-entrar w-50" id="btnEntrarNavBar" data-bs-toggle="modal" data-bs-target="#modalLogin">Entrar</button>
+                <button type="button" class="btn btn-entrar w-50" id="btnEntrarNavBar" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Entrar</button>
             </div>
 
             <div class=" d-lg-none col-md-1 col-sm-1 col-1" id="divHamburguer">
@@ -126,25 +134,62 @@
                         <div class="mid-bar"></div>
                         <div class="second-bar-1"></div>
                         <div class="second-bar-2"></div>
-
-                        <div class="position-absolute" id="navbarToggleExternal" style="font-family: mplus-bold;">
-                            <div style="width:100%;text-align:left;" class="mt-2 ms-2">
-                                <h6>Top 10</h6> 
-                                
-                            </div>
-                            <hr class="mt-4">
-                            <div style="width:100%;text-align:left;" class="ms-2">
-                                <h6>Aprender</h6> 
-                                <p style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Tempo dos Descobrimentos</p>
-                                <p style="font-family: mplus-medium;font-size:14px">Da Únião Ibérica à Restauração da
-                                    Independência</p>
-                            </div>
-                        </div>
                     </div>
                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- Menu Hamburguer dropdown -->
+    <div class="container" style="width:100%;height:63px;background-color: white;position: sticky;top: 0;"
+        id="containerMenuDropdown">
+        <div class="row" style="height:100%;">
+            <div class="d-lg-none col-md-1 offset-md-11 col-sm-1 offset-sm-11 col-1 offset-11 position-relative">
+                <div id="navbarToggleExternal" style="font-family: mplus-bold;display: none;">
+                    <div class="container-fluid" style="padding: 0;">
+                        <div class="row" style="width: 100%;">
+
+                            <!-- Barra de pesquisa -->
+                            <div class="search-bar mt-3">
+                                <input type="search" class="form-control" id="imputProcurarMenu" placeholder="Procurar"
+                                    aria-label="Search">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
+                                    style="display: none" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 16 16">
+                                    <path fill="currentColor"
+                                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8L2.146 2.854Z" />
+                                </svg>
+
+                                <div class="search-button-div">
+                                    <button class="btn" type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr class="mt-3">
+                        <div class="row mt-2">
+                            <div style="width:100%;text-align:left;">
+                                <h6>Aprender</h6>
+                                <p style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Tempo dos
+                                    Descobrimentos</p>
+                                <p style="font-family: mplus-medium;font-size:14px">Da Únião Ibérica à Restauração da
+                                    Independência</p>
+                            </div>
+                        </div>
+                        <hr class="mt-2">
+                        <div class="row mt-2">
+                            <div style="width:100%;text-align:left;" class="mt-2 ms-2">
+                                <h6>Top 10</h6>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <section>
         <div class="container ">
@@ -158,16 +203,16 @@
                     <div class="row mt-2">
                         <div class="col-6">
                             <p id="pLandingPage">De uma forma simples e divertida
-                        sem livros nem preocupações </p>
+                                sem livros nem preocupações </p>
                         </div>
                     </div>
                     <div closs="row mt-5">
                         <div class="col-12">
                             <button id="btnLandingPage" class="btn">Explorar Recursos</button>
                         </div>
-                       
+
                     </div>
-                    
+
                 </div>
                 <div class="col-6 position-relative" id="divImgHistory">
                     <img src="/assets/img/Historia1.png" alt="" id="imgHistory"
@@ -177,164 +222,184 @@
 
         </div>
     </section>
-    
-    <!-- Modal de login -->
-    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalToggleLabel" data-bs-backdrop="static" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalToggleLabel">Inicie sessão</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body mt-4">
-                <form>
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class=" input-group mb-5">
-                                <!-- <label for="txtNameUser" class="form-label">Nome de Utilizador</label> -->
-                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                                <input type="text" class="form-control" id="txtNameUserLogin" aria-describedby="basic-addon1" placeholder="Introduza o nome de utilizador">
-                            </div>
-                        </div>
-    
-                        <div class="col text-end">
-                            <div class="col-6">
-                                <p id="pModalLogin">Não tem conta!</p>
-                                <p id="pModalLogin2">Então crie já a sua conta.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div  class="row g-6">
-                        <div class="col-6">
-                            <div class=" input-group mb-5">
-                                <!-- <label for="userPassword" class="form-label">Palavra-passe</label> -->
-                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" id="userPasswordLogin" placeholder="Introduza a palavra-passe">
-                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
-                            </div>
-                        </div>
-                        <div class="col-6 text-center">
-                            <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto" data-bs-target="#modalRegisto" data-bs-dismiss="modal" data-bs-toggle="modal">Registrar-me</button>
-                        </div>
-                    </div>
-                    <div class="col-6 text-end">
-                        <button class="btn btn-primary" type="submit" id="btnEntrarLogin">Entrar</button>
-                    </div>
 
-                </form>
-            </div>
-            <!-- <div class="modal-footer">
+    <!-- Modal de login -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalToggleLabel"
+        data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Inicie sessão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mt-4">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class=" input-group mb-5">
+                                    <!-- <label for="txtNameUser" class="form-label">Nome de Utilizador</label> -->
+                                    <span class="input-group-text" id="basic-addon1"><i
+                                            class="bi bi-person-fill"></i></span>
+                                    <input type="text" class="form-control" id="txtNameUserLogin"
+                                        aria-describedby="basic-addon1" placeholder="Introduza o nome de utilizador">
+                                </div>
+                            </div>
+
+                            <div class="col text-end">
+                                <div class="col-6">
+                                    <p id="pModalLogin">Não tem conta!</p>
+                                    <p id="pModalLogin2">Então crie já a sua conta.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-6">
+                            <div class="col-6">
+                                <div class=" input-group mb-5">
+                                    <!-- <label for="userPassword" class="form-label">Palavra-passe</label> -->
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="userPasswordLogin"
+                                        placeholder="Introduza a palavra-passe">
+                                    <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-6 text-center">
+                                <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto"
+                                    data-bs-target="#modalRegisto" data-bs-dismiss="modal"
+                                    data-bs-toggle="modal">Registrar-me</button>
+                            </div>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-primary" type="submit" id="btnEntrarLogin">Entrar</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
             </div> -->
-        </div>
+            </div>
         </div>
     </div>
 
     <!-- Modal do registo -->
-    <div class="modal fade" id="modalRegisto" aria-hidden="true" data-bs-backdrop="static" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal fade" id="modalRegisto" aria-hidden="true" data-bs-backdrop="static"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalToggleLabel2">Registo de Utilizador</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form class="row g-3 needs-validation" novalidate>
-                <div class="col-6 text-center">
-                  <label for="txtNameUser" class="form-label">Nome</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                    <input type="text" class="form-control" id="txtNameUserRegister" value="Mark" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                      </div>
-                  </div>
-                  
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">Registo de Utilizador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-6 text-center">
-                  <label for="txtCity" class="form-label">Localidade</label>
-                  <div class="input-group">
-                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-geo-alt-fill"></i></span>
-                    <input type="text" class="form-control" id="txtCity" aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                      Please choose a username.
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 text-center">
-                  <label for="txtEmail" class="form-label">Email</label>
-                  <div class="input-group">
-                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-envelope-fill"></i></span>
-                    <input type="text" class="form-control" id="txtEmail" aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                      Please choose a username.
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 text-center">
-                    <label for="txtBirthDate" class="form-label">Data de nascimento</label>
-                    <div class="input-group">
-                      <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-calendar-range-fill"></i></i></span>
-                      <input type="date" class="form-control" id="txtBirthDate" aria-describedby="inputGroupPrepend" required>
-                      <div class="invalid-feedback">
-                        Please choose a username.
-                      </div>
-                    </div>
-                </div>
-                <div class="col-6 text-center">
-                    <label for="userPasswordRegister" class="form-label">Palavra-passe</label>
-                    <div class="input-group">
-                      <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-lock"></i></i></span>
-                      <input type="password" class="form-control" id="userPasswordRegister" aria-describedby="inputGroupPrepend" required>
-                      <span class="input-group-text"><i class="bi bi-eye"></i></span>
-                      <div class="invalid-feedback">
-                        Please choose a username.
-                      </div>
-                    </div>
-                </div>
-                <div class="col-6 text-center">
-                    <label for="userPasswordConfirm" class="form-label">Confirmação palavra-passe</label>
-                    <div class="input-group">
-                      <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-lock"></i></i></span>
-                      <input type="password" class="form-control" id="userPasswordConfirm" aria-describedby="inputGroupPrepend" required>
-                      <span class="input-group-text"><i class="bi bi-eye" id="eye"></i></span>
-                      <div class="invalid-feedback">
-                        Please choose a username.
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 text-center">
-                        <p class="text-center">Género</p>
-                        <div class="form-check form-check-inline">
-                            <!-- <div class="input-group">
+                <div class="modal-body">
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-6 text-center">
+                            <label for="txtNameUser" class="form-label">Nome</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                <input type="text" class="form-control" id="txtNameUserRegister" value="Mark" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-6 text-center">
+                            <label for="txtCity" class="form-label">Localidade</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="bi bi-geo-alt-fill"></i></span>
+                                <input type="text" class="form-control" id="txtCity"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <label for="txtEmail" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="bi bi-envelope-fill"></i></span>
+                                <input type="text" class="form-control" id="txtEmail"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <label for="txtBirthDate" class="form-label">Data de nascimento</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="bi bi-calendar-range-fill"></i></i></span>
+                                <input type="date" class="form-control" id="txtBirthDate"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <label for="userPasswordRegister" class="form-label">Palavra-passe</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fa fa-lock"></i></i></span>
+                                <input type="password" class="form-control" id="userPasswordRegister"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <label for="userPasswordConfirm" class="form-label">Confirmação palavra-passe</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fa fa-lock"></i></i></span>
+                                <input type="password" class="form-control" id="userPasswordConfirm"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <span class="input-group-text"><i class="bi bi-eye" id="eye"></i></span>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <p class="text-center">Género</p>
+                                <div class="form-check form-check-inline">
+                                    <!-- <div class="input-group">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-gender-female"></i></span>
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                             </div> -->
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioFemale" value="option1" checked>
-                            <label class="form-check-label" for="radioFemale">Femenino</label>
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="radioFemale" value="option1" checked>
+                                    <label class="form-check-label" for="radioFemale">Femenino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="radioMale" value="option2">
+                                    <label class="form-check-label" for="radioMale">Masculino</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioMale" value="option2">
-                            <label class="form-check-label" for="radioMale">Masculino</label>
+
+
+                        <div class="col-12 text-end">
+                            <button class="btn btn-primary" type="submit" id="btnCreateAccount">Criar conta</button>
                         </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-12 text-end">
+                        <button class="btn btn-outline-secondary" data-bs-target="#modalLogin" data-bs-toggle="modal"
+                            id="btnHaveAccount" data-bs-dismiss="modal">Já tenho conta? Inicie sessão.</button>
                     </div>
+
                 </div>
-            
-        
-                <div class="col-12 text-end">
-                  <button class="btn btn-primary" type="submit" id="btnCreateAccount">Criar conta</button>
-                </div>
-            </form>
             </div>
-            <div class="modal-footer">
-                <div class="col-12 text-end">
-                    <button class="btn btn-outline-secondary" data-bs-target="#modalLogin" data-bs-toggle="modal" id="btnHaveAccount" data-bs-dismiss="modal">Já tenho conta? Inicie sessão.</button>
-                </div>
-              
-            </div>
-          </div>
         </div>
     </div>
 
@@ -671,8 +736,8 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <script src="js/index.js"></script>
 </body>
