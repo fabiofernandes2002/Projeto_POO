@@ -1,4 +1,5 @@
 class Epoch{
+<<<<<<< HEAD
     #idEpoch = 0
     #epochTitle = ""
     #image = ''
@@ -34,3 +35,16 @@ class Epoch{
 // }]
 
 
+=======
+    #title = ''
+    #image = ''
+    #description = ''
+
+    constructor(title, image, description) {
+        
+        this.#title = title
+        this.#image = image
+        this.#description = description
+    }
+}
+>>>>>>> fde4969144ec877b07c50659014d81be70697692

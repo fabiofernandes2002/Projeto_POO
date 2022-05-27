@@ -1,4 +1,5 @@
 class Video{
+<<<<<<< HEAD
     #idVideo = 0
     #epochTitle = ""
     #videoTitle = ''
@@ -45,3 +46,25 @@ class Video{
 //         fabio:"ok"
 //     }
 // }]
+=======
+    #title = ''
+    #description = ''
+    #tags = ''
+    #urlVideo = ''
+    #chapters = {}
+    #like = 0
+    #comments = ''
+
+    constructor(title, description, tags, urlVideo, chapters, like, comments) {
+        
+        this.#title = title
+        this.#description = description
+        this.#tags = tags
+        this.#urlVideo = urlVideo
+        this.#chapters = chapters
+        this.#like = like
+        this.#comments = comments
+    }
+
+}
+>>>>>>> fde4969144ec877b07c50659014d81be70697692
