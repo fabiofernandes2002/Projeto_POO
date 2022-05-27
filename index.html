@@ -21,21 +21,20 @@
 </head>
 
 <body>
-    <img id="imgBackground" class="img-flud" src="/assets/img/fundo.jpg" srcset=" 
-                                                /assets/img/fundo_3840.jpeg 3840w, 
-                                                /assets/img/fundo_1920.jpeg 1920w, 
-                                                /assets/img/fundo_720.jpeg 720w, 
-                                                /assets/img/fundo_420.jpeg 420w">
+    <div id="imgBackground"></div>
+
     <!-- Nav bar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container d-flex align-items-center">
 
+            <!--  -->
             <div class="col-lg-2 col-md-2 col-sm-2 col-2">
                 <a class="navbar-brand" href="#">
-                    <img src="/assets/img/logo1.svg" alt="" id="imgLogo">
+                    <img src="/assets/img/logo2.svg" alt="" id="imgLogo" width="115" height="48">
                 </a>
             </div>
 
+            <!--  -->
             <div class="col-lg-3 col-md-3 col-sm-4 d-none d-sm-block">
                 <div class="col-md-10 offset-md-4 col-sm-10 offset-sm-6">
                     <form>
@@ -61,6 +60,7 @@
                 </div>
             </div>
 
+            <!--  -->
             <div class="col-lg-4 col-md-3 d-none d-md-block a-div position-relative">
 
                 <li class="nav-item dropdown" style="display: none; transform: translateX(25px); list-style-type: none;"
@@ -70,7 +70,7 @@
                         Aprender <i id="iconArrow" class="fa-solid fa-chevron-down"></i></a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="ulResources">
-                        <li><a class="dropdown-item" href="/html/seculo.html">Ver todos os recursos</a></li>
+                        <li><a class="dropdown-item" href="#">Ver todas as épocas</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -93,7 +93,8 @@
 
             </div>
 
-            <div class="col-lg-2 col-md-3 offset-md-0 col-sm-3 offset-sm-2 col-4 offset-5 text-center position-relative"
+            <!--  -->
+            <div class="col-lg-2 col-md-3 offset-md-0 col-sm-3 offset-sm-2 col-4 offset-4 text-center position-relative"
                 id="divBtnEntrar">
 
                 <!-- Botão Entrar -->
@@ -101,7 +102,7 @@
                     data-bs-target="#modalLogin">Entrar</button>
             </div>
 
-            <div class=" d-lg-none col-md-1 col-sm-1 col-1" id="divHamburguer">
+            <div class=" d-lg-none col-md-1 col-sm-1 col-2" id="divHamburguer">
                 <button class="btn">
 
                     <!-- Menu hambúrguer antes de clicamo-lo-->
@@ -141,11 +142,11 @@
     </nav>
 
     <!-- Menu Hamburguer dropdown -->
-    <div class="container" style="width:100%;height:63px;background-color: white;position: sticky;top: 0;"
+    <div class="container" style="width:100%;height:63px;background-color: transparent;position: sticky;top: 0;"
         id="containerMenuDropdown">
         <div class="row" style="height:100%;">
-            <div class="d-lg-none col-md-1 offset-md-11 col-sm-1 offset-sm-11 col-1 offset-11 position-relative">
-                <div id="navbarToggleExternal" style="font-family: mplus-bold;display: none;">
+            <div class="d-lg-none col-md-1 offset-md-11 col-sm-1 offset-sm-11 col-1 offset-11">
+                <div id="navbarToggleExternal" style="font-family: mplus-bold;display:none;">
                     <div class="container-fluid" style="padding: 0;">
                         <div class="row" style="width: 100%;">
 
@@ -180,48 +181,15 @@
                         </div>
                         <hr class="mt-2">
                         <div class="row mt-2">
-                            <div style="width:100%;text-align:left;" class="mt-2 ms-2">
+                            <div style="width:100%;text-align:left;" class="mt-2">
                                 <h6>Top 10</h6>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <section>
-        <div class="container ">
-            <div class="row mt-5">
-                <div class="col-6" id="divTextLandingPage">
-                    <div class="row">
-                        <div class="col-12">
-                            <h1 id="headerLandingPage">Prepara-te para conhecer a história de Portugal!</h1>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-6">
-                            <p id="pLandingPage">De uma forma simples e divertida
-                                sem livros nem preocupações </p>
-                        </div>
-                    </div>
-                    <div closs="row mt-5">
-                        <div class="col-12">
-                            <button id="btnLandingPage" class="btn">Explorar Recursos</button>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-6 position-relative" id="divImgHistory">
-                    <img src="/assets/img/Historia1.png" alt="" id="imgHistory"
-                        class="img-fluid position-absolute start-50 translate-middle-x">
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <!-- Modal de login -->
     <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalToggleLabel"
@@ -403,342 +371,572 @@
         </div>
     </div>
 
-        <!-- icons cards -->
-        <div class="container-fluid row   align-items-sm-center" style="background-color: #F2F2F2; max-width: 100%; height: 437px; " >
-            <div class=" row align-items-center justify-content-center">
-                <!-- CARD 1 -->
-                <div class="col-lg-3">
-                    <!-- card -->
-                    <div class="card" style="width: 247px; height: 247px; box-shadow: 10px 10px 38px rgba(0, 0, 0, 0.12);">
-                        <div class="container d-flex justify-content-center align-items-center" style="background-color: #F5D1D1; border-radius: 50%;
-                        display: inline-block; width: 47px; height: 47px; margin-top:15px "> 
-                            <i class="fa-solid fa-book-open-reader fa-xl"  style="color: #C37878;" ></i> 
-                        
-                        </div>
-    
-                        <div class="card-body ">
-                            <h5 class="card-title text-center" style="font-family: 'Poppins', sans-serif ; font-size: 14px; padding-bottom: 5px;">Aprende ao teu ritmo</h5>
-                            <h6 class="card-subtitle mb-2 text-muted text-justify " style="font-family:'Inter', sans-serif ; line-height: 21px;
-                            font-size: 14px; ">Aprendizagem autónoma -
-                                    onde quer que estejas e em qualquer altura  
-                            </h6>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- CARD 2 -->
-                <div class="col-lg-3">
-                    <!-- card -->
-                    <div class="card" style="width: 247px; height: 247px; box-shadow: 10px 10px 38px rgba(0, 0, 0, 0.12);">
-                        <div class="container-fluid d-flex justify-content-center align-items-center" style="background-color: #91F1FE; border-radius: 50%;
-                        display: inline-block; width: 47px; height: 47px; margin-top:15px ;  text-align: center; justify-content: center;  "> 
-                            <i class="fa-solid fa-school fa-xl"  style="color: #109FB2;" ></i> 
-                        </div>
-                        <div class="card-body ">
-                            <h5 class="card-title text-center"
-                                style="font-family: 'Poppins', sans-serif ; font-size: 14px; padding-bottom: 5px;">
-                                    Para os estudantes do ensino básico
-                            </h5>
-                            <h6 class="card-subtitle mb-2 text-muted text-justify " style="font-family:'Inter', sans-serif ; line-height: 21px;
-                            font-size: 14px; ">Conteúdo criado a pensar também nas suas necessidades
-                            </h6>
-                            
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- CARD 3 -->
-                <div class="col-lg-3">
-                    <!-- card -->
-                    <div class="card" style="width: 247px; height: 247px; box-shadow: 10px 10px 38px rgba(0, 0, 0, 0.12);">
-                        <div class="container d-flex justify-content-center align-items-center" style="background-color: rgba(113, 244, 142, 0.55); border-radius: 50%;
-                        display: inline-block; width: 47px; height: 47px; margin-top:15px ;  text-align: center; justify-content: center;  "> 
-                            <i class="fa-solid fa-solid fa-brain fa-xl"  style=" color: #0C7D25;" ></i> 
-                        </div>
-                        <div class="card-body ">
-                            <h5 class="card-title text-center"
-                                style="font-family: 'Poppins', sans-serif ; font-size: 14px; padding-bottom: 5px;">
-                                Aumenta a compreensão
-                            </h5>
-                            <h6 class="card-subtitle mb-2 text-muted text-justify " style="font-family:'Inter', sans-serif ; line-height: 21px;
-                            font-size: 14px; ">Independentemente da capacidade de leitura, com vídeos de alta qualidade
-                            </h6>
-                            
-                        </div>
-                    </div>
-                        
-                </div>
-                
-            </div>
-        </div>
-    
-    
-        <!--recuros disponiveis -->
-        <div class="container d-flex justify-content-center"  style="margin-top: 10%;">
+    <!-- Primeira conteúdo da página principal -->
+    <section>
+        <div class="container ">
             <div class="row">
-    
-                <div class="col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="" class="img-fluid rounded-start" alt="...">
-                            </div>
-    
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">(Séc. XVII) Da União Ibérica à Restauração da Independência</h5>
-                                    <p class="card-text">Época das grandes navegações, descobrimentos maritímos, e muito mais </p>
-                                    <div class="text-end">
-                                        <a class="btn btn-primary btn-md rounded-pill   " href="#" role="button" >aprender</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-6" style="margin-top: 250px;" id="divTextLandingPage">
+                    <div class="row ">
+                        <div class="col-10 first-elements-index" style="margin-left:2em;">
+                            <h2 id="headerLandingPage">Prepara-te para conhecer a história de Portugal!</h2>
                         </div>
                     </div>
+                    <div class="row mt-2 ">
+                        <div class="col-12 col-lg-6 first-elements-index" style="margin-left:2em;">
+                            <p id="pLandingPage" style="font-size:15px">De uma forma simples e divertida,
+                                sem livros nem preocupações. </p>
+                        </div>
+                    </div>
+                    <div closs="row mt-5">
+                        <div class="col-12 mt-3 first-elements-index" style="margin-left:2em;">
+                            <button id="btnLandingPage" style="font-size: 16px;" class="btn">Conhecer a
+                                História</button>
+                        </div>
+
+                    </div>
+
                 </div>
-    
-    
-                <div class="col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="..." class="img-fluid rounded-start" alt="...">
-                            </div>
-    
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">(Séc. XVII) Da União Ibérica à Restauração da Independência</h5>
-                                    <p class="card-text">Época das grandes navegações, descobrimentos maritímos, e muito mais </p>
-                                    <div class="text-end">
-                                        <a class="btn btn-primary btn-md rounded-pill   " href="#" role="button" >aprender</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>        
-    
-                <div class="col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="..." class="img-fluid rounded-start" alt="...">
-                            </div>
-    
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">(Séc. XVII) Da União Ibérica à Restauração da Independência</h5>
-                                    <p class="card-text">Época das grandes navegações, descobrimentos maritímos, e muito mais </p>
-                                    <div class="text-end">
-                                        <a class="btn btn-primary btn-md rounded-pill   " href="#" role="button" >aprender</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>   
-    
-                <div class="col-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="..." class="img-fluid rounded-start" alt="...">
-                            </div>
-    
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">(Séc. XVII) Da União Ibérica à Restauração da Independência</h5>
-                                    <p class="card-text">Época das grandes navegações, descobrimentos maritímos, e muito mais </p>
-                                    <div class="text-end">
-                                        <a class="btn btn-primary btn-md rounded-pill  " href="#" role="button" >aprender</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-    
-                
+                <div class="col-6 position-relative" id="divImgHistory" style="height: 768px;">
+                    <img src="/assets/img/Historia2.webp" alt="" id="imgHistory"
+                        class="img-fluid position-absolute start-50 translate-middle-x">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Cards -->
+    <section style="background-color:#F2F2F2;">
+
+        <div class="d-flex justify-content-center">
+            <div class="card card-3" style="height:247px;width:247px;margin-top:91px">
+                <div class="card-body cards-index">
+                    <svg class="mt-3 ms-3" style="width:45px" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 47 49.48">
+
+                        <ellipse cx="23.5" cy="24.74" rx="23.5" ry="24.74" style="fill:#f4d1d1;opacity:0.64" />
+                        <path
+                            d="M104.13,434.76a10,10,0,0,0-1.22.34,1.45,1.45,0,0,0-.42.12,8.72,8.72,0,0,0-1.34.43.88.88,0,0,0-.42.11,8.72,8.72,0,0,0-1.34.43.8.8,0,0,0-.42.13l-1.27.36V425.57a3.84,3.84,0,0,1,.52-1.39l.52-.52a4.28,4.28,0,0,1,1.46-.57,1.62,1.62,0,0,0,.43-.12,9.24,9.24,0,0,0,1.27-.37,2.06,2.06,0,0,0,.48-.15,13.18,13.18,0,0,0,1.34-.45,2,2,0,0,0,.48-.18,12.89,12.89,0,0,0,1.47-.53,2,2,0,0,0,.47-.17,15.29,15.29,0,0,0,1.46-.58,2.52,2.52,0,0,0,.54-.21c.23-.12.29,0,.26.19a1.22,1.22,0,0,0,0,.27v2.67H108a2,2,0,0,0-1.82,1.83.34.34,0,0,0,0,.31,2.72,2.72,0,0,0,0,.9.59.59,0,0,0,0,.37,3,3,0,0,0,0,.84.32.32,0,0,0,0,.3,1.08,1.08,0,0,0,.17.8.3.3,0,0,0,.1.19,1.34,1.34,0,0,0,.43.49.24.24,0,0,0,.16.11,1.57,1.57,0,0,0,.71.34l.25.06c.25,0,.43.06.38.37v1.52a2,2,0,0,1-.83,1.31,8.32,8.32,0,0,1-1.18.7l-.54.21-1.34.44A2.42,2.42,0,0,0,104.13,434.76Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#c17878" />
+                        <path
+                            d="M95.58,436.24a3.64,3.64,0,0,0-.77-.25l-.25-.08a3.12,3.12,0,0,0-.72-.21c0-.07-.12-.06-.18-.06a2.81,2.81,0,0,0-.73-.23.38.38,0,0,0-.25-.07,3.16,3.16,0,0,0-.66-.21l-.23-.07-.74-.2a.55.55,0,0,0-.25-.07,6,6,0,0,0-.73-.19c-.06-.07-.15-.06-.23-.08l-.68-.21a.29.29,0,0,0-.18-.07l-.59-.24a.57.57,0,0,0-.26-.12l-.55-.34-.25-.17-.42-.37-.17-.19-.26-.47-.07-.31v-.84a.59.59,0,0,0,0-.37c.1-.23-.09-.54.1-.67s.44,0,.66-.08h.08a.66.66,0,0,0,.43-.11,1.87,1.87,0,0,0,1.16-1.15.73.73,0,0,0,.11-.43,3.39,3.39,0,0,0,0-.9.77.77,0,0,0,0-.37,4,4,0,0,0,0-.85.77.77,0,0,0,0-.37,2,2,0,0,0-.5-1.63.33.33,0,0,0-.19-.18,1.22,1.22,0,0,0-.6-.37c0-.07-.11-.07-.18-.07a1.46,1.46,0,0,0-.85-.1h-.18v-.78a.59.59,0,0,0,0-.37,3,3,0,0,0,0-.85.59.59,0,0,0,0-.37,4,4,0,0,0,0-.85v-.05l.67.24a.41.41,0,0,0,.25.11,1.81,1.81,0,0,0,.52.2.83.83,0,0,0,.32.13,2.48,2.48,0,0,0,.61.23.66.66,0,0,0,.24.11,2.84,2.84,0,0,0,.58.2.77.77,0,0,0,.33.12,2.55,2.55,0,0,0,.67.24c0,.07.11.06.17.07a3.89,3.89,0,0,0,.68.23c.06.07.15.06.23.09a3.83,3.83,0,0,0,.68.21,1,1,0,0,0,.3.11,3,3,0,0,0,.67.19.19.19,0,0,0,.18.06,3.49,3.49,0,0,0,.72.2l.31.09.59.15c.06.06.14,0,.21.07l.58.29.25.19.37.41a.36.36,0,0,0,.12.18l.26.67.07.25.1.78V436.7l-.55-.16a.34.34,0,0,0-.24-.07,2.08,2.08,0,0,0-.58-.19S95.64,436.25,95.58,436.24Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#c17878" />
+                        <path
+                            d="M102,409.4l.27.6.1.24.16.69v1.13a.69.69,0,0,0,0,.35,8.72,8.72,0,0,1-.26,1.15l-.19.48a5.59,5.59,0,0,1-2.41,2.45l-.55.23L98,417H96.74a.38.38,0,0,0-.25-.05l-.64-.14a.66.66,0,0,0-.32-.12l-.54-.24-.26-.16-.48-.32a.27.27,0,0,0-.17-.13l-.43-.42-.18-.18-.42-.57a.13.13,0,0,0-.06-.11l-.37-.7a.17.17,0,0,0-.05-.15l-.2-.66a.35.35,0,0,0-.06-.24l-.07-.85v-.31l.14-1a1.45,1.45,0,0,0,.12-.42,5.54,5.54,0,0,1,2.08-2.65c.36-.23.75-.38,1.12-.57a.85.85,0,0,0,.43-.12,5.82,5.82,0,0,1,3.15.2l.19.09.53.27.25.17.43.31.23.21.38.4.16.19.38.54A.36.36,0,0,0,102,409.4Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#c17878" />
+                        <path
+                            d="M102,419.18l.48.34.2.17.43.43.17.2.33.47c0,.13-.15.09-.21.16l-1.33.45-.48.14-1.29.4-.42.1a3.69,3.69,0,0,0-1.4.51,2.56,2.56,0,0,0-.92.71c-.07.06-.1.19-.23.16A1.27,1.27,0,0,0,97,423a.6.6,0,0,0-.26-.22,1.51,1.51,0,0,0-.54-.33c0-.06-.08-.06-.13-.07a2,2,0,0,0-.78-.28.35.35,0,0,0-.24-.06,3.14,3.14,0,0,0-.73-.19.31.31,0,0,0-.24-.07l-.66-.2-.25-.08a2.71,2.71,0,0,0-.67-.2c-.06-.07-.16-.07-.24-.1l-.67-.21-.24-.11a.53.53,0,0,1,.19-.33,5.59,5.59,0,0,1,2.12-1.77l.48-.19,1.15-.26h1.21a.77.77,0,0,0,.37,0,3.93,3.93,0,0,0,.84,0,.77.77,0,0,0,.37,0,4,4,0,0,0,.85,0,.51.51,0,0,0,.3,0l.85.09.24.05.73.21.17.07.56.27Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#c17878" />
+                        <path
+                            d="M85.19,426a1.42,1.42,0,0,1,1.41-1.41h.3l.54.24.17.12a1.57,1.57,0,0,1,.4,1.18,3.38,3.38,0,0,0,0,.45.77.77,0,0,0,0,.37v.84l-.14.49a1.94,1.94,0,0,1-.61.6l-.42.13a2,2,0,0,1-.78-.1l-.19-.09a2.27,2.27,0,0,1-.47-.46l-.08-.14a2.24,2.24,0,0,1-.12-.73V426Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#c17878" />
+                        <path
+                            d="M109.89,426.91v.91l-.13.43a2.19,2.19,0,0,1-.66.66l-.42.13a2.74,2.74,0,0,1-.7-.08l-.25-.13-.42-.41-.14-.24-.11-.65a.59.59,0,0,0,0-.37,3,3,0,0,0,0-.85.59.59,0,0,0,0-.37c.2-.89.56-1.24,1.38-1.34h.3l.6.26.19.17.3.48v1.08Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#c17878" />
+                    </svg>
+                    <h5 class="card-title card-title-index mt-4 ms-3">Aprende ao teu ritmo</h5>
+
+                    <p class="card-text card-text-index ms-3 me-4" style="margin-top:20px">Aprendizagem autónoma -
+                        onde quer que estejas e em qualquer
+                        altura. </p>
+                </div>
+
+            </div>
+
+            <div class="card card-3 me-5 ms-5" id="midCard"
+                style="height:247px;width:247px;margin-top:91px;margin-bottom:91px">
+                <div class="card-body cards-index">
+                    <svg class="mt-3 ms-3" style="width:45px" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 47 49.48">
+
+                        <ellipse cx="23.5" cy="24.74" rx="23.5" ry="24.74" style="fill:#a1dcec;opacity:0.54" />
+                        <path
+                            d="M97.42,420.32c1.11-1.29,2.18-2.51,3.23-3.78a1.11,1.11,0,0,0,.12-.57,1.08,1.08,0,0,1,1.09-1.06,1.13,1.13,0,0,1,.36.06,3.37,3.37,0,0,0,1,.15h3.7a1.34,1.34,0,0,0,.51-.14,1.1,1.1,0,0,1,1.43.6,1,1,0,0,1,.09.4,1.68,1.68,0,0,0,.35.92c1.19,1.43,2.41,2.83,3.61,4.25a1.57,1.57,0,0,1,.06,2.21.86.86,0,0,1-.14.13,1.59,1.59,0,0,1-2.24-.22.18.18,0,0,1,0-.07c-.59-.68-1.17-1.38-1.77-2a2.26,2.26,0,0,0-.42-.26,1.64,1.64,0,0,0-.09.53q.83,4,1.67,7.93a1.19,1.19,0,0,0,0,.38h-1.91v3.77a1.57,1.57,0,0,1-1.4,1.73,1.2,1.2,0,0,1-.19,0,1.59,1.59,0,0,1-1.58-1.62.71.71,0,0,1,0-.14v-3.68h-.14v3.73a1.58,1.58,0,0,1-1.51,1.65h-.05a1.53,1.53,0,0,1-1.59-1.48v-4H99.71c.17-.86.33-1.66.5-2.46.41-1.95.83-3.91,1.24-5.87a3.11,3.11,0,0,0,0-.61h-.19c-.59.7-1.25,1.34-1.77,2.08a2.44,2.44,0,0,1-2.74.9,1.55,1.55,0,0,1-.85-.54c-.73-.78-1.4-1.6-2.22-2.55a3.2,3.2,0,0,0-.19.72v3.81c0,2.81-.09,5.62-.13,8.43a1.56,1.56,0,0,1-3.12.2,2.18,2.18,0,0,1,0-.25v-6.33h-.16v6.25a1.56,1.56,0,0,1-3.11.25,1,1,0,0,1,0-.25v-6.17c0-2.06-.09-4-.15-6a1.55,1.55,0,0,0-.13-.38c-.14.05-.32.07-.41.17-.61.68-1.18,1.37-1.78,2a1.58,1.58,0,0,1-2.6-1.8,1.6,1.6,0,0,1,.25-.27c1.14-1.32,2.27-2.66,3.42-4a1.23,1.23,0,0,0,.39-1,1.1,1.1,0,0,1,1-1.21,1.06,1.06,0,0,1,.63.13,2,2,0,0,0,.77.1h3.76a1.85,1.85,0,0,0,.57-.1,1.1,1.1,0,0,1,1.48.47,1.17,1.17,0,0,1,.12.58,1.2,1.2,0,0,0,.18.66C95.32,417.9,96.35,419.07,97.42,420.32Zm-4.91-2.42v1.92c0,.39.16.61.54.61s.51-.24.51-.59V416.1c0-.37-.14-.63-.52-.63s-.54.24-.53.6C92.52,416.69,92.51,417.29,92.51,417.9Zm8.83.06v1.82c0,.39.12.67.54.66s.52-.27.52-.65v-3.7c0-.37-.14-.63-.52-.63s-.55.23-.54.61C101.35,416.71,101.34,417.32,101.34,418ZM87.4,418V416c0-.4-.16-.61-.54-.6s-.49.22-.49.57v3.81c0,.37.15.58.51.58s.52-.19.52-.56c0-.58,0-1.21,0-1.83Zm20.91,0v-1.87c0-.36-.11-.63-.5-.63s-.54.23-.54.6v3.75c0,.38.16.6.54.6s.5-.23.49-.57c0-.62,0-1.25,0-1.87Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#139fb2" />
+                        <path
+                            d="M110.83,413l-2.64-.22a12,12,0,0,1-.89,1,3.74,3.74,0,0,1-4.68.28,3.8,3.8,0,0,1,2.76-6.86.74.74,0,0,0,.52-.12,2.14,2.14,0,0,1,3.73.79,11.83,11.83,0,0,1,.3,2.38,5.88,5.88,0,0,0,.08,1.25A9.94,9.94,0,0,0,110.83,413Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#139fb2" />
+                        <path d="M86.26,410.94a3.78,3.78,0,1,1,3.76,3.8,3.77,3.77,0,0,1-3.76-3.8Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#139fb2" />
+                        <path
+                            d="M92.51,417.9v-1.83c0-.36.15-.61.53-.6s.52.26.52.63v3.74c0,.35-.15.57-.51.59s-.55-.22-.54-.61C92.52,419.19,92.51,418.54,92.51,417.9Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                        <path
+                            d="M101.34,418v-1.89c0-.38.15-.61.54-.6s.52.26.52.63v3.7c0,.37-.13.63-.52.64s-.55-.27-.54-.66C101.35,419.16,101.34,418.54,101.34,418Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                        <path
+                            d="M87.4,418v1.88c0,.37-.18.56-.52.56s-.51-.21-.51-.58v-3.81c0-.36.13-.58.49-.58s.55.21.54.6C87.39,416.71,87.4,417.35,87.4,418Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                        <path
+                            d="M108.31,418v1.88c0,.35-.12.58-.49.58s-.54-.22-.54-.61v-3.75c0-.38.16-.6.54-.6s.5.27.5.63C108.3,416.72,108.31,417.34,108.31,418Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                    </svg>
+
+                    <h5 class="card-title card-title-index mt-3 ms-3">Para os estudantes do ensino básico</h5>
+                    <p class="card-text card-text-index ms-3 me-3">Conteúdo criado a pensar também nas suas
+                        necessidades.</p>
+                </div>
+
+            </div>
+
+            <div class="card card-3" id="lastCard" style="height:247px;width:247px;margin-top:91px">
+                <div class="card-body cards-index">
+                    <svg class="mt-3 ms-3" style="width:45px" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 47 49.48">
+
+                        <ellipse cx="23.5" cy="24.74" rx="23.5" ry="24.74" style="fill:#8cca82;opacity:0.43" />
+                        <path
+                            d="M86.65,424.62a9.7,9.7,0,0,1-1.18-1.22,1.79,1.79,0,0,1,.11-2.06c.33-.53.73-1,1.1-1.53a9.12,9.12,0,0,0,1.75-3.49,8.16,8.16,0,0,0,.16-1.47,4.19,4.19,0,0,1,1.19-3,11.49,11.49,0,0,1,6-3.61,9.78,9.78,0,0,1,8,1.73,12,12,0,0,1,5.16,8.43,10.85,10.85,0,0,1-3.77,10.27,3.71,3.71,0,0,0-1.32,2.78c-.06,1.72-.09,3.44-.14,5.16,0,.47-.19.65-.66.65H93.34c-.47,0-.63-.17-.63-.63v-4.29c0-.27-.08-.4-.32-.46l-3.23-.77a2.35,2.35,0,0,1-.53-.09,2.12,2.12,0,0,1-1.73-2.44,1.74,1.74,0,0,1,.11-.39,1.08,1.08,0,0,0-.09-.88A3.15,3.15,0,0,1,86.65,424.62Zm16.57-3a2.37,2.37,0,0,0,1.39-1.38,1.35,1.35,0,0,1,.2-.42,2.59,2.59,0,0,0-.12-3.29.54.54,0,0,1-.15-.29,2.5,2.5,0,0,0-1.22-1.84.58.58,0,0,1-.25-.34,2.37,2.37,0,0,0-2.74-1.93l-.17,0a.43.43,0,0,1-.38-.07,2.17,2.17,0,0,0-2.76,0,.53.53,0,0,1-.42.07,2.25,2.25,0,0,0-2.57,1,.74.74,0,0,1-.4.3A2.09,2.09,0,0,0,92,415.34a9.24,9.24,0,0,0,.17,2.29A2.32,2.32,0,0,0,94,419.38a.57.57,0,0,1,.29.3,2.83,2.83,0,0,0,3.17,2.26.36.36,0,0,1,.4.21c.51.82,1,1.61,1.55,2.45a.65.65,0,0,0,.67.33c.44-.08.89-.11,1.33-.19a.54.54,0,0,0,.43-.84c-.2-.47-.3-.69-.46-1.08l.24,0"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M85.58,409.9c.18.09.3.13.4.19.4.28.81.56,1.2.85a.52.52,0,1,1-.47.92l-.09-.05c-.44-.29-.87-.6-1.29-.91a.45.45,0,0,1-.15-.58A2.65,2.65,0,0,1,85.58,409.9Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M111.25,410.54a3.27,3.27,0,0,1-.35.48c-.35.26-.73.52-1.1.77a.54.54,0,0,1-.77,0l0,0c-.19-.25-.1-.57.23-.79a9.47,9.47,0,0,1,1.13-.78.76.76,0,0,1,.59,0C111.07,410.13,111.14,410.34,111.25,410.54Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M112.07,418.81h-.34a.48.48,0,0,1-.52-.44v0a.52.52,0,0,1,.46-.57c.5,0,1-.09,1.5-.1a.56.56,0,0,1,.59.48.6.6,0,0,1-.55.57l-1.14.07Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M97.65,405.06v-.77a.48.48,0,0,1,.46-.49h0c.31,0,.51.15.52.45v1.66c0,.3-.22.43-.5.45a.5.5,0,0,1-.52-.46h0v-.85Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M92.45,407.35c-.12.11-.25.31-.42.34a.54.54,0,0,1-.51-.17,13.08,13.08,0,0,1-.81-1.47.42.42,0,0,1,.15-.58l0,0c.23-.13.5-.16.65.09.3.5.56,1,.83,1.53C92.41,407.16,92.43,407.26,92.45,407.35Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M104.58,407.75c-.47,0-.71-.35-.57-.66.23-.5.47-1,.72-1.48a.53.53,0,0,1,.69-.22.49.49,0,0,1,.18.66h0c-.21.46-.42.92-.66,1.36A1.29,1.29,0,0,1,104.58,407.75Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M100.65,423.75c-.2-.47-.42-.93-.59-1.43a.58.58,0,0,1,.07-.51.85.85,0,0,1,.56-.2c.28,0,.55.05.83.09a.49.49,0,0,0,.57-.41.15.15,0,0,0,0-.07.5.5,0,0,1,.48-.47,1.31,1.31,0,0,0,1.21-1,1,1,0,0,1,.14-.3,1.64,1.64,0,0,0-.2-2.29.64.64,0,0,1-.22-.42,1.42,1.42,0,0,0-1-1.42.84.84,0,0,1-.56-.84,1.26,1.26,0,0,0-1.7-1.15.85.85,0,0,1-1.16-.26,1.11,1.11,0,0,0-1.56-.06l-.06.06a.88.88,0,0,1-1,.24,1.21,1.21,0,0,0-1.62.52l0,.06a1.25,1.25,0,0,1-.68.54A1.4,1.4,0,0,0,93,416a1.08,1.08,0,0,0,.1.35,2.07,2.07,0,0,1,.08.42,1.45,1.45,0,0,0,1.22,1.65h.13c.5.07.65.3.76.76.29,1.24.94,2,2.43,1.66a.71.71,0,0,1,.77.34c.51.8,1.06,1.59,1.57,2.39A.41.41,0,0,0,100.65,423.75Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M100.65,423.75c-.29.16-.47.09-.64-.19-.51-.8-1.06-1.59-1.57-2.4a.71.71,0,0,0-.77-.34c-1.49.3-2.14-.42-2.43-1.66-.11-.45-.26-.69-.76-.76a1.45,1.45,0,0,1-1.37-1.53s0-.08,0-.13a2.07,2.07,0,0,0-.08-.42,1.41,1.41,0,0,1,1.08-1.93,1.25,1.25,0,0,0,.68-.54,1.2,1.2,0,0,1,1.58-.61l.07,0a.88.88,0,0,0,1-.24A1.1,1.1,0,0,1,99,413l.07.06a.85.85,0,0,0,1.16.26,1.25,1.25,0,0,1,1.61.72,1.11,1.11,0,0,1,.09.43.84.84,0,0,0,.56.84,1.42,1.42,0,0,1,1,1.43.69.69,0,0,0,.22.42,1.64,1.64,0,0,1,.2,2.29.83.83,0,0,0-.14.3,1.33,1.33,0,0,1-1.21,1,.48.48,0,0,0-.48.47.5.5,0,0,1-.52.48h-.06a5.85,5.85,0,0,0-.83-.09.76.76,0,0,0-.56.2.57.57,0,0,0-.07.51C100.23,422.81,100.45,423.28,100.65,423.75Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                    </svg>
+                    <h5 class="card-title card-title-index mt-3 ms-3">Aumenta a compreensão</h5>
+                    <p class="card-text card-text-index ms-3 me-3">Independentemente da capacidade de leitura, com
+                        vídeos de alta
+                        qualidade.
+                    </p>
+                </div>
             </div>
         </div>
-        
-        <center class="" style="margin-top:55px ;">
-            <a class="btn btn-lg rounded-pill " href="#" role="button" style="color:#219EBC; background-color:rgba(33, 158, 188, 0.26); width: 150px; ">ver todo</a>
-        </center>
-    
-    
-        <!-- founders cards  -->
-        <div class="container-fluid  " style="background-color: #F2F2F2; width: 100%; height: 437px; margin-top: 75px; ">
-    
-            <h3 class="text-sm-center ">
-                Conheça os Fundadores
-            </h3>
-    
-            <h5 class="text-justify ">
-                Fábio Fernandes, Luís Paiva e Tomás Borges fundaram a HISTÓRIA DE PORTUGAL com a
-                ambição de criar uma plataforma digital que ensina as pessoas que não conhecem a história de portugal e
-                os que procuram enriquecer o seu conhecimento do mesmo.
-            </h5>
-    
-            
-     
-            
-            <div class="row text-center d-flex justify-content-center py-5">
-                <!-- Team card -->
-                <div class="col-xl-3 col-sm-6 ">
-                    <div class="card" style="height: 247px;">
-                        <div class="bg-white rounded center py-2">
-                            <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" 
-                            width="100" class="img-fluid rounded-circle  img-thumbnail shadow-sm">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="">Manuella Nevoresky</h5>
-                            <span class="small text-uppercase text-muted">CEO - Founder</span>
-                            <ul class="social  list-inline mt-1">
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+
+        <!-- Cards que ficam em baixo -->
+        <div class="d-flex justify-content-center d-none" id="cardBelow1">
+            <div class="card card-3" style="height:247px;width:247px;margin-bottom:91px">
+                <div class="card-body cards-index">
+                    <svg class="mt-3 ms-3" style="width:45px" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 47 49.48">
+
+                        <ellipse cx="23.5" cy="24.74" rx="23.5" ry="24.74" style="fill:#a1dcec;opacity:0.54" />
+                        <path
+                            d="M97.42,420.32c1.11-1.29,2.18-2.51,3.23-3.78a1.11,1.11,0,0,0,.12-.57,1.08,1.08,0,0,1,1.09-1.06,1.13,1.13,0,0,1,.36.06,3.37,3.37,0,0,0,1,.15h3.7a1.34,1.34,0,0,0,.51-.14,1.1,1.1,0,0,1,1.43.6,1,1,0,0,1,.09.4,1.68,1.68,0,0,0,.35.92c1.19,1.43,2.41,2.83,3.61,4.25a1.57,1.57,0,0,1,.06,2.21.86.86,0,0,1-.14.13,1.59,1.59,0,0,1-2.24-.22.18.18,0,0,1,0-.07c-.59-.68-1.17-1.38-1.77-2a2.26,2.26,0,0,0-.42-.26,1.64,1.64,0,0,0-.09.53q.83,4,1.67,7.93a1.19,1.19,0,0,0,0,.38h-1.91v3.77a1.57,1.57,0,0,1-1.4,1.73,1.2,1.2,0,0,1-.19,0,1.59,1.59,0,0,1-1.58-1.62.71.71,0,0,1,0-.14v-3.68h-.14v3.73a1.58,1.58,0,0,1-1.51,1.65h-.05a1.53,1.53,0,0,1-1.59-1.48v-4H99.71c.17-.86.33-1.66.5-2.46.41-1.95.83-3.91,1.24-5.87a3.11,3.11,0,0,0,0-.61h-.19c-.59.7-1.25,1.34-1.77,2.08a2.44,2.44,0,0,1-2.74.9,1.55,1.55,0,0,1-.85-.54c-.73-.78-1.4-1.6-2.22-2.55a3.2,3.2,0,0,0-.19.72v3.81c0,2.81-.09,5.62-.13,8.43a1.56,1.56,0,0,1-3.12.2,2.18,2.18,0,0,1,0-.25v-6.33h-.16v6.25a1.56,1.56,0,0,1-3.11.25,1,1,0,0,1,0-.25v-6.17c0-2.06-.09-4-.15-6a1.55,1.55,0,0,0-.13-.38c-.14.05-.32.07-.41.17-.61.68-1.18,1.37-1.78,2a1.58,1.58,0,0,1-2.6-1.8,1.6,1.6,0,0,1,.25-.27c1.14-1.32,2.27-2.66,3.42-4a1.23,1.23,0,0,0,.39-1,1.1,1.1,0,0,1,1-1.21,1.06,1.06,0,0,1,.63.13,2,2,0,0,0,.77.1h3.76a1.85,1.85,0,0,0,.57-.1,1.1,1.1,0,0,1,1.48.47,1.17,1.17,0,0,1,.12.58,1.2,1.2,0,0,0,.18.66C95.32,417.9,96.35,419.07,97.42,420.32Zm-4.91-2.42v1.92c0,.39.16.61.54.61s.51-.24.51-.59V416.1c0-.37-.14-.63-.52-.63s-.54.24-.53.6C92.52,416.69,92.51,417.29,92.51,417.9Zm8.83.06v1.82c0,.39.12.67.54.66s.52-.27.52-.65v-3.7c0-.37-.14-.63-.52-.63s-.55.23-.54.61C101.35,416.71,101.34,417.32,101.34,418ZM87.4,418V416c0-.4-.16-.61-.54-.6s-.49.22-.49.57v3.81c0,.37.15.58.51.58s.52-.19.52-.56c0-.58,0-1.21,0-1.83Zm20.91,0v-1.87c0-.36-.11-.63-.5-.63s-.54.23-.54.6v3.75c0,.38.16.6.54.6s.5-.23.49-.57c0-.62,0-1.25,0-1.87Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#139fb2" />
+                        <path
+                            d="M110.83,413l-2.64-.22a12,12,0,0,1-.89,1,3.74,3.74,0,0,1-4.68.28,3.8,3.8,0,0,1,2.76-6.86.74.74,0,0,0,.52-.12,2.14,2.14,0,0,1,3.73.79,11.83,11.83,0,0,1,.3,2.38,5.88,5.88,0,0,0,.08,1.25A9.94,9.94,0,0,0,110.83,413Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#139fb2" />
+                        <path d="M86.26,410.94a3.78,3.78,0,1,1,3.76,3.8,3.77,3.77,0,0,1-3.76-3.8Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#139fb2" />
+                        <path
+                            d="M92.51,417.9v-1.83c0-.36.15-.61.53-.6s.52.26.52.63v3.74c0,.35-.15.57-.51.59s-.55-.22-.54-.61C92.52,419.19,92.51,418.54,92.51,417.9Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                        <path
+                            d="M101.34,418v-1.89c0-.38.15-.61.54-.6s.52.26.52.63v3.7c0,.37-.13.63-.52.64s-.55-.27-.54-.66C101.35,419.16,101.34,418.54,101.34,418Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                        <path
+                            d="M87.4,418v1.88c0,.37-.18.56-.52.56s-.51-.21-.51-.58v-3.81c0-.36.13-.58.49-.58s.55.21.54.6C87.39,416.71,87.4,417.35,87.4,418Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                        <path
+                            d="M108.31,418v1.88c0,.35-.12.58-.49.58s-.54-.22-.54-.61v-3.75c0-.38.16-.6.54-.6s.5.27.5.63C108.3,416.72,108.31,417.34,108.31,418Z"
+                            transform="translate(-74.04 -396.96)" style="fill:#fff" />
+                    </svg>
+
+                    <h5 class="card-title card-title-index mt-3 ms-3">Para os estudantes do ensino básico</h5>
+                    <p class="card-text card-text-index ms-3 me-3">Conteúdo criado a pensar também nas suas
+                        necessidades.</p>
                 </div>
-                <!-- End -->
-        
-                <!-- Team card -->
-                <div class="col-xl-3 col-sm-6 ">
-                    <div class="card" style="height: 247px;">
-                        <div class="bg-white rounded center py-2">
-                            <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" 
-                            width="100" class="img-fluid rounded-circle  img-thumbnail shadow-sm">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="">Manuella Nevoresky</h5>
-                            <span class="small text-uppercase text-muted">CEO - Founder</span>
-                            <ul class="social  list-inline mt-1">
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- End -->
-        
-                <!-- Team card -->
-                <div class="col-xl-3 col-sm-6 ">
-                    <div class="card" style=" height: 247px;">
-                        <div class="bg-white rounded center py-2">
-                            <img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" 
-                            width="100" class="img-fluid rounded-circle  img-thumbnail shadow-sm">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="">Manuella Nevoresky</h5>
-                            <span class="small text-uppercase text-muted">CEO - Founder</span>
-                            <ul class="social  list-inline mt-1">
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- End -->
+
             </div>
         </div>
-    
-        <div class="container-fluid text-center" >    
-            <div class="col-8 text-center mx-auto ">
-                <h3 class="text-sm-left text-uppercase py-5 " style="color: #4DB964;">
-                    Uma educação personalizada para todas as idades
-                </h3>
-    
+        <div class="d-flex justify-content-center d-none" id="cardBelow2">
+            <div class="card card-3" id="lastCard" style="height:247px;width:247px;margin-bottom:91px">
+                <div class="card-body cards-index">
+                    <svg class="mt-3 ms-3" style="width:45px" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 47 49.48">
+
+                        <ellipse cx="23.5" cy="24.74" rx="23.5" ry="24.74" style="fill:#8cca82;opacity:0.43" />
+                        <path
+                            d="M86.65,424.62a9.7,9.7,0,0,1-1.18-1.22,1.79,1.79,0,0,1,.11-2.06c.33-.53.73-1,1.1-1.53a9.12,9.12,0,0,0,1.75-3.49,8.16,8.16,0,0,0,.16-1.47,4.19,4.19,0,0,1,1.19-3,11.49,11.49,0,0,1,6-3.61,9.78,9.78,0,0,1,8,1.73,12,12,0,0,1,5.16,8.43,10.85,10.85,0,0,1-3.77,10.27,3.71,3.71,0,0,0-1.32,2.78c-.06,1.72-.09,3.44-.14,5.16,0,.47-.19.65-.66.65H93.34c-.47,0-.63-.17-.63-.63v-4.29c0-.27-.08-.4-.32-.46l-3.23-.77a2.35,2.35,0,0,1-.53-.09,2.12,2.12,0,0,1-1.73-2.44,1.74,1.74,0,0,1,.11-.39,1.08,1.08,0,0,0-.09-.88A3.15,3.15,0,0,1,86.65,424.62Zm16.57-3a2.37,2.37,0,0,0,1.39-1.38,1.35,1.35,0,0,1,.2-.42,2.59,2.59,0,0,0-.12-3.29.54.54,0,0,1-.15-.29,2.5,2.5,0,0,0-1.22-1.84.58.58,0,0,1-.25-.34,2.37,2.37,0,0,0-2.74-1.93l-.17,0a.43.43,0,0,1-.38-.07,2.17,2.17,0,0,0-2.76,0,.53.53,0,0,1-.42.07,2.25,2.25,0,0,0-2.57,1,.74.74,0,0,1-.4.3A2.09,2.09,0,0,0,92,415.34a9.24,9.24,0,0,0,.17,2.29A2.32,2.32,0,0,0,94,419.38a.57.57,0,0,1,.29.3,2.83,2.83,0,0,0,3.17,2.26.36.36,0,0,1,.4.21c.51.82,1,1.61,1.55,2.45a.65.65,0,0,0,.67.33c.44-.08.89-.11,1.33-.19a.54.54,0,0,0,.43-.84c-.2-.47-.3-.69-.46-1.08l.24,0"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M85.58,409.9c.18.09.3.13.4.19.4.28.81.56,1.2.85a.52.52,0,1,1-.47.92l-.09-.05c-.44-.29-.87-.6-1.29-.91a.45.45,0,0,1-.15-.58A2.65,2.65,0,0,1,85.58,409.9Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M111.25,410.54a3.27,3.27,0,0,1-.35.48c-.35.26-.73.52-1.1.77a.54.54,0,0,1-.77,0l0,0c-.19-.25-.1-.57.23-.79a9.47,9.47,0,0,1,1.13-.78.76.76,0,0,1,.59,0C111.07,410.13,111.14,410.34,111.25,410.54Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M112.07,418.81h-.34a.48.48,0,0,1-.52-.44v0a.52.52,0,0,1,.46-.57c.5,0,1-.09,1.5-.1a.56.56,0,0,1,.59.48.6.6,0,0,1-.55.57l-1.14.07Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M97.65,405.06v-.77a.48.48,0,0,1,.46-.49h0c.31,0,.51.15.52.45v1.66c0,.3-.22.43-.5.45a.5.5,0,0,1-.52-.46h0v-.85Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M92.45,407.35c-.12.11-.25.31-.42.34a.54.54,0,0,1-.51-.17,13.08,13.08,0,0,1-.81-1.47.42.42,0,0,1,.15-.58l0,0c.23-.13.5-.16.65.09.3.5.56,1,.83,1.53C92.41,407.16,92.43,407.26,92.45,407.35Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M104.58,407.75c-.47,0-.71-.35-.57-.66.23-.5.47-1,.72-1.48a.53.53,0,0,1,.69-.22.49.49,0,0,1,.18.66h0c-.21.46-.42.92-.66,1.36A1.29,1.29,0,0,1,104.58,407.75Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M100.65,423.75c-.2-.47-.42-.93-.59-1.43a.58.58,0,0,1,.07-.51.85.85,0,0,1,.56-.2c.28,0,.55.05.83.09a.49.49,0,0,0,.57-.41.15.15,0,0,0,0-.07.5.5,0,0,1,.48-.47,1.31,1.31,0,0,0,1.21-1,1,1,0,0,1,.14-.3,1.64,1.64,0,0,0-.2-2.29.64.64,0,0,1-.22-.42,1.42,1.42,0,0,0-1-1.42.84.84,0,0,1-.56-.84,1.26,1.26,0,0,0-1.7-1.15.85.85,0,0,1-1.16-.26,1.11,1.11,0,0,0-1.56-.06l-.06.06a.88.88,0,0,1-1,.24,1.21,1.21,0,0,0-1.62.52l0,.06a1.25,1.25,0,0,1-.68.54A1.4,1.4,0,0,0,93,416a1.08,1.08,0,0,0,.1.35,2.07,2.07,0,0,1,.08.42,1.45,1.45,0,0,0,1.22,1.65h.13c.5.07.65.3.76.76.29,1.24.94,2,2.43,1.66a.71.71,0,0,1,.77.34c.51.8,1.06,1.59,1.57,2.39A.41.41,0,0,0,100.65,423.75Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                        <path
+                            d="M100.65,423.75c-.29.16-.47.09-.64-.19-.51-.8-1.06-1.59-1.57-2.4a.71.71,0,0,0-.77-.34c-1.49.3-2.14-.42-2.43-1.66-.11-.45-.26-.69-.76-.76a1.45,1.45,0,0,1-1.37-1.53s0-.08,0-.13a2.07,2.07,0,0,0-.08-.42,1.41,1.41,0,0,1,1.08-1.93,1.25,1.25,0,0,0,.68-.54,1.2,1.2,0,0,1,1.58-.61l.07,0a.88.88,0,0,0,1-.24A1.1,1.1,0,0,1,99,413l.07.06a.85.85,0,0,0,1.16.26,1.25,1.25,0,0,1,1.61.72,1.11,1.11,0,0,1,.09.43.84.84,0,0,0,.56.84,1.42,1.42,0,0,1,1,1.43.69.69,0,0,0,.22.42,1.64,1.64,0,0,1,.2,2.29.83.83,0,0,0-.14.3,1.33,1.33,0,0,1-1.21,1,.48.48,0,0,0-.48.47.5.5,0,0,1-.52.48h-.06a5.85,5.85,0,0,0-.83-.09.76.76,0,0,0-.56.2.57.57,0,0,0-.07.51C100.23,422.81,100.45,423.28,100.65,423.75Z"
+                            transform="translate(-74.04 -395.96)" style="fill:#127f40" />
+                    </svg>
+                    <h5 class="card-title card-title-index mt-3 ms-3">Aumenta a compreensão</h5>
+                    <p class="card-text card-text-index ms-3 me-3">Independentemente da capacidade de leitura, com
+                        vídeos de alta
+                        qualidade.
+                    </p>
+                </div>
             </div>
-            
-            <div class="col-lg-8 text-center  mx-auto ">
-                <span>História de Portugal oferece exercícios interativos e didáticos e vídeos de qualidade gratuitamente.
-                    Possibilita um ensino personalizado que permite aos estudantes aprender ao seu próprio ritmo, em
-                    qualquer lugar, a qualquer hora e em qualquer dispositivo com acesso à Internet.
-                </span>
-            
+        </div>
+
+    </section>
+
+    <!-- Épocas Mais Populares -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col div-headings-index" style="margin-top:91px;">
+                    <h3>Épocas Mais Populares</h3>
+                </div>
             </div>
-    
-        </div>
-    
-    
-        <div class="container-fluid text-center " style="background-color: #D9674E; color: white; margin-top: 100px; height: 300px;" >    
-        <div class="col-8 text-center mx-auto ">
-        <h3 class="text-sm-left text-uppercase py-5" >
-        Todos podemos aprender qualquer coisa. Gratuitamente.
-        </h3>
-    
-        </div>
-    
-        <div class="col-lg-8 text-center  mx-auto ">
-        <span>A educação é um direito humano. Nós somos uma organização sem fins lucrativos porque
-        acreditamos numa educação gratuita, de qualidade, para todos, e em qualquer lugar.
-        </span>
-    
-        </div>
-    
-        </div>
-    
-    
-        <footer class="container-fluid py-5" style="background-color: #04082B; ">
-            <div class="row ">
+
+            <div class="row mt-5 row-cols-1 row-cols-md-2">
+
                 <div class="col">
-    
-                    <ul class="social  list-inline mt-1 ">
-                        <li><a href="http://" target="_blank" class="text-light"  rel="noopener noreferrer">Login</a></li>
-                        <li><a href="http://" target="_blank" class="text-light" rel="noopener noreferrer">entrar</a></li>
-                        <li><a href="http://" target="_blank" class="text-light" rel="noopener noreferrer">novo registro</a></li>
-                    </ul>
-    
-                    <div class="col-4 py-3">
-                        <p class="text-sm-left  font-normal text-light">Escola Superior de Media Artes e
-                            Design
-                            Rua D. Sancho I, n.º 981 4480-876
-                            Vila do conde, Portugal</p>
+                    <div class="card card-most-popular-left mb-4"
+                        style="max-width: 514px;max-height: 180px;margin-left:5em">
+                        <div class="row g-0">
+                            <div class="col-4 "
+                                style="height:180px;background-image: url('/assets/img/tempo_dos_descobrimentos.png');background-size: contain;background-repeat: no-repeat;background-position: center bottom;">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h6 class="century-title">Séc. XV - XVI</h6>
+                                    <h5 class="card-title" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Tempo dos descobrimentos</h5>
+                                    <p class="card-text" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Época das grandes navegações, descobrimentos maritímos, e muito
+                                        mais </p>
+                                    <div class="text-end">
+                                        <a class="btn btn-card btn-md rounded-pill   " href="#"
+                                            role="button">Aprender</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-    
                 </div>
-            
-                <div class="col d-flex justify-content-end">
-                    <ul class=" col social  list-inline mt-1">
-                        <li><a href="http://" target="_blank" class="list-inline-item" rel="noopener noreferrer">Termos e condições de acesso</a></li>
-                        <li><a href="http://" target="_blank" class="list-inline-item" rel="noopener noreferrer">Política de privacidade</a></li>
-                        <li><a href="http://" target="_blank" class="list-inline-item" rel="noopener noreferrer">Política de cookies</a></li>
-                    </ul>
-                </div>    
+
+
+                <div class="col">
+                    <div class="card card-most-popular-right mb-4"
+                        style="max-width: 514px;max-height: 180px;margin-right:5em">
+                        <div class="row g-0">
+                            <div class="col-4"
+                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: center bottom;">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h6 class="century-title">Séc. XVII</h6>
+                                    <h5 class="card-title" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Da União Ibérica à Restauração da Independência</h5>
+                                    <p class="card-text" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Época das grandes navegações, descobrimentos maritímos, e muito
+                                        mais </p>
+                                    <div class="text-end">
+                                        <a class="btn btn-card btn-md rounded-pill   " href="#"
+                                            role="button">Aprender</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-most-popular-left mb-4"
+                        style="max-width: 514px;max-height: 180px;margin-left:5em">
+                        <div class="row g-0">
+                            <div class="col-4 "
+                                style="height:180px;background-image: url('/assets/img/tempo_dos_descobrimentos.png');background-size: contain;background-repeat: no-repeat;background-position: center bottom;">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h6 class="century-title">Séc. XV - XVI</h6>
+                                    <h5 class="card-title" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Tempo dos descobrimentos</h5>
+                                    <p class="card-text" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Época das grandes navegações, descobrimentos maritímos, e muito
+                                        mais </p>
+                                    <div class="text-end">
+                                        <a class="btn btn-card btn-md rounded-pill" href="#" role="button">Aprender</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div class="card card-most-popular-right mb-4"
+                        style="max-width: 514px;max-height: 180px;margin-right:5em">
+                        <div class="row g-0">
+                            <div class="col-4"
+                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: center bottom;">
+                            </div>
+
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h6 class="century-title">Séc. XVII</h6>
+                                    <h5 class="card-title" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Da União Ibérica à Restauração da Independência</h5>
+                                    <p class="card-text" style="text-overflow: ellipsis;white-space: nowrap;
+                                    overflow: hidden;">Época das grandes navegações, descobrimentos maritímos, e muito
+                                        mais </p>
+                                    <div class="text-end">
+                                        <a class="btn btn-card btn-md rounded-pill   " href="#"
+                                            role="button">Aprender</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-    
-            <div class="col  d-flex justify-content-end">
-                <ul class="social  list-inline mt-1">
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f fa-xl "></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter fa-xl"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram fa-xl"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin fa-xl"></i></a></li>
-                </ul>
+
+            <div class="row">
+                <div class="col d-flex justify-content-center mt-5 mb-5">
+                    <button class="btn btn-see-all mb-5">Ver Todas</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Conheça os fundadores -->
+        <section style="background-color:#F2F2F2;">
+            <div class="container">
+                <div class="row">
+                    <div class="col div-headings-index" style="margin-top:91px;">
+                        <h3>Conheça os Fundadores</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col div-margin-left mt-2">
+                        <p><b>Fábio Fernandes</b> , <b>Luís Paiva</b> e <b>Tomás Borges</b> fundaram a <b>HISTÓRIA DE
+                                PORTUGAL</b> com a
+                            ambição de criar uma plataforma digital que ensina as pessoas que não conhecem a história de
+                            portugal e os que procuram enriquecer o seu conhecimento do mesmo.</p>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 ">
+                    <div class="col" align="center">
+                        <div class="card div-margin-left card-fundador" align="left">
+                            <div class="d-flex justify-content-center align-items-center"
+                                style="background-color:white;height:200px;width:100%">
+                                <div
+                                    style="height:80%;width:80%;background-image: url('/assets/img/fabio.jpg');background-size: cover;">
+                                </div>
+                            </div>
+
+                            <div class="card-body" style="padding-left:10%;padding-top:0;">
+                                <p class="pDeveloper">Desenvolvedor</p>
+                                <h5 class="card-title">Fábio Fernandes</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col " align="center">
+                        <div class="card luis-paiva card-fundador" align="left">
+                            <div class="d-flex justify-content-center align-items-center"
+                                style="background-color:white;height:200px;width:100%">
+                                <div
+                                    style="height:80%;width:80%;background-image: url('/assets/img/luis.webp');background-size: cover;background-repeat: no-repeat;">
+                                </div>
+                            </div>
+
+                            <div class="card-body" style="padding-left:10%;padding-top:0;">
+                                <p class="pDeveloper">Desenvolvedor</p>
+                                <h5 class="card-title">Luis Paiva</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" align="center" style="margin-bottom:91px;">
+                        <div class="card div-margin-right card-fundador" align="left">
+                            <div class="d-flex justify-content-center align-items-center"
+                                style="background-color:white;height:200px;width:100%">
+                                <div
+                                    style="height:80%;width:80%;background-image: url('/assets/img/tomas.jpg');background-size: cover;background-repeat: no-repeat;background-position: 65% 45%;">
+                                </div>
+                            </div>
+
+                            <div class="card-body" style="padding-left:10%;padding-top:0;">
+                                <p class="pDeveloper">Desenvolvedor</p>
+                                <h5 class="card-title">Tomás Borges</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Historia de Portugal -->
+        <section class="position-relative" style="background-color:#4DB964;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 mt-5 div-margin-left">
+                        <h1 style="font-size:3.5em;font-family: mplus-bold; color:white;">SOBRE HISTÓRIA DE PORTUGAL
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 offset-7 mt-5 mb-5 div-margin-right">
+                        <h6 style="font-family: mplus-medium; color:white;">A nossa missão é proporcionar uma educação
+                            gratuita e de qualidade a qualquer pessoa,
+                            esteja onde estiver.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div id="arrowPoint" class="position-absolute top-50 start-50 translate-middle">
+                <svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390.11 359.36"
+                    style="width:104px;height:104px;">
+                    <path
+                        d="M390.91,681.11,370,654.42c-.62-.79-1.26-1.56-1.86-2.36-1.64-2.17-1.84-4.35.48-6.11s4.16-.68,5.66,1.17q8,9.92,15.87,19.94c4.74,6,9.35,12.14,14.16,18.1,2.73,3.4,2.43,5.93-1.45,8.05q-21.7,11.85-43.37,23.74c-2.27,1.25-4.67,1.62-6.1-1-1.66-3.05.19-5,2.81-6.39,9.95-5.4,19.9-10.79,29.81-16.25,1.38-.77,3.16-1.11,4-3.08-2.75-1.44-5.76-1.51-8.6-2.06-76-14.71-146-43.67-208.15-90.09Q64.07,516.55,22.71,386.3c-2.22-7-4-14.07-6.16-21.07-.88-2.88-1-5.57,2.33-6.48s4.54,1.67,5.29,4.48A434.4,434.4,0,0,0,52,439.08,399.74,399.74,0,0,0,156.76,574.31c56.12,47.2,120.34,78.7,190.89,97.84,13.19,3.58,26.49,6.67,40,9A31.23,31.23,0,0,0,390.91,681.11Z"
+                        transform="translate(-16.01 -358.56)" style="fill:#f4f9f4" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- Uma educação personalizada.. -->
+        <section>
+            <div class="container text-center">
+                <div class="row" style="font-family:mplus-bold">
+                    <div class="col mt-5">
+                        <h3>Uma educação personalizada para todas as idades</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 offset-2 mt-2 mb-5">
+                        <h6>História de Portugal oferece exercícios interativos e didáticos e vídeos de qualidade
+                            gratuitamente.
+                            Possibilita um ensino personalizado que permite aos estudantes aprender ao seu próprio
+                            ritmo, em
+                            qualquer lugar, a qualquer hora e em qualquer dispositivo com acesso à Internet. </h6>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Todos podemos aprender qualquer coisa. Gratuitamente -->
+        <section style="background-color:#D9674E; color: #FFFFFF">
+            <div class="container text-center">
+                <div class="row" style="font-family:mplus-bold">
+                    <div class="col mt-5">
+                        <h3>Todos podemos aprender qualquer coisa. Gratuitamente.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 offset-2 mt-2 mb-5">
+                        <h6>A educação é um direito humano. Nós somos uma organização sem fins lucrativos porque
+                            acreditamos numa educação gratuita, de qualidade, para todos, e em qualquer lugar.</h6>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer style="background-color: #04082B; color:white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 mt-4">
+                        <div class="div-margin-left">
+                            <div class="row" style="font-family: mplus-bold;">
+                                Login
+                            </div>
+                            <div class="row mt-1">
+                                <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Entrar</a>
+                            </div>
+                            <div class="row mt-1">
+                                <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Novo
+                                    registo</a>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-6 mb-4" style="margin:0;padding:0">
+                                    Escola Superior de Media Artes e
+                                    Design
+                                    Rua D. Sancho I, n.º 981 4480-876
+                                    Vila do conde, Portugal
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-6 mt-4">
+                        <div class="div-margin-left">
+                            <div class="div-margin-left">
+                                <div class="row" style="font-family: mplus-bold;">
+                                    Privacidade
+                                </div>
+                                <div class="row mt-1">
+                                    <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Termos e condições de acesso</a>
+                                </div>
+                                <div class="row mt-1">
+                                    <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Política de privacidade</a>
+                                </div>
+                                <div class="row mt-1">
+                                    <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Política de cookies</a>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-6 mb-4 " style="margin:0;padding:0">
+                                        <div class="d-inline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;margin-right: 0.1em" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" d="M8.46 18h2.93v-7.3h2.45l.37-2.84h-2.82V6.04c0-.82.23-1.38 1.41-1.38h1.51V2.11c-.26-.03-1.15-.11-2.19-.11c-2.18 0-3.66 1.33-3.66 3.76v2.1H6v2.84h2.46V18z"/></svg>
+                                        </div>
+                                        <div class="d-inline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;margin-right: 0.2em" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><mask id="svgIDa"><g fill="#fff" stroke="#fff" stroke-width="4"><circle cx="9" cy="8" r="4"/><path stroke-linejoin="round" d="M5 18h8v25H5zm16 9.5V43h7V29c0-2.5 1.5-4.5 4-4.5s4 2.5 4 4.5v14h7V27.5c0-3-3.5-9.5-11-9.5s-11 6.5-11 9.5Z"/></g></mask><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#svgIDa)"/></svg>
+                                        </div>
+                                        <div  class="d-inline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578a9.3 9.3 0 0 1-2.958 1.13a4.66 4.66 0 0 0-7.938 4.25a13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342A4.66 4.66 0 0 0 3.96 9.824a4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568a4.692 4.692 0 0 1-2.104.08a4.661 4.661 0 0 0 4.352 3.234a9.348 9.348 0 0 1-5.786 1.995a9.5 9.5 0 0 1-1.112-.065a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254c0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003Z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </footer>
-    
 
-    <!-- Optional JavaScript -->
-    <!-- <script type="module" src="js/app.js"></script> -->
+        <!-- Optional JavaScript -->
+        <!-- <script type="module" src="js/app.js"></script> -->
 
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Jquery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
 
-    <script src="js/index.js"></script>
+        <script src="js/index.js"></script>
 </body>
 
 </html>

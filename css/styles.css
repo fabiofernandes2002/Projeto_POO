@@ -5,7 +5,7 @@
 
 body {
     height: 2000px;
-    overflow-x: hidden;
+    /* overflow-x:hidden; */
 }
 
 /* || FONTES */
@@ -37,21 +37,28 @@ body {
 #btnEntrarNavBar,
 #btnLandingPage,
 #btnEntrarLogin,
-#btnLevarRegisto {
+#btnLevarRegisto,
+.btn-card,
+.btn-see-all {
     font-family: 'mplus-bold'
 }
 
 #imputProcurar,
 #imputProcurarMenu,
 #ulResources,
-#pLandingPage {
+#pLandingPage,
+.div-margin-left {
     font-family: 'mplus-medium';
 }
 
-#headerLandingPage {
-    font-family: 'rufina'
+.card-title-index, .div-headings-index {
+    font-family: 'rufina' !important
 }
-
+#headerLandingPage{
+    font-family: 'rufina';
+    color: #363F73;
+    text-shadow: -0px -0px 0 #363F73, 0px -0px 0 #363F73, -0px 0px 0 #363F73, 0px 0px 0 #363F73;
+}
 /* || NAVBAR */
 
 nav {
@@ -60,6 +67,8 @@ nav {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
     transition: top 0.2s;
     z-index: 2;
+    margin:0;
+    padding:0;
 }
 
 .a-div>a,
@@ -384,7 +393,6 @@ input[type="search"]:focus,
     top: 63px;
     right: 0;
     transform: translate(-15px, 0);
-    width: 300px;
     background-color: white;
     transition: top 1s;
     transition: opacity 1s;
@@ -407,9 +415,58 @@ input[type="search"]:focus,
 
 /* || index.html (landing page) */
 
+.pDeveloper{
+    color: #00D1FF;
+}
+
+.btn-see-all{
+    background: rgba(217, 103, 78, 0.29);
+    border-radius:20.5377px;
+    color: #D9674E;
+}
+
+.btn-see-all:hover{
+    background: rgba(242, 147, 126, 0.29);
+
+    color: #D9674E;
+}
+
+.card-most-popular-right, .card-most-popular-left {
+    box-shadow: 3.65756px 2.19454px 18.2878px 3.65756px rgba(0, 0, 0, 0.05);
+border-radius: 9.35053px 3.65756px 3.65756px 0px;
+}
+
+.century-title{
+    color: #D9674E;
+}
+
+.btn-card{
+    background-color: #219EBC;
+    color: #FFFFFF;
+}
+
+.btn-card:hover{
+    background-color: #ef866e;
+    color: #FFFFFF;
+}
+
+/* .card-3:hover{
+    transform: scale(1.05,1.05);
+    box-shadow: 10px 10px 38px rgba(0, 0, 0, 0.12);
+} */
+.cards-index{
+    background-color: white;
+}
+
+.card-text-index{
+    color:#737373;
+    font-size:13px !important;
+}
+
 #imgBackground {
     z-index: -1;
     width: 100%;
+    height:1080px;
     position: absolute;
     top: 0;
     left: 0;
@@ -420,13 +477,15 @@ input[type="search"]:focus,
 }
 
 #divImgHistory {
-    height: 768px;
     z-index: -1;
 }
 
 #imgHistory {
-    margin-top: 100px;
-    width: 430px
+    margin-top: 60px;
+    width: 340px
+
+    /* margin-top: 100px;
+    width: 430px */
 }
 
 #divTextLandingPage {
@@ -441,6 +500,10 @@ input[type="search"]:focus,
     color: white;
     background-color: #3DAAC5;
     border-radius: 90px;
+}
+
+#btnLandingPage:hover{
+    background-color: #57bdd7;
 }
 
 /* || REMOVER O X DO SEARCH INPUT */
