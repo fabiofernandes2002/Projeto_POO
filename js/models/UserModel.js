@@ -1,31 +1,96 @@
-class User{
-    #idUser = 0
-    #type = ""
-    #name = ''
-    #email = ''
-    #city = ''
-    #password = ''
-    #birthDate = ''
-    #sex = ''
-    #avatars = []
-    #medals = []
-    #totalPoints = 0
+let users;
+
+// CARREGAR UTILIZADORES DA LOCALSTORAGE
+export function init() {
+  users = localStorage.users ? JSON.parse(localStorage.users) : [];
+}
+
+// ADICIONAR UTILIZADOR
+export function add(username, email, city, password, birthDate, sex) {
+  if (users.some((user) => user.username === username)) {
+    throw Error(`User with username "${username}" already exists!`);
+  } else {
+    users.push(new User(username, email, city, password, birthDate, sex));
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+}
+
+// LOGIN DO UTILIZADOR
+export function login(username, password) {
+  const user = users.find(
+    (user) => user.username === username && user.password === password
+  );
+  if (user) {
+    sessionStorage.setItem("loggedUser", JSON.stringify(user));
+    return true;
+  } else {
+    throw Error("Login Inválido!");
+  }
+}
+
+// LOGOUT DO UTILIZADOR
+export function logout() {
+  sessionStorage.removeItem("loggedUser");
+}
+
+// VERIFICA EXISTÊNCIA DE ALGUÉM AUTENTICADO
+export function isLogged() {
+  return sessionStorage.getItem("loggedUser") ? true : false;
+}
+
+// DEVOLVE UTILZIADOR AUTENTICADO
+export function getUserLogged() {
+  return JSON.parse(sessionStorage.getItem("loggedUser"));
+}
+
+// OBTER lista de Users 
+export function getUsers() {
+  return users;
+}
+
+/**
+ * CORRER {@link func} 300 MILISSEGUNDOS DEPOIS DA PÁGINA TER SIDO REDIMENSIONADA
+ * @param {function} func - Função definida no addEventListener 
+ * @returns {function} - Função que declará a variável "timer" com um setTimeout quando pararmos de redimensionar a página
+ */
+ export function debounce(func) { // função debouncing inspirada do site https://flaviocopes.com/canvas/
+  let timer;
+  return () => {
+    if (timer) {
+      clearTimeout(timer)
+    } // if(timer) se timer tiver um valor, caso contrário não funciona
+    timer = window.setTimeout(func, 300)
+  };
+};
+
+/**
+ * CLASSE QUE MODELA UM UTILIZADOR NA APLICAÇÃO
+ */
+class User {
+  idUser
+  type = ""
+  username = ''
+  email = ''
+  city = ''
+  password = ''
+  birthDate = ''
+  sex = ''
+  avatars = []
+  medals = []
+  totalPoints = 0
 
 
-    constructor(idUser, type, name, email, city, password, birthDate, sex, avatars, medals, totalPoints) {
-        
-        this.#idUser = idUser;
-        this.#type = type;
-        this.#name = name
-        this.#email = email
-        this.#city = city
-        this.#password = password
-        this.#birthDate = birthDate
-        this.#sex = sex
-        this.#avatars = avatars
-        this.#medals = medals
-        this.#totalPoints = totalPoints
-    }
+  constructor(username, email, city, password, birthDate, sex) {
+
+    this.idUser = users.length === 0 ? 1 : users.length + 1;
+    this.type = "aluno";
+    this.username = username
+    this.email = email
+    this.city = city
+    this.password = password
+    this.birthDate = birthDate
+    this.sex = sex
+  }
 
 }
 

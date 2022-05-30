@@ -1,14 +1,15 @@
 export default class AchievementModel {
-    #idAchievement = 0
-    #type = "" // medal or avatar
-    #urlImage = ""
-    #achievementName = ""
+    idAchievement = 0
+    type = "" // medal or avatar
+    urlImage = ""
+    achievementName = ""
+    
     constructor(idAchievement, type, urlImage, name) {
         
-        this.#idAchievement = idAchievement;
-        this.#type = type;
-        this.#urlImage = urlImage;
-        this.#name = name;
+        this.idAchievement = idAchievement;
+        this.type = type;
+        this.urlImage = urlImage;
+        this.name = name;
 
     }
 }

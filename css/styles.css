@@ -3,10 +3,9 @@
     padding: 0;
 }
 
-body {
-    height: 2000px;
-    /* overflow-x:hidden; */
-}
+/* body {
+    overflow-x:hidden; 
+}*/
 
 /* || FONTES */
 
@@ -38,8 +37,13 @@ body {
 #btnLandingPage,
 #btnEntrarLogin,
 #btnLevarRegisto,
+#btnLevarRegisto1,
 .btn-card,
-.btn-see-all {
+.btn-see-all,
+#modalIniciarSessao,
+#navbarDropdown1,
+#exampleModalToggleLabel2,
+.message-for-registration {
     font-family: 'mplus-bold'
 }
 
@@ -47,18 +51,22 @@ body {
 #imputProcurarMenu,
 #ulResources,
 #pLandingPage,
-.div-margin-left {
+.div-margin-left,
+.pModalLogin {
     font-family: 'mplus-medium';
 }
 
-.card-title-index, .div-headings-index {
+.card-title-index,
+.div-headings-index {
     font-family: 'rufina' !important
 }
-#headerLandingPage{
+
+#headerLandingPage {
     font-family: 'rufina';
     color: #363F73;
     text-shadow: -0px -0px 0 #363F73, 0px -0px 0 #363F73, -0px 0px 0 #363F73, 0px 0px 0 #363F73;
 }
+
 /* || NAVBAR */
 
 nav {
@@ -67,8 +75,8 @@ nav {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
     transition: top 0.2s;
     z-index: 2;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 .a-div>a,
@@ -143,8 +151,8 @@ input[type="search"]:focus,
     right: 20px;
     top: 0;
     transform: translate(0, 11px);
-    cursor:pointer;
-    z-index:10;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .fa-magnifying-glass {
@@ -357,12 +365,12 @@ input[type="search"]:focus,
 
 @keyframes showMenu {
     0% {
-        transform: translate(-15px, -60px);
+        transform: translate(0, -60px);
         opacity: 0;
     }
 
     100% {
-        transform: translate(-15px, 0);
+        transform: translate(0, 0);
         opacity: 1;
     }
 }
@@ -373,12 +381,12 @@ input[type="search"]:focus,
 
 @keyframes hideMenu {
     0% {
-        transform: translate(-15px, 0);
+        transform: translate(0, 0);
         opacity: 1;
     }
 
     100% {
-        transform: translate(-15px, -60px);
+        transform: translate(0, -60px);
         opacity: 0;
     }
 }
@@ -392,7 +400,6 @@ input[type="search"]:focus,
     position: absolute;
     top: 63px;
     right: 0;
-    transform: translate(-15px, 0);
     background-color: white;
     transition: top 1s;
     transition: opacity 1s;
@@ -415,38 +422,39 @@ input[type="search"]:focus,
 
 /* || index.html (landing page) */
 
-.pDeveloper{
+.pDeveloper {
     color: #00D1FF;
 }
 
-.btn-see-all{
+.btn-see-all {
     background: rgba(217, 103, 78, 0.29);
-    border-radius:20.5377px;
+    border-radius: 20.5377px;
     color: #D9674E;
 }
 
-.btn-see-all:hover{
+.btn-see-all:hover {
     background: rgba(242, 147, 126, 0.29);
 
     color: #D9674E;
 }
 
-.card-most-popular-right, .card-most-popular-left {
+.card-most-popular-right,
+.card-most-popular-left {
     box-shadow: 3.65756px 2.19454px 18.2878px 3.65756px rgba(0, 0, 0, 0.05);
-border-radius: 9.35053px 3.65756px 3.65756px 0px;
+    border-radius: 9.35053px 3.65756px 3.65756px 0px;
 }
 
-.century-title{
+.century-title {
     color: #D9674E;
 }
 
-.btn-card{
+.btn-card {
     background-color: #219EBC;
     color: #FFFFFF;
 }
 
-.btn-card:hover{
-    background-color: #ef866e;
+.btn-card:hover {
+    background-color: #42bfdf;
     color: #FFFFFF;
 }
 
@@ -454,19 +462,19 @@ border-radius: 9.35053px 3.65756px 3.65756px 0px;
     transform: scale(1.05,1.05);
     box-shadow: 10px 10px 38px rgba(0, 0, 0, 0.12);
 } */
-.cards-index{
+.cards-index {
     background-color: white;
 }
 
-.card-text-index{
-    color:#737373;
-    font-size:13px !important;
+.card-text-index {
+    color: #737373;
+    font-size: 13px !important;
 }
 
 #imgBackground {
     z-index: -1;
     width: 100%;
-    height:1080px;
+    height: 1080px;
     position: absolute;
     top: 0;
     left: 0;
@@ -483,8 +491,7 @@ border-radius: 9.35053px 3.65756px 3.65756px 0px;
 #imgHistory {
     margin-top: 60px;
     width: 340px
-
-    /* margin-top: 100px;
+        /* margin-top: 100px;
     width: 430px */
 }
 
@@ -502,8 +509,8 @@ border-radius: 9.35053px 3.65756px 3.65756px 0px;
     border-radius: 90px;
 }
 
-#btnLandingPage:hover{
-    background-color: #57bdd7;
+#btnLandingPage:hover {
+    background-color: #42bfdf;
 }
 
 /* || REMOVER O X DO SEARCH INPUT */
@@ -534,7 +541,7 @@ input[type="search"]::-webkit-search-results-decoration {
 /* -------------------------------------------------------------------------------------------- */
 
 /* css de modais de login e register */
-.modal-title{
+.modal-title {
     font-family: 'rufina';
     color: #fff;
 }
@@ -571,7 +578,70 @@ input[type="search"]::-webkit-search-results-decoration {
     color: #fff;
 }
 
-#txtNameUserLogin,
+#lblTxtPasswordLogin,
+#lblTxtUsernameLogin {
+    position: relative;
+    width: 100%;
+}
+
+#lblTxtPasswordLogin::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url("../assets/img/passwordLogin.svg") center / contain no-repeat;
+}
+
+.eyeDiv {
+    position: absolute;
+    z-index: 30;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url("../assets/img/eye-close.svg") center / contain no-repeat;
+}
+
+#userPasswordLogin {
+    height: 3rem;
+    width: 100%;
+    border: grey solid 0.5px;
+    border-radius: 10px;
+    padding: 10px 40px;
+}
+
+#lblTxtUsernameLogin::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url("../assets/img/UserLogin.svg") center / contain no-repeat;
+}
+
+#userNameLogin {
+    height: 3rem;
+    width: 100%;
+    border: grey solid 0.5px;
+    border-radius: 10px;
+    padding: 10px 40px;
+}
+
+#userNameLogin:hover,
+#userPasswordLogin:hover {
+    border: grey solid 0.5px;
+    outline: none
+}
+
+#userNameLogin:focus,
+#userPasswordLogin:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 #txtEmail,
 #txtCity,
 #txtBirthDate,
@@ -583,46 +653,20 @@ input[type="search"]::-webkit-search-results-decoration {
 
 }
 
-#userPasswordLogin,
-#userPasswordRegister,
-#userPasswordConfirm {
-    border-left-style: none;
-    border-right-style: none;
-}
-
-#pModalLogin {
-    position: absolute;
-    left: 510px;
-    top: -2px;
-    font-family: 'mplus-medium';
+.pModalLogin {
     font-weight: 50;
-    font-size: 20px;
-    line-height: 48px;
-    text-align: center;
-    display: flex;
-    float: left;
+    font-size: 20px
 }
 
-#pModalLogin2 {
-    position: absolute;
-    left: 465px;
-    top: 20px;
-    font-family: 'mplus-medium';
-    font-weight: 50;
-    font-size: 20px;
-    line-height: 48px;
-    text-align: center;
-    display: flex;
-    float: left;
-}
-
-#btnLevarRegisto {
+#btnLevarRegisto,
+#btnLevarRegisto1 {
     width: 200px;
     border-radius: 10px;
     border: 2px solid #45BF63;
 }
 
-#btnLevarRegisto:hover {
+#btnLevarRegisto:hover,
+#btnLevarRegisto1:hover {
     background-color: #3DAAC5;
     border-style: none;
 }
@@ -685,38 +729,199 @@ input[type="password"]:focus {
 
 /* style da pagina do recurso de video tutorial */
 
-#accordionFlushExample{
+#accordionFlushExample {
     font-family: 'mplus-medium';
 }
 
-#tituloVideo{
+#tituloVideo {
     font-family: 'mplus-bold';
     font-size: 20px;
 }
 
-.modal-body{
+.modal-body {
     font-family: 'mplus-medium';
 }
 
 /* Style da pagina dos seculos */
-.card-title{
+.card-title {
     font-family: 'mplus-bold';
     font-size: 18px;
 }
 
-.card-text{
+.card-text {
     font-family: 'mplus-medium';
     font-size: 14px;
 }
 
-#recursoSeculo{
+#recursoSeculo {
     font-family: 'rufina';
-    margin-top:100px;
+    margin-top: 100px;
 }
 
-#btnAprenderSeculo{
+#btnAprenderSeculo {
     font-family: 'mplus-bold';
     background-color: #3DAAC5;
     border-style: none;
     box-shadow: none;
+}
+
+#barSeparator {
+    height: 100%;
+    background-color: #3DAAC5;
+    width: 2px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-55%);
+}
+
+#navbarDropdown1Image {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    transform: translate(0, -15%);
+    height: 30px;
+    width: 30px;
+    background-image: url("../assets/img/avatars/default.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    border-radius: 50%;
+}
+
+#divUsernmame {
+    margin: 0;
+    padding: 0;
+    color: black;
+    position: absolute;
+    height: 100%;
+    width: 7.5em;
+    left: 0;
+    top: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 3.2rem;
+}
+
+#loggedUser {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#navbarDropdown1 {
+    position: relative;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#iconArrow1 {
+    margin-left: 8em;
+    color: black;
+}
+#myProfile,
+.manageResources,
+#manageUsers,
+#logout{
+    padding-left:25px;
+}
+
+#myProfile::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 20px;
+    background: url("../assets/img/myProfileIcon.svg") center / contain no-repeat;
+}
+
+.manageResources::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 20px;
+    background: url("../assets/img/manageResourcesIcon.svg") center / contain no-repeat;
+}
+
+#manageUsers::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 20px;
+    background: url("../assets/img/manageUsersIcon.svg") center / contain no-repeat;
+}
+
+#logout::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 20px;
+    background: url("../assets/img/logoutIcon.svg") center / contain no-repeat;
+}
+@media only screen and (min-width: 992px) and (max-width:1199px) {
+    #divUsernmame {
+        padding-left: 3.2rem;
+
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    #divUsernmame {
+        padding-left: 2rem;
+        width: 7em;
+    }
+    
+    #navbarDropdown1Image {
+        transform: translate(-1rem, -15%);
+    }
+
+    #iconArrow1 {
+        margin-left: 7em;
+    }
+}
+
+
+@media only screen and (min-width: 350px) and (max-width: 449px) {
+
+    #divUsernmame {
+        padding-left: 1rem;
+        width: 6em;
+    }
+    
+    #navbarDropdown1Image {
+        transform: translate(-2rem, -5%);
+        height: 25px;
+    }
+
+    #iconArrow1 {
+        margin-left: 6em;
+    }
+}
+
+@media only screen and (max-width: 349px) {
+
+    #divUsernmame {
+        padding-left: 1rem;
+        width: 5em;
+    }
+    
+    #navbarDropdown1Image {
+        transform: translate(-2rem, -5%);
+        height: 25px;
+    }
+
+    #iconArrow1 {
+        margin-left: 5em;
+    }
 }
