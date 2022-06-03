@@ -47,8 +47,9 @@ function checkLoginWithEmail(email, password) {
 }
 
 // LOGOUT DO UTILIZADOR
-export function logout() {
+export function logout(pathIndexPage) {
   sessionStorage.removeItem("loggedUser");
+  location.href = pathIndexPage;
 }
 
 // VERIFICA EXISTÊNCIA DE ALGUÉM AUTENTICADO

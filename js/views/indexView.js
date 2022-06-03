@@ -12,8 +12,48 @@ function indexView() {
         changeIndexContent()
     }))
 
+    bindFooter()
+
 }
 
+function bindFooter() {
+    if (User.isLogged()){
+
+        document.querySelector('#loginFooter').classList.add("d-none")
+        document.querySelector('#registerFooter').classList.add("d-none")
+
+        document.querySelector('#logoutFooter').classList.remove("d-none")
+        document.querySelector('#logoutFooter').addEventListener("click", (e) => {
+            e.preventDefault()
+            User.logout("./index.html");
+
+        })
+        
+    } else{
+        const loginModal = new bootstrap.Modal(document.getElementById('modalLogin'), {
+            keyboard: false
+        })
+    
+        const registerModal = new bootstrap.Modal(document.getElementById('modalRegister'), {
+            keyboard: false
+        })
+    
+        document.querySelector('#loginFooter').addEventListener("click", (event) => {
+            event.preventDefault()
+    
+            loginModal.show()
+        })
+    
+        document.querySelector('#registerFooter').addEventListener("click", (event) => {
+            event.preventDefault()
+    
+            registerModal.show()
+        })
+        
+    }
+    
+
+}
 
 
 // ****************************  DESIGN ********************************************************************************************************************************************

@@ -17,13 +17,14 @@
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
 
     <style>
-        body{
+        body {
             height: 2000px;
         }
     </style>
 </head>
 
 <body>
+
     <!-- Nav bar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container d-flex align-items-center">
@@ -71,7 +72,7 @@
                         Aprender <i id="iconArrow" class="fa-solid fa-chevron-down icon-arrow"></i></a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="ulResources">
-                        <li><a class="dropdown-item" href="#">Ver todas as épocas</a></li>
+                        <li><a class="dropdown-item" href="./epochs.html">Ver todas as épocas</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -86,10 +87,11 @@
                     </ul>
                 </li>
 
-                <a class="nav-link active d-inline" id="top10" style="display: none;" aria-current="page" href="#">Top
+                <a class="nav-link active d-inline" id="top10" style="display: none;" aria-current="page"
+                    href="./top10.html">Top
                     10</a>
                 <a class="nav-link active d-inline" id="sobre" style="display: none; transform: translateX(25px)"
-                    aria-current="page" href="#aboutUs">Sobre</a>
+                    aria-current="page" href="../index.html#aboutUs">Sobre</a>
 
             </div>
 
@@ -97,7 +99,7 @@
             <div class="col-lg-2 col-md-3 offset-md-0 col-sm-3 offset-sm-2 col-4 offset-4 position-relative"
                 id="divBtnEntrar">
                 <!-- Botão Entrar -->
-                <button type="button" class="btn btn-entrar w-50" id="btnEntrarNavBar" data-bs-toggle="modal"
+                <button type="button" class="btn btn-entrar w-50 d-none" id="btnEntrarNavBar" data-bs-toggle="modal"
                     data-bs-target="#modalLogin">Entrar</button>
 
                 <div class="d-none" id="loggedUser">
@@ -110,7 +112,7 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        
+
                     </ul>
                 </div>
             </div>
@@ -199,13 +201,24 @@
                             <div>
                                 <div class="col ms-3 me-3">
                                     <h6>Aprender</h6>
-                                    <p style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Ver todas as
-                                        épocas</p>
-                                    <p style="font-family: mplus-medium;font-size:14px;">Tempo dos
-                                        Descobrimentos</p>
-                                    <p style="font-family: mplus-medium;font-size:14px">Da Únião Ibérica à Restauração
-                                        da
-                                        Independência</p>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./epochs.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Ver todas
+                                            as
+                                            épocas</a>
+                                    </div>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./epoch.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px;">Tempo dos
+                                            Descobrimentos</a>
+                                    </div>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./epoch.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px">Da Únião
+                                            Ibérica à Restauração
+                                            da
+                                            Independência</a>
+                                    </div>
                                 </div>
 
                             </div>
@@ -213,13 +226,17 @@
                         <hr class="mt-2 d-md-none">
                         <div class="row d-md-none" style="width:100%">
                             <div class="col ms-3 me-3">
-                                <h6>Top 10</h6>
+                                <a href="./top10.html" class="menuHamburguerOption">
+                                    <h6>Top 10</h6>
+                                </a>
                             </div>
                         </div>
                         <hr class="mt-2">
                         <div class="row mt-2 mb-2" style="width:100%">
                             <div class="col ms-3 me-3">
-                                <h6>Sobre</h6>
+                                <a href="../index.html#aboutUs" class="menuHamburguerOption">
+                                    <h6>Sobre</h6>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -249,7 +266,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class=" mb-5 ms-2 mt-5 me-3">
                                     <label id="lblTxtUsernameLogin">
-                                        <input type="text" id="userNameLogin" placeholder="Nome de utilizador">
+                                        <input type="text" id="userNameLogin" placeholder="Nome ou Email">
                                     </label>
                                 </div>
                             </div>
@@ -279,7 +296,7 @@
                             <!-- Botão Registrar-me -->
                             <div class="d-none d-sm-block col-sm-6 text-center">
                                 <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto"
-                                    data-bs-target="#modalRegisto" data-bs-dismiss="modal"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
                                     data-bs-toggle="modal">Registrar-me</button>
                             </div>
                         </div>
@@ -308,7 +325,7 @@
                             <!-- Botão Registrar-me -->
                             <div class=" col-sm-6 text-center mb-3">
                                 <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto1"
-                                    data-bs-target="#modalRegisto" data-bs-dismiss="modal"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
                                     data-bs-toggle="modal">Registrar-me</button>
                             </div>
                         </div>
@@ -319,7 +336,7 @@
     </div>
 
     <!-- Modal de registo -->
-    <div class="modal fade" id="modalRegisto" aria-hidden="true" data-bs-backdrop="static"
+    <div class="modal fade" id="modalRegister" aria-hidden="true" data-bs-backdrop="static"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -461,9 +478,9 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-3 mt-5">
-                    <h3 id="epocaSeculo">Épocas Disponíveis</h3>
+                    <h3 id="epocaSeculo" style="font-family:'mplus-bold'">Épocas Disponíveis</h3>
                 </div>
-                
+
                 <!-- Barra de pesquisa -->
                 <div class="col-3 mt-5">
                     <div class="search-bar">
@@ -477,46 +494,50 @@
 
                 <div class="col-2 mt-5" style="margin-left: 7em;">
                     <div class="dropdown">
-                        <button class="btn btnOrdenar dropdown-toggle rounded-pill" style="margin-left: 4em;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                          Ordenar
+                        <button class="btn btnOrdenar dropdown-toggle rounded-pill" style="margin-left: 4em;"
+                            type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ordenar
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li>
-                              <a class="dropdown-item" href="#">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                Época asc.
-                              </a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item" href="#">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                Época des.
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    Época asc.
                                 </a>
                             </li>
                             <li>
-                              <a class="dropdown-item" href="#">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                Alfabeto
-                              </a>
+                                <a class="dropdown-item" href="#">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    Época des.
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    Alfabeto
+                                </a>
                             </li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
 
                 <div class="col-2 mt-5 py-2 rounded-pill">
                     <!-- <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
                     <label class="btn btn-outline-danger" for="danger-outlined">Desbloqueado</label> -->
-                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option1" >
+                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1"
+                        value="option1">
                     <label class="form-check-label" for="exampleRadios1">Desbloqueados</label>
                 </div>
             </div>
-            
-            
+
+
             <div class="row mt-5 row-cols-1 row-cols-md-2">
 
                 <div class="col">
-                    <div class="card card-most-popular-left mb-4"
-                        style="max-width: 514px;max-height: 180px;">
+                    <div class="card card-most-popular-left mb-4" style="max-width: 514px;max-height: 180px;">
                         <div class="row g-0">
                             <div class="col-4 "
                                 style="height:180px;background-image: url('/assets/img/tempo_dos_descobrimentos.png');background-size: contain;background-repeat: no-repeat;background-position: center bottom;">
@@ -541,11 +562,10 @@
 
 
                 <div class="col">
-                    <div class="card card-most-popular-right mb-4"
-                        style="max-width: 514px;max-height: 180px;">
+                    <div class="card card-most-popular-right mb-4" style="max-width: 514px;max-height: 180px;">
                         <div class="row g-0">
                             <div class="col-4"
-                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: center bottom;">
+                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;">
                             </div>
                             <div class="col-8">
                                 <div class="card-body">
@@ -566,8 +586,7 @@
                 </div>
 
                 <div class="col">
-                    <div class="card card-most-popular-left mb-4"
-                        style="max-width: 514px;max-height: 180px;">
+                    <div class="card card-most-popular-left mb-4" style="max-width: 514px;max-height: 180px;">
                         <div class="row g-0">
                             <div class="col-4 "
                                 style="height:180px;background-image: url('/assets/img/tempo_dos_descobrimentos.png');background-size: contain;background-repeat: no-repeat;background-position: center bottom;">
@@ -591,11 +610,10 @@
 
 
                 <div class="col">
-                    <div class="card card-most-popular-right mb-4"
-                        style="max-width: 514px;max-height: 180px;">
+                    <div class="card card-most-popular-right mb-4" style="max-width: 514px;max-height: 180px;">
                         <div class="row g-0">
                             <div class="col-4"
-                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: center bottom;">
+                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;">
                             </div>
 
                             <div class="col-8">
@@ -616,11 +634,11 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     </section>
 
 
-     <!-- Optional JavaScript -->
+    <!-- Optional JavaScript -->
     <!-- <script type="module" src="js/app.js"></script> -->
 
     <!-- Jquery -->
@@ -628,16 +646,16 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- REFERÊNCIA AOS JS -->
-    
+
     <!-- <script type="module" src="js/views/indexView.js"></script> -->
     <script type="module" src="../js/views/NavbarView.js"></script>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
-    
+
 </body>
 
 </html>

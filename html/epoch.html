@@ -72,7 +72,7 @@
                         Aprender <i id="iconArrow" class="fa-solid fa-chevron-down icon-arrow"></i></a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="ulResources">
-                        <li><a class="dropdown-item" href="#">Ver todas as épocas</a></li>
+                        <li><a class="dropdown-item" href="./epochs.html">Ver todas as épocas</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -87,10 +87,11 @@
                     </ul>
                 </li>
 
-                <a class="nav-link active d-inline" id="top10" style="display: none;" aria-current="page" href="#">Top
+                <a class="nav-link active d-inline" id="top10" style="display: none;" aria-current="page"
+                    href="./top10.html">Top
                     10</a>
                 <a class="nav-link active d-inline" id="sobre" style="display: none; transform: translateX(25px)"
-                    aria-current="page" href="#aboutUs">Sobre</a>
+                    aria-current="page" href="../index.html#aboutUs">Sobre</a>
 
             </div>
 
@@ -98,7 +99,7 @@
             <div class="col-lg-2 col-md-3 offset-md-0 col-sm-3 offset-sm-2 col-4 offset-4 position-relative"
                 id="divBtnEntrar">
                 <!-- Botão Entrar -->
-                <button type="button" class="btn btn-entrar w-50" id="btnEntrarNavBar" data-bs-toggle="modal"
+                <button type="button" class="btn btn-entrar w-50 d-none" id="btnEntrarNavBar" data-bs-toggle="modal"
                     data-bs-target="#modalLogin">Entrar</button>
 
                 <div class="d-none" id="loggedUser">
@@ -111,7 +112,7 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        
+
                     </ul>
                 </div>
             </div>
@@ -200,13 +201,24 @@
                             <div>
                                 <div class="col ms-3 me-3">
                                     <h6>Aprender</h6>
-                                    <p style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Ver todas as
-                                        épocas</p>
-                                    <p style="font-family: mplus-medium;font-size:14px;">Tempo dos
-                                        Descobrimentos</p>
-                                    <p style="font-family: mplus-medium;font-size:14px">Da Únião Ibérica à Restauração
-                                        da
-                                        Independência</p>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./epochs.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Ver todas
+                                            as
+                                            épocas</a>
+                                    </div>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./epoch.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px;">Tempo dos
+                                            Descobrimentos</a>
+                                    </div>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./epoch.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px">Da Únião
+                                            Ibérica à Restauração
+                                            da
+                                            Independência</a>
+                                    </div>
                                 </div>
 
                             </div>
@@ -214,13 +226,17 @@
                         <hr class="mt-2 d-md-none">
                         <div class="row d-md-none" style="width:100%">
                             <div class="col ms-3 me-3">
-                                <h6>Top 10</h6>
+                                <a href="./top10.html" class="menuHamburguerOption">
+                                    <h6>Top 10</h6>
+                                </a>
                             </div>
                         </div>
                         <hr class="mt-2">
                         <div class="row mt-2 mb-2" style="width:100%">
                             <div class="col ms-3 me-3">
-                                <h6>Sobre</h6>
+                                <a href="../index.html#aboutUs" class="menuHamburguerOption">
+                                    <h6>Sobre</h6>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -250,7 +266,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class=" mb-5 ms-2 mt-5 me-3">
                                     <label id="lblTxtUsernameLogin">
-                                        <input type="text" id="userNameLogin" placeholder="Nome de utilizador">
+                                        <input type="text" id="userNameLogin" placeholder="Nome ou Email">
                                     </label>
                                 </div>
                             </div>
@@ -280,7 +296,7 @@
                             <!-- Botão Registrar-me -->
                             <div class="d-none d-sm-block col-sm-6 text-center">
                                 <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto"
-                                    data-bs-target="#modalRegisto" data-bs-dismiss="modal"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
                                     data-bs-toggle="modal">Registrar-me</button>
                             </div>
                         </div>
@@ -309,7 +325,7 @@
                             <!-- Botão Registrar-me -->
                             <div class=" col-sm-6 text-center mb-3">
                                 <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto1"
-                                    data-bs-target="#modalRegisto" data-bs-dismiss="modal"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
                                     data-bs-toggle="modal">Registrar-me</button>
                             </div>
                         </div>
@@ -320,7 +336,7 @@
     </div>
 
     <!-- Modal de registo -->
-    <div class="modal fade" id="modalRegisto" aria-hidden="true" data-bs-backdrop="static"
+    <div class="modal fade" id="modalRegister" aria-hidden="true" data-bs-backdrop="static"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
