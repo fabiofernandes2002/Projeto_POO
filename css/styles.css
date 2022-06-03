@@ -742,9 +742,9 @@ input[type="date"]:focus  {
     font-size: 14px;
 }
 
-#recursoSeculo {
+#epocaSeculo {
     font-family: 'rufina';
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 
 #btnAprenderSeculo {
