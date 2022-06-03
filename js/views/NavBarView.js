@@ -23,6 +23,23 @@ function navbarView() {
     animateSearchBar()
     animateMenuHamburguer()
 
+    if (!document.querySelector('[src *= "indexView.js"]')) { //EM QUALQUER PÁGINA QUE NÃO SEJA O INDEX.HTML
+
+        // || ANIMAÇÕES AO FAZER SCROLL 
+        //Em todas as páginas html, exceto no index.html, não vai haver animações quando fazemos scroll.
+
+        /* Pintamos a navbar e o dropdown menu */
+        document.querySelector(".navbar").classList.add("shadow-sm")
+        document.querySelector(".navbar").style.backgroundColor = "#fff";
+        document.querySelector(".navbar").style.top = "0px";
+
+        document.querySelector("#containerMenuDropdown").style.top = `0px`;
+        document.querySelector("#navbarToggleExternal").style.border = "0.1px solid rgba(0, 0, 0, 0.189)"
+
+        /*removemos o eventlistener*/
+        window.removeEventListener('scroll', animateOnScroll);
+    }
+
 
 
     // CONSTRUIR CONTEÚDO DA NAVBAR (VERIFICAR SE USER AUTENTICADO)
@@ -115,6 +132,8 @@ function validateRegistrationData() {
             female.checked ? "Feminino" : "Masculino"
         );
     }
+
+    return [txtUsername.value, txtPassword.value]
 }
 
 /**
@@ -130,10 +149,10 @@ function bindRegisterForm() {
 
     formRegister.addEventListener("submit", (e) => {
         e.preventDefault()
-        let errorFound
+        let errorFound, usernameAndPassword
 
         try {
-            validateRegistrationData()
+            usernameAndPassword = validateRegistrationData()
         } catch (error) {
             errorFound = 1;
             displayMessage("#divAlertParentRegistration", error.message, "danger")
@@ -144,6 +163,7 @@ function bindRegisterForm() {
                 "Conta criada com sucesso!",
                 "success"
             )
+            User.login(usernameAndPassword[0], usernameAndPassword[1])
             setTimeout(() => {
                 location.reload();
             }, 1000);
@@ -162,7 +182,7 @@ function bindLoginForm() {
                 document.getElementById("userPasswordLogin").value
             );
             // Wait 1 second before reloading, so the user can see the login success message
-            location.reload();
+            /* location.reload(); */
         } catch (e) {
             displayMessage("#divAlertParentLogin", e.message, "danger");
         }

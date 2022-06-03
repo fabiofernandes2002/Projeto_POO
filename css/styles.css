@@ -128,9 +128,12 @@ input[type="search"]:focus {
 
 /* Remover outline, glow e sombra dos componentes, que o Bootstrap adiciona automaticamente, quando são focados */
 input[type="search"]:focus,
-.btn:focus {
+.btn:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
     box-shadow: none;
-    border-color: rgba(0, 0, 0, 0);
     box-shadow: 0;
     outline: 0 none;
 
@@ -556,7 +559,6 @@ input[type="search"]::-webkit-search-results-decoration {
 
 #modalLogin {
     border-radius: 10px;
-    border-style: none;
 }
 
 #btnEntrarLogin {
@@ -579,7 +581,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 #lblTxtPasswordLogin,
-#lblTxtUsernameLogin {
+#lblTxtUsernameLogin,
+#lblChangePwOldPassword,
+#lblChangePwNewPassword {
     position: relative;
     width: 100%;
 }
@@ -594,24 +598,6 @@ input[type="search"]::-webkit-search-results-decoration {
     background: url("../assets/img/passwordLogin.svg") center / contain no-repeat;
 }
 
-.eyeDiv {
-    position: absolute;
-    z-index: 30;
-    right: 10px;
-    top: 0;
-    bottom: 0;
-    width: 20px;
-    background: url("../assets/img/eye-close.svg") center / contain no-repeat;
-}
-
-#userPasswordLogin {
-    height: 3rem;
-    width: 100%;
-    border: grey solid 0.5px;
-    border-radius: 10px;
-    padding: 10px 40px;
-}
-
 #lblTxtUsernameLogin::before {
     content: "";
     position: absolute;
@@ -622,7 +608,18 @@ input[type="search"]::-webkit-search-results-decoration {
     background: url("../assets/img/UserLogin.svg") center / contain no-repeat;
 }
 
-#userNameLogin {
+.eyeDiv {
+    position: absolute;
+    z-index: 30;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url("../assets/img/eye-close.svg") center / contain no-repeat;
+}
+
+#userPasswordLogin,
+#userNameLogin{
     height: 3rem;
     width: 100%;
     border: grey solid 0.5px;
@@ -667,8 +664,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 #btnLevarRegisto:hover,
 #btnLevarRegisto1:hover {
-    background-color: #3DAAC5;
-    border-style: none;
+    background-color: #45BF63;
 }
 
 /* .bi-eye{
@@ -691,35 +687,28 @@ input[type="search"]::-webkit-search-results-decoration {
 
 #btnCreateAccount {
     background-color: #363F73;
-    border-style: none;
+}
+
+#btnCreateAccount:hover {
+    background-color: #515c98;
 }
 
 #btnHaveAccount {
-    border: 2px solid #363F73;
+    border: 2px solid #3DAAC5;
 }
 
 #btnHaveAccount:hover {
     background-color: #3DAAC5;
-    border-style: none;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus  {
     background-color: #f2f2f2;
-    border-style: none;
-    box-shadow: none;
+    border-color: #f2f2f2;
 }
 
-input[type="email"]:focus {
-    background-color: #f2f2f2;
-    border-style: none;
-    box-shadow: none;
-}
-
-input[type="password"]:focus {
-    background-color: #f2f2f2;
-    border-style: none;
-    box-shadow: none;
-}
 
 /* #eye{
     background-color: #fff;
@@ -761,7 +750,6 @@ input[type="password"]:focus {
 #btnAprenderSeculo {
     font-family: 'mplus-bold';
     background-color: #3DAAC5;
-    border-style: none;
     box-shadow: none;
 }
 
@@ -868,6 +856,20 @@ input[type="password"]:focus {
     width: 20px;
     background: url("../assets/img/logoutIcon.svg") center / contain no-repeat;
 }
+
+/* || MEU PERFIL */
+
+#barSeparator1 {
+    height: 90%;
+    position: absolute;
+    background-color: #D9674E;
+    width: 2px !important;
+    top: 0;
+    right: 50%;
+    transform:translate(9px,6%)
+
+}
+
 @media only screen and (min-width: 992px) and (max-width:1199px) {
     #divUsernmame {
         padding-left: 3.2rem;
