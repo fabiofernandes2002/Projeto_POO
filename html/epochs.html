@@ -16,11 +16,6 @@
     <!-- Fonts awesome -->
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
 
-    <style>
-        body {
-            height: 2000px;
-        }
-    </style>
 </head>
 
 <body>
@@ -31,7 +26,7 @@
 
             <!--  -->
             <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../index.html">
                     <img src="/assets/img/logo2.svg" alt="" id="imgLogo" width="115" height="48">
                 </a>
             </div>
@@ -43,7 +38,7 @@
 
                         <!-- Barra de pesquisa -->
                         <div class="search-bar">
-                            <input type="search" class="form-control" id="imputProcurar" placeholder="Procurar"
+                            <input type="search" class="form-control imputProcurar" placeholder="Procurar"
                                 aria-label="Search">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                 style="display: none" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
@@ -76,10 +71,8 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Tempo dos Descobrimentos</a></li>
-                        <li>
-                            <a href="" class="dropdown-item"></a>
-                        </li>
+                        <li><a class="dropdown-item" href="./epoch.html">Tempo dos Descobrimentos</a></li>
+                        <li></li>
                         <li><a class="dropdown-item" href="#">Da Únião Ibérica à Restauração da
                                 Independência
                             </a></li>
@@ -177,7 +170,7 @@
                             <!-- Barra de pesquisa -->
                             <div class="search-bar mt-3 d-sm-none">
                                 <div class="me-3 ms-3">
-                                    <input type="search" class="form-control" id="imputProcurarMenu"
+                                    <input type="search" class="form-control imputProcurarMenu"
                                         placeholder="Procurar" aria-label="Search">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                         style="display: none" width="1em" height="1em"
@@ -352,100 +345,74 @@
 
                     <form class="row g-3 needs-validation" id="formRegister" novalidate>
                         <div class="col-12 col-sm-6 text-center">
-                            <label for="txtNameUser" class="form-label">Nome</label>
+                            <label for="txtNameUser" class="form-label">Nome de utilizador</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-
                                 <!-- Nome do utilizador -->
-                                <input type="text" class="form-control" id="txtNameUserRegister" value="Mark" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <label id="lblTxtUsernameRegister">
+                                    <input type="text" id="userNameRegister" value="Mark" required>
+                                </label>
                             </div>
 
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtCity" class="form-label">Localidade</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-geo-alt-fill"></i></span>
-
                                 <!-- Cidade -->
-                                <input type="text" class="form-control" id="txtCity"
-                                    aria-describedby="inputGroupPrepend" required value="Porto">
-
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtCity">
+                                    <input type="text" id="txtCity" class="input" required value="Porto">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtEmail" class="form-label">Email</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-envelope-fill"></i></span>
                                 <!-- Email -->
-                                <input type="email" class="form-control" id="txtEmail"
-                                    aria-describedby="inputGroupPrepend" required value="Porto@gmail.com">
-
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblEmail">
+                                    <input type="email" class="input" id="txtEmail" required value="Porto@gmail.com">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtBirthDate" class="form-label">Data de nascimento</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-calendar-range-fill"></i></i></span>
-
                                 <!-- Data de nascimento -->
-                                <input type="date" class="form-control" id="txtBirthDate"
-                                    aria-describedby="inputGroupPrepend" required value="2000-05-05">
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblDate">
+                                    <input type="date" class="input" id="txtBirthDate" required value="2000-05-05">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="userPasswordRegister" class="form-label">Palavra-passe</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="fa fa-lock"></i></i></span>
+
                                 <!-- Password -->
-                                <input type="password" class="form-control" id="userPasswordRegister"
-                                    aria-describedby="inputGroupPrepend" required value="123">
-                                <div class="eyeDiv"></div>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" id="userPasswordRegister" class="input" required value="123">
+                                    <div class="eyeDiv"></div>
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="userPasswordConfirm" class="form-label" id="confirmPassword">Confirmar
                                 palavra-passe</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="fa fa-lock"></i></i></span>
                                 <!-- Conf. Password -->
-                                <input type="password" class="form-control" id="userPasswordConfirm"
-                                    aria-describedby="inputGroupPrepend" required>
-                                <div class="eyeDiv"></div>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" class="input" id="userPasswordConfirm" required>
+                                    <div class="eyeDiv"></div>
+                                </label>
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-12 col-sm-6 text-center">
+                            <div class="col-12 text-center">
                                 <p class="text-center">Sexo</p>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check ms-5 form-check-inline">
                                     <!-- Feminino -->
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                         id="radioFemale" value="option1" checked>
                                     <label class="form-check-label" for="radioFemale">Feminino</label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline ms-5">
                                     <!-- Masculino -->
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                         id="radioMale" value="option2">
@@ -475,26 +442,26 @@
 
     <!-- Sessão dos séculos disponivies -->
     <section>
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-3 mt-5">
+        <div class="container ">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-4 col-md-3 col-sm-4 col-4 mt-5">
                     <h3 id="epocaSeculo" style="font-family:'mplus-bold'">Épocas Disponíveis</h3>
                 </div>
 
                 <!-- Barra de pesquisa -->
-                <div class="col-3 mt-5">
+                <div class="col-lg-3 col-md-4 col-sm-5 col-7 mt-5" id="searchBarEpochs">
                     <div class="search-bar">
-                        <input type="search" class="form-control" id="imputProcurar" placeholder="Pesquisar recurso"
+                        <input type="search" class="form-control imputProcurar" placeholder="Pesquisar recurso"
                             aria-label="Search">
                         <div class="search-button-div">
                             <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-2 mt-5" style="margin-left: 7em;">
+                <!-- Ordenar -->
+                <div class="d-none d-sm-block col-lg-2 col-md-2 col-sm-3 mt-5">
                     <div class="dropdown">
-                        <button class="btn btnOrdenar dropdown-toggle rounded-pill" style="margin-left: 4em;"
+                        <button class="btn btnOrdenar dropdown-toggle rounded-pill"
                             type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Ordenar
                         </button>
@@ -523,10 +490,65 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Desbloqueados -->
+                <div class="d-none d-sm-none d-md-inline-block col-lg-3 col-md-3 mt-5 rounded-pill">
+                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1"
+                        value="option1">
+                    <label class="form-check-label" for="exampleRadios1">Desbloqueados</label>
+                </div>
+            </div>
 
-                <div class="col-2 mt-5 py-2 rounded-pill">
-                    <!-- <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                    <label class="btn btn-outline-danger" for="danger-outlined">Desbloqueado</label> -->
+            <!-- Barra de pesquisa em dispositivos mobile -->
+            <div class="row d-flex align-items-center rounded-pill mt-3">
+                <div class="col-12">
+                    <div class="search-bar" id="searchBarEpochsMobile">
+                        <input type="search" class="form-control imputProcurar" placeholder="Pesquisar recurso"
+                            aria-label="Search">
+                        <div class="search-button-div">
+                            <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ordenar em dispositivos mobile -->
+            <div class="row d-flex align-items-center rounded-pill mt-3 d-block d-sm-none">
+                <div class="col-12">
+                    <div class="dropdown">
+                        <button class="btn btnOrdenar dropdown-toggle rounded-pill"
+                            type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ordenar
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    Época asc.
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    Época des.
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    Alfabeto
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desbloqueados em dispositivos mobile -->
+            <div class="row d-flex align-items-center rounded-pill mt-3 d-sm-block d-md-none">
+                <div class="col-12 rounded-pill">
                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1"
                         value="option1">
                     <label class="form-check-label" for="exampleRadios1">Desbloqueados</label>
@@ -534,9 +556,10 @@
             </div>
 
 
-            <div class="row mt-5 row-cols-1 row-cols-md-2">
+            <!-- CARDS -->
+            <div class="row mt-5 row-cols-1 row-cols-md-2" id="placeCardsHere">
 
-                <div class="col">
+                <!-- <div class="col">
                     <div class="card card-most-popular-left mb-4" style="max-width: 514px;max-height: 180px;">
                         <div class="row g-0">
                             <div class="col-4 "
@@ -551,7 +574,7 @@
                                     overflow: hidden;">Época das grandes navegações, descobrimentos maritímos, e muito
                                         mais </p>
                                     <div class="text-end">
-                                        <a class="btn btn-card btn-md rounded-pill   " href="#"
+                                        <a class="btn btn-card btn-md rounded-pill" href="./epoch.html"
                                             role="button">Aprender</a>
                                     </div>
                                 </div>
@@ -583,56 +606,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col">
-                    <div class="card card-most-popular-left mb-4" style="max-width: 514px;max-height: 180px;">
-                        <div class="row g-0">
-                            <div class="col-4 "
-                                style="height:180px;background-image: url('/assets/img/tempo_dos_descobrimentos.png');background-size: contain;background-repeat: no-repeat;background-position: center bottom;">
-                            </div>
-                            <div class="col-8">
-                                <div class="card-body">
-                                    <h6 class="century-title">Séc. XV - XVI</h6>
-                                    <h5 class="card-title" style="text-overflow: ellipsis;white-space: nowrap;
-                                    overflow: hidden;">Tempo dos descobrimentos</h5>
-                                    <p class="card-text" style="text-overflow: ellipsis;white-space: nowrap;
-                                    overflow: hidden;">Época das grandes navegações, descobrimentos maritímos, e muito
-                                        mais </p>
-                                    <div class="text-end">
-                                        <a class="btn btn-card btn-md rounded-pill" href="#" role="button">Aprender</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card card-most-popular-right mb-4" style="max-width: 514px;max-height: 180px;">
-                        <div class="row g-0">
-                            <div class="col-4"
-                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;">
-                            </div>
-
-                            <div class="col-8">
-                                <div class="card-body">
-                                    <h6 class="century-title">Séc. XVII</h6>
-                                    <h5 class="card-title" style="text-overflow: ellipsis;white-space: nowrap;
-                                    overflow: hidden;">Da União Ibérica à Restauração da Independência</h5>
-                                    <p class="card-text" style="text-overflow: ellipsis;white-space: nowrap;
-                                    overflow: hidden;">Época das grandes navegações, descobrimentos maritímos, e muito
-                                        mais </p>
-                                    <div class="text-end">
-                                        <a class="btn btn-card btn-md rounded-pill   " href="#"
-                                            role="button">Aprender</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -647,7 +622,7 @@
 
     <!-- REFERÊNCIA AOS JS -->
 
-    <!-- <script type="module" src="js/views/indexView.js"></script> -->
+    <script type="module" src="../js/views/EpochsView.js"></script> 
     <script type="module" src="../js/views/NavbarView.js"></script>
 
     <!-- Bootstrap Bundle with Popper -->

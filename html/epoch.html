@@ -31,7 +31,7 @@
 
             <!--  -->
             <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../index.html">
                     <img src="/assets/img/logo2.svg" alt="" id="imgLogo" width="115" height="48">
                 </a>
             </div>
@@ -43,7 +43,7 @@
 
                         <!-- Barra de pesquisa -->
                         <div class="search-bar">
-                            <input type="search" class="form-control" id="imputProcurar" placeholder="Procurar"
+                            <input type="search" class="form-control imputProcurar" placeholder="Procurar"
                                 aria-label="Search">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                 style="display: none" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
@@ -76,10 +76,8 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Tempo dos Descobrimentos</a></li>
-                        <li>
-                            <a href="" class="dropdown-item"></a>
-                        </li>
+                        <li><a class="dropdown-item" href="./epoch.html">Tempo dos Descobrimentos</a></li>
+                        <li></li>
                         <li><a class="dropdown-item" href="#">Da Únião Ibérica à Restauração da
                                 Independência
                             </a></li>
@@ -177,7 +175,7 @@
                             <!-- Barra de pesquisa -->
                             <div class="search-bar mt-3 d-sm-none">
                                 <div class="me-3 ms-3">
-                                    <input type="search" class="form-control" id="imputProcurarMenu"
+                                    <input type="search" class="form-control imputProcurarMenu"
                                         placeholder="Procurar" aria-label="Search">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                         style="display: none" width="1em" height="1em"
@@ -352,100 +350,74 @@
 
                     <form class="row g-3 needs-validation" id="formRegister" novalidate>
                         <div class="col-12 col-sm-6 text-center">
-                            <label for="txtNameUser" class="form-label">Nome</label>
+                            <label for="txtNameUser" class="form-label">Nome de utilizador</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-
                                 <!-- Nome do utilizador -->
-                                <input type="text" class="form-control" id="txtNameUserRegister" value="Mark" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <label id="lblTxtUsernameRegister">
+                                    <input type="text" id="userNameRegister" value="Mark" required>
+                                </label>
                             </div>
 
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtCity" class="form-label">Localidade</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-geo-alt-fill"></i></span>
-
                                 <!-- Cidade -->
-                                <input type="text" class="form-control" id="txtCity"
-                                    aria-describedby="inputGroupPrepend" required value="Porto">
-
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtCity">
+                                    <input type="text" id="txtCity" class="input" required value="Porto">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtEmail" class="form-label">Email</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-envelope-fill"></i></span>
                                 <!-- Email -->
-                                <input type="email" class="form-control" id="txtEmail"
-                                    aria-describedby="inputGroupPrepend" required value="Porto@gmail.com">
-
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblEmail">
+                                    <input type="email" class="input" id="txtEmail" required value="Porto@gmail.com">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtBirthDate" class="form-label">Data de nascimento</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-calendar-range-fill"></i></i></span>
-
                                 <!-- Data de nascimento -->
-                                <input type="date" class="form-control" id="txtBirthDate"
-                                    aria-describedby="inputGroupPrepend" required value="2000-05-05">
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblDate">
+                                    <input type="date" class="input" id="txtBirthDate" required value="2000-05-05">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="userPasswordRegister" class="form-label">Palavra-passe</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="fa fa-lock"></i></i></span>
+
                                 <!-- Password -->
-                                <input type="password" class="form-control" id="userPasswordRegister"
-                                    aria-describedby="inputGroupPrepend" required value="123">
-                                <div class="eyeDiv"></div>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" id="userPasswordRegister" class="input" required value="123">
+                                    <div class="eyeDiv"></div>
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="userPasswordConfirm" class="form-label" id="confirmPassword">Confirmar
                                 palavra-passe</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="fa fa-lock"></i></i></span>
                                 <!-- Conf. Password -->
-                                <input type="password" class="form-control" id="userPasswordConfirm"
-                                    aria-describedby="inputGroupPrepend" required>
-                                <div class="eyeDiv"></div>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" class="input" id="userPasswordConfirm" required>
+                                    <div class="eyeDiv"></div>
+                                </label>
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-12 col-sm-6 text-center">
+                            <div class="col-12 text-center">
                                 <p class="text-center">Sexo</p>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check ms-5 form-check-inline">
                                     <!-- Feminino -->
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                         id="radioFemale" value="option1" checked>
                                     <label class="form-check-label" for="radioFemale">Feminino</label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline ms-5">
                                     <!-- Masculino -->
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                         id="radioMale" value="option2">
@@ -504,7 +476,7 @@
         <div class="container" style="font-family: mplus-medium; font-size: 14px;" >
             <div class=" p-3 mb-2 mt-5 rounded" style="background-color: #f2f2f2;">
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 1200"><path fill="currentColor" d="M600 1200C268.65 1200 0 931.35 0 600S268.65 0 600 0s600 268.65 600 600s-268.65 600-600 600zM450 300.45v599.1L900 600L450 300.45z"/></svg>
-                <a href="#modalVideoTutorial" data-bs-toggle="modal" role="button" style="text-decoration: none; color: black;"><span style="margin-left: 10px;">Chegada a Cabo Branco</span></a>
+                <a href="#modalVideoTutorial" data-bs-toggle="modal" role="button" style="text-decoration: none; color: black;"><span style="margin-left: 10px;">Mitos e Lendas: Um Mundo por Descobrir</span></a>
             </div>                 
             <div class="p-3 mb-2 rounded" style="background-color: #f2f2f2;">
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 1200"><path fill="currentColor" d="M600 1200C268.65 1200 0 931.35 0 600S268.65 0 600 0s600 268.65 600 600s-268.65 600-600 600zM450 300.45v599.1L900 600L450 300.45z"/></svg>
@@ -526,21 +498,15 @@
         <div id="modalVideoTutorial" class="modal">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Video do Tutorial</h5>
+                    <div class="modal-header shadow-sm" style="background-color:white">
+                        <h5 class="modal-title" style="color:black">Mitos e Lendas: Um Mundo por Descobrir</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h3 id="tituloVideo">Chegada a Cabo Branco</h3>
-                        <p class="col-8">O cabo dá nome à península da qual é a extremidade, onde se situa a pequena
-                            localidade de Lagouira, parte do Saara Ocidental controlado de facto por Marrocos, 
-                            e Nouadhibou (Port Étienne durante a época da colonização francesa), a segunda 
-                            maior cidade da Mauritânia.
-                        </p>
                         <div class="row">
                             <div class="col-8">
                                 <div class="ratio ratio-16x9">
-                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1" title="YouTube video" allowfullscreen></iframe>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/e-6maUxSCYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 <div class="row">
                                     <div class="col-2 mt-3">

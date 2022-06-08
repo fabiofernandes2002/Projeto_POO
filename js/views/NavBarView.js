@@ -24,7 +24,7 @@ function navbarView() {
     animateMenuHamburguer()
 
     let pathOtherPages, pathIndexPage
-    if (!document.querySelector('[src *= "indexView.js"]')) { //EM QUALQUER PÁGINA QUE NÃO SEJA O INDEX.HTML
+    if (!document.querySelector('[src *= "IndexView.js"]')) { //EM QUALQUER PÁGINA QUE NÃO SEJA O INDEX.HTML
 
         // || ANIMAÇÕES AO FAZER SCROLL 
         //Em qualquer página que não seja o index.html, não vai haver animações quando fazemos scroll.
@@ -44,6 +44,10 @@ function navbarView() {
         pathIndexPage = "../index.html"
 
     } else {
+        
+        if (document.querySelector('[src *= "EpochsView.js"]')) {
+            document.querySelector(".search-bar").classList.add("d-none")
+        }
 
         pathOtherPages = "./html/"
         pathIndexPage = "./index.html"
@@ -90,8 +94,8 @@ function validateRegistrationData() {
      * @description Elemento que aparece na modal de registo
      * @type {HTMLElement}
      */
-    const txtUsername = document.querySelector("#txtNameUserRegister")
-
+    const txtUsername = document.querySelector("#userNameRegister")
+    
     /**
      * INPUT DA LOCALIDADE
      * @description Elemento que aparece na modal de registo
@@ -111,14 +115,17 @@ function validateRegistrationData() {
      * @type {string}
      */
     const txtBirthDate = document.querySelector("#txtBirthDate").value
-
     /**
      * RADIO BUTTON "Feminino"
      * @description Elemento que aparece na modal de registo
      * @type {HTMLElement}
      */
     const female = document.querySelector("#radioFemale")
-
+    
+    // , txtEmail.value,txtCity.value,
+    //     txtPassword.value,
+    //     txtBirthDate.value,
+    //     female.checked
     const today = new Date()
 
     if (!(txtPassword.value === txtConfPassword.value)) {
@@ -139,7 +146,7 @@ function validateRegistrationData() {
             txtEmail.value,
             txtCity.value,
             txtPassword.value,
-            txtBirthDate.value,
+            txtBirthDate,
             female.checked ? "Feminino" : "Masculino"
         );
     }
@@ -317,8 +324,8 @@ function animateSearchBar() {
     })
 
     //Quando digitamos algo no input da barra de pesquisa da navbar, a lupa desloca-se para a direita e aparece o "X"
-    document.querySelector("#imputProcurar").addEventListener("input", () => {
-        if (document.querySelector("#imputProcurar").value === "") {
+    document.querySelector(".imputProcurar").addEventListener("input", () => {
+        if (document.querySelector(".imputProcurar").value === "") {
             document.querySelector('.search-button-div').style.transform = "translate(0,0)"
             document.querySelector('#x').style.display = "none"
         } else {
@@ -328,7 +335,7 @@ function animateSearchBar() {
     })
 
     document.querySelector('#x').addEventListener('click', () => {
-        document.querySelector("#imputProcurar").value = ""
+        document.querySelector(".imputProcurar").value = ""
         document.querySelector('.search-button-div').style.transform = "translate(0,0)"
         document.querySelector('#x').style.display = "none"
     })
@@ -526,7 +533,7 @@ function changeNavbarContent() {
     //If media query matches 
     if (window.matchMedia("(min-width: 1920px)").matches) { //Se a largura da página for maior ou igual que 1920px
         
-        if (document.querySelector('[src *= "indexView.js"]')) {
+        if (document.querySelector('[src *= "IndexView.js"]')) {
             // || ANIMAÇÕES AO FAZER SCROLL 
 
             window.removeEventListener('scroll', animateOnScroll);
@@ -554,7 +561,7 @@ function changeNavbarContent() {
     } else if (window.matchMedia("(min-width: 1200px) and (max-width: 1919px)").matches) { //Se a largura da página for maior ou igual que 1200ox e menor que 1919px
 
         
-        if (document.querySelector('[src *= "indexView.js"]')) {
+        if (document.querySelector('[src *= "IndexView.js"]')) {
             // || ANIMAÇÕES AO FAZER SCROLL 
 
             window.removeEventListener('scroll', animateOnScroll);
@@ -580,7 +587,7 @@ function changeNavbarContent() {
         document.querySelector("#imgLogo").style.width = "115px"
     } else if (window.matchMedia("(min-width: 992px) and (max-width:1199px)").matches) { // Se a largura da página for maior ou igual que 992px e menor que 1199px
 
-        if (document.querySelector('[src *= "indexView.js"]')) {
+        if (document.querySelector('[src *= "IndexView.js"]')) {
             // || ANIMAÇÕES AO FAZER SCROLL 
 
             window.removeEventListener('scroll', animateOnScroll);
@@ -606,7 +613,7 @@ function changeNavbarContent() {
         document.querySelector("#imgLogo").style.width = "115px"
     } else if (window.matchMedia("(min-width: 768px) and (max-width: 991px)").matches) { // Se a largura da página for maior ou igual que 768px e menor que 991px
 
-        if (document.querySelector('[src *= "indexView.js"]')) {
+        if (document.querySelector('[src *= "IndexView.js"]')) {
             // || ANIMAÇÕES AO FAZER SCROLL 
 
             window.removeEventListener('scroll', animateOnScroll);
@@ -636,7 +643,7 @@ function changeNavbarContent() {
         document.querySelector("#imgLogo").style.width = "115px"
     } else if (window.matchMedia("(min-width: 576px) and (max-width: 767px)").matches) { // Se a largura da página for maior ou igual que 576px e menor que 767px
 
-        if (document.querySelector('[src *= "indexView.js"]')) {
+        if (document.querySelector('[src *= "IndexView.js"]')) {
             // || ANIMAÇÕES AO FAZER SCROLL 
 
             window.removeEventListener('scroll', animateOnScroll);

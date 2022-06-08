@@ -51,8 +51,8 @@ html {
     font-family: 'mplus-bold'
 }
 
-#imputProcurar,
-#imputProcurarMenu,
+.imputProcurar,
+.imputProcurarMenu,
 #ulResources,
 #pLandingPage,
 .div-margin-left,
@@ -73,11 +73,97 @@ html {
 }
 
 /* || NAVBAR */
-.menuHamburguerOption{
+label[for="radioFemale"] {
+    position: relative
+}
+
+label[for="radioFemale"]::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: -5px;
+    bottom: 0;
+    height: 35px;
+    width: 35px;
+    background: url("../assets/img/femininIcon.svg") center / contain no-repeat;
+    background-size: 23px 23px;
+    border-radius:50%;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgba(242, 242, 242, 0.25);
+}
+
+#radioFemale:checked + label[for="radioFemale"]::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: -5px;
+    bottom: 0;
+    height: 35px;
+    width: 35px;
+    background: url("../assets/img/femininIcon.svg") center / contain no-repeat;
+    background-size: 23px 23px;
+    border-radius:50%;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 0px 8px #3DAAC5;
+}
+
+#radioFemale{
+    display:none
+}
+
+
+
+label[for="radioMale"] {
+    position: relative
+}
+
+label[for="radioMale"]::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: -5px;
+    bottom: 0;
+    height: 35px;
+    width: 35px;
+    background: url("../assets/img/maleIcon.svg") center / contain no-repeat;
+    background-size: 20px 20px;
+    border-radius:50%;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 4px rgba(242, 242, 242, 0.25);
+}
+
+#radioMale:checked + label[for="radioMale"]::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: -5px;
+    bottom: 0;
+    height: 35px;
+    width: 35px;
+    background: url("../assets/img/maleIcon.svg") center / contain no-repeat;
+    background-size: 20px 20px;
+    border-radius:50%;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 0px 8px #3DAAC5;
+}
+
+#radioMale {
+    display:none
+}
+
+
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+    display: none;
+}
+
+.menuHamburguerOption {
     color: black;
     text-decoration: none;
 }
-.menuHamburguerOption:hover{
+
+.menuHamburguerOption:hover {
     color: black;
 }
 
@@ -120,8 +206,15 @@ nav {
     padding-right: 0;
     display: block;
     position: relative;
-}
 
+    
+}
+.imputProcurar:focus{
+    border: 1px solid #f2f2f2;
+    box-shadow: none;
+    box-shadow: 0;
+    outline: 0 none;
+}
 input[type="search"] {
     border-radius: 100px;
     width: 100%;
@@ -139,7 +232,6 @@ input[type="search"]:focus {
 }
 
 /* Remover outline, glow e sombra dos componentes, que o Bootstrap adiciona automaticamente, quando são focados */
-input[type="search"]:focus,
 .btn:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -148,7 +240,6 @@ input[type="date"]:focus {
     box-shadow: none;
     box-shadow: 0;
     outline: 0 none;
-
 }
 
 .search-button-div {
@@ -421,7 +512,7 @@ input[type="date"]:focus {
 }
 
 #containerMenuDropdown {
-    z-index: 2;
+    z-index: 10;
     transition: top 0.2s;
 
 }
@@ -614,8 +705,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
 #lblTxtPasswordLogin,
 #lblTxtUsernameLogin,
+#lblTxtUsernameRegister,
 #lblChangePwOldPassword,
-#lblChangePwNewPassword {
+#lblChangePwNewPassword,
+#lblTxtCity,
+#lblEmail,
+#lblDate {
     position: relative;
     width: 100%;
 }
@@ -630,7 +725,8 @@ input[type="search"]::-webkit-search-results-decoration {
     background: url("../assets/img/passwordLogin.svg") center / contain no-repeat;
 }
 
-#lblTxtUsernameLogin::before {
+#lblTxtUsernameLogin::before,
+#lblTxtUsernameRegister::before {
     content: "";
     position: absolute;
     left: 10px;
@@ -638,6 +734,36 @@ input[type="search"]::-webkit-search-results-decoration {
     bottom: 0;
     width: 20px;
     background: url("../assets/img/UserLogin.svg") center / contain no-repeat;
+}
+
+#lblTxtCity::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url("../assets/img/cityIcon.svg") center / contain no-repeat;
+}
+
+#lblEmail::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url("../assets/img/emailIcon.svg") center / contain no-repeat;
+}
+
+#lblDate::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: url("../assets/img/dateIcon.svg") center / contain no-repeat;
 }
 
 .eyeDiv {
@@ -658,34 +784,30 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 10px 40px;
 }
 
-#userNameLogin{
+#userNameLogin,
+#userNameRegister,
+.input {
     height: 3rem;
     width: 100%;
     border: grey solid 0.5px;
     border-radius: 10px;
     padding: 10px 10px 10px 40px
 }
+
 #userNameLogin:hover,
-#userPasswordLogin:hover {
+#userPasswordLogin:hover,
+#userNameRegister:hover,
+.input {
     border: grey solid 0.5px;
     outline: none
 }
 
 #userNameLogin:focus,
-#userPasswordLogin:focus {
+#userPasswordLogin:focus,
+#userNameRegister:focus,
+.input#focus {
     outline: none;
     box-shadow: none;
-}
-
-#txtEmail,
-#txtCity,
-#txtBirthDate,
-#txtNameUserRegister {
-    font-family: 'mplus-medium';
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-left-style: none;
-
 }
 
 .pModalLogin {
@@ -908,13 +1030,35 @@ input[type="date"]:focus {
     transform: translate(9px, 6%)
 }
 
+/* || ÉPOCAS */
 
+#dropdownMenuButton1{
+    margin-left: 0;
+}
+
+#searchBarEpochsMobile{
+    display: none;
+}
+
+@media only screen and (min-width:1200px) {
+    #dropdownMenuButton1{
+        margin-left: 3em;
+    }
+    
+}
 
 @media only screen and (min-width: 992px) and (max-width:1199px) {
     #divUsernmame {
         padding-left: 3.2rem;
-
     }
+
+    #dropdownMenuButton1{
+        margin-left: 2em;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -949,6 +1093,14 @@ input[type="date"]:focus {
     #iconArrow1 {
         margin-left: 6em;
     }
+    
+    #searchBarEpochs{
+        display: none;
+    }
+
+    #searchBarEpochsMobile{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 349px) {
@@ -966,4 +1118,14 @@ input[type="date"]:focus {
     #iconArrow1 {
         margin-left: 5em;
     }
-}
+
+    #searchBarEpochs{
+        display: none;
+    }
+
+    #searchBarEpochsMobile{
+        display: block;
+    }
+
+}   
+

@@ -97,6 +97,7 @@ class User {
   avatars = []
   medals = []
   totalPoints = 0
+  epochs = [0,1]
 
 
   constructor(username, email, city, password, birthDate, sex) {
