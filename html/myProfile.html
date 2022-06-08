@@ -12,6 +12,8 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link href="../css/styles.css" rel="stylesheet">
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Fonts awesome -->
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
@@ -480,45 +482,47 @@
                                 href="#" role="button">Alterar imagem </a></span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
-                        <label for="txtUsernameChangePw" class="form-label">Nome de utilizador</label>
-                        <input type="text" class="form-control" id="txtUsernameChangePw" aria-describedby="helpId"
-                            style="box-shadow: 0px 4px 4px #D9674E;" placeholder="">
+                <form id="profileForm">
+                    <div class="row">
+                        <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
+                            <label for="txtUsernameChange" class="form-label">Nome de utilizador</label>
+                            <input type="text" class="form-control" id="txtUsernameChange" aria-describedby="helpId"
+                                style="box-shadow: 0px 4px 4px #D9674E;" placeholder="" required>
+                        </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
-                        <label for="oldPw" class="form-label">Palavra passe atual</label>
-                        <label id="lblChangePwOldPassword">
-                            <input type="password" id="oldPw" class="form-control" aria-describedby="helpId"
-                                style="box-shadow: 0px 4px 4px #D9674E" placeholder="">
-                            <div class="eyeDiv"></div>
-                        </label>
+    
+                    <div class="row">
+                        <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
+                            <label for="oldPw" class="form-label">Palavra passe atual</label>
+                            <label id="lblChangePwOldPassword">
+                                <input type="password" id="oldPw" class="form-control" aria-describedby="helpId"
+                                    style="box-shadow: 0px 4px 4px #D9674E" placeholder="" required>
+                                <div class="eyeDiv"></div>
+                            </label>
+                        </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
-                        <label for="newPw" class="form-label">Palavra passe nova</label>
-                        <label id="lblChangePwNewPassword">
-                            <input type="password" id="newPw" class="form-control" aria-describedby="helpId"
-                                style="box-shadow: 0px 4px 4px #D9674E" placeholder="">
-                            <div class="eyeDiv"></div>
-                        </label>
+    
+                    <div class="row">
+                        <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
+                            <label for="newPw" class="form-label">Palavra passe nova</label>
+                            <label id="lblChangePwNewPassword">
+                                <input type="password" id="newPw" class="form-control" aria-describedby="helpId"
+                                    style="box-shadow: 0px 4px 4px #D9674E" placeholder="" required>
+                                <div class="eyeDiv"></div>
+                            </label>
+                        </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col mt-5 ms-5 mb-5">
-                        <a class="btn btn-primary" href="#"
-                            style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;"
-                            role="button">Alterar dados</a>
+    
+                    <div class="row">
+                        <div class="col mt-5 ms-5 mb-5">
+                            <!-- <a class="btn btn-primary" href="#" type="submit"
+                                style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;"
+                                role="button">Alterar dados</a> -->
+                            <button class="btn btn-primary" type="submit" style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;">Alterar dados</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-
             <div class="col-5 offset-3 mt-5 d-none d-md-block">
                 <div class="row">
                     <h5 style="font-family: 'mplus-bold';">Minhas conquistas</h5>
@@ -653,7 +657,7 @@
                             <p style="margin: 0;
                                 position: absolute;
                                 top: 50%;
-                                transform: translateY(-50%);">1020</p>
+                                transform: translateY(-50%);" id="userPoints"></p>
                         </div>
                     </div>
                 </div>
@@ -671,7 +675,7 @@
                             <p style="margin: 0;
                                 position: absolute;
                                 top: 50%;
-                                transform: translateY(-50%);">10</p>
+                                transform: translateY(-50%);" id="quantityMedal"></p>
                         </div>
                     </div>
                 </div>
@@ -689,7 +693,7 @@
                             <p style="margin: 0;
                                 position: absolute;
                                 top: 50%;
-                                transform: translateY(-50%);">2</p>
+                                transform: translateY(-50%);" id="quantityAvatar"></p>
                         </div>
                     </div>
                 </div>
@@ -707,7 +711,7 @@
                             <p style="margin: 0;
                                 position: absolute;
                                 top: 50%;
-                                transform: translateY(-50%);">2º</p>
+                                transform: translateY(-50%);" id="UserPosition"></p>
                         </div>
                     </div>
                 </div>
@@ -758,7 +762,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- REFERÊNCIA AOS JS -->
-    <!-- <script type="module" src="js/views/indexView.js"></script> -->
+    <script type="module" src="../js/views/MyProfileView.js"></script>
     <script type="module" src="../js/views/NavbarView.js"></script>
 
     <!-- Bootstrap Bundle with Popper -->
