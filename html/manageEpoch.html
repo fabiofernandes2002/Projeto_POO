@@ -5,38 +5,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Perfil utilizador</title>
+    <title>Gerencia das época especifica</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link href="../css/styles.css" rel="stylesheet">
-    <!-- Sweetalert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Fonts awesome -->
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
-
     <style>
-        #bodyP {
+        #epocaDisponivel{
+            font-family: 'mplus-bold';
+            font-size: 25px;
+        }
+
+        body{
+            font-family: 'mplus-medium';
+        }
+
+        #btnAddEpochs{
+            font-family: 'mplus-bold';
+            background-color: #363F73;
+            border-style: none;
+            box-shadow: none;
+        }
+
+        input[type="url"]:focus{
+            border-style: none;
+            box-shadow: none;
             background-color: #f2f2f2;
+            border-color: #f2f2f2;
         }
 
-        .circle {
-            background-color: #aaa;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
+        table{
+            border-collapse: collapse;
+            border-radius: 0.625em;
+            border: 1px solid #FFF;
             overflow: hidden;
-            position: relative;
+            
         }
 
-        .circle img {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+        .table {border: 3px solid black!important;} 
+        .table tr, .table td, .table th {border: 0!important;}
+        .table tr td, 
+        .table tr {border-left: 3px solid #363F73!important;}
+        /* .table th {border-left: 3px solid #FFF!important;} */
+        .table tr td:nth-child(1), 
+        .table tr th:nth-child(1) {border-left: 0!important;}
+
+        thead{
+            background-color: #f2f2f2;
+            color: #000;
+            font-family: 'mplus-bold';
         }
+
+        tbody{
+            background-color: #f2f2f2;
+            font-family: 'mplus-medium';
+        }
+        
     </style>
 </head>
 
@@ -460,301 +489,92 @@
         </div>
     </div>
 
-    <!-- Perfil do utilizador -->
-    <section style="background-color: #fff; height: 60px;"></section>
-    <div class="container rounded mt-5 mb-5" id="bodyP">
-
-        <div class="row position-relative">
-            <div class="col d-none d-md-block">
-                <div id="barSeparator1"></div>
+    <!-- Gerencia das epocas disponiveis -->
+    <div class="container">
+        <form class="row g-3 mt-5">
+          <p id="epocaDisponivel">Tempo dos descobrimentos</p>
+          <div class="col-6">
+            <!-- <label for="validationCustom01" class="form-label">First name</label> -->
+            <input type="text" class="form-control" id="validationCustom01" value="nome do recurso" required>
+            <div class="valid-feedback">
+              Looks good!
             </div>
-
-            <div class="col-12 mt-5 ms-5" style="font-family: 'mplus-bold';">
-                <h4>Perfil de Utilizador</h4>
+          </div>
+          <div class="col-6">
+            <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
+            <input type="url" class="form-control" id="validationCustom02" value="url(video)" required>
+            <div class="valid-feedback">
+              Looks good!
             </div>
-
-            <div class="col-11 me-5 me-md-0 col-md-4 border-right">
-                <div class="row">
-                    <div class=" ms-5 d-flex flex-column align-items-rigth text-right p-3 py-5">
-                        <img class="circle " width="150px" src="../assets/img/avatars/default.png">
-                        <span><a class="btn btn-primary btn-sm mt-3 align-items-center text-center "
-                                style="width: 150px; background-color: #D9674E; font-family: 'mplus-bold'; border-style: none;"
-                                href="#" role="button">Alterar imagem </a></span>
-                    </div>
-                </div>
-                <form id="profileForm">
-                    <div class="row">
-                        <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
-                            <label for="txtUsernameChange" class="form-label">Nome de utilizador</label>
-                            <input type="text" class="form-control" id="txtUsernameChange" aria-describedby="helpId"
-                                style="box-shadow: 0px 4px 4px #D9674E;" placeholder="" required>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
-                            <label for="oldPw" class="form-label">Palavra passe atual</label>
-                            <label id="lblChangePwOldPassword">
-                                <input type="password" id="oldPw" class="form-control" aria-describedby="helpId"
-                                    style="box-shadow: 0px 4px 4px #D9674E" placeholder="" required>
-                                <div class="eyeDiv"></div>
-                            </label>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
-                            <label for="newPw" class="form-label">Palavra passe nova</label>
-                            <label id="lblChangePwNewPassword">
-                                <input type="password" id="newPw" class="form-control" aria-describedby="helpId"
-                                    style="box-shadow: 0px 4px 4px #D9674E" placeholder="" required>
-                                <div class="eyeDiv"></div>
-                            </label>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col mt-5 ms-5 mb-5">
-                            <!-- <a class="btn btn-primary" href="#" type="submit"
-                                style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;"
-                                role="button">Alterar dados</a> -->
-                            <button class="btn btn-primary" type="submit" style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;">Alterar dados</button>
-                        </div>
-                    </div>
-                </form>
+          </div>
+          <div class="col-6">
+            <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
+            <input type="text" class="form-control" id="validationCustom02" value="tags" required>
+            <div class="valid-feedback">
+              Looks good!
             </div>
-            <div class="col-5 offset-3 mt-5 d-none d-md-block">
-                <div class="row">
-                    <h5 style="font-family: 'mplus-bold';">Minhas conquistas</h5>
-                </div>
-                <div class="row me-5 mt-2">
-                    <div class="col" style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
-                    border-radius: 10px; font-family: 'mplus-medium'">
-                        <div class="row ">
-                            <div class="col-6">
-                                <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                                    <p style="margin: 0;
-                                    position: absolute;
-                                    top: 50%;
-                                    transform: translateY(-50%);">Total de XP</p>
-                                </div>
-                            </div>
-                            <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                                <div class="row position-relative" style="height: 3em;">
-                                    <p style="margin: 0;
-                                        position: absolute;
-                                        top: 50%;
-                                        transform: translateY(-50%);">1020</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-6">
-                                <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                                    <p style="margin: 0;
-                                    position: absolute;
-                                    top: 50%;
-                                    transform: translateY(-50%);">Medalhas</p>
-                                </div>
-                            </div>
-                            <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                                <div class="row position-relative" style="height: 3em;">
-                                    <p style="margin: 0;
-                                        position: absolute;
-                                        top: 50%;
-                                        transform: translateY(-50%);">10</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-6">
-                                <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                                    <p style="margin: 0;
-                                    position: absolute;
-                                    top: 50%;
-                                    transform: translateY(-50%);">Avatares</p>
-                                </div>
-                            </div>
-                            <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                                <div class="row position-relative" style="height: 3em;">
-                                    <p style="margin: 0;
-                                        position: absolute;
-                                        top: 50%;
-                                        transform: translateY(-50%);">2</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-6">
-                                <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                                    <p style="margin: 0;
-                                    position: absolute;
-                                    top: 50%;
-                                    transform: translateY(-50%);">Classificação</p>
-                                </div>
-                            </div>
-                            <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                                <div class="row position-relative" style="height: 3em;">
-                                    <p style="margin: 0;
-                                        position: absolute;
-                                        top: 50%;
-                                        transform: translateY(-50%);">2º</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <h5 style="font-family: 'mplus-bold';">Medalhas</h5>
-                </div>
-                <div class="row me-5 mt-2">
-                    <div class="col "
-                        style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
-                    border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
-                        <!-- https://stackoverflow.com/questions/43645577/how-to-force-inline-divs-inside-another-div -->
-                        <button
-                            style="z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;right:2%;transform:translateY(-50%);background-color:transparent; border:none;">
-                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="width:'2em'"
-                                height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
-                            </svg>
-                        </button>
-                        <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                        </div>
-                        <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                        </div>
-                        <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                        </div>
-                        <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-5 ms-5 me-5 d-block d-md-none">
-            <h5 style="font-family: 'mplus-bold';">Minhas conquistas</h5>
-        </div>
-        <div class="row ms-5 me-5 mt-2 d-block d-md-none">
-            <div class="col" style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
-            border-radius: 10px; font-family: 'mplus-medium'">
-                <div class="row ">
-                    <div class="col-6">
-                        <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                            <p style="margin: 0;
-                            position: absolute;
-                            top: 50%;
-                            transform: translateY(-50%);">Total de XP</p>
-                        </div>
-                    </div>
-                    <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                        <div class="row position-relative" style="height: 3em;">
-                            <p style="margin: 0;
-                                position: absolute;
-                                top: 50%;
-                                transform: translateY(-50%);" id="userPoints"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-6">
-                        <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                            <p style="margin: 0;
-                            position: absolute;
-                            top: 50%;
-                            transform: translateY(-50%);">Medalhas</p>
-                        </div>
-                    </div>
-                    <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                        <div class="row position-relative" style="height: 3em;">
-                            <p style="margin: 0;
-                                position: absolute;
-                                top: 50%;
-                                transform: translateY(-50%);" id="quantityMedal"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-6">
-                        <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                            <p style="margin: 0;
-                            position: absolute;
-                            top: 50%;
-                            transform: translateY(-50%);">Avatares</p>
-                        </div>
-                    </div>
-                    <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                        <div class="row position-relative" style="height: 3em;">
-                            <p style="margin: 0;
-                                position: absolute;
-                                top: 50%;
-                                transform: translateY(-50%);" id="quantityAvatar"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-6">
-                        <div class="row position-relative ms-md-0 ms-lg-4" style="height: 4em;">
-                            <p style="margin: 0;
-                            position: absolute;
-                            top: 50%;
-                            transform: translateY(-50%);">Classificação</p>
-                        </div>
-                    </div>
-                    <div class="col-6 text-center" style="font-family: 'mplus-bold'; font-size:1.3em">
-                        <div class="row position-relative" style="height: 3em;">
-                            <p style="margin: 0;
-                                position: absolute;
-                                top: 50%;
-                                transform: translateY(-50%);" id="UserPosition"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-5 ms-5 d-block d-md-none">
-            <h5 style="font-family: 'mplus-bold';">Medalhas</h5>
-        </div>
-        <div class="row me-5 ms-5 mt-2 d-block d-md-none">
-            <div class="col "
-                style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
-            border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
-                <!-- https://stackoverflow.com/questions/43645577/how-to-force-inline-divs-inside-another-div -->
-
-                <button
-                    style="z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;right:2%;transform:translateY(-50%);background-color:transparent; border:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="width:'2em'"
-                        height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                        <path fill="currentColor"
-                            d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
-                    </svg>
+          </div>
+          <div class="col-4">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Seleciona uma época
                 </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Tempo dos descobrimentos</a></li>
+                  <li><a class="dropdown-item" href="#">Da União Ibérica à Restauração da Independência</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="col-2 text-end">
+            <button class="btn btn-primary" id="btnAddEpochs" type="submit">Adicionar</button>
+          </div>
+          <div class="col-12 text-end">
+            <button type="button" class="btn btn-outline-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M23.5 4h-1.67A3.001 3.001 0 0 0 19 2h-6a3.001 3.001 0 0 0-2.83 2H8.5A3.5 3.5 0 0 0 5 7.5v19A3.5 3.5 0 0 0 8.5 30h5.546a2.49 2.49 0 0 1 .032-1.129l.791-3.051a4.159 4.159 0 0 1 1.01-1.82H11a1 1 0 1 1 0-2h6.86l6.652-6.706A4.36 4.36 0 0 1 27 14.042V7.5A3.5 3.5 0 0 0 23.5 4ZM13 4h6a1 1 0 1 1 0 2h-6a1 1 0 1 1 0-2Zm-3 9a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H11a1 1 0 0 1-1-1Zm1 4h5a1 1 0 1 1 0 2h-5a1 1 0 1 1 0-2Zm18.652 3.425l-8.613 8.543c-.352.349-.79.598-1.27.721l-3.02.778a1 1 0 0 1-1.218-1.22l.79-3.051c.118-.456.355-.872.687-1.206l8.57-8.64a2.88 2.88 0 1 1 4.074 4.075Z"/></svg>
+                Teste de avaliação
+            </button>
+            
+          </div>
+        </form>
 
-                <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
-                <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
-                <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
-                <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
-            </div>
+        <!-- tabela que lista as epoca especifica -->
+        <div class="mt-5">
+            <table class="table table-bordered">
+                <thead class="text-center align-items-center">
+                  <tr>
+                    <th scope="col">NOME</th>
+                    <th scope="col">URL(VIDEO)</th>
+                    <th scope="col">TAGS</th>
+                    <th scope="col">ELIMINAR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Chegada a Cabo Branco</td>
+                      <td>https://www.youtube.com/embed/tgbNymZ7vq  </td>
+                      <td>#cabo #branco #chegada</td>
+                      <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Publicação das Ordenações Afonsinas - Descoberta das ilhas de Cabo Verde</td>
+                        <td>https://www.youtube.com/embed/tgbNymZ7vq</td>
+                        <td>#cabo #branco #chegada</td>
+                        <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Chegada à Serra Leoa</td>
+                        <td>https://www.youtube.com/embed/tgbNymZ7vq</td>
+                        <td>#cabo #branco #chegada</td>
+                        <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                  </tbody>
+            </table>
         </div>
-
-
     </div>
     
 
-    <!-- Optional JavaScript -->
+     <!-- Optional JavaScript -->
     <!-- <script type="module" src="js/app.js"></script> -->
 
     <!-- Jquery -->
@@ -762,13 +582,13 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- REFERÊNCIA AOS JS -->
-    <script type="module" src="../js/views/MyProfileView.js"></script>
+    <!-- <script type="module" src="js/views/indexView.js"></script> -->
     <script type="module" src="../js/views/NavbarView.js"></script>
-
+    
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 

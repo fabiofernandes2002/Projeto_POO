@@ -23,18 +23,50 @@ function navbarView() {
     animateSearchBar()
     animateMenuHamburguer()
 
+    let pathOtherPages, pathIndexPage
+    if (!document.querySelector('[src *= "IndexView.js"]')) { //EM QUALQUER PÁGINA QUE NÃO SEJA O INDEX.HTML
+
+        // || ANIMAÇÕES AO FAZER SCROLL 
+        //Em qualquer página que não seja o index.html, não vai haver animações quando fazemos scroll.
+
+        /* Pintamos a navbar e o dropdown menu */
+        document.querySelector(".navbar").classList.add("shadow-sm")
+        document.querySelector(".navbar").style.backgroundColor = "#fff";
+        document.querySelector(".navbar").style.top = "0px";
+
+        document.querySelector("#containerMenuDropdown").style.top = `0px`;
+        document.querySelector("#navbarToggleExternal").style.border = "0.1px solid rgba(0, 0, 0, 0.189)"
+
+        /*removemos o eventlistener*/
+        window.removeEventListener('scroll', animateOnScroll);
+
+        pathOtherPages = "./"
+        pathIndexPage = "../index.html"
+
+    } else {
+        
+        if (document.querySelector('[src *= "EpochsView.js"]')) {
+            document.querySelector(".search-bar").classList.add("d-none")
+        }
+
+        pathOtherPages = "./html/"
+        pathIndexPage = "./index.html"
+    }
+
 
 
     // CONSTRUIR CONTEÚDO DA NAVBAR (VERIFICAR SE USER AUTENTICADO)
     if (User.isLogged()) { // USER AUTENTICADO
-        renderLoggedUserContent()
+        renderLoggedUserContent(pathOtherPages)
+    } else {
+        document.querySelector("#btnEntrarNavBar").classList.remove("d-none")
     }
 
     // CLICAR NO BOTÃO LOGOUT (O BOTÃO PODE NÃO EXISTIR POR ISSO USAR "?"" - OPTIONAL CHAINING)
-    document.querySelector("#logout a") ?.addEventListener("click", (e) => {
+    document.querySelector("#logout") ?.addEventListener("click", (e) => {
         e.preventDefault();
-        User.logout();
-        location.reload();
+        User.logout(pathIndexPage);
+
     })
 }
 
@@ -62,8 +94,8 @@ function validateRegistrationData() {
      * @description Elemento que aparece na modal de registo
      * @type {HTMLElement}
      */
-    const txtUsername = document.querySelector("#txtNameUserRegister")
-
+    const txtUsername = document.querySelector("#userNameRegister")
+    
     /**
      * INPUT DA LOCALIDADE
      * @description Elemento que aparece na modal de registo
@@ -83,21 +115,24 @@ function validateRegistrationData() {
      * @type {string}
      */
     const txtBirthDate = document.querySelector("#txtBirthDate").value
-
     /**
      * RADIO BUTTON "Feminino"
      * @description Elemento que aparece na modal de registo
      * @type {HTMLElement}
      */
     const female = document.querySelector("#radioFemale")
-
+    
+    // , txtEmail.value,txtCity.value,
+    //     txtPassword.value,
+    //     txtBirthDate.value,
+    //     female.checked
     const today = new Date()
 
     if (!(txtPassword.value === txtConfPassword.value)) {
 
         throw Error("Password e Confirmar Password não são iguais");
 
-    } else if ( //A data de nascimento prova que o utilizador tem menos do que 4 anos
+    } else if ( //Se a data de nascimento provar que o utilizador tem menos do que 4 anos
         !((txtBirthDate.substring(0, 4) == (today.getFullYear() - 4) && txtBirthDate.substring(5, 7) <= (today.getMonth() + 1) && txtBirthDate.substring(8, 10) <= (today.getDate())) ||
             (txtBirthDate.substring(0, 4) < (today.getFullYear() - 4)))
 
@@ -111,14 +146,16 @@ function validateRegistrationData() {
             txtEmail.value,
             txtCity.value,
             txtPassword.value,
-            txtBirthDate.value,
+            txtBirthDate,
             female.checked ? "Feminino" : "Masculino"
         );
     }
+
+    return [txtUsername.value, txtPassword.value]
 }
 
 /**
- * ADICIONAR UM EVEVENTLISTENER AO FORMULARIO DE REGISTO
+ * ADICIONAR O EVENTO "SUBMIT" AO FORMULARIO DE REGISTO
  */
 function bindRegisterForm() {
     /**
@@ -130,10 +167,10 @@ function bindRegisterForm() {
 
     formRegister.addEventListener("submit", (e) => {
         e.preventDefault()
-        let errorFound
+        let errorFound, usernameAndPassword
 
         try {
-            validateRegistrationData()
+            usernameAndPassword = validateRegistrationData()
         } catch (error) {
             errorFound = 1;
             displayMessage("#divAlertParentRegistration", error.message, "danger")
@@ -144,6 +181,7 @@ function bindRegisterForm() {
                 "Conta criada com sucesso!",
                 "success"
             )
+            User.login(usernameAndPassword[0], usernameAndPassword[1])
             setTimeout(() => {
                 location.reload();
             }, 1000);
@@ -151,6 +189,9 @@ function bindRegisterForm() {
     });
 }
 
+/**
+ * ADICIONAR EVENTO "SUBMIT" AO FORMULARIO DE LOGIN
+ */
 function bindLoginForm() {
 
     // CLICAR NO BOTÃO DE LOGIN
@@ -168,7 +209,6 @@ function bindLoginForm() {
         }
     })
 }
-
 /**
  * MOSTRAR UMA MENSAGEM DE ALERTA NO TOPO DO CORPO DA MODAL DE REGISTO
  */
@@ -213,24 +253,24 @@ function animateDropdownTogglers() {
     /* https://getbootstrap.com/docs/4.1/components/dropdowns/ */
 
     /**
-     *  Quando fechamos o dropdown da navbar, a cor do elemento {@link navbarDropdownTogglers} passa a ser preta
+     *  Quando fechamos os dropdowns da navbar, a cor dos elementos {@link navbarDropdownTogglers} passam a ser pretas
      */
     $('#navbarDropdown').on('hide.bs.dropdown', function () {
         navbarDropdownTogglers[0].style.color = "black"
-        if(document.querySelectorAll(".icon-arrow")[0].classList.contains("fa-chevron-up")){
+        if (document.querySelectorAll(".icon-arrow")[0].classList.contains("fa-chevron-up")) {
             document.querySelectorAll(".icon-arrow")[0].classList.add("fa-chevron-down")
             document.querySelectorAll(".icon-arrow")[0].classList.remove("fa-chevron-up")
         }
-        
+
     })
 
     $('#navbarDropdown1').on('hide.bs.dropdown', function () {
         navbarDropdownTogglers[0].style.color = "black"
-        if(document.querySelectorAll(".icon-arrow")[1].classList.contains("fa-chevron-up")){
+        if (document.querySelectorAll(".icon-arrow")[1].classList.contains("fa-chevron-up")) {
             document.querySelectorAll(".icon-arrow")[1].classList.add("fa-chevron-down")
             document.querySelectorAll(".icon-arrow")[1].classList.remove("fa-chevron-up")
         }
-        
+
     })
 
     /**
@@ -258,7 +298,7 @@ function animateDropdownTogglers() {
     })
 
 }
-/**z
+/**
  * ANIMAR E ESTILIZAR A BARRA DE PESQUISA
  */
 function animateSearchBar() {
@@ -284,8 +324,8 @@ function animateSearchBar() {
     })
 
     //Quando digitamos algo no input da barra de pesquisa da navbar, a lupa desloca-se para a direita e aparece o "X"
-    document.querySelector("#imputProcurar").addEventListener("input", () => {
-        if (document.querySelector("#imputProcurar").value === "") {
+    document.querySelector(".imputProcurar").addEventListener("input", () => {
+        if (document.querySelector(".imputProcurar").value === "") {
             document.querySelector('.search-button-div').style.transform = "translate(0,0)"
             document.querySelector('#x').style.display = "none"
         } else {
@@ -295,7 +335,7 @@ function animateSearchBar() {
     })
 
     document.querySelector('#x').addEventListener('click', () => {
-        document.querySelector("#imputProcurar").value = ""
+        document.querySelector(".imputProcurar").value = ""
         document.querySelector('.search-button-div').style.transform = "translate(0,0)"
         document.querySelector('#x').style.display = "none"
     })
@@ -437,43 +477,41 @@ function animateMenuHamburguer() {
 /**
  * RENDERIZAR NOVO CONTEÚDO NA NAVBAR SE O UTILIZADOR ESTIVER AUTENTICADO
  */
-function renderLoggedUserContent() {
+function renderLoggedUserContent(path) {
     const menuDropdown = document.querySelector("[aria-labelledby='navbarDropdown1']")
     let result
-
-    // PARA TODOS OS USERS AUTENTICADOS (professor ou aluno) 
-    document.querySelector("#btnEntrarNavBar").classList.add("d-none")
 
     document.querySelector("#loggedUser").classList.remove("d-none")
     document.querySelector("#divUsernmame").innerHTML += User.getUserLogged().username
 
+
     if (User.getUserLogged().type === "professor") { // COMO ADMIN
         result = `
-                        <div class="position-relative">
-                            <li id="myProfile"><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                        <div class="position-relative options-menu">
+                            <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>
                         </div>
-                        <div class="position-relative">
+                        <div class="position-relative options-menu">
                             <li class="manageResources"><a class="dropdown-item" href="#">Gerir recursos</a></li>
                         </div>
-                        <div class="position-relative">
+                        <div class="position-relative options-menu">
                             <li class="manageResources"><a class="dropdown-item" href="#">Gerir épocas</a></li>
                         </div>
-                        <div class="position-relative">
+                        <div class="position-relative options-menu">
                             <li class="manageResources"><a class="dropdown-item" href="#">Gerir conquistas</a></li>
                         </div>
-                        <div class="position-relative">
+                        <div class="position-relative options-menu">
                             <li id="manageUsers"><a class="dropdown-item" href="#">Gerir utilizadores</a></li>
                         </div>
-                        <div class="position-relative">
-                            <li id="logout"><a class="dropdown-item" href="#">Sair</a></li>
+                        <div class="position-relative options-menu">
+                            <li id="logout"><a class="dropdown-item">Sair</a></li>
                         </div>`;
     } else {
         result = `
-                        <div class="position-relative">
-                            <li id="myProfile"><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                        <div class="position-relative options-menu">
+                            <li id="myProfile"><a class="dropdown-item" href=${path + "myProfile.html"}>Meu Perfil</a></li>
                         </div>
-                        <div class="position-relative">
-                            <li id="logout"><a class="dropdown-item" href="#">Sair</a></li>
+                        <div class="position-relative options-menu">
+                            <li id="logout"><a class="dropdown-item">Sair</a></li>
                         </div>`;
     }
     menuDropdown.innerHTML = result
@@ -494,14 +532,15 @@ function changeNavbarContent() {
 
     //If media query matches 
     if (window.matchMedia("(min-width: 1920px)").matches) { //Se a largura da página for maior ou igual que 1920px
+        
+        if (document.querySelector('[src *= "IndexView.js"]')) {
+            // || ANIMAÇÕES AO FAZER SCROLL 
 
-        // || ANIMAÇÕES AO FAZER SCROLL 
-
-        window.removeEventListener('scroll', animateOnScroll);
-        /* Adicionar o eventlistener*/
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll()
-
+            window.removeEventListener('scroll', animateOnScroll);
+            /* Adicionar o eventlistener*/
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll()
+        }
         // || NAVBAR
 
         //O botão "Entrar" fica visível, o seu width = 50% e está posicionado no centro
@@ -521,12 +560,15 @@ function changeNavbarContent() {
 
     } else if (window.matchMedia("(min-width: 1200px) and (max-width: 1919px)").matches) { //Se a largura da página for maior ou igual que 1200ox e menor que 1919px
 
-        // || ANIMAÇÕES AO FAZER SCROLL 
+        
+        if (document.querySelector('[src *= "IndexView.js"]')) {
+            // || ANIMAÇÕES AO FAZER SCROLL 
 
-        window.removeEventListener('scroll', animateOnScroll);
-        /* Adicionar o eventlistener*/
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll()
+            window.removeEventListener('scroll', animateOnScroll);
+            /* Adicionar o eventlistener*/
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll()
+        }
         // || NAVBAR
 
         //O botão "Entrar" fica visível, o seu width = 50% e está posicionado no centro
@@ -545,12 +587,14 @@ function changeNavbarContent() {
         document.querySelector("#imgLogo").style.width = "115px"
     } else if (window.matchMedia("(min-width: 992px) and (max-width:1199px)").matches) { // Se a largura da página for maior ou igual que 992px e menor que 1199px
 
-        // || ANIMAÇÕES AO FAZER SCROLL 
+        if (document.querySelector('[src *= "IndexView.js"]')) {
+            // || ANIMAÇÕES AO FAZER SCROLL 
 
-        window.removeEventListener('scroll', animateOnScroll);
-        /* Adicionar o eventlistener*/
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll()
+            window.removeEventListener('scroll', animateOnScroll);
+            /* Adicionar o eventlistener*/
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll()
+        }
         // || NAVBAR
 
         //O botão "Entrar" fica visível, o seu width = 50% e está posicionado no centro
@@ -569,12 +613,14 @@ function changeNavbarContent() {
         document.querySelector("#imgLogo").style.width = "115px"
     } else if (window.matchMedia("(min-width: 768px) and (max-width: 991px)").matches) { // Se a largura da página for maior ou igual que 768px e menor que 991px
 
-        // || ANIMAÇÕES AO FAZER SCROLL 
+        if (document.querySelector('[src *= "IndexView.js"]')) {
+            // || ANIMAÇÕES AO FAZER SCROLL 
 
-        window.removeEventListener('scroll', animateOnScroll);
-        /* Adicionar o eventlistener*/
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll()
+            window.removeEventListener('scroll', animateOnScroll);
+            /* Adicionar o eventlistener*/
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll()
+        }
         // || NAVBAR
 
         //O botão "Entrar" fica visível, o seu width = 50% e está posicionado no extremo direito
@@ -597,12 +643,14 @@ function changeNavbarContent() {
         document.querySelector("#imgLogo").style.width = "115px"
     } else if (window.matchMedia("(min-width: 576px) and (max-width: 767px)").matches) { // Se a largura da página for maior ou igual que 576px e menor que 767px
 
-        // || ANIMAÇÕES AO FAZER SCROLL 
+        if (document.querySelector('[src *= "IndexView.js"]')) {
+            // || ANIMAÇÕES AO FAZER SCROLL 
 
-        window.removeEventListener('scroll', animateOnScroll);
-        /* Adicionar o eventlistener*/
-        window.addEventListener('scroll', animateOnScroll);
-
+            window.removeEventListener('scroll', animateOnScroll);
+            /* Adicionar o eventlistener*/
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll()
+        }
         // || NAVBAR
 
         //O botão "Entrar" fica visível, o seu width = 60% e está posicionado no extremo direito

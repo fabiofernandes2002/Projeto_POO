@@ -41,7 +41,7 @@
 
                         <!-- Barra de pesquisa -->
                         <div class="search-bar">
-                            <input type="search" class="form-control" id="imputProcurar" placeholder="Procurar"
+                            <input type="search" class="form-control imputProcurar" placeholder="Procurar"
                                 aria-label="Search">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                 style="display: none" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
@@ -70,14 +70,12 @@
                         Aprender <i id="iconArrow" class="fa-solid fa-chevron-down icon-arrow"></i></a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="ulResources">
-                        <li><a class="dropdown-item" href="#">Ver todas as épocas</a></li>
+                        <li><a class="dropdown-item" href="./html/epochs.html">Ver todas as épocas</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Tempo dos Descobrimentos</a></li>
-                        <li>
-                            <a href="" class="dropdown-item"></a>
-                        </li>
+                        <li><a class="dropdown-item " href="#">Tempo dos Descobrimentos</a></li>
+                        <li></li>
                         <li><a class="dropdown-item" href="#">Da Únião Ibérica à Restauração da
                                 Independência
                             </a></li>
@@ -85,7 +83,8 @@
                     </ul>
                 </li>
 
-                <a class="nav-link active d-inline" id="top10" style="display: none;" aria-current="page" href="#">Top
+                <a class="nav-link active d-inline" id="top10" style="display: none;" aria-current="page"
+                    href="./html/top10.html">Top
                     10</a>
                 <a class="nav-link active d-inline" id="sobre" style="display: none; transform: translateX(25px)"
                     aria-current="page" href="#aboutUs">Sobre</a>
@@ -96,7 +95,7 @@
             <div class="col-lg-2 col-md-3 offset-md-0 col-sm-3 offset-sm-2 col-4 offset-4 position-relative"
                 id="divBtnEntrar">
                 <!-- Botão Entrar -->
-                <button type="button" class="btn btn-entrar w-50" id="btnEntrarNavBar" data-bs-toggle="modal"
+                <button type="button" class="btn btn-entrar w-50 d-none" id="btnEntrarNavBar" data-bs-toggle="modal"
                     data-bs-target="#modalLogin">Entrar</button>
 
                 <div class="d-none" id="loggedUser">
@@ -109,7 +108,7 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        
+
                     </ul>
                 </div>
             </div>
@@ -174,7 +173,7 @@
                             <!-- Barra de pesquisa -->
                             <div class="search-bar mt-3 d-sm-none">
                                 <div class="me-3 ms-3">
-                                    <input type="search" class="form-control" id="imputProcurarMenu"
+                                    <input type="search" class="form-control imputProcurarMenu"
                                         placeholder="Procurar" aria-label="Search">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                         style="display: none" width="1em" height="1em"
@@ -198,13 +197,24 @@
                             <div>
                                 <div class="col ms-3 me-3">
                                     <h6>Aprender</h6>
-                                    <p style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Ver todas as
-                                        épocas</p>
-                                    <p style="font-family: mplus-medium;font-size:14px;">Tempo dos
-                                        Descobrimentos</p>
-                                    <p style="font-family: mplus-medium;font-size:14px">Da Únião Ibérica à Restauração
-                                        da
-                                        Independência</p>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./html/epochs.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Ver todas
+                                            as
+                                            épocas</a>
+                                    </div>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./html/epoch.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px;">Tempo dos
+                                            Descobrimentos</a>
+                                    </div>
+                                    <div class="mt-2 mb-2">
+                                        <a href="./html/epoch.html" class="menuHamburguerOption"
+                                            style="font-family: mplus-medium;font-size:14px">Da Únião
+                                            Ibérica à Restauração
+                                            da
+                                            Independência</a>
+                                    </div>
                                 </div>
 
                             </div>
@@ -212,13 +222,17 @@
                         <hr class="mt-2 d-md-none">
                         <div class="row d-md-none" style="width:100%">
                             <div class="col ms-3 me-3">
-                                <h6>Top 10</h6>
+                                <a href="./html/top10.html" class="menuHamburguerOption">
+                                    <h6>Top 10</h6>
+                                </a>
                             </div>
                         </div>
                         <hr class="mt-2">
                         <div class="row mt-2 mb-2" style="width:100%">
                             <div class="col ms-3 me-3">
-                                <h6>Sobre</h6>
+                                <a href="./index.html#aboutUs" class="menuHamburguerOption">
+                                    <h6>Sobre</h6>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -248,7 +262,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class=" mb-5 ms-2 mt-5 me-3">
                                     <label id="lblTxtUsernameLogin">
-                                        <input type="text" id="userNameLogin" placeholder="Nome de utilizador">
+                                        <input type="text" id="userNameLogin" placeholder="Nome ou Email">
                                     </label>
                                 </div>
                             </div>
@@ -278,7 +292,7 @@
                             <!-- Botão Registrar-me -->
                             <div class="d-none d-sm-block col-sm-6 text-center">
                                 <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto"
-                                    data-bs-target="#modalRegisto" data-bs-dismiss="modal"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
                                     data-bs-toggle="modal">Registrar-me</button>
                             </div>
                         </div>
@@ -307,7 +321,7 @@
                             <!-- Botão Registrar-me -->
                             <div class=" col-sm-6 text-center mb-3">
                                 <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto1"
-                                    data-bs-target="#modalRegisto" data-bs-dismiss="modal"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
                                     data-bs-toggle="modal">Registrar-me</button>
                             </div>
                         </div>
@@ -318,7 +332,7 @@
     </div>
 
     <!-- Modal de registo -->
-    <div class="modal fade" id="modalRegisto" aria-hidden="true" data-bs-backdrop="static"
+    <div class="modal fade" id="modalRegister" aria-hidden="true" data-bs-backdrop="static"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -334,100 +348,74 @@
 
                     <form class="row g-3 needs-validation" id="formRegister" novalidate>
                         <div class="col-12 col-sm-6 text-center">
-                            <label for="txtNameUser" class="form-label">Nome</label>
+                            <label for="txtNameUser" class="form-label">Nome de utilizador</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-
                                 <!-- Nome do utilizador -->
-                                <input type="text" class="form-control" id="txtNameUserRegister" value="Mark" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <label id="lblTxtUsernameRegister">
+                                    <input type="text" id="userNameRegister" value="Mark" required>
+                                </label>
                             </div>
 
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtCity" class="form-label">Localidade</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-geo-alt-fill"></i></span>
-
                                 <!-- Cidade -->
-                                <input type="text" class="form-control" id="txtCity"
-                                    aria-describedby="inputGroupPrepend" required value="Porto">
-
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtCity">
+                                    <input type="text" id="txtCity" class="input" required value="Porto">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtEmail" class="form-label">Email</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-envelope-fill"></i></span>
                                 <!-- Email -->
-                                <input type="email" class="form-control" id="txtEmail"
-                                    aria-describedby="inputGroupPrepend" required value="Porto@gmail.com">
-
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblEmail">
+                                    <input type="email" class="input" id="txtEmail" required value="Porto@gmail.com">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="txtBirthDate" class="form-label">Data de nascimento</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="bi bi-calendar-range-fill"></i></i></span>
-
                                 <!-- Data de nascimento -->
-                                <input type="date" class="form-control" id="txtBirthDate"
-                                    aria-describedby="inputGroupPrepend" required value="2000-05-05">
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblDate">
+                                    <input type="date" class="input" id="txtBirthDate" required value="2000-05-05">
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="userPasswordRegister" class="form-label">Palavra-passe</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="fa fa-lock"></i></i></span>
+
                                 <!-- Password -->
-                                <input type="password" class="form-control" id="userPasswordRegister"
-                                    aria-describedby="inputGroupPrepend" required value="123">
-                                <div class="eyeDiv"></div>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" id="userPasswordRegister" class="input" required value="123">
+                                    <div class="eyeDiv"></div>
+                                </label>
                             </div>
                         </div>
                         <div class="col-12 col-sm-6 text-center">
                             <label for="userPasswordConfirm" class="form-label" id="confirmPassword">Confirmar
                                 palavra-passe</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend"><i
-                                        class="fa fa-lock"></i></i></span>
                                 <!-- Conf. Password -->
-                                <input type="password" class="form-control" id="userPasswordConfirm"
-                                    aria-describedby="inputGroupPrepend" required>
-                                <div class="eyeDiv"></div>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" class="input" id="userPasswordConfirm" required>
+                                    <div class="eyeDiv"></div>
+                                </label>
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-12 col-sm-6 text-center">
+                            <div class="col-12 text-center">
                                 <p class="text-center">Sexo</p>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check ms-5 form-check-inline">
                                     <!-- Feminino -->
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                         id="radioFemale" value="option1" checked>
                                     <label class="form-check-label" for="radioFemale">Feminino</label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline ms-5">
                                     <!-- Masculino -->
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
                                         id="radioMale" value="option2">
@@ -472,8 +460,8 @@
                     </div>
                     <div closs="row mt-5">
                         <div class="col-12 mt-3 first-elements-index" style="margin-left:2em;">
-                            <button id="btnLandingPage" style="font-size: 16px;" class="btn">Conhecer a
-                                História</button>
+                            <a id="btnLandingPage" class="btn" style="font-size: 16px;" href="./html/epochs.html"
+                                role="button">Conhecer a História</a>
                         </div>
 
                     </div>
@@ -730,7 +718,7 @@
                         style="max-width: 514px;max-height: 180px;margin-right:5em">
                         <div class="row g-0">
                             <div class="col-4"
-                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: center bottom;">
+                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;">
                             </div>
                             <div class="col-8">
                                 <div class="card-body">
@@ -780,7 +768,7 @@
                         style="max-width: 514px;max-height: 180px;margin-right:5em">
                         <div class="row g-0">
                             <div class="col-4"
-                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: center bottom;">
+                                style="height:180px;background-image: url('/assets/img/uniao_iberica.png');background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;">
                             </div>
 
                             <div class="col-8">
@@ -804,7 +792,7 @@
 
             <div class="row">
                 <div class="col d-flex justify-content-center mt-5 mb-5">
-                    <button class="btn btn-see-all mb-5">Ver Todas</button>
+                    <a class="btn btn-see-all mb-5" href="./html/epochs.html" role="button">Ver Todas</a>
                 </div>
             </div>
         </div>
@@ -949,17 +937,20 @@
                 <div class="row">
                     <div class="col-6 mt-4">
                         <div class="div-margin-left">
-                            <div class="row" style="font-family: mplus-bold;">
+                            <div class="row ms-0 ms-sm-5" style="font-family: mplus-bold;">
                                 Login
                             </div>
-                            <div class="row mt-1">
-                                <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Entrar</a>
+                            <div class="row ms-0 ms-sm-5 mt-1">
+                                <a id="loginFooter" class="wordToBeHighlighted" href="#">Entrar</a>
                             </div>
-                            <div class="row mt-1">
-                                <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Novo
+                            <div class="row ms-0 ms-sm-5  mt-1">
+                                <a href="#" id="registerFooter" class="wordToBeHighlighted">Novo
                                     registo</a>
                             </div>
-                            <div class="row mt-5">
+                            <div class="row ms-0 ms-sm-5">
+                                <a id="logoutFooter" class="wordToBeHighlighted d-none" href="#">Logout</a>
+                            </div>
+                            <div class="row ms-0 ms-sm-5  mt-5">
                                 <div class="col-6 mb-4" style="margin:0;padding:0">
                                     Escola Superior de Media Artes e
                                     Design
@@ -971,25 +962,25 @@
 
                     </div>
                     <div class="col-6 mt-4">
-                        <div class="div-margin-left">
+                        <div class="col-6 offset-4">
                             <div class="div-margin-left">
                                 <div class="row" style="font-family: mplus-bold;">
                                     Privacidade
                                 </div>
                                 <div class="row mt-1">
-                                    <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Termos e
+                                    <a href="#" class="wordToBeHighlighted">Termos e
                                         condições de acesso</a>
                                 </div>
                                 <div class="row mt-1">
-                                    <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Política
+                                    <a href="#" class="wordToBeHighlighted">Política
                                         de privacidade</a>
                                 </div>
                                 <div class="row mt-1">
-                                    <a href="#" style="margin:0;padding:0;color:white;text-decoration: none;">Política
+                                    <a href="#" class="wordToBeHighlighted">Política
                                         de cookies</a>
                                 </div>
                                 <div class="row mt-5">
-                                    <div class="col-6 mb-4 " style="margin:0;padding:0">
+                                    <div class="col mb-4 " style="margin:0;padding:0">
                                         <div class="d-inline">
                                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
                                                 style="vertical-align: -0.125em;margin-right: 0.1em" width="1.5em"
@@ -1035,20 +1026,15 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-        <!-- REFERÊNCIA AOS JS -->
-        <script src="./js/init.js"></script>
-        <script type="module" src="js/views/indexView.js"></script>
-        <script type="module" src="./js/views/NavbarView.js"></script>
-
-
-
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
 
-
-
+        <!-- REFERÊNCIA AOS JS -->
+        <script src="./js/init.js"></script>
+        <script type="module" src="js/views/IndexView.js"></script>
+        <script type="module" src="./js/views/NavbarView.js"></script>
 
 </body>
 

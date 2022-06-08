@@ -8,29 +8,48 @@ export function init() {
 // ADICIONAR UTILIZADOR
 export function add(username, email, city, password, birthDate, sex) {
   if (users.some((user) => user.username === username)) {
-    throw Error(`User with username "${username}" already exists!`);
+    throw Error(`O nome de utilizador "${username}" já existe!`);
+  } else if (users.some((user) => user.email === email) || email.indexOf("@") < 1) { //Se o email já existe ou se o email não contêm @
+    throw Error(`Email inválido!`);
   } else {
     users.push(new User(username, email, city, password, birthDate, sex));
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
-
 // LOGIN DO UTILIZADOR
 export function login(username, password) {
-  const user = users.find(
+
+  const userByUsername = users.find(
     (user) => user.username === username && user.password === password
   );
-  if (user) {
-    sessionStorage.setItem("loggedUser", JSON.stringify(user));
+  
+  console.log(userByUsername, "1");
+  if (userByUsername != null) {
+    sessionStorage.setItem("loggedUser", JSON.stringify(userByUsername));
     return true;
-  } else {
-    throw Error("Login Inválido!");
-  }
+  } 
+
+  const userByEmail = checkLoginWithEmail(username, password)
+  console.log(userByEmail, "2");
+  if (userByEmail != null) {
+    
+    sessionStorage.setItem("loggedUser", JSON.stringify(userByEmail));
+    return true;
+  } 
+  
+  throw Error("Login Inválido!");
+}
+
+function checkLoginWithEmail(email, password) {
+  return users.find(
+    (user) => user.email === email && user.password === password
+  );  
 }
 
 // LOGOUT DO UTILIZADOR
-export function logout() {
+export function logout(pathIndexPage) {
   sessionStorage.removeItem("loggedUser");
+  location.href = pathIndexPage;
 }
 
 // VERIFICA EXISTÊNCIA DE ALGUÉM AUTENTICADO
@@ -53,7 +72,7 @@ export function getUsers() {
  * @param {function} func - Função definida no addEventListener 
  * @returns {function} - Função que declará a variável "timer" com um setTimeout quando pararmos de redimensionar a página
  */
- export function debounce(func) { // função debouncing inspirada do site https://flaviocopes.com/canvas/
+export function debounce(func) { // função debouncing inspirada do site https://flaviocopes.com/canvas/
   let timer;
   return () => {
     if (timer) {
@@ -78,6 +97,7 @@ class User {
   avatars = []
   medals = []
   totalPoints = 0
+  epochs = [0,1]
 
 
   constructor(username, email, city, password, birthDate, sex) {
