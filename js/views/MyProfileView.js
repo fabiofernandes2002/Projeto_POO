@@ -1,22 +1,45 @@
 import * as User from "../models/UserModel.js";
-
+import * as User from "../models/AchievementsModel.js";
 
 function displayUserInfo() {
+    User.init()
     
-    const userPoints = document.querySelector('#userPoints')
-    const quantityMedal = document.querySelector('#quantityMedal') 
-    const quantityAvatar = document.querySelector('#quantityAvatar')
-    const UserPosition = document.querySelector('#UserPosition')
+    const userPoints = document.querySelectorAll('.userPoints')
+    const quantityMedal = document.querySelectorAll('.quantityMedal') 
+    const quantityAvatar = document.querySelectorAll('.quantityAvatar')
+    const UserPosition = document.querySelectorAll('.UserPosition')
     const userInfo = JSON.parse(sessionStorage.getItem("loggedUser"));
 
-    userPoints.innerHTML = userInfo.totalPoints;
-    quantityMedal.innerHTML = userInfo.medals
-    quantityAvatar.innerHTML = userInfo.avatars;
-    UserPosition.innerHTML = userInfo.classification
+    for (const element of userPoints) {
+        element.innerHTML = userInfo.totalPoints;
+    }
 
+    for (const medal of quantityMedal) {
+        medal.innerHTML = userInfo.medals.length;
+    }
+
+    for (const avatar of quantityAvatar) {
+        avatar.innerHTML = userInfo.avatars.length;
+    }
+
+    for (const position of UserPosition) {
+        position.innerHTML = getUserPosition(JSON.parse(sessionStorage.loggedUser).username);
+    }
 
 }
 displayUserInfo()
+
+
+function getUserPosition(username) {
+    const allStudentUsers = User.getUsers().filter((u) => u.type == "aluno");
+    const index = User.orderUsers(allStudentUsers).findIndex(user => user.username === username) 
+    console.log(User.orderUsers(allStudentUsers));
+    if (index === -1) {
+        return false
+    } else{
+        return index + 1 + `º`
+    }
+}
 
 
 function updateDataUsers() {
