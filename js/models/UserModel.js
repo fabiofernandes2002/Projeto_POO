@@ -17,22 +17,18 @@ export function add(username, email, city, password, birthDate, sex) {
   }
 }
 // LOGIN DO UTILIZADOR
-export function login(username, password) {
-
-  const userByUsername = users.find(
-    (user) => user.username === username && user.password === password
-  );
+export function login(usernameOrEmail, password) {
   
-  console.log(userByUsername, "1");
-  if (userByUsername != null) {
+  const userByUsername = users.find(
+    (user) => user.username === usernameOrEmail && user.password === password
+  );
+  if (userByUsername != null) { //Se o utilizador e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByUsername));
     return true;
   } 
 
-  const userByEmail = checkLoginWithEmail(username, password)
-  console.log(userByEmail, "2");
-  if (userByEmail != null) {
-    
+  const userByEmail = checkLoginWithEmail(usernameOrEmail, password)
+  if (userByEmail != null) { //Se o email e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByEmail));
     return true;
   } 
@@ -40,6 +36,7 @@ export function login(username, password) {
   throw Error("Login Inválido!");
 }
 
+// VERIFICAR SE O UTILIZADOR QUERIA FAZER LOGIN COM O EMAIL
 function checkLoginWithEmail(email, password) {
   return users.find(
     (user) => user.email === email && user.password === password
@@ -70,7 +67,7 @@ export function getUsers() {
 /**
  * CORRER {@link func} 300 MILISSEGUNDOS DEPOIS DA PÁGINA TER SIDO REDIMENSIONADA
  * @param {function} func - Função definida no addEventListener 
- * @returns {function} - Função que declará a variável "timer" com um setTimeout quando pararmos de redimensionar a página
+ * @returns {function} - Função que atribuirá à variável "timer" um setTimeout
  */
 export function debounce(func) { // função debouncing inspirada do site https://flaviocopes.com/canvas/
   let timer;

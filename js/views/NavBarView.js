@@ -4,58 +4,42 @@ import * as User from "../models/UserModel.js";
 function navbarView() {
     User.init();
 
-    //funções a seguir já documentadas
+    //as funções a seguir já estão documentadas
 
+    //***DESIGN***********************
     changeNavbarContent()
+    animateDropdownTogglers()
+    animateSearchBar()
+    animateMenuHamburguer()
 
+    //REDIMENSIONAR A PÁGINA
     window.addEventListener('resize', User.debounce(() => {
         changeNavbarContent()
     }))
 
     window.addEventListener('scroll', animateOnScroll)
+    //********************************
 
     showHidePassword()
-
     bindRegisterForm()
     bindLoginForm()
-
-    animateDropdownTogglers()
-    animateSearchBar()
-    animateMenuHamburguer()
 
     let pathOtherPages, pathIndexPage
     if (!document.querySelector('[src *= "IndexView.js"]')) { //EM QUALQUER PÁGINA QUE NÃO SEJA O INDEX.HTML
 
-        // || ANIMAÇÕES AO FAZER SCROLL 
+        //** || ANIMAÇÕES AO FAZER SCROLL *********************************
         //Em qualquer página que não seja o index.html, não vai haver animações quando fazemos scroll.
-
-        /* Pintamos a navbar e o dropdown menu */
-        document.querySelector(".navbar").classList.add("shadow-sm")
-        document.querySelector(".navbar").style.backgroundColor = "#fff";
-        document.querySelector(".navbar").style.top = "0px";
-
-        document.querySelector("#containerMenuDropdown").style.top = `0px`;
-        document.querySelector("#navbarToggleExternal").style.border = "0.1px solid rgba(0, 0, 0, 0.189)"
-
-        /*removemos o eventlistener*/
-        window.removeEventListener('scroll', animateOnScroll);
+        removeScrollAnimations()
+        // *******************************************************************
 
         pathOtherPages = "./"
         pathIndexPage = "../index.html"
 
     } else {
-        
-        if (document.querySelector('[src *= "EpochsView.js"]')) {
-            document.querySelector(".search-bar").classList.add("d-none")
-        }
-
         pathOtherPages = "./html/"
         pathIndexPage = "./index.html"
     }
 
-
-
-    // CONSTRUIR CONTEÚDO DA NAVBAR (VERIFICAR SE USER AUTENTICADO)
     if (User.isLogged()) { // USER AUTENTICADO
         renderLoggedUserContent(pathOtherPages)
     } else {
@@ -68,6 +52,7 @@ function navbarView() {
         User.logout(pathIndexPage);
 
     })
+
 }
 
 
@@ -95,7 +80,7 @@ function validateRegistrationData() {
      * @type {HTMLElement}
      */
     const txtUsername = document.querySelector("#userNameRegister")
-    
+
     /**
      * INPUT DA LOCALIDADE
      * @description Elemento que aparece na modal de registo
@@ -121,11 +106,7 @@ function validateRegistrationData() {
      * @type {HTMLElement}
      */
     const female = document.querySelector("#radioFemale")
-    
-    // , txtEmail.value,txtCity.value,
-    //     txtPassword.value,
-    //     txtBirthDate.value,
-    //     female.checked
+
     const today = new Date()
 
     if (!(txtPassword.value === txtConfPassword.value)) {
@@ -216,6 +197,69 @@ function displayMessage(element, message, type) {
     const divMessage = document.querySelector(element);
     divMessage.innerHTML = "";
     divMessage.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
+}
+
+/**
+ * RENDERIZAR NOVO CONTEÚDO NA NAVBAR SE O UTILIZADOR ESTIVER AUTENTICADO
+ */
+function renderLoggedUserContent(path) {
+    const menuDropdown = document.querySelector("[aria-labelledby='navbarDropdown1']")
+    let result
+
+    document.querySelector("#loggedUser").classList.remove("d-none")
+    document.querySelector("#divUsernmame").innerHTML += User.getUserLogged().username
+
+
+    if (User.getUserLogged().type === "professor") { // COMO ADMIN
+        result = `
+                        <div class="position-relative options-menu">
+                            <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>
+                        </div>
+                        <div class="position-relative options-menu">
+                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir recursos</a></li>
+                        </div>
+                        <div class="position-relative options-menu">
+                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir épocas</a></li>
+                        </div>
+                        <div class="position-relative options-menu">
+                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir conquistas</a></li>
+                        </div>
+                        <div class="position-relative options-menu">
+                            <li id="manageUsers"><a class="dropdown-item" href="#">Gerir utilizadores</a></li>
+                        </div>
+                        <div class="position-relative options-menu">
+                            <li id="logout"><a class="dropdown-item">Sair</a></li>
+                        </div>`;
+    } else {
+        result = `
+                        <div class="position-relative options-menu">
+                            <li id="myProfile"><a class="dropdown-item" href=${path + "myProfile.html"}>Meu Perfil</a></li>
+                        </div>
+                        <div class="position-relative options-menu">
+                            <li id="logout"><a class="dropdown-item">Sair</a></li>
+                        </div>`;
+    }
+    menuDropdown.innerHTML = result
+}
+
+
+/**
+ * MOSTRAR/OCULTAR O CONTEÚDO DO INPUT PASSWORD
+ */
+function showHidePassword() {
+    const eyeDivs = document.querySelectorAll('.eyeDiv');
+    eyeDivs.forEach(element => {
+        element.addEventListener('click', function () {
+            const passwordInput = this.previousElementSibling
+            if (passwordInput.getAttribute('type') === 'password') {
+                passwordInput.setAttribute('type', "text");
+                this.style.background = 'url("../assets/img/eye-open.svg") center / contain no-repeat'
+            } else {
+                passwordInput.setAttribute('type', "password");
+                this.style.background = 'url("../assets/img/eye-close.svg") center / contain no-repeat'
+            }
+        });
+    });
 }
 
 // ****************************  DESIGN ********************************************************************************************************************************************
@@ -474,49 +518,6 @@ function animateMenuHamburguer() {
     }
 }
 
-/**
- * RENDERIZAR NOVO CONTEÚDO NA NAVBAR SE O UTILIZADOR ESTIVER AUTENTICADO
- */
-function renderLoggedUserContent(path) {
-    const menuDropdown = document.querySelector("[aria-labelledby='navbarDropdown1']")
-    let result
-
-    document.querySelector("#loggedUser").classList.remove("d-none")
-    document.querySelector("#divUsernmame").innerHTML += User.getUserLogged().username
-
-
-    if (User.getUserLogged().type === "professor") { // COMO ADMIN
-        result = `
-                        <div class="position-relative options-menu">
-                            <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>
-                        </div>
-                        <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir recursos</a></li>
-                        </div>
-                        <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir épocas</a></li>
-                        </div>
-                        <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir conquistas</a></li>
-                        </div>
-                        <div class="position-relative options-menu">
-                            <li id="manageUsers"><a class="dropdown-item" href="#">Gerir utilizadores</a></li>
-                        </div>
-                        <div class="position-relative options-menu">
-                            <li id="logout"><a class="dropdown-item">Sair</a></li>
-                        </div>`;
-    } else {
-        result = `
-                        <div class="position-relative options-menu">
-                            <li id="myProfile"><a class="dropdown-item" href=${path + "myProfile.html"}>Meu Perfil</a></li>
-                        </div>
-                        <div class="position-relative options-menu">
-                            <li id="logout"><a class="dropdown-item">Sair</a></li>
-                        </div>`;
-    }
-    menuDropdown.innerHTML = result
-}
-
 // https://www.w3schools.com/howto/howto_js_media_queries.asp 
 /**
  * MUDAR O LAYOUT DA NAVBAR DE ACORDO COM A LARGURA DA JANELA DO BROWSER
@@ -532,7 +533,7 @@ function changeNavbarContent() {
 
     //If media query matches 
     if (window.matchMedia("(min-width: 1920px)").matches) { //Se a largura da página for maior ou igual que 1920px
-        
+
         if (document.querySelector('[src *= "IndexView.js"]')) {
             // || ANIMAÇÕES AO FAZER SCROLL 
 
@@ -542,7 +543,6 @@ function changeNavbarContent() {
             animateOnScroll()
         }
         // || NAVBAR
-
         //O botão "Entrar" fica visível, o seu width = 50% e está posicionado no centro
         document.querySelector("#btnEntrarNavBar").style.display = ""
         document.querySelector("#btnEntrarNavBar").classList.add("w-50");
@@ -558,9 +558,10 @@ function changeNavbarContent() {
         //A largura do logo é fixa --> 115px 
         document.querySelector("#imgLogo").style.width = "115px"
 
+
     } else if (window.matchMedia("(min-width: 1200px) and (max-width: 1919px)").matches) { //Se a largura da página for maior ou igual que 1200ox e menor que 1919px
 
-        
+
         if (document.querySelector('[src *= "IndexView.js"]')) {
             // || ANIMAÇÕES AO FAZER SCROLL 
 
@@ -746,23 +747,17 @@ function changeNavbarContent() {
 
 }
 
-/**
- * MOSTRAR/OCULTAR O CONTEÚDO DO INPUT PASSWORD
- */
-function showHidePassword() {
-    const eyeDivs = document.querySelectorAll('.eyeDiv');
-    eyeDivs.forEach(element => {
-        element.addEventListener('click', function () {
-            const passwordInput = this.previousElementSibling
-            if (passwordInput.getAttribute('type') === 'password') {
-                passwordInput.setAttribute('type', "text");
-                this.style.background = 'url("../assets/img/eye-open.svg") center / contain no-repeat'
-            } else {
-                passwordInput.setAttribute('type', "password");
-                this.style.background = 'url("../assets/img/eye-close.svg") center / contain no-repeat'
-            }
-        });
-    });
+function removeScrollAnimations() {
+    /* Pintamos a navbar e o dropdown menu */
+    document.querySelector(".navbar").classList.add("shadow-sm")
+    document.querySelector(".navbar").style.backgroundColor = "#fff";
+    document.querySelector(".navbar").style.top = "0px";
+
+    document.querySelector("#containerMenuDropdown").style.top = `0px`;
+    document.querySelector("#navbarToggleExternal").style.border = "0.1px solid rgba(0, 0, 0, 0.189)"
+
+    /*removemos o eventlistener*/
+    window.removeEventListener('scroll', animateOnScroll);
 }
 // **********************************************************************************************************************************************************************************
 
