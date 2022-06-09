@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestão de user</title>
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Fonts awesome -->
+    <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
+
+  
+</head>
+<body>
+    <!-- Nav bar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+      <div class="container d-flex align-items-center">
+
+          <!--  -->
+          <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+              <a class="navbar-brand" href="../index.html">
+                  <img src="/assets/img/logo2.svg" alt="" id="imgLogo" width="115" height="48">
+              </a>
+          </div>
+
+          <!--  -->
+          <div class="col-lg-3 col-md-3 col-sm-4 d-none d-sm-block">
+              <div class="col-md-10 offset-md-4 col-sm-10 offset-sm-6">
+                  <form>
+
+                      <!-- Barra de pesquisa -->
+                      <div class="search-bar">
+                          <input type="search" class="form-control imputProcurar" placeholder="Procurar"
+                              aria-label="Search">
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
+                              style="display: none" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 16 16">
+                              <path fill="currentColor"
+                                  d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8L2.146 2.854Z" />
+                          </svg>
+                          <div class="search-button-div">
+                              <button class="btn" type="submit">
+                                  <i class="fa-solid fa-magnifying-glass"></i>
+                              </button>
+                          </div>
+                      </div>
+
+                  </form>
+              </div>
+          </div>
+
+          <!-- dropdown -->
+          <div class="col-lg-4 col-md-3 d-none d-md-block a-div position-relative">
+
+              <li class="nav-item dropdown" style="display: none; transform: translateX(25px); list-style-type: none;"
+                  id="aprender">
+                  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                      data-toggle="dropdown" aria-expanded="false">
+                      Aprender <i id="iconArrow" class="fa-solid fa-chevron-down icon-arrow"></i></a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="ulResources">
+                      <li><a class="dropdown-item" href="./epochs.html">Ver todas as épocas</a></li>
+                      <li>
+                          <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#">Tempo dos Descobrimentos</a></li>
+                      <li></li>
+                      <li><a class="dropdown-item" href="#">Da Únião Ibérica à Restauração da
+                              Independência
+                          </a></li>
+
+                  </ul>
+              </li>
+
+              <a class="nav-link active d-inline" id="top10" style="display: none;" aria-current="page"
+                  href="./top10.html">Top
+                  10</a>
+              <a class="nav-link active d-inline" id="sobre" style="display: none; transform: translateX(25px)"
+                  aria-current="page" href="../index.html#aboutUs">Sobre</a>
+
+          </div>
+
+          <!--  -->
+          <div class="col-lg-2 col-md-3 offset-md-0 col-sm-3 offset-sm-2 col-4 offset-4 position-relative"
+              id="divBtnEntrar">
+              <!-- Botão Entrar -->
+              <button type="button" class="btn btn-entrar w-50 d-none" id="btnEntrarNavBar" data-bs-toggle="modal"
+                  data-bs-target="#modalLogin">Entrar</button>
+
+              <div class="d-none" id="loggedUser">
+                  <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+                      data-toggle="dropdown" aria-expanded="false">
+                      <div id="navbarDropdown1Image"></div>
+                      <div id="divUsernmame">
+                      </div>
+                      <i id="iconArrow1" class="fa-solid fa-chevron-down d-inline icon-arrow"></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                  </ul>
+              </div>
+          </div>
+
+          <div class=" d-lg-none col-md-1 col-sm-1 col-2" id="divHamburguer">
+              <button class="btn">
+
+                  <!-- Menu hambúrguer antes de clicamo-lo-->
+                  <div class="menu-hamburguer">
+                      <div class="verde first-div"></div>
+                      <div class="verde"></div>
+                      <div class="amarelo"></div>
+                      <div class="vermelho"></div>
+                      <div class="vermelho"></div>
+                      <div class="vermelho last-div"></div>
+                      <div class="verde-2 first-div"></div>
+                      <div class="verde-2"></div>
+                      <div class="amarelo"></div>
+                      <div class="vermelho"></div>
+                      <div class="vermelho-2"></div>
+                      <div class="vermelho-2 last-div"></div>
+                      <div class="verde first-div"></div>
+                      <div class="verde "></div>
+                      <div class="amarelo"></div>
+                      <div class="vermelho"></div>
+                      <div class="vermelho"></div>
+                      <div class="vermelho last-div"></div>
+                  </div>
+
+                  <!-- Menu hambúrguer depois de clicamo-lo-->
+                  <div class="menu-hamburguer-after position-relative" style="display:none;">
+                      <div class="first-bar-1"></div>
+                      <div class="first-bar-2"></div>
+                      <div class="mid-bar" visibility="hidden"></div>
+                      <div class="mid-bar"></div>
+                      <div class="second-bar-1"></div>
+                      <div class="second-bar-2"></div>
+                  </div>
+              </button>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Menu Hamburguer dropdown -->
+  <div class="container" style="width:100%;height:63px;background-color: transparent;position: sticky;top: 0;"
+      id="containerMenuDropdown">
+      <div class="row" style="height:100%;">
+          <div class="col d-lg-none">
+              <div id="navbarToggleExternal" style="font-family: mplus-bold;display:none;">
+                  <div class="container-fluid" style="padding: 0;">
+                      <div class="row" style="width: 100%;margin:0">
+
+                          <!-- Botão Entrar -->
+                          <div class="col-8 mt-3 ms-2 d-none">
+                              <button type="button" class="btn btn-entrar w-50" id="btnEntrarNavBar"
+                                  data-bs-toggle="modal" data-bs-target="#modalLogin">Entrar</button>
+                          </div>
+
+                      </div>
+                      <div class="row" style="width: 100%;margin:0">
+
+                          <!-- Barra de pesquisa -->
+                          <div class="search-bar mt-3 d-sm-none">
+                              <div class="me-3 ms-3">
+                                  <input type="search" class="form-control imputProcurarMenu"
+                                      placeholder="Procurar" aria-label="Search">
+                                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
+                                      style="display: none" width="1em" height="1em"
+                                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                                      <path fill="currentColor"
+                                          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8L2.146 2.854Z" />
+                                  </svg>
+
+                                  <div class="search-button-div me-3">
+                                      <button class="btn" type="submit">
+                                          <i class="fa-solid fa-magnifying-glass"></i>
+                                      </button>
+                                  </div>
+                              </div>
+
+                          </div>
+
+                      </div>
+                      <hr class="mt-3 d-sm-none">
+                      <div class="row mt-2" style="width:100%">
+                          <div>
+                              <div class="col ms-3 me-3">
+                                  <h6>Aprender</h6>
+                                  <div class="mt-2 mb-2">
+                                      <a href="./epochs.html" class="menuHamburguerOption"
+                                          style="font-family: mplus-medium;font-size:14px;margin-top: 10px;">Ver todas
+                                          as
+                                          épocas</a>
+                                  </div>
+                                  <div class="mt-2 mb-2">
+                                      <a href="./epoch.html" class="menuHamburguerOption"
+                                          style="font-family: mplus-medium;font-size:14px;">Tempo dos
+                                          Descobrimentos</a>
+                                  </div>
+                                  <div class="mt-2 mb-2">
+                                      <a href="./epoch.html" class="menuHamburguerOption"
+                                          style="font-family: mplus-medium;font-size:14px">Da Únião
+                                          Ibérica à Restauração
+                                          da
+                                          Independência</a>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                      <hr class="mt-2 d-md-none">
+                      <div class="row d-md-none" style="width:100%">
+                          <div class="col ms-3 me-3">
+                              <a href="./top10.html" class="menuHamburguerOption">
+                                  <h6>Top 10</h6>
+                              </a>
+                          </div>
+                      </div>
+                      <hr class="mt-2">
+                      <div class="row mt-2 mb-2" style="width:100%">
+                          <div class="col ms-3 me-3">
+                              <a href="../index.html#aboutUs" class="menuHamburguerOption">
+                                  <h6>Sobre</h6>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+<div class="container-fluid ">
+    <form action="" class="row">
+        <div class="col-5 ">
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+        </div>
+        <div class="col-auto ">
+            <a class="btn btn-primary" href="#" role="button">procurar </a>
+        </div>
+        
+        <div class="col  dropdown">    
+            <button type="button" class="btn btn-dark dropdown-toggle" style="background-color:rgba(54, 63, 115, 1) ;" data-bs-toggle="dropdown">
+            ordenar
+            </button>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">ordem alfabetica</a></li>
+            <li><a class="dropdown-item" href="#">pontos</a></li>
+            
+            </ul>
+        </div>
+
+    </form>
+    
+</div>
+  
+  
+  <div class="container-fluid ">
+    <table class="table">
+      <thead class="">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">email</th>
+          <th scope="col">localidade</th>
+          <th scope="col">Eleminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>luis</td>
+          <td>luis@gmail.com</td>
+          <td>vila de conde</td>
+          <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>esmad</td>
+            <td>esmad@ipp.pt</td>
+            <td>vila de conde</td>
+            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>tomas</td>
+          <td>tomas123@gmail.com</td>
+          <td>vila de conde</td>
+          <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+</body>
+</html>
