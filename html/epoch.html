@@ -241,32 +241,214 @@
                 </div>
             </div>
         </div>
-    </nav>
-    
-    <section style="background-color: #fff; height: 60px;"></section>
+    </div>
+
+    <!-- Modal de login -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalToggleLabel"
+        data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalIniciarSessao">Iniciar sessão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="divAlertParentLogin">
+
+                </div>
+                <div class="modal-body mt-4 position-relative">
+                    <div id="barSeparator" class="d-none d-sm-block"></div>
+                    <form id="formLogin">
+                        <div class="row g-3 ">
+
+                            <!-- Nome de utilizador -->
+                            <div class="col-12 col-sm-6">
+                                <div class=" mb-5 ms-2 mt-5 me-3">
+                                    <label id="lblTxtUsernameLogin">
+                                        <input type="text" id="userNameLogin" placeholder="Nome ou Email">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Não tem conta ? ... -->
+                            <div class="d-none d-sm-block col-sm-6 text-center message-for-registration">
+                                <div class="row mt-5">
+                                    <p class="pModalLogin" style="margin:0">Não tem conta?</p>
+                                </div>
+                                <div class="row">
+                                    <p class="pModalLogin">Então crie já a sua conta.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+
+                            <!-- Password -->
+                            <div class="col-12 col-sm-6">
+                                <div class=" ms-2 mb-5 me-3 position-relative">
+                                    <label id="lblTxtPasswordLogin">
+                                        <input type="password" id="userPasswordLogin" placeholder="Palavra-passe">
+                                        <div class="eyeDiv"></div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Botão Registrar-me -->
+                            <div class="d-none d-sm-block col-sm-6 text-center">
+                                <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
+                                    data-bs-toggle="modal">Registrar-me</button>
+                            </div>
+                        </div>
+
+                        <!-- Botão Entrar -->
+                        <div class="row mb-3 me-3 mt-4">
+                            <div class="col-12 col-sm-6 text-end">
+                                <button class="btn btn-primary" type="submit" id="btnEntrarLogin">Entrar</button>
+                            </div>
+                        </div>
+
+                        <!-- Para telemoveis -->
+                        <hr class="d-block d-sm-none mt-5 mb-3"
+                            style="background-color:#3DAAC5; height: 2px;opacity: 1;">
+                        <div class="d-block d-sm-none row g-3">
+                            <!-- Não tem conta ? ... -->
+                            <div class="col-sm-6 text-center message-for-registration">
+                                <div class="row mt-5">
+                                    <p class="pModalLogin " style="margin:0">Não tem conta?</p>
+                                </div>
+                                <div class="row">
+                                    <p class="pModalLogin">Então crie já a sua conta.</p>
+                                </div>
+                            </div>
+
+                            <!-- Botão Registrar-me -->
+                            <div class=" col-sm-6 text-center mb-3">
+                                <button type="button" class="btn btn-outline-secondary" id="btnLevarRegisto1"
+                                    data-bs-target="#modalRegister" data-bs-dismiss="modal"
+                                    data-bs-toggle="modal">Registrar-me</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de registo -->
+    <div class="modal fade" id="modalRegister" aria-hidden="true" data-bs-backdrop="static"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">Criar conta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="divAlertParentRegistration">
+                    <!-- <div class="alert alert-danger" id="alertRegister" role="alert">teste</div> -->
+                </div>
+
+                <div class="modal-body">
+
+                    <form class="row g-3 needs-validation" id="formRegister" novalidate>
+                        <div class="col-12 col-sm-6 text-center">
+                            <label for="txtNameUser" class="form-label">Nome de utilizador</label>
+                            <div class="input-group">
+                                <!-- Nome do utilizador -->
+                                <label id="lblTxtUsernameRegister">
+                                    <input type="text" id="userNameRegister" value="Mark" required>
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="col-12 col-sm-6 text-center">
+                            <label for="txtCity" class="form-label">Localidade</label>
+                            <div class="input-group">
+                                <!-- Cidade -->
+                                <label id="lblTxtCity">
+                                    <input type="text" id="txtCity" class="input" required value="Porto">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center">
+                            <label for="txtEmail" class="form-label">Email</label>
+                            <div class="input-group">
+                                <!-- Email -->
+                                <label id="lblEmail">
+                                    <input type="email" class="input" id="txtEmail" required value="Porto@gmail.com">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center">
+                            <label for="txtBirthDate" class="form-label">Data de nascimento</label>
+                            <div class="input-group">
+                                <!-- Data de nascimento -->
+                                <label id="lblDate">
+                                    <input type="date" class="input" id="txtBirthDate" required value="2000-05-05">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center">
+                            <label for="userPasswordRegister" class="form-label">Palavra-passe</label>
+                            <div class="input-group">
+
+                                <!-- Password -->
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" id="userPasswordRegister" class="input" required value="123">
+                                    <div class="eyeDiv"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center">
+                            <label for="userPasswordConfirm" class="form-label" id="confirmPassword">Confirmar
+                                palavra-passe</label>
+                            <div class="input-group">
+                                <!-- Conf. Password -->
+                                <label id="lblTxtPasswordLogin">
+                                    <input type="password" class="input" id="userPasswordConfirm" required>
+                                    <div class="eyeDiv"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <p class="text-center">Sexo</p>
+                                <div class="form-check ms-5 form-check-inline">
+                                    <!-- Feminino -->
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="radioFemale" value="option1" checked>
+                                    <label class="form-check-label" for="radioFemale">Feminino</label>
+                                </div>
+                                <div class="form-check form-check-inline ms-5">
+                                    <!-- Masculino -->
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="radioMale" value="option2">
+                                    <label class="form-check-label" for="radioMale">Masculino</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 text-end">
+                            <!-- Botão Criar conta  -->
+                            <button class="btn btn-primary" type="submit" id="btnCreateAccount">Criar conta</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-12 text-end">
+                        <button class="btn btn-outline-secondary" data-bs-target="#modalLogin" data-bs-toggle="modal"
+                            id="btnHaveAccount" data-bs-dismiss="modal">Já tenho conta? Inicie sessão.</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo da página -->
     <section  style="background-color: #F2F2F2;">
         <div class="container d-flex align-items-center">
-            <div class="row" style="width: 100%;">
-                <div class="col-6" style="margin-top: 40px; margin-bottom: 40px">
-                    <div class="row">
-                        <div class="col-12">
-                            <h1 id="" style="font-size: 20px; font-family: 'mplus-bold';">Tempo dos Descobrimentos</h1>
-                        </div>
-                    </div>
-                    <div class="row mt-1">
-                        <div class="col-8">
-                            <p style="font-size: 14px; font-family: mplus-medium;">Todo o que precisas saber do seculo XV e XVI:
-                        os marcos mais importantes do império português que o levar a ser o que é hoje</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="position-relative">
-                    <div class="col-6 position-absolute bottom-0 end-0">
-                        <img src="/assets/img/img_card.jpg" class="float-end" width="180" height="190" alt="">
-                            
-                    </div>
-                </div>
-                
+            <div class="row" style="width: 100%;height:100%" id="placeEpochHeadingHere">
+                <!-- Título, descriptivo e imagem -->
             </div>
         </div>
         
@@ -364,7 +546,7 @@
 
     <!-- REFERÊNCIA AOS JS -->
     
-    <!-- <script type="module" src="js/views/indexView.js"></script> -->
+    <script type="module" src="../js/views/EpochView.js"></script>
     <script type="module" src="../js/views/NavbarView.js"></script>
     
     <!-- Bootstrap Bundle with Popper -->

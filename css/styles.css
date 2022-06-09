@@ -3,13 +3,9 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
+body {
+    overflow-y: overlay;
 }
-
-/* body {
-    overflow-x:hidden; 
-}*/
 
 /* || FONTES */
 
@@ -47,7 +43,8 @@ html {
 #modalIniciarSessao,
 #navbarDropdown1,
 #exampleModalToggleLabel2,
-.message-for-registration {
+.message-for-registration,
+.blocked {
     font-family: 'mplus-bold'
 }
 
@@ -87,12 +84,12 @@ label[for="radioFemale"]::before {
     width: 35px;
     background: url("../assets/img/femininIcon.svg") center / contain no-repeat;
     background-size: 23px 23px;
-    border-radius:50%;
+    border-radius: 50%;
     border: 1px solid #E7E7E7;
     box-shadow: 0px 4px 4px rgba(242, 242, 242, 0.25);
 }
 
-#radioFemale:checked + label[for="radioFemale"]::before {
+#radioFemale:checked+label[for="radioFemale"]::before {
     content: "";
     position: absolute;
     left: -40px;
@@ -102,13 +99,13 @@ label[for="radioFemale"]::before {
     width: 35px;
     background: url("../assets/img/femininIcon.svg") center / contain no-repeat;
     background-size: 23px 23px;
-    border-radius:50%;
+    border-radius: 50%;
     border: 1px solid #E7E7E7;
     box-shadow: 0px 0px 8px #3DAAC5;
 }
 
-#radioFemale{
-    display:none
+#radioFemale {
+    display: none
 }
 
 
@@ -127,12 +124,12 @@ label[for="radioMale"]::before {
     width: 35px;
     background: url("../assets/img/maleIcon.svg") center / contain no-repeat;
     background-size: 20px 20px;
-    border-radius:50%;
+    border-radius: 50%;
     border: 1px solid #E7E7E7;
     box-shadow: 0px 4px 4px rgba(242, 242, 242, 0.25);
 }
 
-#radioMale:checked + label[for="radioMale"]::before {
+#radioMale:checked+label[for="radioMale"]::before {
     content: "";
     position: absolute;
     left: -40px;
@@ -142,13 +139,13 @@ label[for="radioMale"]::before {
     width: 35px;
     background: url("../assets/img/maleIcon.svg") center / contain no-repeat;
     background-size: 20px 20px;
-    border-radius:50%;
+    border-radius: 50%;
     border: 1px solid #E7E7E7;
     box-shadow: 0px 0px 8px #3DAAC5;
 }
 
 #radioMale {
-    display:none
+    display: none
 }
 
 
@@ -207,14 +204,16 @@ nav {
     display: block;
     position: relative;
 
-    
+
 }
-.imputProcurar:focus{
+
+.imputProcurar:focus {
     border: 1px solid #f2f2f2;
     box-shadow: none;
     box-shadow: 0;
     outline: 0 none;
 }
+
 input[type="search"] {
     border-radius: 100px;
     width: 100%;
@@ -1030,21 +1029,42 @@ input[type="date"]:focus {
     transform: translate(9px, 6%)
 }
 
-/* || ÉPOCAS */
+/* || EPOCHS.HTML */
 
-#dropdownMenuButton1{
+.blocked {
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 2px);
+    background-color: rgba(0, 0, 0, 0.637);
+    color: white;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.epoch-card-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#dropdownMenuButton1 {
     margin-left: 0;
 }
 
-#searchBarEpochsMobile{
+#searchBarEpochsMobile {
     display: none;
 }
 
 @media only screen and (min-width:1200px) {
-    #dropdownMenuButton1{
+    #dropdownMenuButton1 {
         margin-left: 3em;
     }
-    
+
 }
 
 @media only screen and (min-width: 992px) and (max-width:1199px) {
@@ -1052,14 +1072,12 @@ input[type="date"]:focus {
         padding-left: 3.2rem;
     }
 
-    #dropdownMenuButton1{
+    #dropdownMenuButton1 {
         margin-left: 2em;
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    
-}
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
@@ -1093,12 +1111,12 @@ input[type="date"]:focus {
     #iconArrow1 {
         margin-left: 6em;
     }
-    
-    #searchBarEpochs{
+
+    #searchBarEpochs {
         display: none;
     }
 
-    #searchBarEpochsMobile{
+    #searchBarEpochsMobile {
         display: block;
     }
 }
@@ -1119,13 +1137,12 @@ input[type="date"]:focus {
         margin-left: 5em;
     }
 
-    #searchBarEpochs{
+    #searchBarEpochs {
         display: none;
     }
 
-    #searchBarEpochsMobile{
+    #searchBarEpochsMobile {
         display: block;
     }
 
-}   
-
+}

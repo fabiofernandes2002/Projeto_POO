@@ -3,15 +3,13 @@ import * as User from "../models/UserModel.js";
 User.init()
 const allStudentUsers = User.getUsers().filter((u) => u.type == "aluno");
 
-function orderUsers() {
-    allStudentUsers.sort((a, b) => {
-        const aXP = a.totalPoints ? a.totalPoints : 0;
-        const bXP = b.totalPoints ? b.totalPoints : 0;
-        return aXP - bXP;
-      })
-      .reverse();
-}
-orderUsers()
+// export default function getUserClassification() {
+//     const allStudentUsers = User.getUsers().filter((u) => u.type == "aluno")
+//     UserPosition.innerHTML = allStudentUsers[index]
+// }
+
+
+User.orderUsers(allStudentUsers)
 console.log(allStudentUsers);
 
 
