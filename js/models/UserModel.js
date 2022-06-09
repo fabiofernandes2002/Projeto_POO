@@ -79,6 +79,15 @@ export function debounce(func) { // função debouncing inspirada do site https:
   };
 };
 
+export function orderUsers(allStudentUsers) {
+  return allStudentUsers.sort((a, b) => {
+      const aXP = a.totalPoints ? a.totalPoints : 0;
+      const bXP = b.totalPoints ? b.totalPoints : 0;
+      return aXP - bXP;
+    })
+    .reverse();
+}
+
 /**
  * CLASSE QUE MODELA UM UTILIZADOR NA APLICAÇÃO
  */

@@ -36,6 +36,7 @@
             font-family: 'mplus-medium';
             font-size: 15px;
         }
+
     </style>
 </head>
 
@@ -463,68 +464,59 @@
     </div>
 
     <!-- Teste de Avaliação -->
-    <div class="container">
-        <div class="mt-5 p-3" style="background: #C4C4C4; border-radius: 45px 45px 0px 0px;">
-            <p id="tituloExercicio"><b>Tempo dos descobrimentos - Teste de avaliação </b></p>
-        </div>
-        <div class="corpoFicha" style="border: 3px solid #C4C4C4;border-radius: 0px 0px 45px 45px;">
-            <div class="text-center align-items-center mt-3">
-                <p id="questaoNumero1"><b>Questão 1</b></p>
-                <div id="corpoQuestao">
-                    <div>
-                        <p>A conquista da Ceuta</p>
-                        <p>Completa a frase com um ano em falta.</p>
-                        <p>
-                            A cidade da Ceuta foi conquistada em Agosto de
-                            <span class="">
-                                <input type="number" id="">
-                            </span>
-                            .
-                        </p>
-                    </div>
+    <div class="container text-center align-items-center" id="worksheetHtml">
+            <!-- <div class="mt-5 p-3" style="background: #C4C4C4; border-radius: 45px 45px 0px 0px; text-align: left;">
+                <p id="tituloExercicio"><b>Tempo dos descobrimentos - Teste de avaliação </b></p>
+            </div>
+            <div class="corpoFicha" style="border: 3px solid #C4C4C4;border-radius: 0px 0px 45px 45px;">
+                
+                <div class="mt-3 p-3">
+                    <p id="questaoNumero1"><b>Questão 1</b></p>
+                    <p id="">Completa a frase com um ano em falta.</p>
+                    <p id="fillQuestion">
+                        A cidade da Ceuta foi conquistada em Agosto de
+                        <span class="">
+                            <input type="number" id="fillAnswer">
+                        </span>
+                        .
+                    </p>
+                </div>
 
-                    <div class="mt-5 p-3">
-                        <p id="questaoNumero2">Questão 2</p>
-                        <p>Seleciona as afirmações que justificam a importância da passagem do Cabo Bojador.</p>
-                        <div class="p-3 mt-4 rounded-pill" style="background-color: #3DAAC5; text-align: left;">
-                            Pôs em causa os mitos do  “mar Tenebroso”.
-                        </div>
-                        <div class="p-3 mt-4 rounded-pill" style="border: 2px solid #3DAAC5;text-align: left;">
-                            Consolidou a conquista de Ceuta.
-                        </div>
-                        <div class="p-3 mt-4 rounded-pill" style="background-color: #3DAAC5; text-align: left;">
-                            Abriu caminho para acesso ao ouro africano.
-                        </div>
-                        <div class="p-3 mt-4 rounded-pill" style="border: 2px solid #3DAAC5;text-align: left;">
-                            Permitiu acesso às especiarias asiáticas.
-                        </div>
-                    </div>
+                <div class=" mt-3 p-3">
+                    <p id="questaoNumero2">Questão 2</p>
+                    <p>Seleciona a opção correta.</p>
+                    <p>O quadrante, a balestilha e o astrolábio eram instrumentos náuticos com uma função smiliar. Que função era essa?</p>
+                    <button type="button" id="quizAnswer1" class="btn btn-primary mt-4 rounded-pill" style="text-align: left; width: 850px;">Avistar a linha do horizonte e calcular a latitude.</button><br>
+                    <button type="button" id="quizAnswer2" class="btn btn-primary mt-4 rounded-pill" style="text-align: left; width: 850px;">Medir a altura das estrelas (sol ou estrela polar) para calcular a latitude.</button><br>
+                    <button type="button" id="quizAnswer3" class="btn btn-primary mt-4 rounded-pill" style="text-align: left; width: 850px;">Calcular a próxima maré alta.</button>
+                </div>
 
-                    <div class="mt-5 mb-5 p-3">
-                        <p id="questaoNumero2">Questão 3</p>
-                        <p>Seleciona a opção correta.</p>
-                        <p>O quadrante, a balestilha e o astrolábio eram instrumentos náuticos com uma função smiliar. Que função era essa?</p>
-                        <div class="p-3 mt-4 rounded-pill" style="background-color: #3DAAC5; text-align: left;">
-                            Avistar a linha do horizonte e calcular a latitude.
-                        </div>
-                        <div class="p-3 mt-4 rounded-pill" style="border: 2px solid #3DAAC5;text-align: left;">
-                            Medir a altura das estrelas (sol ou estrela polar) para calcular a latitude.
-                        </div>
-                        <div class="p-3 mt-4 rounded-pill" style="background-color: #3DAAC5; text-align: left;">
-                            Calcular a próxima maré alta.
-                        </div>
-                    </div>
-                    <div class="mb-5 p-3 text-end">
-                        <button type="button" class="btn btn-danger">Cancelar</button>
-                        <button type="button" class="btn btn-success">Submeter</button>
-                    </div>
+                <div>
+                    <p id="questaoNumero1"><b>Questão 3</b></p>
+                    <p id="">Seleciona as afirmação que justificam a importância da passagem do Cabo Bojador.</p>
+                    <p id="fillQuestion">
+                        
+                        <span class="">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><button class="dropdown-item" type="button">Consolidou a conquista de Ceuta.</button></li>
+                                    <li><button class="dropdown-item" type="button">Permitiu acesso às especiarias asiáticas.</button></li>
+                                    <li><button class="dropdown-item" type="button">Abriu caminho para acesso ao ouro africano.</button></li>
+                                </ul>
+                                </div>
+                        </span>
+                    </p>
+                </div>
+            
+                <div class="mb-5 p-3 text-end">
+                    <button type="button" class="btn btn-danger rounded-pill">Cancelar</button>
+                    <button type="button" class="btn btn-success rounded-pill">Submeter</button>
                 </div>
                 
-            </div>
-        </div>
-        
-
-        
+            </div> -->
     </div>
 
     
@@ -538,7 +530,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- REFERÊNCIA AOS JS -->
-    <!-- <script type="module" src="js/views/indexView.js"></script> -->
+    <script type="module" src="../js/views/WorksheetView.js"></script>
     <script type="module" src="../js/views/NavbarView.js"></script>
     
     <!-- Bootstrap Bundle with Popper -->
