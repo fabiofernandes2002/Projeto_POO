@@ -1060,9 +1060,32 @@ input[type="date"]:focus {
     display: none;
 }
 
-@media only screen and (min-width:1200px) {
+/* || top10.html */
+
+.imgTop10{
+    margin-left: 7em;
+    width: 40px;
+    height: 35px;
+}
+
+@media only screen and (min-width: 1920px) {
     #dropdownMenuButton1 {
         margin-left: 3em;
+    }
+
+    .imgTop10{
+        margin-left: 10em;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+    #dropdownMenuButton1 {
+        margin-left: 3em;
+    }
+
+    .imgTop10{
+        margin-left: 7em;
     }
 
 }
@@ -1075,9 +1098,17 @@ input[type="date"]:focus {
     #dropdownMenuButton1 {
         margin-left: 2em;
     }
+
+    .imgTop10{
+        margin-left: 6em;
+    }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .imgTop10{
+        margin-left: 3em;
+    }
+}
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
@@ -1092,6 +1123,12 @@ input[type="date"]:focus {
 
     #iconArrow1 {
         margin-left: 7em;
+    }
+
+    .imgTop10{
+        margin-left: 3em;
+        width: 30px;
+        height: 30px;
     }
 }
 

@@ -1,11 +1,11 @@
 import * as User from "../models/UserModel.js";
-import * as User from "../models/AchievementsModel.js";
+// import * as Achievement from "../models/AchievementsModel.js";
 
 function displayUserInfo() {
     User.init()
-    
+
     const userPoints = document.querySelectorAll('.userPoints')
-    const quantityMedal = document.querySelectorAll('.quantityMedal') 
+    const quantityMedal = document.querySelectorAll('.quantityMedal')
     const quantityAvatar = document.querySelectorAll('.quantityAvatar')
     const UserPosition = document.querySelectorAll('.UserPosition')
     const userInfo = JSON.parse(sessionStorage.getItem("loggedUser"));
@@ -23,30 +23,18 @@ function displayUserInfo() {
     }
 
     for (const position of UserPosition) {
-        position.innerHTML = getUserPosition(JSON.parse(sessionStorage.loggedUser).username);
+        position.innerHTML = User.getUserPosition(User.getUserLogged().username);
     }
 
 }
 displayUserInfo()
 
-
-function getUserPosition(username) {
-    const allStudentUsers = User.getUsers().filter((u) => u.type == "aluno");
-    const index = User.orderUsers(allStudentUsers).findIndex(user => user.username === username) 
-    console.log(User.orderUsers(allStudentUsers));
-    if (index === -1) {
-        return false
-    } else{
-        return index + 1 + `º`
-    }
-}
-
-
 function updateDataUsers() {
-    
+
     User.init()
 
     const profileForm = document.querySelector('#profileForm')
+    
     profileForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const txtUsernameChange = document.querySelector('#txtUsernameChange')
@@ -93,8 +81,8 @@ function updateDataUsers() {
             confirmButtonColor: "#4DB964",
             confirmButtonText: "Voltar",
             })
-            this.profileForm.reset();
-            
+            e.target.reset();
+
         }
 
     })

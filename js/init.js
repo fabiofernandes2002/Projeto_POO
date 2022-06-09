@@ -7,7 +7,7 @@ function initdata() {
     if (!localStorage.videos) {
         const videos = [{
             idVideo: 0,
-            epochTitle: "Tempo dos descobrimentos",
+            idEpoch: 0,
             videoTitle: 'Expansão Marítima Portuguesa (Parte 1)',
             tags: [
                 "idade",
@@ -41,8 +41,8 @@ function initdata() {
         },
         {
             idVideo: 0,
-            epochTitle: "Tempo dos descobrimentos",
-            videoTitle: 'Expansão Marítima Portuguesa (Parte 1)',
+            idEpoch: 0,
+            videoTitle: 'Expansão Marítima Portuguesa (Parte 2)',
             tags: [
                 "idade",
                 "moderna",
@@ -63,9 +63,8 @@ function initdata() {
             urlVideo: "https://www.youtube.com/watch?v=On2TAh0EejI",
             chapters: [
                 ["0:00", "Introdução"],
-                ["2:40", "Ínicio da Idade Moderna"],
-                ["3:53", "Os motivos da expansão"],
-                ["10:40","O estado português"]
+                ["2:40", "CAMP"],
+                ["6:15", "As etapas da expansão"]
             ],
             likes: 20,
             comments: {
@@ -274,7 +273,7 @@ function initdata() {
         const users = [{
             idUser: 1,
             type: 'professor',
-            username: "Maria",
+            username: "Professor",
             email: "professor@gmail.com",
             city: "Porto",
             password: "123",

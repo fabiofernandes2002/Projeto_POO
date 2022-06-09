@@ -19,51 +19,72 @@
         #imgBackgroundTop10 {
             z-index: -1;
             width: 100%;
-            height: 800px;
+            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('../assets/img/top10_background.png');
-            background-repeat: no-repeat
+            /* background-image: url('../assets/img/top10_background.png');
+            background-repeat: no-repeat */
         }
 
-        table{
+        table {
             border-collapse: collapse;
             border-radius: 0.625em;
             border: 1px solid #FFF;
             overflow: hidden;
-            
+
         }
-        td,th{
+
+        td,
+        th {
             width: 300px;
         }
 
-        .table {border: 3px solid black!important;} 
-        .table tr, .table td, .table th {border: 0!important;}
-        .table tr td, 
-        .table tr {border-left: 3px solid #363F73!important;}
-        .table th {border-left: 3px solid #FFF!important;}
-        .table tr td:nth-child(1), 
-        .table tr th:nth-child(1) {border-left: 0!important;}
+        .table {
+            border: 3px solid black !important;
+        }
 
-        thead{
+        .table tr,
+        .table td,
+        .table th {
+            border: 0 !important;
+        }
+
+        .table tr td,
+        .table tr {
+            border-left: 3px solid #363F73 !important;
+        }
+
+        .table th {
+            border-left: 3px solid #FFF !important;
+        }
+
+        .table tr td:nth-child(1),
+        .table tr th:nth-child(1) {
+            border-left: 0 !important;
+        }
+
+        thead {
             background-color: #363F73;
             color: #fff;
             font-family: 'mplus-bold';
         }
 
-        tbody{
+        tbody {
             background-color: #fff;
             font-family: 'mplus-medium';
         }
 
+        tbody:before {
+            content: "-";
+            display: block;
+            line-height: 1.5em;
+            color: "transparent";
+        }
     </style>
 </head>
 
 <body>
-    <div id="imgBackgroundTop10" style="background-color:green">
-        <!-- <img src="../assets/img/top10_background.png" class="img-fluid" alt="..."> -->
-    </div>
     <!-- Nav bar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container d-flex align-items-center">
@@ -214,8 +235,8 @@
                             <!-- Barra de pesquisa -->
                             <div class="search-bar mt-3 d-sm-none">
                                 <div class="me-3 ms-3">
-                                    <input type="search" class="form-control imputProcurarMenu"
-                                        placeholder="Procurar" aria-label="Search">
+                                    <input type="search" class="form-control imputProcurarMenu" placeholder="Procurar"
+                                        aria-label="Search">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                         style="display: none" width="1em" height="1em"
                                         preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -483,151 +504,22 @@
         </div>
     </div>
 
-    <!-- tabela de classificacion -->
+    <!-- tabela de classificação -->
     <div class="container mt-5">
         <table class="table table-bordered">
-            <thead class="text-center align-items-center">
-              <tr>
-                <th scope="col">Classificação</th>
-                <th scope="col">Nome de utilizador</th>
-                <th scope="col">XP</th>
-              </tr>
+            <thead class="text-center align-items-center me-4">
+                <tr>
+                    <th scope="col">Classificação</th>
+                    <th scope="col">Nome de utilizador</th>
+                    <th scope="col">XP</th>
+                </tr>
             </thead>
-        </table>
-
-        <table class="table table-bordered">
-            
-            <tbody class="text-center align-items-center" id="top10Table">
-              <!-- <tr>
-                  <td>
-                      <img src="../assets/img/coroa (2).png" style="background-color: f2f2f2;" alt="" width="50" height="40" srcset="">1.
-                  </td>
-                  <td>
-                    <img src="../assets/img/man (1).png" alt="" width="50" height="40" srcset="">fabio_fernandes
-                  </td>
-                  <td>18892</td>
-              </tr>
-              <tr>
-                <td>
-                    <img src="../assets/img/coroa (1).png" style="background-color: f2f2f2;" alt="" width="50" height="40" srcset="">2.
-                </td>
-                <td>
-                    <div style="margin-right: 3em;">
-                        <img src="../assets/img/man (2).png"  alt="" width="50" height="40" srcset="">luis_paiva
-                    </div>
-                  
-                </td>
-                <td>18462 </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="../assets/img/coroa.png" style="background-color: f2f2f2;" alt="" width="50" height="40" srcset="">3.
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                  
-                </td>
-                <td>18202 </td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="margin-left: 3em;">
-                        4.
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                </td>
-                <td>18202</td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="margin-left: 3em;">
-                        5.
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                </td>
-                <td>18202</td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="margin-left: 3em;">
-                        6.
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                </td>
-                <td>18202</td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="margin-left: 3em;">
-                        7.
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                </td>
-                <td>18202</td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="margin-left: 3em;">
-                        8.
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                </td>
-                <td>18202</td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="margin-left: 3em;">
-                        9.
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                </td>
-                <td>18202</td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="margin-left: 3em;">
-                        10.
-                    </div> 
-                </td>
-                <td>
-                    <div style="margin-right:1em">
-                        <img src="../assets/img/gamer (1).png"  alt="" width="50" height="40" srcset="">tomas_borges
-                    </div>
-                </td>
-                <td>18202</td>
-            </tr> -->
-            </tbody>
+            <tbody style="background-color: #f2f2f2;" id="top10Table"></tbody>
         </table>
     </div>
-    
 
-     <!-- Optional JavaScript -->
+
+    <!-- Optional JavaScript -->
     <!-- <script type="module" src="js/app.js"></script> -->
 
     <!-- Jquery -->
@@ -637,11 +529,11 @@
     <!-- REFERÊNCIA AOS JS -->
     <script type="module" src="../js/views/Top10View.js"></script>
     <script type="module" src="../js/views/NavbarView.js"></script>
-    
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 </body>
 

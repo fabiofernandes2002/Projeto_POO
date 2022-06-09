@@ -1,6 +1,28 @@
+let videos;
+
+// CARREGAR VIDEOS DA LOCALSTORAGE
+export function init() {
+    videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
+}
+
+// OBTER lista de Videos 
+export function getvideos() {
+    return videos;
+}
+
+// //MARCAR A ÉPOCA ESCOLHIDA
+// export function setChoosenEpoch(epoch) {
+//     sessionStorage.setItem("choosenEpoch", JSON.stringify(epoch));
+// }
+
+// // DEVOLVE ÉPOCA ESCOLHIDA
+// export function getChoosenEpoch() {
+//     return JSON.parse(sessionStorage.getItem("choosenEpoch"));
+//   }
+
 class Video {
     idVideo = 0
-    epochTitle = ""
+    idEpoch = 0
     videoTitle = ''
     tags = []
     urlVideo = ''
@@ -8,10 +30,10 @@ class Video {
     likes = 0
     comments = {}
 
-    constructor(idVideo, epochTitle, videoTitle, tags, urlVideo, chapters, likes, comments) {
+    constructor(idVideo, idEpoch, videoTitle, tags, urlVideo, chapters, likes, comments) {
 
         this.idVideo = idVideo;
-        this.epochTitle = epochTitle;
+        this.idEpoch = idEpoch;
         this.videoTitle = videoTitle
         this.videoDescription = videoDescription
         this.tags = tags

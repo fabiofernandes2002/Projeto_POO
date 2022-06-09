@@ -64,6 +64,16 @@ export function getUsers() {
   return users;
 }
 
+export function getUserPosition(username) {
+  const allStudentUsers = User.getUsers().filter((u) => u.type == "aluno");
+  const index = User.orderUsers(allStudentUsers).findIndex(user => user.username === username)
+  if (index === -1) {
+      return false
+  } else{
+      return index + 1 + `º`
+  }
+}
+
 /**
  * CORRER {@link func} 300 MILISSEGUNDOS DEPOIS DA PÁGINA TER SIDO REDIMENSIONADA
  * @param {function} func - Função definida no addEventListener 
