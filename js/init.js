@@ -94,12 +94,11 @@ function initdata() {
                 idEpoch: 0,
                 question:[
                     "Seleciona a opção correta.",
-                    "Após a morte do Infante D.Henrique, a exploração da costa africanafoi entregue a Fernão Gomes, um...",
+                    "Após a morte do Infante D.Henrique, a exploração da costa africana foi entregue a Fernão Gomes, um...",
                 ],
                 category:"quizz",
                 incorrectAnswers: [
                     "Um rico senhor nobre.",
-                    "Um rico navegador.",
                     "destacado elemento do clero."
                 ],
                 correctAnswer: "Rico mercador burgês.",
@@ -108,7 +107,10 @@ function initdata() {
             {
                 idQuestion : 3,
                 idEpoch: 0,
-                question:"Seleciona as afirmação que justificam a importância da passagem do Cabo Bojador.",
+                question:[
+                    "Seleciona a afirmação que justifica a importância da passagem do Cabo Bojador.",
+                    ""
+                ],
                 category:"dropdown",
                 incorrectAnswers: [
                     "Consolidou a conquista de Ceuta.",

@@ -1,5 +1,5 @@
 import * as User from "../models/UserModel.js";
-import * as User from "../models/AchievementsModel.js";
+//import * as User from "../models/AchievementsModel.js";
 
 function displayUserInfo() {
     User.init()
