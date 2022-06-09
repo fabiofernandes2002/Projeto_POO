@@ -1,4 +1,4 @@
-import * as Question from "../models/QuestionModel";
+import * as Question from "../models/QuestionModel.js";
 import * as Epoch from "../models/EpochModel.js";
 
 
@@ -11,51 +11,53 @@ function worksheetView() {
 
 function renderWorksheet(){
     let questions = Question.getQuestions()
+    const epoch = Epoch.getChoosenEpoch()
+    document.querySelector('#titleEpoch').innerHTML = epoch.epochTitle + `- Teste de avaliação`
     let result = ""
     for (const question of questions) {
-        if (Question.getQuestions().category == 'fill-the-blanks') {
+        
+        
+        if (question.category == 'fill-the-blanks') {
             
             result += `
-                <div class="mt-5 p-3" style="background: #C4C4C4; border-radius: 45px 45px 0px 0px; text-align: left;">
-                    <p id="tituloExercicio"><b>Tempo dos descobrimentos - Teste de avaliação </b></p>
-                </div>
-                <div class="corpoFicha" style="border: 3px solid #C4C4C4;border-radius: 0px 0px 45px 45px;">
+                    
                     <div class="mt-3 p-3">
-                        <p id="questaoNumero1"><b>Questão 1</b></p>
+                        <p id="questaoNumero1"><b>Questão ${question.idQuestion}</b></p>
                         <p id="">${question.question[0]}</p>
                         <p id="fillQuestion">
                             ${question.question[1]}
                             <span class="">
-                                <input type="number" id="fillAnswer">
+                                <input type="text" id="fillAnswer">
                             </span>
                             .
                         </p>
                     </div>
-                </div>
             `
-        }else if(Question.getQuestions().category == 'quizz'){
+        }else if(question.category == 'quizz'){
 
             result += `
                 <div class=" mt-3 p-3">
-                    <p id="questaoNumero2">Questão 2</p>
+                    <p id="questaoNumero2">Questão ${question.idQuestion}</p>
                     <p>${question.question[0]}</p>
                     <p>${question.question[1]}</p>
                     <button type="button" id="quizAnswer1" class="btn btn-primary mt-4 rounded-pill" style="text-align: left; width: 850px;">${question.incorrectAnswers[0]}</button><br>
                     <button type="button" id="quizAnswer2" class="btn btn-primary mt-4 rounded-pill" style="text-align: left; width: 850px;">${question.incorrectAnswers[1]}</button><br>
-                    <button type="button" id="quizAnswer3" class="btn btn-primary mt-4 rounded-pill" style="text-align: left; width: 850px;">${question.incorrectAnswers[2]}</button>
+                    <button type="button" id="quizAnswer3" class="btn btn-primary mt-4 rounded-pill" style="text-align: left; width: 850px;">${question.correctAnswer}</button>
                 </div>
             `
         }else{
+            console.log(question.question);
             result += `
                 <div>
-                    <p id="questaoNumero1"><b>Questão 3</b></p>
-                    <p id="">${question.question}</p>
+                    <p id="questaoNumero1"><b>Questão ${question.idQuestion}</b></p>
+                    <p>${question.question[0]}</p>
+                    <p>${question.question[1]}</p>
                     <p id="fillQuestion">
                         
                         <span class="">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
+                                    Escolha a resposta certa
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     <li><button class="dropdown-item" type="button">${question.incorrectAnswers[0]}</button></li>
@@ -70,7 +72,13 @@ function renderWorksheet(){
         }
         
     }
-    document.querySelector('#worksheetHtml').innerHTML = result
+    result += `
+            <div class="mb-5 p-3 text-end">
+                <button type="button" class="btn btn-danger rounded-pill">Cancelar</button>
+                <button type="button" class="btn btn-success rounded-pill">Submeter</button>
+            </div>
+        `
+    document.querySelector('#worksheetBody').innerHTML = result
 }
 
 worksheetView()
