@@ -26,23 +26,22 @@ function initdata() {
                 "genova",
                 "italia"
             ],
-            urlVideo: "https://www.youtube.com/watch?v=On2TAh0EejI",
+            urlVideo: "../assets/videos/expansao-maritima-portuguesa-parte-1-sos-historia-prof-pedro-riccioppo.mp4",
             chapters: [
-                ["0:00", "Introdução"],
-                ["2:40", "Ínicio da Idade Moderna"],
-                ["3:53", "Os motivos da expansão"],
-                ["10:40","O estado português"]
+                {time:"0:00", content:"Introdução"},
+                {time:"2:40", content:"Ínicio da Idade Moderna"},
+                {time:"3:53", content:"Os motivos da expansão"},
+                {time:"10:40",content:"O estado português"}
             ],
             likes: 20,
             comments: [
-                ["tomas", "Muito bom"],
-                ["fabio", "ok"]
+                {username:"Tomás", comment:"Muito bom", typeOfFeedback:true},
+                {username:"Fábio", comment:"ok", typeOfFeedback:false},
             ]
-            
         },
         {
-            idVideo: 2,
-            idEpoch: 1,
+            idVideo: 1,
+            idEpoch: 0,
             videoTitle: 'Expansão Marítima Portuguesa (Parte 2)',
             tags: [
                 "idade",
@@ -61,17 +60,18 @@ function initdata() {
                 "genova",
                 "italia"
             ],
-            urlVideo: "https://www.youtube.com/watch?v=On2TAh0EejI",
+            urlVideo: "../assets/videos/expansao-maritima-portuguesa-parte-2-sos-historia-prof-pedro-riccioppo.mp4",
             chapters: [
-                ["0:00", "Introdução"],
-                ["2:40", "CAMP"],
-                ["6:15", "As etapas da expansão"]
+                {time:"0:00", content:"Introdução"},
+                {time:"2:40", content:"Ínicio da Idade Moderna"},
+                {time:"3:53", content:"Os motivos da expansão"},
+                {time:"10:40",content:"O estado português"}
             ],
             likes: 20,
-            comments: {
-                tomas: "Muito bom",
-                fabio: "ok"
-            }
+            comments: [
+                {username:"Luís", comment:"Gostei muito!", typeOfFeedback:true},
+                {username:"Júnior", comment:"Granda explicação, obrigado!", typeOfFeedback:false}
+            ]
         }];
         localStorage.setItem("videos", JSON.stringify(videos));
     }

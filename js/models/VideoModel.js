@@ -10,15 +10,16 @@ export function getvideos() {
     return videos;
 }
 
-// //MARCAR A ÉPOCA ESCOLHIDA
-// export function setChoosenEpoch(epoch) {
-//     sessionStorage.setItem("choosenEpoch", JSON.stringify(epoch));
+// //MARCAR A VIDEO ESCOLHIDO
+// export function setChoosenVideo(video) {
+//     sessionStorage.setItem("choosenVideo", JSON.stringify(video));
 // }
 
-// // DEVOLVE ÉPOCA ESCOLHIDA
-// export function getChoosenEpoch() {
-//     return JSON.parse(sessionStorage.getItem("choosenEpoch"));
+// // DEVOLVE VIDEO ESCOLHIDO
+// export function getChoosenVideo() {
+//     return JSON.parse(sessionStorage.getItem("choosenVideo"));
 //   }
+
 
 class Video {
     idVideo = 0
@@ -28,7 +29,7 @@ class Video {
     urlVideo = ''
     chapters = []
     likes = 0
-    comments = {}
+    comments = []
 
     constructor(idVideo, idEpoch, videoTitle, tags, urlVideo, chapters, likes, comments) {
 
