@@ -75,11 +75,12 @@
             font-family: 'mplus-medium';
         }
 
-        tbody:before {
-            content: "-";
+        tbody::before {
+            content: ".";
             display: block;
             line-height: 1.5em;
-            color: "transparent";
+            background-color: white;
+            color: white;
         }
     </style>
 </head>
@@ -505,11 +506,16 @@
     </div>
 
     <!-- tabela de classificação -->
+    
     <div class="container mt-5">
-        <table class="table table-bordered">
+        <h3 id="epocaSeculo" class="mb-4" style="font-family:'mplus-bold'">Tabela de classificação</h3>
+        <table class="table table-bordered" style=" table-layout: fixed;">
+            <col id="colClassification">
+            <col style="width:50%">
+            <col style="width:40%">
             <thead class="text-center align-items-center me-4">
                 <tr>
-                    <th scope="col">Classificação</th>
+                    <th scope="col" id="thClassification">Classificação</th>
                     <th scope="col">Nome de utilizador</th>
                     <th scope="col">XP</th>
                 </tr>

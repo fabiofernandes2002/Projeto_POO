@@ -210,7 +210,7 @@ function renderLoggedUserContent(path) {
     document.querySelector("#divUsernmame").innerHTML += User.getUserLogged().username
 
 
-    if (User.getUserLogged().type === "professor") { // COMO ADMIN
+    if (User.isTeacher()) { // COMO ADMIN/PROFESSOR
         result = `
                         <div class="position-relative options-menu">
                             <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>

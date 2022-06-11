@@ -25,17 +25,16 @@ function renderEpochs() {
      * ARRAY COM AS ÉPOCAS QUE O UTILIZADOR JÁ DESBLOQUEOU
      * @type {Array}
      */
-    const unlockedEpochs = User.isLogged() ? User.getUserLogged() : {
-        epochs: []
-    }
+
+    const unlockedEpochs = User.isLogged() ? User.getUserLogged().epochs.map(element => element = element[0] ) : []
 
     let index = 0
     for (const epoch of epochs) {
         /**
-         * INDEX DO ELEMENTO DO ARRAY QUE PROVA QUE A {@link epoch} ESTÁ DESBLOQUEADA
+         * INDEX DO ELEMENTO DO ARRAY {@link unlockedEpochs} QUE PROVA QUE A {@link epoch} ESTÁ DESBLOQUEADA
          * @type {number}
          */
-        const indexId = unlockedEpochs.epochs.findIndex(id => id === epoch.idEpoch)
+        const indexId = unlockedEpochs.findIndex(idEpoch => idEpoch === epoch.idEpoch)
         /**
          * TEXTO HTML QUE PINTA A CARD DE PRETO SE ESTIVER BLOQUEADA
          * @type {string}

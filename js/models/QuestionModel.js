@@ -16,7 +16,7 @@ class Question{
     question = []
     category = ''
     incorrectAnswers = []
-    correctAnswer = ""
+    correctAnswer = []
     points = 0
     constructor(idEpoch, question, category, incorrectAnswers, correctAnswer, points) {
         

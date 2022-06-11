@@ -1,14 +1,14 @@
 import * as User from "../models/UserModel.js";
 // import * as Achievement from "../models/AchievementsModel.js";
 
-function displayUserInfo() {
+function UserProfileView() {
     User.init()
 
     const userPoints = document.querySelectorAll('.userPoints')
     const quantityMedal = document.querySelectorAll('.quantityMedal')
     const quantityAvatar = document.querySelectorAll('.quantityAvatar')
     const UserPosition = document.querySelectorAll('.UserPosition')
-    const userInfo = JSON.parse(sessionStorage.getItem("loggedUser"));
+    const userInfo = User.getUserLogged();
 
     for (const element of userPoints) {
         element.innerHTML = userInfo.totalPoints;
@@ -23,63 +23,61 @@ function displayUserInfo() {
     }
 
     for (const position of UserPosition) {
-        position.innerHTML = User.getUserPosition(User.getUserLogged().username);
+        position.innerHTML = User.getUserPosition(userInfo.username);
     }
 
+
+    updateDataUsers(userInfo)
 }
-displayUserInfo()
 
-function updateDataUsers() {
 
-    User.init()
+function updateDataUsers(userInfo) {
 
     const profileForm = document.querySelector('#profileForm')
-    
+
     profileForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const txtUsernameChange = document.querySelector('#txtUsernameChange')
         const oldPw = document.querySelector('#oldPw')
         const newPw = document.querySelector('#newPw')
-        const userInfo = JSON.parse(sessionStorage.getItem("loggedUser"));
 
-
-        if (txtUsernameChange.value === userInfo.username) {
+        if (txtUsernameChange.value.trim() === userInfo.username ||
+            User.getUsers().some(user => user.username === txtUsernameChange.value.trim())) 
+        {
             Swal.fire({
                 icon: 'error',
-                title: "Não podes mudar para o mesmo nome de utilizador!",
+                title: "Nome de utilizador inválido!",
                 confirmButtonColor: "#4DB964",
                 confirmButtonText: "Tentar novamente",
             });
-            }
-            else if (oldPw.value !== userInfo.password) {
+            
+        } else if (oldPw.value !== userInfo.password) {
             Swal.fire({
-            icon: 'error',
-            title: "Não inseriste corretamente a password atual!",
-            confirmButtonColor: "#4DB964",
-            confirmButtonText: "Tentar novamente",
+                icon: 'error',
+                title: "Não inseriste corretamente a password atual!",
+                confirmButtonColor: "#4DB964",
+                confirmButtonText: "Tentar novamente",
             });
-            }
-            else if (newPw.value === userInfo.password) {
+        } else if (newPw.value === userInfo.password) {
             Swal.fire({
-            icon: 'error',
-            title: "Não podes mudar para a mesma palavra-passe!",
-            confirmButtonColor: "#4DB964",
-            confirmButtonText: "Tentar novamente",
+                icon: 'error',
+                title: "Não podes mudar para a mesma palavra-passe!",
+                confirmButtonColor: "#4DB964",
+                confirmButtonText: "Tentar novamente",
             });
-            } else {
-            sessionStorage.setItem("loggedUser", JSON.stringify({ ...userInfo,username:txtUsernameChange.value, password: newPw.value }));
-            const userList = JSON.parse(localStorage.getItem("users"));
-            const newUserList = userList.map((userItem) =>
-            userItem.username === userInfo.username
-                ? { ...userItem,username:txtUsernameChange.value, password: newPw.value }
-                : userItem
-            );
-            localStorage.setItem("users", JSON.stringify(newUserList));
+        } else {
+
+            User.updateLoggedUserInfo({
+                ...userInfo,
+                username: txtUsernameChange.value.trim(),
+                password: newPw.value
+            })
+
             Swal.fire({
-            icon: 'success',
-            title: "Alteraste seus dados com sucesso!",
-            confirmButtonColor: "#4DB964",
-            confirmButtonText: "Voltar",
+                icon: 'success',
+                title: "Alteraste seus dados com sucesso!",
+                confirmButtonColor: "#4DB964",
+                confirmButtonText: "Voltar",
             })
             e.target.reset();
 
@@ -89,4 +87,4 @@ function updateDataUsers() {
 
 }
 
-updateDataUsers()
+UserProfileView()

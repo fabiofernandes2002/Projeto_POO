@@ -7,9 +7,13 @@ export function init() {
 
 // ADICIONAR UTILIZADOR
 export function add(username, email, city, password, birthDate, sex) {
+  username = username.trim() // .trim() remove os espaços em branco (whitespaces) do início e/ou fim de um texto
+  email = email.trim()
   if (users.some((user) => user.username === username)) {
     throw Error(`O nome de utilizador "${username}" já existe!`);
-  } else if (users.some((user) => user.email === email) || email.indexOf("@") < 1) { //Se o email já existe ou se o email não contêm @
+  } else if (username.includes(" ")) {
+    throw Error(`Nome de utilizador inválido!`);
+  } else if (users.some((user) => user.email === email) || email.indexOf("@") < 1 || email.includes(" ")) { //Se o email já existe, ou se o email não contêm @, ou se existem espaços em branco entre caracteres
     throw Error(`Email inválido!`);
   } else {
     users.push(new User(username, email, city, password, birthDate, sex));
@@ -18,21 +22,22 @@ export function add(username, email, city, password, birthDate, sex) {
 }
 // LOGIN DO UTILIZADOR
 export function login(usernameOrEmail, password) {
-  
+  usernameOrEmail = usernameOrEmail.trim()
+  password = password.trim()
   const userByUsername = users.find(
     (user) => user.username === usernameOrEmail && user.password === password
   );
   if (userByUsername != null) { //Se o utilizador e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByUsername));
     return true;
-  } 
+  }
 
   const userByEmail = checkLoginWithEmail(usernameOrEmail, password)
   if (userByEmail != null) { //Se o email e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByEmail));
     return true;
-  } 
-  
+  }
+
   throw Error("Login Inválido!");
 }
 
@@ -40,7 +45,7 @@ export function login(usernameOrEmail, password) {
 function checkLoginWithEmail(email, password) {
   return users.find(
     (user) => user.email === email && user.password === password
-  );  
+  );
 }
 
 // LOGOUT DO UTILIZADOR
@@ -65,29 +70,14 @@ export function getUsers() {
 }
 
 export function getUserPosition(username) {
-  const allStudentUsers = User.getUsers().filter((u) => u.type == "aluno");
-  const index = User.orderUsers(allStudentUsers).findIndex(user => user.username === username)
+  const allStudentUsers = getUsers().filter((u) => u.type == "aluno");
+  const index = orderUsers(allStudentUsers).findIndex(user => user.username === username)
   if (index === -1) {
-      return false
-  } else{
-      return index + 1 + `º`
+    return false
+  } else {
+    return index + 1 + `º`
   }
 }
-
-/**
- * CORRER {@link func} 300 MILISSEGUNDOS DEPOIS DA PÁGINA TER SIDO REDIMENSIONADA
- * @param {function} func - Função definida no addEventListener 
- * @returns {function} - Função que atribuirá à variável "timer" um setTimeout
- */
-export function debounce(func) { // função debouncing inspirada do site https://flaviocopes.com/canvas/
-  let timer;
-  return () => {
-    if (timer) {
-      clearTimeout(timer)
-    } // if(timer) se timer tiver um valor, caso contrário não funciona
-    timer = window.setTimeout(func, 300)
-  };
-};
 
 export function orderUsers(allStudentUsers) {
   return allStudentUsers.sort((a, b) => {
@@ -96,6 +86,24 @@ export function orderUsers(allStudentUsers) {
       return aXP - bXP;
     })
     .reverse();
+}
+
+export function isTeacher() {
+  return getUserLogged().type === "professor" ? true : false
+}
+
+export function updateLoggedUserInfo(newUserInfo) {
+
+  //NA SESSION STORAGE 
+  sessionStorage.setItem("loggedUser", JSON.stringify(newUserInfo));
+
+  //NA LOCAL STORAGE
+  const newUserList = users.map((userItem) =>
+    userItem.idUser === newUserInfo.idUser ? newUserInfo : userItem
+  );
+  localStorage.setItem("users", JSON.stringify(newUserList));
+
+
 }
 
 /**
@@ -113,7 +121,12 @@ class User {
   avatars = []
   medals = []
   totalPoints = 0
-  epochs = [0,1]
+
+  //[(number)id da época desbloqueada, (boolean)já realizou a ficha de trabalho? , (number)nota da ficha de trabalho]
+  epochs = [
+    [1, false, 0],
+    [2, false, 0]
+  ]
 
 
   constructor(username, email, city, password, birthDate, sex) {
@@ -131,16 +144,19 @@ class User {
 }
 
 
-// let users = [{
-//     idUser : 0,
-//     type: 'user',
-//     name: "tomas",
-//     email:"tomas@gmail.com",
-//     city:"Porto",
-//     password:"123",
-//     birthDate: "20-05-2002",
-//     sex:"male",
-//     avatars:[1],
-//     medals: [0], 
-//     totalPoints:0
-// }]
+//***********PARA DESIGN DA PÁGINA**************************************************
+/**
+ * CORRER {@link func} 300 MILISSEGUNDOS DEPOIS DA PÁGINA TER SIDO REDIMENSIONADA
+ * @param {function} func - Função definida no addEventListener 
+ * @returns {function} - Função que atribuirá à variável "timer" um setTimeout
+ */
+export function debounce(func) { // função debouncing inspirada do site https://flaviocopes.com/canvas/
+  let timer;
+  return () => {
+    if (timer) {
+      clearTimeout(timer)
+    } // if(timer) se timer tiver um valor, caso contrário não funciona
+    timer = window.setTimeout(func, 300)
+  };
+};
+//***********************************************************************************

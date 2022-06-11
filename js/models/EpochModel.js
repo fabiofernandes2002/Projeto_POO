@@ -15,10 +15,15 @@ export function setChoosenEpoch(epoch) {
     sessionStorage.setItem("choosenEpoch", JSON.stringify(epoch));
 }
 
+// VERIFICA EXISTÊNCIA DE ÉPOCA ESCOLHIDA
+export function isChoosen() {
+    return sessionStorage.getItem("choosenEpoch") ? true : false;
+}
+
 // DEVOLVE ÉPOCA ESCOLHIDA
 export function getChoosenEpoch() {
     return JSON.parse(sessionStorage.getItem("choosenEpoch"));
-  }
+}
 class Epoch {
     idEpoch = 0
     period = "" // P.E "SÉC. XV"
