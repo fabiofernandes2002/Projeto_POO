@@ -40,8 +40,8 @@ function initdata() {
             ]
         },
         {
-            idVideo: 1,
-            idEpoch: 0,
+            idVideo: 2,
+            idEpoch: 1,
             videoTitle: 'Expansão Marítima Portuguesa (Parte 2)',
             tags: [
                 "idade",
