@@ -65,8 +65,8 @@ export function getUsers() {
 }
 
 export function getUserPosition(username) {
-  const allStudentUsers = User.getUsers().filter((u) => u.type == "aluno");
-  const index = User.orderUsers(allStudentUsers).findIndex(user => user.username === username)
+  const allStudentUsers = getUsers().filter((u) => u.type == "aluno");
+  const index = orderUsers(allStudentUsers).findIndex(user => user.username === username)
   if (index === -1) {
       return false
   } else{

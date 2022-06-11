@@ -1183,3 +1183,8 @@ input[type="date"]:focus {
     }
 
 }
+
+/* Commmets */
+.heart_icon{
+    cursor: pointer;
+}

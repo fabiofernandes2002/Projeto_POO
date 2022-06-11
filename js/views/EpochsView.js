@@ -81,6 +81,8 @@ function bindLearnButtons(epochs) {
         })
     });
 }
+
+
 /**
  * ESCONDER/MOSTRAR AS ÉPOCAS BLOQUEADAS
  */
