@@ -278,12 +278,74 @@ function initdata() {
     }
 
     if (!localStorage.achievements) {
-        const achievements = [{
-            idAchievement: 1,
-            type: "avatar",
-            urlImage: "avatar1.png",
-            achievementName: "FirstAvatar"
-        }];
+        const achievements = [
+            {
+                idAchievement: 1,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/gamer(2).png",
+                achievementName: "Gamer"
+            },
+            {
+                idAchievement: 2,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/hacker.png",
+                achievementName: "Hacker"
+            },
+            {
+                idAchievement: 3,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/man(3).png",
+                achievementName: "Estiloso"
+            },
+            {
+                idAchievement: 4,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/user(1).png",
+                achievementName: "Beleza pura"
+            },
+            {
+                idAchievement: 5,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/profile(1).png",
+                achievementName: "Diplomata"
+            },
+            {
+                idAchievement: 6,
+                type: "medal",
+                urlImage: "../assets/img/medals/bronze-medal.png",
+                achievementName: "Medalha bronze"
+            },
+            {
+                idAchievement: 7,
+                type: "medal",
+                urlImage: "../assets/img/medals/bronze-medal2.png",
+                achievementName: "Medalha bronze-2"
+            },
+            {
+                idAchievement: 8,
+                type: "medal",
+                urlImage: "../assets/img/medals/silver-medal.png",
+                achievementName: "Medalha prata"
+            },
+            {
+                idAchievement: 9,
+                type: "medal",
+                urlImage: "../assets/img/medals/gold-medal.png",
+                achievementName: "Medalha ouro"
+            },
+            {
+                idAchievement: 10,
+                type: "medal",
+                urlImage: "../assets/img/medals/winner.png",
+                achievementName: "Mestre"
+            },
+            {
+                idAchievement: 11,
+                type: "medal",
+                urlImage: "../assets/img/medals/medal(2).png",
+                achievementName: "Mestre"
+            },
+        ];
         localStorage.setItem("achievements", JSON.stringify(achievements));
     }
 
@@ -312,7 +374,7 @@ function initdata() {
             birthDate: "20-05-2002",
             sex: "male",
             avatars: [1],
-            medals: [1, 2, 3, 4, 5],
+            medals: [7, 8, 9,],
             totalPoints: 20,
             epochs : [[1,false,0],[2,false,0]] 
         },
@@ -326,7 +388,7 @@ function initdata() {
             birthDate: "20-05-2002",
             sex: "female",
             avatars: [],
-            medals: [],
+            medals: [10,6],
             totalPoints: 50,
             epochs : [[1,false,0],[2,false,0]] 
         },

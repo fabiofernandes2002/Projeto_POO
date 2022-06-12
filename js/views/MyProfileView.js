@@ -1,13 +1,14 @@
 import * as User from "../models/UserModel.js";
-// import * as Achievement from "../models/AchievementsModel.js";
+import * as Achievement from "../models/AchievementsModel.js";
 
 function UserProfileView() {
     User.init()
-
+    Achievement.init()
     const userPoints = document.querySelectorAll('.userPoints')
     const quantityMedal = document.querySelectorAll('.quantityMedal')
     const quantityAvatar = document.querySelectorAll('.quantityAvatar')
     const UserPosition = document.querySelectorAll('.UserPosition')
+    const imgUser = document.querySelector('.imgUser')
     const userInfo = User.getUserLogged();
 
     for (const element of userPoints) {
@@ -26,10 +27,35 @@ function UserProfileView() {
         position.innerHTML = User.getUserPosition(userInfo.username);
     }
 
+    imgUser.innerHTML = User.getUserLogged().username.charAt(0)
+
 
     updateDataUsers(userInfo)
+    renderMedal()
 }
 
+function renderMedal() {
+
+    const achievement = Achievement.getAchievements()
+    const userMedalProfile = User.getUserLogged()
+
+    let result = ''
+    for (const idMedal of userMedalProfile.medals) {
+        
+        const medal = achievement.filter(achievement => achievement.idAchievement === idMedal )
+        console.log(medal);
+        result += `
+            <div class="ms-4"
+                style="transform:translateY(35%);background:url(${medal[0].urlImage}) center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
+            </div>
+
+        `
+    }
+
+    document.querySelector('#medalsUser').innerHTML += result
+    
+
+}
 
 function updateDataUsers(userInfo) {
 

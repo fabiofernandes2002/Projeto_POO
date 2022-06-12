@@ -949,13 +949,20 @@ input[type="date"]:focus {
 
 #navbarDropdown1Image {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
     left: 10px;
     top: 0;
     bottom: 0;
     transform: translate(0, -15%);
     height: 30px;
     width: 30px;
-    background-image: url("../assets/img/avatars/default.png");
+    background-color: #3DAAC5;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
