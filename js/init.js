@@ -10,34 +10,34 @@ function initdata() {
             idEpoch: 1,
             videoTitle: 'Expansão Marítima Portuguesa (Parte 1)',
             tags: [
-                "idade",
-                "moderna",
-                "motivos",
-                "expansão",
-                "estado",
-                "morte",
-                "fernando",
-                "rei",
-                "castela",
-                "mestre",
-                "avis",
-                "aljubarrota",
-                "centralizaçao",
-                "genova",
-                "italia"
+                "Idade Moderna",
+                "Motivos",
+                "Expansão Marítima",
+                "Estado",
+                "Morte",
+                "D. Fernando",
+                "Rei",
+                "Castela",
+                "Mestre",
+                "Avis",
+                "Aljubarrota",
+                "Centralização",
+                "Génova",
+                "Italia"
             ],
-            urlVideo: "../assets/videos/expansao-maritima-portuguesa-parte-1-sos-historia-prof-pedro-riccioppo.mp4",
+            urlVideo: "../assets/videos/Expansao_maritima_1.mp4",
             chapters: [
                 {time:"0:00", content:"Introdução"},
                 {time:"2:40", content:"Ínicio da Idade Moderna"},
                 {time:"3:53", content:"Os motivos da expansão"},
                 {time:"10:40",content:"O estado português"}
             ],
-            likes: 20,
             comments: [
-                {username:"Tomás", comment:"Muito bom", typeOfFeedback:true},
-                {username:"Fábio", comment:"ok", typeOfFeedback:false},
-            ]
+                {idUser:5, comment:"Muito bom"},
+                {idUser:6, comment:"ok"},
+            ], 
+            views:0,
+            likes:0
         },
         {
             idVideo: 2,
@@ -60,18 +60,19 @@ function initdata() {
                 "genova",
                 "italia"
             ],
-            urlVideo: "../assets/videos/expansao-maritima-portuguesa-parte-2-sos-historia-prof-pedro-riccioppo.mp4",
+            urlVideo: "../assets/videos/Expansao_maritima_2.mp4",
             chapters: [
                 {time:"0:00", content:"Introdução"},
                 {time:"2:40", content:"Ínicio da Idade Moderna"},
                 {time:"3:53", content:"Os motivos da expansão"},
                 {time:"10:40",content:"O estado português"}
             ],
-            likes: 20,
             comments: [
-                {username:"Luís", comment:"Gostei muito!", typeOfFeedback:true},
-                {username:"Júnior", comment:"Granda explicação, obrigado!", typeOfFeedback:false}
-            ]
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
         }];
         localStorage.setItem("videos", JSON.stringify(videos));
     }
@@ -301,7 +302,9 @@ function initdata() {
             avatars: [1],
             medals: [0],
             totalPoints: 2000,
-            epochs : [[1,false,0],[2,false,0],[3,false,0]]   
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0],[3,false,0]]  
         }, {
             idUser: 2,
             type: 'aluno',
@@ -314,6 +317,8 @@ function initdata() {
             avatars: [1],
             medals: [1, 2, 3, 4, 5],
             totalPoints: 20,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -328,6 +333,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 50,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -342,6 +349,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 100,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -356,6 +365,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -370,6 +381,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -384,6 +397,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -398,6 +413,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -412,6 +429,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 1400,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         },
         {
@@ -426,6 +445,8 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
+            videosSeen: [],
+            videosLiked: [],
             epochs : [[1,false,0],[2,false,0]] 
         }
         ];

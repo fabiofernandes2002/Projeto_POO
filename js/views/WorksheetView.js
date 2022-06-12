@@ -32,7 +32,7 @@ function worksheetView() {
 
 function renderWorksheet(isTeacher, questions, epoch) {
 
-    document.querySelector('#titleEpoch').innerHTML = epoch.epochTitle + ` - Teste de avaliação`
+    document.querySelector('#titleEpoch').innerHTML = epoch.epochTitle + ` - Ficha de avaliação`
 
     let result = ""
 
@@ -195,7 +195,6 @@ function evaluateWorksheet(questions, epoch) {
 
     questions.forEach((question, index) => {
         if (question.category === "fill-the-blanks") {
-
             questionsAnswers = assessAnswersFill(index, questionsAnswers)
 
         } else if (question.category === "quizz") {
@@ -233,15 +232,12 @@ function evaluateWorksheet(questions, epoch) {
 }
 
 function assessAnswersFill(index, questions) {
-
     const questionTypeFill = questions[index]
-
     let isItCorrect = true
-    let inputs = document.querySelectorAll(`.input-${questionTypeFill.idEpoch}`)
+    let inputs = document.querySelectorAll(`.input-${questionTypeFill.idQuestion}`)
     let i = 0
 
     for (const input of inputs) {
-
         if (input.value.trim() === questionTypeFill.correctAnswers[i]) {
             i++
             continue

@@ -4,7 +4,6 @@
 }
 
 body {
-    overflow-y: overlay;
     padding-right: 0 !important;
 }
 
@@ -1125,14 +1124,34 @@ input[type="date"]:focus {
     margin-left:9.2em
 }
 
+/* ||EPOCH.HTML */
+
+#showMore {
+    position: absolute;
+    left: 40%;
+    transform: translateY(0.5em);
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    height: 30px;
+    width: 200px;
+}
+
+
+/* || MEDIA QUERIES */
+
 @media only screen and (min-width: 1920px) {
     #dropdownMenuButton1 {
         margin-left: 3em;
     }
+    
 }
 @media only screen and (min-width: 1400px) and (max-width: 1919px) {
     #dropdownMenuButton1 {
         margin-left: 3em;
+    }
+    #showMore{
+        left: 35%;
     }
 }
 
@@ -1147,6 +1166,9 @@ input[type="date"]:focus {
     
     .numberClassification2{
         margin-left:8.2em
+    }
+    #showMore{
+        left: 35%;
     }
 }
 
@@ -1171,6 +1193,10 @@ input[type="date"]:focus {
         margin-left:6.7em
     }
 
+    #showMore{
+        left: 35%;
+    }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -1187,6 +1213,11 @@ input[type="date"]:focus {
     .numberClassification2{
         margin-left:4.7em
     }
+
+    #showMore{
+        left: 30%;
+    }
+
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -1217,6 +1248,10 @@ input[type="date"]:focus {
     .numberClassification2{
         margin-left:3.7em
     }
+
+    #showMore{
+        left: 26%;
+    }
 }
 
 @media only screen and (min-width: 450px) and (max-width: 575px) {
@@ -1232,6 +1267,10 @@ input[type="date"]:focus {
     
     .numberClassification2{
         margin-left:3.2em
+    }
+
+    #showMore{
+        left: 29%;
     }
 }
 
@@ -1281,6 +1320,10 @@ input[type="date"]:focus {
         width: 15px;
         height: 10px
     }
+
+    #showMore{
+        left: 24%;
+    }
 }
 
 @media only screen and (max-width: 349px) {
@@ -1328,6 +1371,10 @@ input[type="date"]:focus {
     .crown {
         width: 15px;
         height: 10px
+    }
+
+    #showMore{
+        left: 16%;
     }
     
 

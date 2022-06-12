@@ -5,20 +5,32 @@ export function init() {
     videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
+//MARCAR O VÍDEO ESCOLHIDO
+export function setIdChoosenVideo(video) {
+    sessionStorage.setItem("choosenVideo", video.idVideo);
+}
+
+// DEVOLVE O VÍDEO ESCOLHIDO
+export function getChoosenVideo() {
+    const videoInfo = videos.find(video => video.idVideo === JSON.parse(sessionStorage.getItem("choosenVideo")))
+    return videoInfo;
+}
+
 // OBTER lista de Videos 
 export function getvideos() {
     return videos;
 }
 
-// //MARCAR A VIDEO ESCOLHIDO
-// export function setChoosenVideo(video) {
-//     sessionStorage.setItem("choosenVideo", JSON.stringify(video));
-// }
+export function updateVideoInfo(newVideoInfo) {
 
-// // DEVOLVE VIDEO ESCOLHIDO
-// export function getChoosenVideo() {
-//     return JSON.parse(sessionStorage.getItem("choosenVideo"));
-//   }
+    //NA LOCAL STORAGE
+    const newVideosList = videos.map((videoItem) =>
+        videoItem.idVideo === newVideoInfo.idVideo ? newVideoInfo : videoItem
+    );
+    localStorage.setItem("videos", JSON.stringify(newVideosList));
+
+    videos = newVideosList
+}
 
 
 class Video {
@@ -30,6 +42,8 @@ class Video {
     chapters = []
     likes = 0
     comments = []
+    viewa = 0
+    likes = 0
 
     constructor(idVideo, idEpoch, videoTitle, tags, urlVideo, chapters, likes, comments) {
 

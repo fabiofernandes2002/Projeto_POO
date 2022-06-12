@@ -103,7 +103,7 @@ export function updateLoggedUserInfo(newUserInfo) {
   );
   localStorage.setItem("users", JSON.stringify(newUserList));
 
-
+  users = newUserList
 }
 
 /**
@@ -121,6 +121,8 @@ class User {
   avatars = []
   medals = []
   totalPoints = 0
+  videosSeen = []
+  videosLiked = []
 
   //[(number)id da época desbloqueada, (boolean)já realizou a ficha de trabalho? , (number)nota da ficha de trabalho]
   epochs = [
