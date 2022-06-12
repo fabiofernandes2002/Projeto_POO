@@ -4,6 +4,7 @@
 }
 
 body {
+    overflow: overlay;
     padding-right: 0 !important;
 }
 
