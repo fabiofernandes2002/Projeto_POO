@@ -208,6 +208,7 @@ function renderLoggedUserContent(path) {
 
     document.querySelector("#loggedUser").classList.remove("d-none")
     document.querySelector("#divUsernmame").innerHTML += User.getUserLogged().username
+    document.querySelector('#navbarDropdown1Image').innerHTML += User.getUserLogged().username.charAt(0)
 
 
     if (User.isTeacher()) { // COMO ADMIN/PROFESSOR

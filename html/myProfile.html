@@ -22,20 +22,27 @@
             background-color: #f2f2f2;
         }
 
-        .circle {
-            background-color: #aaa;
+        .imgUser {
+            background-color: #3DAAC5;
             border-radius: 50%;
+            color: #fff;
             width: 150px;
             height: 150px;
-            overflow: hidden;
             position: relative;
+            display: flex;
+            font-family: 'mplus-bold';
+            font-size: 50px;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
         }
 
-        .circle img {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
+        /* #imgUser{
+
+        } */
     </style>
 </head>
 
@@ -475,7 +482,7 @@
             <div class="col-11 me-5 me-md-0 col-md-4 border-right">
                 <div class="row">
                     <div class=" ms-5 d-flex flex-column align-items-rigth text-right p-3 py-5">
-                        <img class="circle " width="150px" src="../assets/img/avatars/default.png">
+                        <div class="imgUser"></div>
                         <span><a class="btn btn-primary btn-sm mt-3 align-items-center text-center "
                                 style="width: 150px; background-color: #D9674E; font-family: 'mplus-bold'; border-style: none;"
                                 href="#" role="button">Alterar imagem </a></span>
@@ -607,9 +614,9 @@
                     <h5 style="font-family: 'mplus-bold';">Medalhas</h5>
                 </div>
                 <div class="row me-5 mt-2">
-                    <div class="col "
+                    <div class="col" id="medalsUser"
                         style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
-                    border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
+                        border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
                         <!-- https://stackoverflow.com/questions/43645577/how-to-force-inline-divs-inside-another-div -->
                         <button
                             style="z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;right:2%;transform:translateY(-50%);background-color:transparent; border:none;">
@@ -619,18 +626,18 @@
                                     d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
                             </svg>
                         </button>
-                        <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
+                        <!-- <div class="ms-4"
+                            style="transform:translateY(35%);background:url('../assets/img/medals/bronze-medal.png') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
                         </div>
                         <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
+                            style="transform:translateY(35%);background:url('../assets/img/medals/bronze-medal.png') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
                         </div>
                         <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
+                            style="transform:translateY(35%);background:url('../assets/img/medals/bronze-medal.png') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
                         </div>
                         <div class="ms-4"
-                            style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                        </div>
+                            style="transform:translateY(35%);background:url('../assets/img/medals/bronze-medal.png') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -720,9 +727,9 @@
             <h5 style="font-family: 'mplus-bold';">Medalhas</h5>
         </div>
         <div class="row me-5 ms-5 mt-2 d-block d-md-none">
-            <div class="col "
+            <div class="col" id="medalsUser"
                 style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
-            border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
+                border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
                 <!-- https://stackoverflow.com/questions/43645577/how-to-force-inline-divs-inside-another-div -->
 
                 <button
@@ -734,7 +741,7 @@
                     </svg>
                 </button>
 
-                <div class="ms-4"
+                <!-- <div class="ms-4"
                     style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
                 </div>
                 <div class="ms-4"
@@ -745,7 +752,7 @@
                 </div>
                 <div class="ms-4"
                     style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
+                </div> -->
             </div>
         </div>
 
