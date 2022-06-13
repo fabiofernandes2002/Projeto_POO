@@ -225,7 +225,7 @@ function renderLoggedUserContent(path) {
                             <li class="manageResources"><a class="dropdown-item" href="#">Gerir conquistas</a></li>
                         </div>
                         <div class="position-relative options-menu">
-                            <li id="manageUsers"><a class="dropdown-item" href="#">Gerir utilizadores</a></li>
+                            <li id="manageUsers"><a class="dropdown-item" href="../html/manageUser.html">Gerir utilizadores</a></li>
                         </div>
                         <div class="position-relative options-menu">
                             <li id="logout"><a class="dropdown-item">Sair</a></li>

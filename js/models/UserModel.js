@@ -7,6 +7,7 @@ export function init() {
 
 // ADICIONAR UTILIZADOR
 export function add(username, email, city, password, birthDate, sex) {
+
   if (users.some((user) => user.username === username)) {
     throw Error(`O nome de utilizador "${username}" já existe!`);
   } else if (users.some((user) => user.email === email) || email.indexOf("@") < 1) { //Se o email já existe ou se o email não contêm @
