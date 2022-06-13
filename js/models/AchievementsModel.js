@@ -1,4 +1,16 @@
-export default class AchievementModel {
+let achievements;
+
+// CARREGAR ÉPOCAS DA LOCALSTORAGE
+export function init() {
+    achievements = localStorage.achievements ? JSON.parse(localStorage.achievements) : [];
+}
+
+// OBTER lista de  
+export function getAchievements() {
+    return achievements;
+}
+
+class Achievement {
     idAchievement = 0
     type = "" // medal or avatar
     urlImage = ""

@@ -4,7 +4,8 @@
 }
 
 body {
-    overflow-y: overlay;
+    overflow: overlay;
+    padding-right: 0 !important;
 }
 
 /* || FONTES */
@@ -44,8 +45,9 @@ body {
 #navbarDropdown1,
 #exampleModalToggleLabel2,
 .message-for-registration,
-.blocked {
-    font-family: 'mplus-bold'
+.blocked,
+#titleEpoch {
+    font-family: 'mplus-bold' 
 }
 
 .imputProcurar,
@@ -70,6 +72,29 @@ body {
 }
 
 /* || NAVBAR */
+
+#myProfile:hover,
+.manageResources:hover,
+#manageUsers:hover,
+#logout:hover {
+    background-color: #e9ecef;
+}
+
+#myProfile>.dropdown-item:focus,
+.manageResources>.dropdown-item:focus,
+#manageUsers>.dropdown-item:focus,
+#logout>.dropdown-item:focus,
+#myProfile>.dropdown-item:active,
+.manageResources>.dropdown-item:active,
+#manageUsers>.dropdown-item:active,
+#logout>.dropdown-item:active #myProfile>.dropdown-item:hover,
+.manageResources>.dropdown-item:hover,
+#manageUsers>.dropdown-item:hover,
+#logout>.dropdown-item:hover {
+    color: black;
+    background-color: transparent;
+}
+
 label[for="radioFemale"] {
     position: relative
 }
@@ -924,13 +949,20 @@ input[type="date"]:focus {
 
 #navbarDropdown1Image {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
     left: 10px;
     top: 0;
     bottom: 0;
     transform: translate(0, -15%);
     height: 30px;
     width: 30px;
-    background-image: url("../assets/img/avatars/default.png");
+    background-color: #3DAAC5;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
@@ -1060,11 +1092,92 @@ input[type="date"]:focus {
     display: none;
 }
 
-@media only screen and (min-width:1200px) {
+/* || top10.html */
+
+.tdPoints {
+    vertical-align: middle;
+    text-align: center;
+}
+.tdClassification{
+    vertical-align: middle;
+}
+
+.imgTop10 {
+    margin-left: 40%;
+    width: 40px;
+    height: 35px;
+}
+
+.crown {
+    width: 30px;
+    height: 25px
+}
+
+#colClassification {
+    width: 30%
+}
+
+#thClassification,
+.tdNames {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.numberClassification1{
+    margin-left:7em
+}
+
+.numberClassification2{
+    margin-left:9.2em
+}
+
+/* ||EPOCH.HTML */
+
+#showMore {
+    position: absolute;
+    left: 40%;
+    transform: translateY(0.5em);
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    height: 30px;
+    width: 200px;
+}
+
+
+/* || MEDIA QUERIES */
+
+@media only screen and (min-width: 1920px) {
+    #dropdownMenuButton1 {
+        margin-left: 3em;
+    }
+    
+}
+@media only screen and (min-width: 1400px) and (max-width: 1919px) {
+    #dropdownMenuButton1 {
+        margin-left: 3em;
+    }
+    #showMore{
+        left: 35%;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
     #dropdownMenuButton1 {
         margin-left: 3em;
     }
 
+    .numberClassification1{
+        margin-left:6em
+    }
+    
+    .numberClassification2{
+        margin-left:8.2em
+    }
+    #showMore{
+        left: 35%;
+    }
 }
 
 @media only screen and (min-width: 992px) and (max-width:1199px) {
@@ -1075,9 +1188,45 @@ input[type="date"]:focus {
     #dropdownMenuButton1 {
         margin-left: 2em;
     }
+
+    .imgTop10 {
+        margin-left: 35%;
+    }
+
+    .numberClassification1{
+        margin-left:4.5em
+    }
+    
+    .numberClassification2{
+        margin-left:6.7em
+    }
+
+    #showMore{
+        left: 35%;
+    }
+
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .imgTop10 {
+        margin-left: 30%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .numberClassification1{
+        margin-left:2.5em
+    }
+    
+    .numberClassification2{
+        margin-left:4.7em
+    }
+
+    #showMore{
+        left: 30%;
+    }
+
+}
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
@@ -1093,8 +1242,45 @@ input[type="date"]:focus {
     #iconArrow1 {
         margin-left: 7em;
     }
+
+    .imgTop10 {
+        margin-left: 25%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .numberClassification1{
+        margin-left:1.5em
+    }
+    
+    .numberClassification2{
+        margin-left:3.7em
+    }
+
+    #showMore{
+        left: 26%;
+    }
 }
 
+@media only screen and (min-width: 450px) and (max-width: 575px) {
+    .imgTop10 {
+        margin-left: 20%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .numberClassification1{
+        margin-left:1em
+    }
+    
+    .numberClassification2{
+        margin-left:3.2em
+    }
+
+    #showMore{
+        left: 29%;
+    }
+}
 
 @media only screen and (min-width: 350px) and (max-width: 449px) {
 
@@ -1118,6 +1304,33 @@ input[type="date"]:focus {
 
     #searchBarEpochsMobile {
         display: block;
+    }
+
+    .imgTop10 {
+        margin-left: 10%;
+        width: 30px;
+        height: 30px;
+    }
+
+    #colClassification {
+        width: 20%
+    }
+
+    .numberClassification1{
+        margin-left:0em
+    }
+    
+    .numberClassification2{
+        margin-left:1.2em
+    }
+
+    .crown {
+        width: 15px;
+        height: 10px
+    }
+
+    #showMore{
+        left: 24%;
     }
 }
 
@@ -1144,5 +1357,33 @@ input[type="date"]:focus {
     #searchBarEpochsMobile {
         display: block;
     }
+
+    .imgTop10 {
+        margin-left: 1%;
+        width: 30px;
+        height: 30px;
+    }
+
+    #colClassification {
+        width: 20%
+    }
+
+    .numberClassification1{
+        margin-left:0em
+    }
+    
+    .numberClassification2{
+        margin-left:1.2em
+    }
+
+    .crown {
+        width: 15px;
+        height: 10px
+    }
+
+    #showMore{
+        left: 16%;
+    }
+    
 
 }

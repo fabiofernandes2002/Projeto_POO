@@ -6,43 +6,43 @@ function initdata() {
 
     if (!localStorage.videos) {
         const videos = [{
-            idVideo: 0,
-            epochTitle: "Tempo dos descobrimentos",
+            idVideo: 1,
+            idEpoch: 1,
             videoTitle: 'Expansão Marítima Portuguesa (Parte 1)',
             tags: [
-                "idade",
-                "moderna",
-                "motivos",
-                "expansão",
-                "estado",
-                "morte",
-                "fernando",
-                "rei",
-                "castela",
-                "mestre",
-                "avis",
-                "aljubarrota",
-                "centralizaçao",
-                "genova",
-                "italia"
+                "Idade Moderna",
+                "Motivos",
+                "Expansão Marítima",
+                "Estado",
+                "Morte",
+                "D. Fernando",
+                "Rei",
+                "Castela",
+                "Mestre",
+                "Avis",
+                "Aljubarrota",
+                "Centralização",
+                "Génova",
+                "Italia"
             ],
-            urlVideo: "https://www.youtube.com/watch?v=On2TAh0EejI",
+            urlVideo: "../assets/videos/Expansao_maritima_1.mp4",
             chapters: [
-                ["0:00", "Introdução"],
-                ["2:40", "Ínicio da Idade Moderna"],
-                ["3:53", "Os motivos da expansão"],
-                ["10:40","O estado português"]
+                {time:"0:00", content:"Introdução"},
+                {time:"2:40", content:"Ínicio da Idade Moderna"},
+                {time:"3:53", content:"Os motivos da expansão"},
+                {time:"10:40",content:"O estado português"}
             ],
-            likes: 20,
-            comments: {
-                tomas: "Muito bom",
-                fabio: "ok"
-            }
+            comments: [
+                {idUser:5, comment:"Muito bom"},
+                {idUser:6, comment:"ok"},
+            ], 
+            views:0,
+            likes:0
         },
         {
-            idVideo: 0,
-            epochTitle: "Tempo dos descobrimentos",
-            videoTitle: 'Expansão Marítima Portuguesa (Parte 1)',
+            idVideo: 2,
+            idEpoch: 1,
+            videoTitle: 'Expansão Marítima Portuguesa (Parte 2)',
             tags: [
                 "idade",
                 "moderna",
@@ -60,18 +60,19 @@ function initdata() {
                 "genova",
                 "italia"
             ],
-            urlVideo: "https://www.youtube.com/watch?v=On2TAh0EejI",
+            urlVideo: "../assets/videos/Expansao_maritima_2.mp4",
             chapters: [
-                ["0:00", "Introdução"],
-                ["2:40", "Ínicio da Idade Moderna"],
-                ["3:53", "Os motivos da expansão"],
-                ["10:40","O estado português"]
+                {time:"0:00", content:"Introdução"},
+                {time:"2:40", content:"Ínicio da Idade Moderna"},
+                {time:"3:53", content:"Os motivos da expansão"},
+                {time:"10:40",content:"O estado português"}
             ],
-            likes: 20,
-            comments: {
-                tomas: "Muito bom",
-                fabio: "ok"
-            }
+            comments: [
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
         }];
         localStorage.setItem("videos", JSON.stringify(videos));
     }
@@ -80,47 +81,49 @@ function initdata() {
         const questions = [
             {
                 idQuestion : 1,
-                idEpoch: 0,
-                question: [
+                idEpoch: 1,
+                questions: [
                     "Completa a frase com um ano em falta.",
-                    "A cidade da Ceuta foi conquistada em Agosto de...",
+                    "A cidade da Ceuta foi conquistada em Agosto de",
                 ],
                 category:"fill-the-blanks",
-                correctAnswer: "1914",
+                correctAnswers: ["1415"],
                 points:10
             },
             {
                 idQuestion : 2,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Seleciona a opção correta.",
-                    "Após a morte do Infante D.Henrique, a exploração da costa africanafoi entregue a Fernão Gomes, um...",
+                    "Após a morte do Infante D.Henrique, a exploração da costa africana foi entregue a Fernão Gomes, um...",
                 ],
                 category:"quizz",
                 incorrectAnswers: [
                     "Um rico senhor nobre.",
-                    "Um rico navegador.",
                     "destacado elemento do clero."
                 ],
-                correctAnswer: "Rico mercador burgês.",
+                correctAnswers: ["Rico mercador burgês."],
                 points:10
             },
             {
                 idQuestion : 3,
-                idEpoch: 0,
-                question:"Seleciona as afirmação que justificam a importância da passagem do Cabo Bojador.",
+                idEpoch: 1,
+                questions:[
+                    "Seleciona a afirmação que justifica a importância da passagem do Cabo Bojador.",
+                    ""
+                ],
                 category:"dropdown",
                 incorrectAnswers: [
                     "Consolidou a conquista de Ceuta.",
                     "Permitiu acesso às especiarias asiáticas."
                 ],
-                correctAnswer: "Abriu caminho para acesso ao ouro africano.",
+                correctAnswers: ["Abriu caminho para acesso ao ouro africano."],
                 points:10
             },
             {
                 idQuestion : 4,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Seleciona a opção correta.", 
                     "Qual era a embarcação utilizada pelos portugueses para o transporte de grandes quantiades de ouro brasileiro e de especiarias orentais?"
                 ],
@@ -129,24 +132,24 @@ function initdata() {
                     "Caravela.",
                     "Barca."
                 ],
-                correctAnswer: "Nau.",
+                correctAnswers: ["Nau."],
                 points:10
             },
             {
                 idQuestion : 5,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Completa a frase com a expressão correta.",
-                    "Diogo de Silves foi um dos marinheiros da célebre 'Escola de Sagres' e foi ele quem descobriu o arquipélago..."
+                    "Diogo de Silves foi um dos marinheiros da célebre 'Escola de Sagres' e foi ele quem descobriu o arquipélago dos"
                 ],
                 category:"fill-the-blanks",
-                correctAnswer: "dos Açores, Açores.",
+                correctAnswers: ["Açores"],
                 points:10
             },
             {
                 idQuestion : 6,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Seleciona a opção correta.",
                     "Em que reinado se deu a descoberta do caminho marítimo para a Índia?"
                 ],
@@ -155,13 +158,13 @@ function initdata() {
                     "D.João III.",
                     "D.João II."
                 ],
-                correctAnswer: "D.Manuel I.",
+                correctAnswers: ["D.Manuel I."],
                 points:10
             },
             {
                 idQuestion : 7,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Seleciona a opção que completa corretamente a frase.",
                     "Ceuta situa-se junto ao Estreito de... "
                 ],
@@ -170,13 +173,13 @@ function initdata() {
                     "Magalhães.",
                     "Bering."
                 ],
-                correctAnswer: "Gibraltar.",
+                correctAnswers: ["Gibraltar."],
                 points:10
             },
             {
                 idQuestion : 8,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Seleciona a opção correta.",
                     "Quando se iniciou e terminou a viagem de circum-navegação?"
                 ],
@@ -185,24 +188,25 @@ function initdata() {
                     "A viagem iniciou-se em 1498 e terminou em 1500.",
                     "A viagem iniciou-se em 1519 e terminou em 1532."
                 ],
-                correctAnswer: "A viagem iniciou-se em 1519 e terminou em 1522.",
+                correctAnswers: ["A viagem iniciou-se em 1519 e terminou em 1522."],
                 points:10
             },
             {
                 idQuestion : 9,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Preenche o espaço em branco.",
-                    "A viagem de circum-navegação comandada por Fernão de Magalhães partiu..."
+                    "A viagem de circum-navegação comandada por Fernão de Magalhães partiu de",
+                    ", perto de Sevilha, em Espanha."
                 ],
                 category:"fill-the-blanks",
-                correctAnswer: "de Cádis, perto de Sevilha, em Espanha.",
+                correctAnswers: ["Cádis"],
                 points:10
             },
             {
                 idQuestion : 10,
-                idEpoch: 0,
-                question:[
+                idEpoch: 1,
+                questions:[
                     "Seleciona a opção que completa corretamente a frase.",
                     "Em 1519, Fernão Magalhães inicia a que será a..."
                 ],
@@ -211,7 +215,22 @@ function initdata() {
                     "primeira viagem ao interior de África.",
                     "primeira viagem ao marítima ao Japão."
                 ],
-                correctAnswer: "primeira viagem de circum-navegação.",
+                correctAnswers: ["primeira viagem de circum-navegação."],
+                points:10
+            },
+            {
+                idQuestion : 11,
+                idEpoch: 2,
+                questions:[
+                    "Seleciona a opção que completa corretamente a frase.",
+                    "Em 1519, Fernão Magalhães inicia a que será a..."
+                ],
+                category:"quizz",
+                incorrectAnswers: [
+                    "primeira viagem ao interior de África.",
+                    "primeira viagem ao marítima ao Japão."
+                ],
+                correctAnswers: ["primeira viagem de circum-navegação."],
                 points:10
             },
 
@@ -221,7 +240,7 @@ function initdata() {
 
     if (!localStorage.epochs) {
         const epochs = [{
-            idEpoch: 0,
+            idEpoch: 1,
             epochTitle: "Tempo dos descobrimentos",
             period : "Séc. XV - XVI",
             image: "./assets/img/tempo_dos_descobrimentos.png",
@@ -229,11 +248,11 @@ function initdata() {
             description: "Aprende!",
             videos: [0],
             questions: [0],
-            medal: 0,
+            medal: 1,
             requirement: "Inicie Sessão"
         },
         {
-            idEpoch: 1,
+            idEpoch: 2,
             epochTitle: "Da União Ibérica à Restauração da Independência",
             period : "Séc. XVII",
             image: "./assets/img/uniao_iberica.png",
@@ -241,11 +260,11 @@ function initdata() {
             description: "Aprende1!",
             videos: [0],
             questions: [0],
-            medal: 0,
+            medal: 2,
             requirement: "Inicie Sessão"
         },
         {
-            idEpoch: 2,
+            idEpoch: 3,
             epochTitle: "teste",
             period : "Séc. XVIII",
             image: "./assets/img/uniao_iberica.png",
@@ -253,19 +272,81 @@ function initdata() {
             description: "Aprende2!",
             videos: [0],
             questions: [0],
-            medal: 0,
+            medal: 3,
             requirement: "Complete as Duas Primeiras Épocas"
         }];
         localStorage.setItem("epochs", JSON.stringify(epochs));
     }
 
     if (!localStorage.achievements) {
-        const achievements = [{
-            idAchievement: 1,
-            type: "avatar",
-            urlImage: "avatar1.png",
-            achievementName: "FirstAvatar"
-        }];
+        const achievements = [
+            {
+                idAchievement: 1,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/gamer(2).png",
+                achievementName: "Gamer"
+            },
+            {
+                idAchievement: 2,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/hacker.png",
+                achievementName: "Hacker"
+            },
+            {
+                idAchievement: 3,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/man(3).png",
+                achievementName: "Estiloso"
+            },
+            {
+                idAchievement: 4,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/user(1).png",
+                achievementName: "Beleza pura"
+            },
+            {
+                idAchievement: 5,
+                type: "avatar",
+                urlImage: "../assets/img/avatars/profile(1).png",
+                achievementName: "Diplomata"
+            },
+            {
+                idAchievement: 6,
+                type: "medal",
+                urlImage: "../assets/img/medals/bronze-medal.png",
+                achievementName: "Medalha bronze"
+            },
+            {
+                idAchievement: 7,
+                type: "medal",
+                urlImage: "../assets/img/medals/bronze-medal2.png",
+                achievementName: "Medalha bronze-2"
+            },
+            {
+                idAchievement: 8,
+                type: "medal",
+                urlImage: "../assets/img/medals/silver-medal.png",
+                achievementName: "Medalha prata"
+            },
+            {
+                idAchievement: 9,
+                type: "medal",
+                urlImage: "../assets/img/medals/gold-medal.png",
+                achievementName: "Medalha ouro"
+            },
+            {
+                idAchievement: 10,
+                type: "medal",
+                urlImage: "../assets/img/medals/winner.png",
+                achievementName: "Mestre"
+            },
+            {
+                idAchievement: 11,
+                type: "medal",
+                urlImage: "../assets/img/medals/medal(2).png",
+                achievementName: "Mestre"
+            },
+        ];
         localStorage.setItem("achievements", JSON.stringify(achievements));
     }
 
@@ -274,7 +355,7 @@ function initdata() {
         const users = [{
             idUser: 1,
             type: 'professor',
-            username: "Maria",
+            username: "Professor",
             email: "professor@gmail.com",
             city: "Porto",
             password: "123",
@@ -283,7 +364,9 @@ function initdata() {
             avatars: [1],
             medals: [0],
             totalPoints: 2000,
-            epochs : [0,1,2]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0],[3,false,0]]  
         }, {
             idUser: 2,
             type: 'aluno',
@@ -294,9 +377,11 @@ function initdata() {
             birthDate: "20-05-2002",
             sex: "male",
             avatars: [1],
-            medals: [1, 2, 3, 4, 5],
+            medals: [7, 8, 9,],
             totalPoints: 20,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 3,
@@ -308,9 +393,11 @@ function initdata() {
             birthDate: "20-05-2002",
             sex: "female",
             avatars: [],
-            medals: [],
+            medals: [10,6],
             totalPoints: 50,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 4,
@@ -324,7 +411,9 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 100,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 5,
@@ -338,7 +427,9 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 6,
@@ -352,7 +443,9 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 7,
@@ -366,7 +459,9 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 8,
@@ -380,7 +475,9 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 9,
@@ -394,7 +491,9 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 1400,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         },
         {
             idUser: 10,
@@ -408,21 +507,9 @@ function initdata() {
             avatars: [],
             medals: [],
             totalPoints: 150,
-            epochs : [0,1]
-        },
-        {
-            idUser: 11,
-            type: 'aluno',
-            username: "Abel",
-            email: "abel@gmail.com",
-            city: "Porto",
-            password: "123",
-            birthDate: "20-05-2002",
-            sex: "male",
-            avatars: [],
-            medals: [],
-            totalPoints: 150,
-            epochs : [0,1]
+            videosSeen: [],
+            videosLiked: [],
+            epochs : [[1,false,0],[2,false,0]] 
         }
         ];
 

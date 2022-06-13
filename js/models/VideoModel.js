@@ -1,17 +1,54 @@
+let videos;
+
+// CARREGAR VIDEOS DA LOCALSTORAGE
+export function init() {
+    videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
+}
+
+//MARCAR O VÍDEO ESCOLHIDO
+export function setIdChoosenVideo(video) {
+    sessionStorage.setItem("choosenVideo", video.idVideo);
+}
+
+// DEVOLVE O VÍDEO ESCOLHIDO
+export function getChoosenVideo() {
+    const videoInfo = videos.find(video => video.idVideo === JSON.parse(sessionStorage.getItem("choosenVideo")))
+    return videoInfo;
+}
+
+// OBTER lista de Videos 
+export function getvideos() {
+    return videos;
+}
+
+export function updateVideoInfo(newVideoInfo) {
+
+    //NA LOCAL STORAGE
+    const newVideosList = videos.map((videoItem) =>
+        videoItem.idVideo === newVideoInfo.idVideo ? newVideoInfo : videoItem
+    );
+    localStorage.setItem("videos", JSON.stringify(newVideosList));
+
+    videos = newVideosList
+}
+
+
 class Video {
     idVideo = 0
-    epochTitle = ""
+    idEpoch = 0
     videoTitle = ''
     tags = []
     urlVideo = ''
     chapters = []
     likes = 0
-    comments = {}
+    comments = []
+    viewa = 0
+    likes = 0
 
-    constructor(idVideo, epochTitle, videoTitle, tags, urlVideo, chapters, likes, comments) {
+    constructor(idVideo, idEpoch, videoTitle, tags, urlVideo, chapters, likes, comments) {
 
         this.idVideo = idVideo;
-        this.epochTitle = epochTitle;
+        this.idEpoch = idEpoch;
         this.videoTitle = videoTitle
         this.videoDescription = videoDescription
         this.tags = tags

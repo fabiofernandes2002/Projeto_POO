@@ -208,9 +208,10 @@ function renderLoggedUserContent(path) {
 
     document.querySelector("#loggedUser").classList.remove("d-none")
     document.querySelector("#divUsernmame").innerHTML += User.getUserLogged().username
+    document.querySelector('#navbarDropdown1Image').innerHTML += User.getUserLogged().username.charAt(0)
 
 
-    if (User.getUserLogged().type === "professor") { // COMO ADMIN
+    if (User.isTeacher()) { // COMO ADMIN/PROFESSOR
         result = `
                         <div class="position-relative options-menu">
                             <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>
