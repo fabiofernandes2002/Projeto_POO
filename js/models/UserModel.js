@@ -65,9 +65,26 @@ export function getUserLogged() {
 }
 
 // OBTER lista de Users 
-export function getUsers() {
+export function getUsers( ) {
   return users;
 }
+
+// OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
+export function getUsersFilterd(filterName = "" ) {
+  let filteredusers = users.filter(
+    (user) =>
+      (user.username.toLowerCase().includes(filterName.toLowerCase()) || filterName === "")   );
+
+  return filteredusers;
+}
+
+
+//REMOVER UM UTLIZADOR 
+export function removeUser(name) {
+  users = users.filter((user) => user.username !== name);
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 
 export function getUserPosition(username) {
   const allStudentUsers = getUsers().filter((u) => u.type == "aluno");

@@ -17,6 +17,9 @@
 
     <!-- Fonts awesome -->
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
+    
+    <!-- sweetalert biblioteca -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         
@@ -50,12 +53,16 @@
         tbody{
             font-family: 'mplus-medium';
         }
+        .hide{
+            display: none;
+        }
         
     </style>
 </head>
 <body>
-      <!-- Nav bar -->
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    
+    <!-- Nav bar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container d-flex align-items-center">
 
             <!--  -->
@@ -365,7 +372,7 @@
     <form action="" class="row">
         <div class="col-4">
             <div class="input-group">
-                <input type="text" class="form-control" id="username_filter" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="search" class="form-control" id="username_filter" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
         </div>
         <div class="col-auto ">
@@ -389,22 +396,7 @@
   
   
   <div class="container-fluid mt-4">
-    <table class="table ">
-      <thead >
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nome</th>
-          <th scope="col">email</th>
-          <th scope="col">localidade</th>
-          <th scope="col">Eleminar</th>
-        </tr>
-      </thead>
-      <tbody class="tbody ">
-        
-      </tbody>
-
-
-    </table>
+    <table class="table "></table>
   </div>
 
 
