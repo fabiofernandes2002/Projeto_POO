@@ -87,11 +87,11 @@ export function sortByPontos() {
 export function getUsersFilterd(filterName = "" , isSorted = false) {
   let filteredUsers = users.filter(
   (user) =>(user.username.toLowerCase().includes(filterName.toLowerCase()) || filterName === "")   );
-  console.log(filteredusers);
+  console.log(filteredUsers);
     
-  filteredBands = isSorted
-  ? filteredBands.sort((a, b) => a.name.localeCompare(b.name))
-  : filteredBands;
+  filteredUsers = isSorted
+  ? filteredUsers.sort((a, b) => a.name.localeCompare(b.name))
+  : filteredUsers;
     
   return filteredUsers;
     
