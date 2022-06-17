@@ -27,10 +27,10 @@ function initdata() {
             ],
             urlVideo: "../assets/videos/Expansao_maritima_1.mp4",
             chapters: [
-                {time:"0:00", content:"Introdução"},
-                {time:"2:40", content:"Ínicio da Idade Moderna"},
-                {time:"3:53", content:"Os motivos da expansão"},
-                {time:"10:40",content:"O estado português"}
+                {time:"0:00",seconds:'0', content:"Introdução"},
+                {time:"2:40",seconds:'160', content:"Ínicio da Idade Moderna"},
+                {time:"3:53",seconds:'350', content:"Os motivos da expansão"},
+                {time:"10:40",seconds:'550',content:"O estado português"}
             ],
             comments: [
                 {idUser:5, comment:"Muito bom"},
@@ -62,10 +62,10 @@ function initdata() {
             ],
             urlVideo: "../assets/videos/Expansao_maritima_2.mp4",
             chapters: [
-                {time:"0:00", content:"Introdução"},
-                {time:"2:40", content:"Ínicio da Idade Moderna"},
-                {time:"3:53", content:"Os motivos da expansão"},
-                {time:"10:40",content:"O estado português"}
+                {time:"0:00", seconds:'0', content:"Introdução"},
+                {time:"2:40", seconds:'160', content:"Ínicio da Idade Moderna"},
+                {time:"3:53", seconds:'350', content:"Os motivos da expansão"},
+                {time:"10:40", seconds:'550', content:"O estado português"}
             ],
             comments: [
                 {idUser:8, comment:"Gostei muito!"},
@@ -265,7 +265,7 @@ function initdata() {
         },
         {
             idEpoch: 3,
-            epochTitle: "teste",
+            epochTitle: "Teste 1",
             period : "Séc. XVIII",
             image: "./assets/img/uniao_iberica.png",
             imageStyle:"background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;",
@@ -274,7 +274,20 @@ function initdata() {
             questions: [0],
             medal: 3,
             requirement: "Complete as Duas Primeiras Épocas"
-        }];
+        },
+        {
+            idEpoch: 4,
+            epochTitle: "Teste 2",
+            period : "Séc. XVIII",
+            image: "./assets/img/uniao_iberica.png",
+            imageStyle:"background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;",
+            description: "Aprende2!",
+            videos: [0],
+            questions: [0],
+            medal: 3,
+            requirement: "Complete as Duas Primeiras Épocas"
+        }
+    ];
         localStorage.setItem("epochs", JSON.stringify(epochs));
     }
 
@@ -283,68 +296,79 @@ function initdata() {
             {
                 idAchievement: 1,
                 type: "avatar",
-                urlImage: "../assets/img/avatars/gamer(2).png",
-                achievementName: "Gamer"
+                urlImage: "../assets/img/avatars/1.png",
+                achievementName: "Beleza pura",
+                points:100
             },
             {
                 idAchievement: 2,
                 type: "avatar",
-                urlImage: "../assets/img/avatars/hacker.png",
-                achievementName: "Hacker"
+                urlImage: "../assets/img/avatars/2.png",
+                achievementName: "Diplomata",
+                points:200
             },
             {
                 idAchievement: 3,
                 type: "avatar",
-                urlImage: "../assets/img/avatars/man(3).png",
-                achievementName: "Estiloso"
+                urlImage: "../assets/img/avatars/3.png",
+                achievementName: "Estiloso",
+                points:300
             },
             {
                 idAchievement: 4,
                 type: "avatar",
-                urlImage: "../assets/img/avatars/user(1).png",
-                achievementName: "Beleza pura"
+                urlImage: "../assets/img/avatars/4.png",
+                achievementName: "Gamer",
+                points:400
             },
             {
                 idAchievement: 5,
                 type: "avatar",
-                urlImage: "../assets/img/avatars/profile(1).png",
-                achievementName: "Diplomata"
+                urlImage: "../assets/img/avatars/5.png",
+                achievementName: "Hacker",
+                points:500
             },
             {
                 idAchievement: 6,
                 type: "medal",
                 urlImage: "../assets/img/medals/bronze-medal.png",
-                achievementName: "Medalha bronze"
+                achievementName: "Medalha bronze",
+                description:"Acertar 100% numa ficha de exercícios"
             },
             {
                 idAchievement: 7,
                 type: "medal",
                 urlImage: "../assets/img/medals/bronze-medal2.png",
-                achievementName: "Medalha bronze-2"
+                achievementName: "Medalha de bronze-2",
+                description:"Concluir as duas primeiras epócas"
             },
             {
                 idAchievement: 8,
                 type: "medal",
                 urlImage: "../assets/img/medals/silver-medal.png",
-                achievementName: "Medalha prata"
+                achievementName: "Medalha de prata",
+                description:"Desbloquear todas as epócas"
             },
             {
                 idAchievement: 9,
                 type: "medal",
-                urlImage: "../assets/img/medals/gold-medal.png",
-                achievementName: "Medalha ouro"
+                urlImage: "../assets/img/medals/medal2.png",
+                achievementName: "Medalha de Ouro",
+                description:"Concluir a terceira epóca"
             },
             {
                 idAchievement: 10,
                 type: "medal",
-                urlImage: "../assets/img/medals/winner.png",
-                achievementName: "Mestre"
+                urlImage: "../assets/img/medals/gold-medal.png",
+                achievementName: "Medalha de Ouro-2",
+                points:800
             },
             {
                 idAchievement: 11,
                 type: "medal",
-                urlImage: "../assets/img/medals/medal(2).png",
-                achievementName: "Mestre"
+                urlImage: "../assets/img/medals/winner.png",
+                achievementName: "Mestre",
+                points:1000
             },
         ];
         localStorage.setItem("achievements", JSON.stringify(achievements));
@@ -363,10 +387,11 @@ function initdata() {
             sex: "female",
             avatars: [1],
             medals: [0],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 2000,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0],[3,false,0]]  
+            epochs : [[1,false,0],[2,false,0],[3,false,0],[4,false,0]]  
         }, {
             idUser: 2,
             type: 'aluno',
@@ -378,6 +403,7 @@ function initdata() {
             sex: "male",
             avatars: [1],
             medals: [7, 8, 9,],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 20,
             videosSeen: [],
             videosLiked: [],
@@ -394,6 +420,7 @@ function initdata() {
             sex: "female",
             avatars: [],
             medals: [10,6],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 50,
             videosSeen: [],
             videosLiked: [],
@@ -410,6 +437,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 100,
             videosSeen: [],
             videosLiked: [],
@@ -426,6 +454,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -442,6 +471,7 @@ function initdata() {
             sex: "female",
             avatars: [],
             medals: [],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -458,6 +488,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -474,6 +505,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -490,6 +522,7 @@ function initdata() {
             sex: "female",
             avatars: [],
             medals: [],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 1400,
             videosSeen: [],
             videosLiked: [],
@@ -506,6 +539,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
+            avatarImg:'./assets/img/avatars/',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],

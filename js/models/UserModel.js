@@ -142,6 +142,7 @@ export function updateLoggedUserInfo(newUserInfo) {
   users = newUserList
 }
 
+
 /**
  * CLASSE QUE MODELA UM UTILIZADOR NA APLICAÇÃO
  */
@@ -156,10 +157,11 @@ class User {
   sex = ''
   avatars = []
   medals = []
+  avatarImg
   totalPoints = 0
   videosSeen = []
   videosLiked = []
-
+  avatarImg = ""
   //[(number)id da época desbloqueada, (boolean)já realizou a ficha de trabalho? , (number)nota da ficha de trabalho]
   epochs = [
     [1, false, 0],
@@ -179,7 +181,7 @@ class User {
     this.birthDate = birthDate
     this.sex = sex
     this.totalPoints = totalPoints
-
+    this.avatarImg = avatarImg
   }
 
 }
