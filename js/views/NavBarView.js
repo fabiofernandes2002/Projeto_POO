@@ -202,7 +202,7 @@ function displayMessage(element, message, type) {
 /**
  * RENDERIZAR NOVO CONTEÚDO NA NAVBAR SE O UTILIZADOR ESTIVER AUTENTICADO
  */
-function renderLoggedUserContent(path) {
+export function renderLoggedUserContent(path) {
     const menuDropdown = document.querySelector("[aria-labelledby='navbarDropdown1']")
     let result
 
@@ -226,7 +226,7 @@ function renderLoggedUserContent(path) {
                             <li class="manageResources"><a class="dropdown-item" href="${path + "manageAchiements.html"}">Gerir conquistas</a></li>
                         </div>
                         <div class="position-relative options-menu">
-                            <li id="manageUsers"><a class="dropdown-item" href="#">Gerir utilizadores</a></li>
+                            <li id="manageUsers"><a class="dropdown-item" href="../html/manageUser.html">Gerir utilizadores</a></li>
                         </div>
                         <div class="position-relative options-menu">
                             <li id="logout"><a class="dropdown-item">Sair</a></li>
@@ -729,7 +729,7 @@ function changeNavbarContent() {
         //O botão "Entrar" fica visível, o seu width = 90px e está posicionado no extremo direito
         document.querySelector("#btnEntrarNavBar").style.display = ""
         document.querySelector("#btnEntrarNavBar").classList.remove("w-50");
-        document.querySelector("#btnEntrarNavBar").style.width = "90px";
+        document.querySelector("#btnEntrarNavBar").style.width = "90pdx";
         document.querySelector("#btnEntrarNavBar").classList.add("position-absolute", "end-0", "top-50", "translate-middle-y")
 
 

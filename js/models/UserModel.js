@@ -27,13 +27,13 @@ export function login(usernameOrEmail, password) {
   const userByUsername = users.find(
     (user) => user.username === usernameOrEmail && user.password === password
   );
-  if (userByUsername != null) { //Se o utilizador e a password estão válidos
+  if (userByUsername != null ) { //Se o utilizador e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByUsername));
     return true;
   }
 
   const userByEmail = checkLoginWithEmail(usernameOrEmail, password)
-  if (userByEmail != null) { //Se o email e a password estão válidos
+  if (userByEmail != null ) { //Se o email e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByEmail));
     return true;
   }
@@ -65,9 +65,45 @@ export function getUserLogged() {
 }
 
 // OBTER lista de Users 
-export function getUsers() {
+export function getUsers( ) {
   return users;
 }
+
+
+// OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
+export function sortUsers() {
+  users.sort((a, b) => a.username.localeCompare(b.username));
+  
+}
+
+// OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
+export function sortByPontos() {
+  users.sort((a, b) => a.totalPoints.localeCompare(b.totalPoints));
+  console.log(a.totalPoints);
+}
+
+
+
+export function getUsersFilterd(filterName = "" , isSorted = false) {
+  let filteredUsers = users.filter(
+  (user) =>(user.username.toLowerCase().includes(filterName.toLowerCase()) || filterName === "")   );
+  console.log(filteredUsers);
+    
+  filteredUsers = isSorted
+  ? filteredUsers.sort((a, b) => a.name.localeCompare(b.name))
+  : filteredUsers;
+    
+  return filteredUsers;
+    
+}
+
+
+//REMOVER UM UTLIZADOR 
+export function removeUser(name) {
+  users = users.filter((user) => user.username !== name);
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 
 export function getUserPosition(username) {
   const allStudentUsers = getUsers().filter((u) => u.type == "aluno");
@@ -125,7 +161,7 @@ class User {
   totalPoints = 0
   videosSeen = []
   videosLiked = []
-
+  avatarImg = ""
   //[(number)id da época desbloqueada, (boolean)já realizou a ficha de trabalho? , (number)nota da ficha de trabalho]
   epochs = [
     [1, false, 0],
@@ -133,7 +169,8 @@ class User {
   ]
 
 
-  constructor(username, email, city, password, birthDate, sex, avatarImg) {
+
+  constructor(username, email, city, password, birthDate, sex , totalPoints) {
 
     this.idUser = users.length === 0 ? 1 : users.length + 1;
     this.type = "aluno";
@@ -143,6 +180,7 @@ class User {
     this.password = password
     this.birthDate = birthDate
     this.sex = sex
+    this.totalPoints = totalPoints
     this.avatarImg = avatarImg
   }
 
