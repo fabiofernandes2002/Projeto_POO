@@ -103,15 +103,33 @@ function renderVideo(video, user,firstTimeBindingModalElements,modal) {
     let result = ""
     document.querySelector('#titleVideo').innerHTML = video.videoTitle
     document.querySelector('.count').innerHTML = video.likes
-    document.querySelector('source').src = video.urlVideo
+    document.querySelector('.ratio-16x9').innerHTML += `<video id="vidSrc" width="320" height="240" controls>
+    <source src="${video.urlVideo}" type="video/mp4">
+    </video>`
+
 
     for (const chapter of video.chapters) {
-        result += `<li><span style="color: #3DAAC5;">${chapter.time}</span>  ${chapter.content}</li>`
+        console.log(chapter.seconds);
+        result += `<li><span class="gotoFrame" id='${chapter.seconds}' style="color: #3DAAC5; cursor: pointer;">${chapter.time}</span>  ${chapter.content}</li>`
     }
 
     document.querySelectorAll('.placeChaptersHere').forEach(ul => {
         ul.innerHTML = result
     });
+    // ir para o frame especifico do video aprtir dos capitulos
+    const lis = document.querySelectorAll('.gotoFrame')
+    for (const li of lis) {
+        li.addEventListener('click', (event) =>{
+            //alert(event.target.id)
+            const videoSelected = document.querySelector(`[src="${video.urlVideo}" ]`).parentNode
+            //console.log(videoSelected);
+            videoSelected.currentTime = event.target.id
+           
+        })
+        
+    }
+    
+    
 
     document.querySelector('#tagsDiv').innerHTML = `<b>Tags:</b> ${video.tags.join(", ")}`
 
@@ -156,9 +174,15 @@ function renderComments(video, comments) {
     let result = ""
     for (const comment of comments) {
         const user = User.getUsers().find(user => user.idUser === comment.idUser)
+        let hasAvatar 
+        if (user.avatarImg === './assets/img/avatars/') {
+            hasAvatar = 0
+        }else{
+            hasAvatar = 1
+        }
         result += `<div class="comment-card">
-                        <div class="pic center-display">
-                            ${user.username.charAt(0)}
+                        <div class="pic center-display" style="${hasAvatar ? "background:url(." + user.avatarImg + ") center / contain no-repeat" : ""}">
+                            ${hasAvatar ? "" : user.username.charAt(0)}
                         </div>
                         <div class="comment-info">
                             <small class="nickname">

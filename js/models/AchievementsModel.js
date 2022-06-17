@@ -1,13 +1,25 @@
 let achievements;
 
-// CARREGAR ÉPOCAS DA LOCALSTORAGE
+// CARREGAR AS ACHIEVEMENTS DA LOCALSTORAGE
 export function init() {
     achievements = localStorage.achievements ? JSON.parse(localStorage.achievements) : [];
 }
 
-// OBTER lista de  
+// OBTER lista de  achievements
 export function getAchievements() {
     return achievements;
+}
+
+// ADICIONAR ACHIEVEMENTS
+export function add(type, urlImage, achievementName, points, description) {
+    
+    if (achievements.some((achievement) => achievement.achievementName === achievementName)) {
+        throw Error(`Achievement with name "${achievementName}" already exists!`);
+      } 
+      else {
+        achievements.push(new Achievement(type, urlImage, achievementName, points, description));
+        localStorage.setItem("achievements", JSON.stringify(achievements));
+    }
 }
 
 class Achievement {
@@ -15,14 +27,17 @@ class Achievement {
     type = "" // medal or avatar
     urlImage = ""
     achievementName = ""
+    points = 0
+    description = ""
     
-    constructor(idAchievement, type, urlImage, name) {
+    constructor(idAchievement, type, urlImage, achievementName, points, description) {
         
         this.idAchievement = idAchievement;
         this.type = type;
         this.urlImage = urlImage;
-        this.name = name;
-
+        this.achievementName = achievementName;
+        this.points = points
+        this.description = description
     }
 }
 

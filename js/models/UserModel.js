@@ -106,6 +106,7 @@ export function updateLoggedUserInfo(newUserInfo) {
   users = newUserList
 }
 
+
 /**
  * CLASSE QUE MODELA UM UTILIZADOR NA APLICAÇÃO
  */
@@ -120,6 +121,7 @@ class User {
   sex = ''
   avatars = []
   medals = []
+  avatarImg
   totalPoints = 0
   videosSeen = []
   videosLiked = []
@@ -131,7 +133,7 @@ class User {
   ]
 
 
-  constructor(username, email, city, password, birthDate, sex) {
+  constructor(username, email, city, password, birthDate, sex, avatarImg) {
 
     this.idUser = users.length === 0 ? 1 : users.length + 1;
     this.type = "aluno";
@@ -141,6 +143,7 @@ class User {
     this.password = password
     this.birthDate = birthDate
     this.sex = sex
+    this.avatarImg = avatarImg
   }
 
 }

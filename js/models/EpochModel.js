@@ -15,6 +15,18 @@ export function setChoosenEpoch(epoch) {
     sessionStorage.setItem("choosenEpoch", JSON.stringify(epoch));
 }
 
+// ADICIONAR EPOCHS
+export function add(period, epochTitle, image, description) {
+    
+    if (epochs.some((epoch) => epoch.epochTitle === epochTitle)) {
+        throw Error(`Period with name "${epochTitle}" already exists!`);
+      } 
+      else {
+        epochs.push(new Epoch(period, epochTitle, image, description));
+        localStorage.setItem("epochs", JSON.stringify(epochs));
+    }
+}
+
 // VERIFICA EXISTÊNCIA DE ÉPOCA ESCOLHIDA
 export function isChoosen() {
     return sessionStorage.getItem("choosenEpoch") ? true : false;
@@ -36,8 +48,17 @@ class Epoch {
     medal = 0 //MEDALHA QUE O UTILIZADOR GANHA QUANDO COMPLETA UMA ÉPOCA
     requirement = "" //REQUISITO PARA DESBLOQUEAR A ÉPOCA
 
-    constructor(idEpoch, period, imageStyle, epochTitle, image, description, videos, questions, medal, requirement) {
-        this.idEpoch = idEpoch;
+    constructor(period, 
+        epochTitle, 
+        image, 
+        description, 
+        imageStyle = "background-size: contain;background-repeat: no-repeat;background-position: center bottom;",
+        videos = [],
+        questions = [],
+        medal = 0,
+        requirement = ""
+    ) {
+        this.idEpoch = epochs.length === 0 ? 1 : epochs.length + 1;
         this.period = period;
         this.imageStyle = imageStyle;
         this.epochTitle = epochTitle;

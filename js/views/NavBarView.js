@@ -208,7 +208,7 @@ function renderLoggedUserContent(path) {
 
     document.querySelector("#loggedUser").classList.remove("d-none")
     document.querySelector("#divUsernmame").innerHTML += User.getUserLogged().username
-    document.querySelector('#navbarDropdown1Image').innerHTML += User.getUserLogged().username.charAt(0)
+    //document.querySelector('#navbarDropdown1Image').innerHTML += renderAvatar()
 
 
     if (User.isTeacher()) { // COMO ADMIN/PROFESSOR
@@ -220,10 +220,10 @@ function renderLoggedUserContent(path) {
                             <li class="manageResources"><a class="dropdown-item" href="#">Gerir recursos</a></li>
                         </div>
                         <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir épocas</a></li>
+                            <li class="manageResources"><a class="dropdown-item" href="${path + "manageEpochs.html"}">Gerir épocas</a></li>
                         </div>
                         <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir conquistas</a></li>
+                            <li class="manageResources"><a class="dropdown-item" href="${path + "manageAchiements.html"}">Gerir conquistas</a></li>
                         </div>
                         <div class="position-relative options-menu">
                             <li id="manageUsers"><a class="dropdown-item" href="#">Gerir utilizadores</a></li>
@@ -241,8 +241,22 @@ function renderLoggedUserContent(path) {
                         </div>`;
     }
     menuDropdown.innerHTML = result
+    renderAvatarNavBar()
 }
 
+// função que renderiza o avatar da navbar
+function renderAvatarNavBar(){
+    const imgUser = document.querySelector('#navbarDropdown1Image') 
+    const user = User.getUserLogged()
+
+    if (user.avatarImg === './assets/img/avatars/') {
+        imgUser.innerHTML = user.username.charAt(0)
+    }
+    else{
+        imgUser.style.background =`url(${"." + user.avatarImg}) center / contain no-repeat `
+        
+    }
+}
 
 /**
  * MOSTRAR/OCULTAR O CONTEÚDO DO INPUT PASSWORD

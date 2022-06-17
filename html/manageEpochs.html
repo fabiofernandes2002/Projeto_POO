@@ -499,28 +499,28 @@
           <p id="epocaDisponivel">Épocas disponíveis</p>
           <div class="col-4">
             <!-- <label for="validationCustom01" class="form-label">First name</label> -->
-            <input type="text" class="form-control" id="validationCustom01" value="Seculo da época" required>
+            <input type="text" class="form-control" id="txtCentury" value="Seculo da época" required>
             <div class="valid-feedback">
               Looks good!
             </div>
           </div>
           <div class="col-4">
             <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="url" class="form-control" id="validationCustom02" value="url(img)" required>
+            <input type="text" class="form-control" id="txtNameEpoch" value="nome da época" required>
             <div class="valid-feedback">
               Looks good!
             </div>
           </div>
           <div class="col-4">
             <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="text" class="form-control" id="validationCustom02" value="nome da época" required>
+            <input type="url" class="form-control" id="txtImg" value="url(img)" required>
             <div class="valid-feedback">
               Looks good!
             </div>
           </div>
           <div class="col-6">
             <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="text" class="form-control" id="validationCustom02" value="descrição" required>
+            <input type="text" class="form-control" id="txtDescription" value="descrição" required>
             <div class="valid-feedback">
               Looks good!
             </div>
@@ -542,14 +542,14 @@
                     <th scope="col">ELIMINAR</th>
                   </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="tbodyManage">
+                    <!-- <tr>
                       <td>Séc. XV - XVI</td>
                       <td>Tempo dos descobrimentos</td>
                       <td>https://www.youtube.com/embed/tgbNymZ7vq</td>
                       <td>Época das grandes navegações, descobrimentos maritímos, e muito mais </td>
                       <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                    </tr>
+                    </tr> -->
                   </tbody>
             </table>
         </div>
@@ -564,7 +564,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- REFERÊNCIA AOS JS -->
-    <!-- <script type="module" src="js/views/indexView.js"></script> -->
+    <script type="module" src="../js/views/ManageEpochsView.js"></script>
     <script type="module" src="../js/views/NavbarView.js"></script>
     
     <!-- Bootstrap Bundle with Popper -->
