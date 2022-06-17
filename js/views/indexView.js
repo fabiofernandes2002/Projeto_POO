@@ -1,4 +1,4 @@
-// o catálogo recorre à classe Cat, descrita em CatModel.js
+
 import * as User from "../models/UserModel.js";
 
 function indexView() {

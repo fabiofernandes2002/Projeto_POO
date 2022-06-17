@@ -27,13 +27,13 @@ export function login(usernameOrEmail, password) {
   const userByUsername = users.find(
     (user) => user.username === usernameOrEmail && user.password === password
   );
-  if (userByUsername != null) { //Se o utilizador e a password estão válidos
+  if (userByUsername != null ) { //Se o utilizador e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByUsername));
     return true;
   }
 
   const userByEmail = checkLoginWithEmail(usernameOrEmail, password)
-  if (userByEmail != null) { //Se o email e a password estão válidos
+  if (userByEmail != null ) { //Se o email e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByEmail));
     return true;
   }
@@ -69,13 +69,32 @@ export function getUsers( ) {
   return users;
 }
 
-// OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
-export function getUsersFilterd(filterName = "" ) {
-  let filteredusers = users.filter(
-    (user) =>
-      (user.username.toLowerCase().includes(filterName.toLowerCase()) || filterName === "")   );
 
-  return filteredusers;
+// OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
+export function sortUsers() {
+  users.sort((a, b) => a.username.localeCompare(b.username));
+  
+}
+
+// OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
+export function sortByPontos() {
+  users.sort((a, b) => a.totalPoints.localeCompare(b.totalPoints));
+  console.log(a.totalPoints);
+}
+
+
+
+export function getUsersFilterd(filterName = "" , isSorted = false) {
+  let filteredUsers = users.filter(
+  (user) =>(user.username.toLowerCase().includes(filterName.toLowerCase()) || filterName === "")   );
+  console.log(filteredusers);
+    
+  filteredBands = isSorted
+  ? filteredBands.sort((a, b) => a.name.localeCompare(b.name))
+  : filteredBands;
+    
+  return filteredUsers;
+    
 }
 
 
@@ -148,7 +167,8 @@ class User {
   ]
 
 
-  constructor(username, email, city, password, birthDate, sex) {
+
+  constructor(username, email, city, password, birthDate, sex , totalPoints) {
 
     this.idUser = users.length === 0 ? 1 : users.length + 1;
     this.type = "aluno";
@@ -158,6 +178,8 @@ class User {
     this.password = password
     this.birthDate = birthDate
     this.sex = sex
+    this.totalPoints = totalPoints
+
   }
 
 }

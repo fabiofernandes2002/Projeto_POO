@@ -1,5 +1,4 @@
 import * as User from "../models/UserModel.js"
-
 const table = document.querySelector('table')
 
 
@@ -8,22 +7,42 @@ function catalog_user() {
     render_table();
     
     //filtrar por nome 
+    //renderizar a tabela com o nome procurado
     const username_filter = document.getElementById('username_filter')
     const btnProcurar = document.getElementById('procurar')
 
-    btnProcurar.addEventListener("click", () => {
+    btnProcurar.addEventListener("click", () => {        
         render_table(
-            User.getUsersFilterd(
-                 username_filter.value
-            )
-        );
+            User.getUsersFilterd
+            (username_filter.value)
+            );
+            console.log(username_filter.value)
         /*----------- */
     })
-}
+
+    /*ordenar tabela */
+
+    // CLICAR NO BOTÃO ORDENAR POR NOME 
+
+
+    const ordenar_nome = document.querySelector("#btnSort")
+    const ordenar_pontos = document.querySelector('#btnPontos')
+    ordenar_nome.addEventListener("click", () => {
+        User.sortUsers();
+        render_table(User.getUsers());
+        //console.log(User.getUsers);
+    })
 
     
+    // CLICAR NO BOTÃO ORDENAR POR PONTOS
 
+    ordenar_pontos.addEventListener("click" , () => {
+        User.sortByPontos();
+        render_table(User.getUsers())
 
+    })
+
+}
 
 function render_table(users = []){
     //renderizar tabala com os utilizadores da localstorage 
@@ -43,7 +62,7 @@ function render_table(users = []){
     <tbody class="tbody "> `
     
     for (let user of users){
-            if(user.type !== 'professor') {
+            if(user.type !== 'professor' ) {
             all_user += `
             <tr class= "user_line">
             <td>${user.idUser}</td>
@@ -56,7 +75,12 @@ function render_table(users = []){
             </tbody>
             `
         }
+
+
     }
+    
+
+    
 
     table.innerHTML = all_user  
     /* ------*/
@@ -67,17 +91,36 @@ function render_table(users = []){
     let btnsRemove = document.querySelectorAll(".eleminarUSer");
     for (let button of btnsRemove) {
         button.addEventListener("click", () => {
-            //alert('ola mundo')
-            if (confirm("tem a certeza que quer remover este utilizador?")) {
-                User.removeUser(button.id);
-                location.reload();
-            }
+            Swal.fire({
+                title: `tens a certeza que queres eleminar ${button.id}`,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: 'No',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 right-gap',
+                    confirmButton: 'order-2',
+                    denyButton: 'order-3',
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setTimeout(function(){
+                        window.location.reload();Swal.fire('Saved!', '', 'success')
+                        User.removeUser(button.id);}  , 2000);; 
+                } else if (result.isDenied) {
+                  Swal.fire(`o utilizador ${button.id} foi eleminado ` , 'info')
+                }
+              })
+            s
         })
     }
 
     /*------*/ 
+    return all_user
 
 }
+
 
 
 catalog_user()
@@ -96,3 +139,4 @@ for (let i = 0; i < user_linha.length ; i++) {
 
     }      
 } */
+9
