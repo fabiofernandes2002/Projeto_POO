@@ -1,5 +1,5 @@
 import * as User from "../models/UserModel.js"
-const table = document.querySelector('table')
+
 
 
 function catalog_user() {
@@ -42,6 +42,9 @@ function catalog_user() {
 
     })
 
+
+
+
 }
 
 function render_table(users = []){
@@ -52,7 +55,7 @@ function render_table(users = []){
 
     let all_user = ` <thead >
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">pontos</th>
         <th scope="col">Nome</th>
         <th scope="col">email</th>
         <th scope="col">localidade</th>
@@ -65,7 +68,7 @@ function render_table(users = []){
             if(user.type !== 'professor' ) {
             all_user += `
             <tr class= "user_line">
-            <td>${user.idUser}</td>
+            <td>${user.totalPoints}</td>
             <td>${user.username}</td>
             <td>${user.email}</</td>
             <td>${user.city}</</td>
@@ -74,9 +77,9 @@ function render_table(users = []){
             </tr>
             </tbody>
             `
+            
         }
-
-
+        
     }
     
 
@@ -109,7 +112,7 @@ function render_table(users = []){
                         window.location.reload();Swal.fire('Saved!', '', 'success')
                         User.removeUser(button.id);}  , 2000);; 
                 } else if (result.isDenied) {
-                  Swal.fire(`o utilizador ${button.id} foi eleminado ` , 'info')
+                  Swal.fire(`o utilizador ${button.id} não foi eleminado `)
                 }
               })
             s
@@ -118,6 +121,8 @@ function render_table(users = []){
 
     /*------*/ 
     return all_user
+
+
 
 }
 

@@ -369,32 +369,30 @@
   </div>
 
   <!-- form para filtros da tabela -->
-  <div class="container-fluid g-3 mt-5">
-    <form action="" class="row">
-        <div class="col-4">
-            <div class="input-group">
-                <input type="search" class="form-control" id="username_filter" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-        </div>
-        <div class="col-auto ">
-            <a class="btn btn-primary" id="procurar" href="#" role="button">procurar </a>
-        </div>
-        
-        <div class="col  dropdown">    
-            <button type="button" class="btn btn-dark dropdown-toggle" style="background-color:rgba(54, 63, 115, 1) ;" data-bs-toggle="dropdown">
-            ordenar
-            </button>
-            <ul class="dropdown-menu">
-            <li><a class="dropdown-item" id="btnSort">ordem alfabetica</a></li>
-            <li><a class="dropdown-item" id="btnPontos">pontos</a></li>
+    <div class="container-fluid g-3 mt-5">
+        <form action="" class="row">
+            <div class="col-4">
+                <div class="input-group">
+                    <input type="search" class="form-control" id="username_filter" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+            </div>
+            <div class="col-auto ">
+                <a class="btn btn-primary" id="procurar" href="#" role="button">procurar </a>
+            </div>
             
-            </ul>
-        </div>
+            <div class="col  dropdown">    
+                <button type="button" id="ordenarGeral"class="btn btn-dark dropdown-toggle" style="background-color:rgba(54, 63, 115, 1) ;" data-bs-toggle="dropdown">
+                ordenar
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" id="btnSort">ordem alfabetica</a></li>
+                <li><a class="dropdown-item" id="btnPontos">pontos</a></li>
+                
+                </ul>
+            </div>
 
-    </form>
-    
-</div>
-  
+        </form>
+    </div>
   
   <div class="container-fluid mt-4">
     <table class="table "></table>
