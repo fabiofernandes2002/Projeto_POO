@@ -45,7 +45,7 @@ class Epoch {
     description = '' // DESCRITIVO DA ÉPOCA
     videos = [] //LISTA COM OS IDS DOS VIDEOS
     questions = [] //LISTA COM OS IDS DAS QUESTÕES
-    medal = 0 //MEDALHA QUE O UTILIZADOR GANHA QUANDO COMPLETA UMA ÉPOCA
+    medals = [] //MEDALHA QUE O UTILIZADOR GANHA QUANDO COMPLETA UMA ÉPOCA
     requirement = "" //REQUISITO PARA DESBLOQUEAR A ÉPOCA
 
     constructor(period, 
@@ -55,7 +55,7 @@ class Epoch {
         imageStyle = "background-size: contain;background-repeat: no-repeat;background-position: center bottom;",
         videos = [],
         questions = [],
-        medal = 0,
+        medals = [],
         requirement = ""
     ) {
         this.idEpoch = epochs.length === 0 ? 1 : epochs.length + 1;
@@ -66,7 +66,7 @@ class Epoch {
         this.description = description;
         this.videos = videos;
         this.questions = questions;
-        this.medal = medal;
+        this.medals = medals;
         this.requirement = requirement;
     }
 }

@@ -157,7 +157,6 @@ class User {
   sex = ''
   avatars = []
   medals = []
-  avatarImg
   totalPoints = 0
   videosSeen = []
   videosLiked = []
@@ -170,7 +169,7 @@ class User {
 
 
 
-  constructor(username, email, city, password, birthDate, sex , totalPoints) {
+  constructor(username, email, city, password, birthDate, sex , totalPoints = 0, avatarImg = "./assets/img/avatars/", medals) {
 
     this.idUser = users.length === 0 ? 1 : users.length + 1;
     this.type = "aluno";
@@ -182,6 +181,7 @@ class User {
     this.sex = sex
     this.totalPoints = totalPoints
     this.avatarImg = avatarImg
+    this.medals = medals
   }
 
 }

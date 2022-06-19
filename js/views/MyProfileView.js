@@ -157,7 +157,7 @@ function changeUserPhoto() {
             modalBody += `
                 <div class="col mt-4">
                     <button id="btnAvatarsImg" type="button" class="col rounded bntDesbloqueado">
-                        <img src="../assets/img/avatars/${pos+1}.png" id=${pos+1} alt="" width="100%">
+                        <img src="${avatars[pos].urlImage}" id=${pos+1} alt="" width="100%">
                         <p style="color: #45BF63">Desbloqueado</p>
                     </button>
                 </div>
@@ -167,7 +167,7 @@ function changeUserPhoto() {
             modalBody += `
                 <div class="col mt-4">
                     <button  type="button" class="col rounded" disabled>
-                        <img src="../assets/img/avatars/${pos+1}.png" id=${pos+1} alt="" width="100%">
+                        <img src="${avatars[pos].urlImage}" id=${pos+1} alt="" width="100%">
                         <p style="color: #D9674E">${avatars[pos].points}XP</p>
                     </button>
                 </div>

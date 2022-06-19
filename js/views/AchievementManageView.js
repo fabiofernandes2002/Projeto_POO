@@ -1,8 +1,11 @@
 import * as Achievement from "../models/AchievementsModel.js"
+import * as Epoch from "../models/EpochModel.js";
 
 function achievementView() {
     Achievement.init()
-    renderAchievement()
+    Epoch.init()
+    renderAchievement(Achievement.getAchievements())
+    renderCheckBoxs()
     //addNewAchievement()
 }
 function renderAchievement() {
@@ -14,7 +17,7 @@ function renderAchievement() {
         
         if (achievement.type === "avatar") {
             avatars += `
-                <div class="col-sm-3 mb-2">
+                <div class="col mb-2">
                     <div class="card">
                     <div class="card-body">
                         <img
@@ -24,7 +27,7 @@ function renderAchievement() {
                         />
                         <h5 class="card-title text-center my-2">${achievement.achievementName}</h5>
                         <p class="card-text text-center">${achievement.points}XP</p>
-                        <button class="btn btn-danger removerConquista">Remover</button>
+                        <button id="${achievement.achievementName}" class="btn btn-danger btnRemove">Remover</button>
                     </div>
                     </div>
                 </div>
@@ -33,7 +36,7 @@ function renderAchievement() {
 
             
             medals += `
-                <div class="col-sm-3 mb-2">
+                <div class="col mb-2">
                     <div class="card">
                     <div class="card-body">
                         <img
@@ -42,8 +45,8 @@ function renderAchievement() {
                         alt="" 
                         />
                         <h5 class="card-title text-center my-2">${achievement.achievementName}</h5>
-                        <p class="card-text text-center">${achievement.points === undefined ? achievement.description : achievement.points + "XP"}</p>
-                        <button class="btn btn-danger btnRemove">Remover</button>
+                        <p class="card-text text-center">${achievement.points === "" ? achievement.description : achievement.points + "XP"}</p>
+                        <button id="${achievement.achievementName}" class="btn btn-danger btnRemove">Remover</button>
                     </div>
                     </div>
                 </div>
@@ -52,70 +55,81 @@ function renderAchievement() {
     }
     document.querySelector('#bodyAvatares').innerHTML = avatars
     document.querySelector('#bodyMedals').innerHTML = medals
-    const modalAddNewAchievement = document.querySelector('#modalAddNewAchievement')
-    modalAddNewAchievement.addEventListener('submit', function (e) {
-        e.preventDefault()
-        addNewAchievement()
-        e.target.reset();
-    })
+
+    // CLICAR NO BOTÃO REMOVER
+    const btnRemoves = document.querySelectorAll(".btnRemove");
+    for (const button of btnRemoves) {
+        button.addEventListener("click", () => {
+        if (confirm("Deseja mesmo remover a conquista?")) {
+            Achievement.removeAchievement(button.id);
+            location.reload();
+        }
+        });
+    }
+    
 }
 
-// function addNewAchievement() {
+//const ckeckBoxs = document.querySelector('#ckeckBoxs');
+function renderCheckBoxs() {
     
-//     const achievements = Achievement.getAchievements()
+    const epochs = Epoch.getEpochs()
+    //console.log(epochs);
+    let checkbox = ''
+    for (const epoch of epochs) {
+        checkbox += `
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="${epoch.idEpoch}" id="check${epoch.idEpoch}">
+                <label class="form-check-label" for="check${epoch.idEpoch}">
+                    ${epoch.epochTitle}
+                </label>
+            </div>
+        `
+        //console.log(epoch.epochTitle);
+    }
+    document.querySelector('#ckeckBoxs').innerHTML = checkbox
+}
 
-//     const sltAchievements = document.querySelector('#sltAchievements').value
-//     const txtUrl = document.querySelector('#txtUrl').value
-//     const txtName = document.querySelector('#txtName').value
-//     const txtDescription = document.querySelector('#txtDescription').vlaue
-//     const quantityXP = document.querySelector('#quantityXP').value
-//     const formCheck = document.querySelectorAll('.form-check-input:checked').value
+function configureMedals() {
+    const epochs = Epoch.getEpochs()
+    const ckeckBoxs = document.querySelectorAll('.form-check-input:checked')
+    for (const ckeckBox of ckeckBoxs) {
+            
+        const idEpoch = ckeckBox.value
+        console.log(ckeckBox.value);
+        const idEspecific = epochs.findIndex(id => id.idEpoch === idEpoch)
+        epochs[idEspecific].medals.push(achievement.length + 1)
+        
+    }
 
-//     let avatars = ''
-//     let medals = ''
-//     for (const achievement of achievements){
-//         if (sltAchievements == 'avatar' ) {
-//             avatars += `
-//                 <div class="col-sm-3 mb-2">
-//                     <div class="card">
-//                     <div class="card-body">
-//                         <img
-//                         class="card-img-top"
-//                         src="${achievement.txtUrl}"
-//                         alt="" 
-//                         />
-//                         <h5 class="card-title text-center my-2">${achievement.txtName}</h5>
-//                         <p class="card-text text-center">${achievement.quantityXP}XP</p>
-//                         <button class="btn btn-danger removerConquista">Remover</button>
-//                     </div>
-//                     </div>
-//                 </div>
-//             `
-//             Achievement.add(sltAchievements,txtUrl, txtName,quantityXP)
-            
-//         }else{
-//             medals += `
-//                 <div class="col-sm-3 mb-2">
-//                     <div class="card">
-//                     <div class="card-body">
-//                         <img
-//                         class="card-img-top"
-//                         src="${achievement.txtUrl}"
-//                         alt="" 
-//                         />
-//                         <h5 class="card-title text-center my-2">${achievement.txtName}</h5>
-//                         <p class="card-text text-center">${achievement.quantityXP === undefined ? achievement.txtDescription : achievement.quantityXP + "XP"}</p>
-//                         <button class="btn btn-danger btnRemove">Remover</button>
-//                     </div>
-//                     </div>
-//                 </div>
-//             `
-//             Achievement.add(sltAchievements,txtUrl, txtName, txtDescription,quantityXP)
-            
-//         }
-//     }
+
+    renderCheckBoxs()
+}
+
+
+
+const achievement = Achievement.getAchievements()
+document.querySelector('#modalAddNewAchievement').addEventListener('submit', function (e) {
+    e.preventDefault()
+    const sltAchievements = document.querySelector('#sltAchievements').value
+    const txtUrl = document.querySelector('#txtUrl').value
+    const txtName = document.querySelector('#txtName').value
+    const quantityXP = document.querySelector('#quantityXP').value
+    const txtDescription = document.querySelector('#txtDescription').value
+    const ckeckBoxs = document.querySelectorAll('.form-check-input:checked')
+    try {
+        Achievement.add(sltAchievements,txtUrl ,txtName, quantityXP, txtDescription,)
+        
+        
+        
+        alert("Achievement added with success!");
+        renderAchievement(Achievement.getAchievements());
+        
+      } catch (error) {
+        alert(error.message);
+    }
+    configureMedals()
+    e.target.reset();
     
-
-// }
+})
 
 achievementView()
