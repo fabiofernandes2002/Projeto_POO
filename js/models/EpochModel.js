@@ -27,6 +27,13 @@ export function add(period, epochTitle, image, description) {
     }
 }
 
+//REMOVER UMA EPOCA
+export function removerEpoch(name) {
+    epochs = epochs.filter((epochs) => epochs.epochTitle !== name);
+    localStorage.setItem("epochs", JSON.stringify(epochs));
+  }
+  
+
 // VERIFICA EXISTÊNCIA DE ÉPOCA ESCOLHIDA
 export function isChoosen() {
     return sessionStorage.getItem("choosenEpoch") ? true : false;

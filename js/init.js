@@ -391,7 +391,8 @@ function initdata() {
             totalPoints: 2000,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0],[3,false,0],[4,false,0]]  
+            epochs : [[1,false,0],[2,false,0],[3,false,0],[4,false,0]],
+            block : false   
         }, {
             idUser: 2,
             type: 'aluno',
@@ -407,7 +408,8 @@ function initdata() {
             totalPoints: 20,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
         },
         {
             idUser: 3,
@@ -424,7 +426,8 @@ function initdata() {
             totalPoints: 50,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
         },
         {
             idUser: 4,
@@ -441,7 +444,8 @@ function initdata() {
             totalPoints: 100,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
         },
         {
             idUser: 5,
@@ -458,7 +462,8 @@ function initdata() {
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
         },
         {
             idUser: 6,
@@ -475,7 +480,8 @@ function initdata() {
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
         },
         {
             idUser: 7,
@@ -492,7 +498,8 @@ function initdata() {
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
         },
         {
             idUser: 8,
@@ -509,7 +516,8 @@ function initdata() {
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
         },
         {
             idUser: 9,
@@ -526,7 +534,9 @@ function initdata() {
             totalPoints: 1400,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
+ 
         },
         {
             idUser: 10,
@@ -543,7 +553,10 @@ function initdata() {
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0]] 
+            epochs : [[1,false,0],[2,false,0]],
+            block : false 
+
+            
         }
         ];
 

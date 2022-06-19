@@ -2,50 +2,85 @@ import * as User from "../models/UserModel.js"
 
 
 
-function catalog_user() {
+function catalog_user(users = []) {
     User.init()
     render_table();
     
-    //filtrar por nome 
-    //renderizar a tabela com o nome procurado
-    const username_filter = document.getElementById('username_filter')
+    //RENDERIZAR A TABELA COM UM UNICO NOME PROCURADO
     const btnProcurar = document.getElementById('procurar')
-
+    
     btnProcurar.addEventListener("click", () => {        
-        render_table(
-            User.getUsersFilterd
-            (username_filter.value)
-            );
-            console.log(username_filter.value)
+        let username_filter = document.querySelector('#username_filter')
+        User.getUsersByName()
+        render_table(User.getUsersByName(username_filter.value));
+        console.log(username_filter.value)
         /*----------- */
     })
 
     /*ordenar tabela */
 
-    // CLICAR NO BOTÃO ORDENAR POR NOME 
-
-
+    // CLICAR NO BOTÃO ORDENAR POR ORDEM ALFABETICA
     const ordenar_nome = document.querySelector("#btnSort")
-    const ordenar_pontos = document.querySelector('#btnPontos')
+    
     ordenar_nome.addEventListener("click", () => {
         User.sortUsers();
         render_table(User.getUsers());
         //console.log(User.getUsers);
+        document.getElementById('ordenarGeral').innerHTML = ordenar_nome.innerHTML
     })
-
+    
     
     // CLICAR NO BOTÃO ORDENAR POR PONTOS
+    const ordenar_pontos = document.querySelector('#btnPontos')
 
     ordenar_pontos.addEventListener("click" , () => {
-        User.sortByPontos();
-        render_table(User.getUsers())
+        User.sortUsersByPoints();
+        render_table(User.getUsers());
+        document.getElementById('ordenarGeral').innerHTML = ordenar_pontos.innerHTML
+    });
 
-    })
+    //BLOQUEAR UM UTILIZADOR 
+    let btnsBloquear = document.querySelectorAll(".bluquearUser");
+    for (let button of btnsBloquear) {
+        button.addEventListener("click", () => {
+            Swal.fire({
+                title: `QUER MESMO BLOQUEAR O ${button.id}`,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: 'No',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 right-gap',
+                    confirmButton: 'order-2',
+                    denyButton: 'order-3',
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    
+                    for (let user of users) {
+                        if(user.username === button.id){
+                            localStorage.getItem(user.block) = user.block === false ? true : false 
+                            localStorage.setItem("users", JSON.stringify(users));
+                            return User.block 
 
+                        }
+                    }
+                    console.log(User.block , button.id)
 
-
+                    //setTimeout(function(){window.location.reload(); ;}, 2000);;
+                    Swal.fire('Saved!', '', 'success')
+                } else if (result.isDenied) {
+                  Swal.fire(`Não bloqueou o utilizador ${button.id}. `)
+                }
+              })
+            
+        })
+    }
 
 }
+
+
 
 function render_table(users = []){
     //renderizar tabala com os utilizadores da localstorage 
@@ -60,6 +95,7 @@ function render_table(users = []){
         <th scope="col">email</th>
         <th scope="col">localidade</th>
         <th scope="col">Eleminar</th>
+        <th scope="col">bloquear</th>
     </tr>
     </thead>
     <tbody class="tbody "> `
@@ -74,6 +110,8 @@ function render_table(users = []){
             <td>${user.city}</</td>
             <td><button type="button" id="${user.username}"
             class="btn btn-danger eleminarUSer">Eliminar</button></td>
+            <td><button type="button" id="${user.username}"
+            class="btn btn-secondary bluquearUser">bloquar</button></td>
             </tr>
             </tbody>
             `
@@ -81,9 +119,11 @@ function render_table(users = []){
         }
         
     }
-    
 
-    
+    let num_users = users.length - 1
+    document.querySelector('.text').innerHTML = ' o site já tem ' + num_users + ' utilizadores'
+
+
 
     table.innerHTML = all_user  
     /* ------*/
@@ -108,16 +148,19 @@ function render_table(users = []){
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    setTimeout(function(){
-                        window.location.reload();Swal.fire('Saved!', '', 'success')
-                        User.removeUser(button.id);}  , 2000);; 
+                    User.removeUser(button.id)
+                    setTimeout(function(){window.location.reload(); ;}, 2000);;
+                    Swal.fire('Saved!', '', 'success')
+                     
                 } else if (result.isDenied) {
                   Swal.fire(`o utilizador ${button.id} não foi eleminado `)
                 }
               })
-            s
+            
         })
     }
+
+    
 
     /*------*/ 
     return all_user
@@ -126,22 +169,5 @@ function render_table(users = []){
 
 }
 
-
-
 catalog_user()
 
-
-
-
-
-/*   const value = e.target.value.toLowerCase()
-
-for (let i = 0; i < user_linha.length ; i++) {
-    const nome_user = user_linha[i].getElementsByTagName('td')[1]
-    const isVisible = nome_user.toLowerCase().includes(value) 
-    if(!isVisible){
-        user_linha[i].element.classList.toggle("hide", !isVisible)
-
-    }      
-} */
-9

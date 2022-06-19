@@ -76,22 +76,15 @@ export function sortUsers() {
   
 }
 
-// OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
-export function sortByPontos() {
-  users.sort((a, b) => a.totalPoints.localeCompare(b.totalPoints));
-  console.log(a.totalPoints);
+export function sortUsersByPoints() {
+  users.sort((a, b) => b.totalPoints - a.totalPoints );
+  
 }
 
-
-
-export function getUsersFilterd(filterName = "" , isSorted = false) {
+export function getUsersByName(filterName = ""  ) {
   let filteredUsers = users.filter(
-  (user) =>(user.username.toLowerCase().includes(filterName.toLowerCase()) || filterName === "")   );
+  (user) =>(user.username.includes(filterName) || filterName === "")   );
   console.log(filteredUsers);
-    
-  filteredUsers = isSorted
-  ? filteredUsers.sort((a, b) => a.name.localeCompare(b.name))
-  : filteredUsers;
     
   return filteredUsers;
     
@@ -157,7 +150,6 @@ class User {
   sex = ''
   avatars = []
   medals = []
-  avatarImg
   totalPoints = 0
   videosSeen = []
   videosLiked = []
@@ -167,10 +159,11 @@ class User {
     [1, false, 0],
     [2, false, 0]
   ]
+  block = 'false' 
+  
 
 
-
-  constructor(username, email, city, password, birthDate, sex , totalPoints) {
+  constructor(username, email, city, password, birthDate, sex , totalPoints = 0 , block  , avatarImg = "./assets/img/avatars/',") {
 
     this.idUser = users.length === 0 ? 1 : users.length + 1;
     this.type = "aluno";
@@ -182,6 +175,7 @@ class User {
     this.sex = sex
     this.totalPoints = totalPoints
     this.avatarImg = avatarImg
+    this.block = block
   }
 
 }
