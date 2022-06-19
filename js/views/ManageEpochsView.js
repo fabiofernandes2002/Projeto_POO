@@ -5,7 +5,7 @@ function epochManageView() {
     renderEpochManage(Epoch.getEpochs())
 }
 
-function renderEpochManage(epochs){
+function renderEpochManage(epochs = []){
 
     let result = ''
     for (const epoch of epochs) {
@@ -14,14 +14,44 @@ function renderEpochManage(epochs){
             <tr>
                 <td>${epoch.period}</td>
                 <td>${epoch.epochTitle}</td>
-                <td>${epoch.image}</td>
+                <td  id="url">${epoch.image}</td>
                 <td>${epoch.description}</td>
-                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                <td><button type="button" class="btn btn-danger" id="${epoch.epochTitle}">Eliminar</button></td>
             </tr>
         ` 
 
     }
     document.querySelector('#tbodyManage').innerHTML = result
+
+    let btnsRemove = document.querySelectorAll(".btn-danger")
+    for (const btn of btnsRemove) {
+        btn.addEventListener('click', ()=>{
+            Swal.fire({
+                title: `tens a certeza que queres eleminar a " ${btn.id} "`,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: 'No',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 right-gap',
+                    confirmButton: 'order-2',
+                    denyButton: 'order-3',
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Epoch.removerEpoch(btn.id)
+                    setTimeout(function(){window.location.reload(); ;}, 2000);;
+                    Swal.fire('Saved!', '', 'success')
+                     
+                } else if (result.isDenied) {
+                  Swal.fire(`A EPOCA  "${button.id}" não foi eleminadA `)
+                }
+              })
+            
+        })
+        
+    }
     
 }
 

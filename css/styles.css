@@ -968,6 +968,29 @@ input[type="date"]:focus {
     background-size: contain;
     border-radius: 50%;
 }
+
+/* .Image-user{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    transform: translate(0, -15%);
+    height: 30px;
+    width: 30px;
+    background-color: #3DAAC5;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    border-radius: 50%;
+} */
+
 #ImageUser {
     position: absolute;
     display: flex;
