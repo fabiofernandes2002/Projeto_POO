@@ -1,7 +1,7 @@
 import * as User from "../models/UserModel.js";
 import * as Epoch from "../models/EpochModel.js";
 
-function epochsView() {
+function epochsView(epochs= []) {
     User.init()
     Epoch.init()
 
@@ -12,6 +12,61 @@ function epochsView() {
     document.querySelector("[type='checkbox']").addEventListener("change", function () {
         removeBlockedEpochs(this)
     })
+
+
+    // ORDENAR EPOCAS
+    
+    //ORDENAR POR ORDEM DECRESCENTE
+    
+    const ordenarAsc = document.querySelector("#ordenarAsc")
+    
+    ordenarAsc.addEventListener("click", ()=>{
+        let epochs = Epoch.getEpochs()
+
+        for (const epoch of epochs) {
+            let period = epoch.period
+            
+            if(!period.includes(" - ")){
+                let space = period.indexOf(" ")
+                period = period.slice(space).trim()
+                const periodDecimal = romanToInt(+period)
+
+
+
+                console.log(period,periodDecimal);
+            }
+
+        }
+        //romanToInt()
+        document.querySelector(".btnOrdenar").innerHTML = ordenarAsc.innerHTML
+        
+    })
+    
+    //ORDENAR POR ORDEM DECRESCENTE
+    const ordenarDesc = document.querySelector("#ordenarDesc")
+    
+    ordenarDesc.addEventListener("click", ()=>{
+        
+        
+        
+        
+       // romanToInt()
+        document.querySelector(".btnOrdenar").innerHTML = ordenarDesc.innerHTML
+        
+    })
+    
+    //ORDENAR AS EPOCAS POR ORDEM ALFABETICA
+    
+    const ordenarAlf = document.querySelector("#ordenarAlf")
+    
+    ordenarAlf.addEventListener("click", ()=>{
+        Epoch.sortEpoch();
+        renderEpochs(Epoch.getEpochs());
+        document.querySelector(".btnOrdenar").innerHTML = ordenarAlf.innerHTML 
+        
+
+    })
+
 }
 
 /**
@@ -82,6 +137,7 @@ function bindLearnButtons(epochs) {
 }
 
 
+
 /**
  * ESCONDER/MOSTRAR AS ÉPOCAS BLOQUEADAS
  */
@@ -93,6 +149,46 @@ function removeBlockedEpochs(checkbox) {
             div.parentNode.parentNode.style.display = ""
         }
     });
+}
+
+const romanNubers = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+};
+const s = "IX";
+// s = 1989
+function romanToInt(s) {
+    let accumulator = 0;
+    for (let i = 0; i < s.length; i++) {
+        if(s[i] === "I" && s[i + 1] === "V") {
+            accumulator += 4;
+            i++;
+        } else if (s[i] === "I" && s[i + 1] === "X") {
+            accumulator += 9;
+            i++;
+        } else if (s[i] === "X" && s[i + 1] === "L") {
+            accumulator += 40;
+            i++;
+        } else if (s[i] === "X" && s[i + 1] === "C") {
+            accumulator += 90;
+            i++;
+        } else if (s[i] === "C" && s[i + 1] === "D") {
+            accumulator += 400;
+            i++;
+        } else if (s[i] === "C" && s[i + 1] === "M") {
+            accumulator += 900;
+            i++;
+        } else {
+            accumulator += romanNubers[s[i]];
+        }
+    }
+    return accumulator;
+
 }
 
 epochsView()
