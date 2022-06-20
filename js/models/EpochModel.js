@@ -10,6 +10,13 @@ export function getEpochs() {
     return epochs;
 }
 
+//ORDENAR EPOCAS ALFABETICAMENTE
+export function sortEpoch() {
+    epochs.sort((a, b) => a.epochTitle.localeCompare(b.epochTitle));    
+}
+  
+
+
 //MARCAR A ÉPOCA ESCOLHIDA
 export function setChoosenEpoch(epoch) {
     sessionStorage.setItem("choosenEpoch", JSON.stringify(epoch));
@@ -31,8 +38,11 @@ export function add(period, epochTitle, image, description) {
 export function removerEpoch(name) {
     epochs = epochs.filter((epochs) => epochs.epochTitle !== name);
     localStorage.setItem("epochs", JSON.stringify(epochs));
-  }
-  
+}
+
+
+
+
 
 // VERIFICA EXISTÊNCIA DE ÉPOCA ESCOLHIDA
 export function isChoosen() {

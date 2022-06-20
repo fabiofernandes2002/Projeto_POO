@@ -71,16 +71,19 @@ export function getUsers( ) {
 
 
 // OBTER USER (COM SUPORTE A FILTROS E ORDENAÇÕES)
+//ORDENAR OS UTILIZADORES POR PONTOS
 export function sortUsers() {
   users.sort((a, b) => a.username.localeCompare(b.username));
   
 }
 
+//ORDENAR POR PONTOS
 export function sortUsersByPoints() {
   users.sort((a, b) => b.totalPoints - a.totalPoints );
   
 }
 
+//BOSCAR USER POR NOME EM ESPECIFICO
 export function getUsersByName(filterName = ""  ) {
   let filteredUsers = users.filter(
   (user) =>(user.username.includes(filterName) || filterName === "")   );
