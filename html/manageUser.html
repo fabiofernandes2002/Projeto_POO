@@ -56,6 +56,10 @@
         .hide{
             display: none;
         }
+
+        .dropdown-item{
+            cursor: pointer;
+        }
         
     </style>
 </head>
@@ -369,47 +373,6 @@
   </div>
 
 
-
-  <!-- form para filtros da tabela -->
-    <div class="container-fluid g-3 mt-5">
-        <div class="container-fluid !justify">
-            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                <div class="col-9">
-                    <form action="" class="row">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <input type="search" class="form-control" id="username_filter" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                </div>
-                        </div>
-                        <div class="col-auto ">
-                            <a class="btn btn-primary" id="procurar" href="#" role="button">procurar </a>
-                        </div>
-                        
-                        <div class="col  dropdown">    
-                            <button type="button" id="ordenarGeral"class="btn btn-dark dropdown-toggle" style="background-color:rgba(54, 63, 115, 1) ;" data-bs-toggle="dropdown">
-                            ordenar
-                            </button>
-                            <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" id="btnSort">por ordem alfabetica</a></li>
-                            <li><a class="dropdown-item" id="btnPontos">ordem por pontos</a></li>
-                            
-                            </ul>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="col-3 text text-center" >
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-  
-  <div class="container mt-4">
-    <table class="table "></table>
-  </div>
-
-
     <!-- Modal de login -->
     <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalToggleLabel"
         data-bs-backdrop="static" aria-hidden="true">
@@ -611,6 +574,45 @@
             </div>
         </div>
     </div>
+
+    <!-- form para filtros da tabela -->
+    <div class="container-fluid g-3 mt-5">
+        <div class="container-fluid !justify">
+            <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div class="col-9">
+                    <form action="" class="row">
+                        <div class="col-4">
+                            <div class="input-group">
+                                <input type="search" class="form-control" id="username_filter" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                        </div>
+                        <div class="col-auto ">
+                            <a class="btn btn-primary" id="procurar" href="#" role="button">Procurar </a>
+                        </div>
+                        
+                        <div class="col  dropdown">    
+                            <button type="button" id="ordenarGeral"class="btn btn-dark dropdown-toggle" style="background-color:rgba(54, 63, 115, 1) ;" data-bs-toggle="dropdown">
+                            Ordenar
+                            </button>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" id="btnSort">Por ordem alfabetica</a></li>
+                            <li><a class="dropdown-item" id="btnPontos">Ordem por pontos</a></li>
+                            
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-3 text text-center" >
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <div class="container mt-4">
+    <table class="table "></table>
+  </div>
     
 
     <script type="module" src="../js/views/manageUserView.js" ></script>

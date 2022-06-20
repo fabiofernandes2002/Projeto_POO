@@ -217,7 +217,7 @@ export function renderLoggedUserContent(path) {
                             <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>
                         </div>
                         <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir recursos</a></li>
+                            <li class="manageResources"><a class="dropdown-item" href="${path + "manageEpoch.html"}">Gerir recursos</a></li>
                         </div>
                         <div class="position-relative options-menu">
                             <li class="manageResources"><a class="dropdown-item" href="${path + "manageEpochs.html"}">Gerir épocas</a></li>

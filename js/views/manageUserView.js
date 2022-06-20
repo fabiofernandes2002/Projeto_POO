@@ -90,12 +90,12 @@ function render_table(users = []){
 
     let all_user = ` <thead >
     <tr>
-        <th scope="col">pontos</th>
+        <th scope="col">Pontos</th>
         <th scope="col">Nome</th>
-        <th scope="col">email</th>
-        <th scope="col">localidade</th>
-        <th scope="col">Eleminar</th>
-        <th scope="col">bloquear</th>
+        <th scope="col">Email</th>
+        <th scope="col">Localidade</th>
+        <th scope="col">Eliminar</th>
+        <th scope="col">Bloquear</th>
     </tr>
     </thead>
     <tbody class="tbody "> `
@@ -109,9 +109,9 @@ function render_table(users = []){
             <td>${user.email}</</td>
             <td>${user.city}</</td>
             <td><button type="button" id="${user.username}"
-            class="btn btn-danger eleminarUSer">Eliminar</button></td>
+            class="btn btn-danger eliminarUSer">Eliminar</button></td>
             <td><button type="button" id="${user.username}"
-            class="btn btn-secondary bluquearUser">bloquar</button></td>
+            class="btn btn-secondary bluquearUser">Bloquear</button></td>
             </tr>
             </tbody>
             `
@@ -121,7 +121,7 @@ function render_table(users = []){
     }
 
     let num_users = users.length - 1
-    document.querySelector('.text').innerHTML = ' o site já tem ' + num_users + ' utilizadores'
+    document.querySelector('.text').innerHTML = ' TOTAL UTILIZADORES: ' + num_users
 
 
 
@@ -131,11 +131,11 @@ function render_table(users = []){
 
 
     //remover utilizador  
-    let btnsRemove = document.querySelectorAll(".eleminarUSer");
+    let btnsRemove = document.querySelectorAll(".eliminarUSer");
     for (let button of btnsRemove) {
         button.addEventListener("click", () => {
             Swal.fire({
-                title: `tens a certeza que queres eleminar ${button.id}`,
+                title: `Tens a certeza que queres eliminar ${button.id}!`,
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: 'Yes',
@@ -153,7 +153,7 @@ function render_table(users = []){
                     Swal.fire('Saved!', '', 'success')
                      
                 } else if (result.isDenied) {
-                  Swal.fire(`o utilizador ${button.id} não foi eleminado `)
+                  Swal.fire(`O utilizador ${button.id} não foi eliminado! `)
                 }
               })
             

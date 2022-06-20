@@ -27,7 +27,7 @@ function renderEpochManage(epochs = []){
     for (const btn of btnsRemove) {
         btn.addEventListener('click', ()=>{
             Swal.fire({
-                title: `tens a certeza que queres eleminar a " ${btn.id} "`,
+                title: `Tens a certeza que queres eliminar a " ${btn.id} "!`,
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: 'Yes',
@@ -45,7 +45,7 @@ function renderEpochManage(epochs = []){
                     Swal.fire('Saved!', '', 'success')
                      
                 } else if (result.isDenied) {
-                  Swal.fire(`A EPOCA  "${button.id}" não foi eleminadA `)
+                  Swal.fire(`A época  "${btn.id}" não foi eliminada! `)
                 }
               })
             
