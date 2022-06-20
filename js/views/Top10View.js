@@ -53,7 +53,7 @@ function top10ListUsers(allStudentUsers) {
                     </td>
                     <td style="${styleColor}">
                         <div>
-                            <img src="../assets/img/man (2).png"  class="imgTop10" alt="" width="40" height="35" srcset="">
+                            <img src="../assets/img/man (2).png" class="imgTop10" alt="" width="40" height="35" srcset="">
                             <span >${allStudentUsers[index].username}</span>
                         </div>
                     
@@ -104,7 +104,21 @@ function top10ListUsers(allStudentUsers) {
 
     }
     document.getElementById("top10Table").innerHTML = leaderboardList;
+    renderAvatarNavBar()
+}
 
+// função que renderiza o avatar da navbar
+function renderAvatarNavBar(){
+    const imgUser = document.querySelector('#imgUser') 
+    const user = User.getUserLogged()
+
+    if (user.avatarImg === './assets/img/avatars/') {
+        imgUser.innerHTML = user.username.charAt(0)
+    }
+    else{
+        imgUser.src =`url(${"." + user.avatarImg}) center / contain no-repeat `
+        
+    }
 }
 
 

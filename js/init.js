@@ -248,7 +248,7 @@ function initdata() {
             description: "Aprende!",
             videos: [0],
             questions: [0],
-            medal: 1,
+            medals: [1],
             requirement: "Inicie Sessão"
         },
         {
@@ -260,7 +260,7 @@ function initdata() {
             description: "Aprende1!",
             videos: [0],
             questions: [0],
-            medal: 2,
+            medals: [2],
             requirement: "Inicie Sessão"
         },
         {
@@ -272,7 +272,7 @@ function initdata() {
             description: "Aprende2!",
             videos: [0],
             questions: [0],
-            medal: 3,
+            medals: [3],
             requirement: "Complete as Duas Primeiras Épocas"
         },
         {
@@ -284,7 +284,7 @@ function initdata() {
             description: "Aprende2!",
             videos: [0],
             questions: [0],
-            medal: 3,
+            medals: [3],
             requirement: "Complete as Duas Primeiras Épocas"
         }
     ];
@@ -333,42 +333,52 @@ function initdata() {
                 type: "medal",
                 urlImage: "../assets/img/medals/bronze-medal.png",
                 achievementName: "Medalha bronze",
-                description:"Acertar 100% numa ficha de exercícios"
+                description:"Acertar 100% numa ficha de exercícios",
+                points: "",
+                idEpochs : []
             },
             {
                 idAchievement: 7,
                 type: "medal",
                 urlImage: "../assets/img/medals/bronze-medal2.png",
                 achievementName: "Medalha de bronze-2",
-                description:"Concluir as duas primeiras epócas"
+                description:"Concluir as duas primeiras epócas",
+                points: "",
+                idEpochs : [2]
             },
             {
                 idAchievement: 8,
                 type: "medal",
                 urlImage: "../assets/img/medals/silver-medal.png",
                 achievementName: "Medalha de prata",
-                description:"Desbloquear todas as epócas"
+                description:"Desbloquear todas as epócas",
+                points:"",
+                idEpochs : []
             },
             {
                 idAchievement: 9,
                 type: "medal",
                 urlImage: "../assets/img/medals/medal2.png",
                 achievementName: "Medalha de Ouro",
-                description:"Concluir a terceira epóca"
+                description:"Concluir a terceira epóca",
+                points:"",
+                idEpochs : [2]
             },
             {
                 idAchievement: 10,
                 type: "medal",
                 urlImage: "../assets/img/medals/gold-medal.png",
                 achievementName: "Medalha de Ouro-2",
-                points:800
+                points:800,
+                idEpochs : []
             },
             {
                 idAchievement: 11,
                 type: "medal",
                 urlImage: "../assets/img/medals/winner.png",
                 achievementName: "Mestre",
-                points:1000
+                points:1000,
+                idEpochs : []
             },
         ];
         localStorage.setItem("achievements", JSON.stringify(achievements));

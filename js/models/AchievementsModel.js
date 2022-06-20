@@ -10,6 +10,17 @@ export function getAchievements() {
     return achievements;
 }
 
+export function updateMedalsInfo(newMedalInfo) {
+
+    //NA LOCAL STORAGE
+    const newMedal = epochs.map((medalItem) =>
+        medalItem.idEpoch === newMedalInfo.idEpoch ? newVideoInfo : medalItem
+    );
+    localStorage.setItem("epochs", JSON.stringify(newMedal));
+
+    epochs = newMedal
+}
+
 // ADICIONAR ACHIEVEMENTS
 export function add(type, urlImage, achievementName, points, description) {
     
@@ -22,6 +33,12 @@ export function add(type, urlImage, achievementName, points, description) {
     }
 }
 
+// REMOVER ACHIEVEMENTS
+export function removeAchievement(achievementName) {
+    achievements = achievements.filter((achievement) => achievement.achievementName !== achievementName);
+    localStorage.setItem("achievements", JSON.stringify(achievements));
+}
+
 class Achievement {
     idAchievement = 0
     type = "" // medal or avatar
@@ -30,9 +47,9 @@ class Achievement {
     points = 0
     description = ""
     
-    constructor(idAchievement, type, urlImage, achievementName, points, description) {
+    constructor(type, urlImage, achievementName, points, description) {
         
-        this.idAchievement = idAchievement;
+        this.idAchievement = achievements.length === 0 ? 1 : achievements.length + 1;
         this.type = type;
         this.urlImage = urlImage;
         this.achievementName = achievementName;

@@ -55,6 +55,14 @@ function renderEpochManage(epochs = []){
     
 }
 
+function renderRequeriment() {
+    const requirement = document.querySelector('#txtRequeriment').value
+    const epochs = Epoch.getEpochs()
+    for (const epoch of epochs) {
+        epoch.requirement = requirement
+    }
+}
+
 document.querySelector('#btnAddEpochs').addEventListener('click', function(e) {
     e.preventDefault()
     try {
@@ -62,8 +70,10 @@ document.querySelector('#btnAddEpochs').addEventListener('click', function(e) {
             document.querySelector('#txtCentury').value,
             document.querySelector('#txtNameEpoch').value,
             document.querySelector('#txtImg').value,
-            document.querySelector('#txtDescription').value
+            document.querySelector('#txtDescription').value,
+            document.querySelector('#txtRequeriment').value
         );
+        renderRequeriment()
         alert("Epoch added with success!");
         renderEpochManage(Epoch.getEpochs());
         
