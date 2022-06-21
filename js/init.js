@@ -621,7 +621,7 @@ function initdata() {
             totalPoints: 2000,
             videosSeen: [],
             videosLiked: [],
-            epochs : [[1,false,0],[2,false,0],[3,false,0],[4,false,0]],
+            epochs : [[1,false,0],[2,false,0],[3,false,0],[4,false,0],[5,false,0]],
             block : false   
         }, {
             idUser: 2,

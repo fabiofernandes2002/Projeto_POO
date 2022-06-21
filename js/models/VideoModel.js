@@ -25,7 +25,7 @@ export function getvideos() {
 export function add(idEpoch, videoTitle, urlVideo, tags, chapters) {
 
     if (videos.some((video) => video.videoTitle === videoTitle)) {
-        throw Error(`Video with name "${videoTitle}" already exists!`);
+        throw Error(`Video com o nome "${videoTitle}" já existe!`);
     } else {
         videos.push(new Video(idEpoch, videoTitle, urlVideo, tags.split(','), chapters));
         localStorage.setItem("videos", JSON.stringify(videos));

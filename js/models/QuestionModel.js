@@ -11,10 +11,12 @@ export function getQuestions() {
 }
 
 //REMOVER UMA QUESTIONS
-export function removeQuestions(idQuestion) {
-    questions = questions.filter((question) => question.idQuestion !== idQuestion);
+export function removeQuestion(idQuestion) {
+    questions = questions.filter((question) => question.idQuestion !== +idQuestion);
     localStorage.setItem("questions", JSON.stringify(questions));
 }
+
+
 
 class Question{
     idQuestion 

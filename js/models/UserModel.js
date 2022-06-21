@@ -87,11 +87,10 @@ export function sortUsersByPoints() {
 
 }
 
-//BOSCAR USER POR NOME EM ESPECIFICO
+//BUSCAR USER POR NOME EM ESPECIFICO
 export function getUsersByName(filterName = "") {
   let filteredUsers = users.filter(
-    (user) => (user.username.toLowerCase().includes(filterName) && user.type !== 'professor'));
-  console.log(filteredUsers);
+    (user) => (user.username.toLowerCase().includes(filterName.toLowerCase()) && user.type !== 'professor'));
 
   return filteredUsers;
 
@@ -129,7 +128,7 @@ export function isTeacher() {
 
 export function updateUserInfo(newUserInfo, onlyLocalStorage = 0) {
 
-  if (!onlyLocalStorage) {
+  if (!onlyLocalStorage && newUserInfo.idUser === getUserLogged().idUser ) {
     //NA SESSION STORAGE 
     sessionStorage.setItem("loggedUser", JSON.stringify(newUserInfo));
   }
@@ -147,8 +146,9 @@ export function removeAchievement(urlImage) {
   const newUserInfo = users.filter(user => user.avatarImg === urlImage)
   newUserInfo.forEach(user => {
     user.avatarImg = ""
+    updateUserInfo(user, 0)
   })
-  updateUserInfo(newUserInfo[0], 1)
+  
 
 }
 

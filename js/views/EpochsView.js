@@ -101,7 +101,7 @@ function renderEpochs() {
                 ${blockingDiv}
                 <div class="row g-0">
                     <div class="col-4"
-                        style="height:180px;background-image: url('.${epoch.image}');${epoch.imageStyle}">
+                        style="height:180px;${epoch.image.includes('/assets/img') ? 'background-image: url(.' + epoch.image + ')' : 'background-image: url(' + epoch.image + ')'};${epoch.imageStyle}">
                     </div>
                     <div class="col-8">
                         <div class="card-body">

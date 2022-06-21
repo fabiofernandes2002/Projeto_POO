@@ -35,17 +35,16 @@ function renderWorksheet(isTeacher, questions, epoch) {
 
     document.querySelector('#titleEpoch').innerHTML = epoch.epochTitle + ` - Ficha de avaliação`
 
-    let result = ""
-
+    let result = "", index = 1
     for (const question of questions) {
-
+        
 
         if (question.category == 'fill-the-blanks') {
 
             result = `
                     <div class="mt-5 p-3 row">
                         <div class="col">
-                            <p id="questaoNumero1"><b>Questão ${question.idQuestion}</b></p>
+                            <p id="questaoNumero1"><b>Questão ${index}</b></p>
                             <p>${question.questions[0]}</p>`
 
             for (let index = 0; index < question.questions.length; index++) {
@@ -66,13 +65,7 @@ function renderWorksheet(isTeacher, questions, epoch) {
                             `
                 }
                 if (index + 1 == question.questions.length) {
-                    result += ` ${statement.charAt(statement.length - 1) === "." ? "" :"."}
-                    
-                    </div>
-                    <div class="mb-5 p-3 text-end">
-                        <button type="button" id="${question.idQuestion}" class="btn btn-danger btnRemove rounded-pill">Remover</button>
-                    </div>
-                    </div>`
+                    result += statement.charAt(statement.length - 1) === "." ? "" :"."
                 }
 
 
@@ -84,7 +77,7 @@ function renderWorksheet(isTeacher, questions, epoch) {
                 <div class=" mt-5 p-3 row">
                     <div class="col">
                         <div class="row">
-                            <p id="questaoNumero2">Questão ${question.idQuestion}</p>
+                            <p id="questaoNumero2">Questão ${index}</p>
                             <p>${question.questions[0]}</p>
                             <p>${question.questions[1]}</p>
                         </div>`
@@ -108,17 +101,13 @@ function renderWorksheet(isTeacher, questions, epoch) {
                 answers.splice(randomIndex, 1)
 
             }
-            result += `
-                <div class="mb-5 p-3 text-end">
-                    <button type="button" id="${question.idQuestion}" class="btn btn-danger btnRemove rounded-pill">Remover</button>
-                </div>
-            `
+            
 
         } else {
             result = `
                 <div class=" mt-5 p-3 row">
                     <div class="col">
-                        <p id="questaoNumero1"><b>Questão ${question.idQuestion}</b></p>
+                        <p id="questaoNumero1"><b>Questão ${index}</b></p>
                         <p>${question.questions[0]}</p>
                         <p>${question.questions[1]}</p>
                         <p id="fillQuestion">
@@ -136,16 +125,19 @@ function renderWorksheet(isTeacher, questions, epoch) {
                                     </div>
                             </span>
                         </p>
-                    </div>
-                </div>
-                <div class="mb-5 p-3 text-end">
-                        <button type="button" id="${question.idQuestion}" class="btn btn-danger btnRemove rounded-pill">Remover</button>
-                </div>
+                    
+                
             `
         }
-
+        result += `
+                <div class="mb-5 p-3 text-end">
+                    <button type="button" id="${question.idQuestion}" class="btn btn-danger btnRemove rounded-pill">Remover</button>
+                </div>
+                </div>
+                </div>
+            `
         document.querySelector('#worksheetBody').innerHTML += result
-
+        index ++
     }
 
     result = `
@@ -198,8 +190,8 @@ function renderWorksheet(isTeacher, questions, epoch) {
                 title: `Tens a certeza que queres eliminar a questão " ${button.id} "!`,
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
-                denyButtonText: 'No',
+                confirmButtonText: 'Sim',
+                denyButtonText: 'Não',
                 customClass: {
                     actions: 'my-actions',
                     cancelButton: 'order-1 right-gap',
@@ -208,12 +200,12 @@ function renderWorksheet(isTeacher, questions, epoch) {
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Question.removeQuestions(button.id)
-                    setTimeout(function(){window.location.reload()}, 2000);;
-                    Swal.fire('Saved!', '', 'success')
+                    Question.removeQuestion(button.id)
+                    setTimeout(function(){window.location.reload()}, 500);;
+                    Swal.fire('Feito!')
                      
                 } else if (result.isDenied) {
-                  Swal.fire(`A Questão "${button.id}" não foi eliminada! `)
+                  Swal.fire(`A Questão "${button.id}" não foi removida! `)
                 }
             })   
         });
@@ -397,48 +389,20 @@ function updateGrade(grade, epoch){
 function renderSltTypeQuestions() {
     
     const selector = document.querySelector('#sltCategoryQuestion')
-    let result = ''
-    selector.addEventListener('click', function () {
+    selector.addEventListener('change', function () {
         if (this.value == 'quizz') {
-           
-            result += `
-                <div class="row">
-                    <div class="mb-3">
-                    <label for="txtQuestion class="form-label">Questão</label>
-                    <input type="txt" class="form-control" id="txtQuestion">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3">
-                    <label for="txtCorrectAnswer" class="form-label">Resposta Certa</label>
-                    <input type="text" class="form-control" name="" id="txtCorrectAnswer">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3">
-                    <label for="txtDwrongAnswer1" class="form-label">Resposta Errada </label>
-                    <input type="text" class="form-control" id="txtDwrongAnswer1">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="mb-3">
-                    <label for="txtDwrongAnswer2" class="form-label">Resposta Errada </label>
-                    <input type="text" class="form-control" id="txtDwrongAnswer2">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="mb-3">
-                        <label for="quantityXP" class="form-label">Pontos(xp)</label>
-                        <input type="number" class="form-control" id="quantityXP">
-                    </div>
-                </div>
-            `
-          
+            document.querySelector('#quizzForm').style.display = ""
+            document.querySelector('#fillForm').style.display = "none"
+            document.querySelector('#dropForm').style.display = "none"
+        } else if(this.value == 'fill-the-blanks'){
+            document.querySelector('#fillForm').style.display = ""
+            document.querySelector('#dropForm').style.display = "none"
+            document.querySelector('#quizzForm').style.display = "none"
+        }else{
+            document.querySelector('#dropForm').style.display = ""
+            document.querySelector('#fillForm').style.display = "none"
+            document.querySelector('#quizzForm').style.display = "none"
         }
-        document.querySelector('#modalAddNewQuestion').innerHTML += result
     })
 }
 

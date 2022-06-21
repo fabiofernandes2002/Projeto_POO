@@ -108,10 +108,16 @@ function renderAchievement() {
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    const url = Achievement.getAchievements().find((achievement) => achievement.achievementName === button.id).urlImage
                     const achievementName = button.id
+                    const achievement = Achievement.getAchievements().find((achievement) => achievement.achievementName === achievementName)
+                    
                     Achievement.removeAchievement(achievementName)
-                    User.removeAchievement(url)
+                    if (achievement.type === "avatar") {
+                        User.removeAchievement(achievement.urlImage)  
+                    } else if(achievement.type === "medal" && achievement.points !== 0){
+                        Epoch.removeAchievement(achievement.idAchievement)  
+                    }
+                   
                     setTimeout(function () {
                         window.location.reload();
                     }, 1000);
@@ -174,6 +180,7 @@ document.querySelector('#modalAddNewAchievement').addEventListener('submit', fun
         renderAchievement(Achievement.getAchievements());
         alert(`${sltAchievements === "medal" ? "Medalha adicionada" : "Avatar adicionado"} com sucesso!`);
         configureMedal(quantityXP, ckeckboxes)
+        e.target.reset()
 
     } catch (error) {
         alert(error.message);

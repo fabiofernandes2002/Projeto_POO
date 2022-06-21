@@ -130,9 +130,9 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Tempo dos Descobrimentos</a></li>
+                        <li><a class="dropdown-item epoch-item" href="#">Tempo dos Descobrimentos</a></li>
                         <li></li>
-                        <li><a class="dropdown-item" href="#">Da Únião Ibérica à Restauração da
+                        <li><a class="dropdown-item epoch-item" href="#">Da Únião Ibérica à Restauração da
                                 Independência
                             </a></li>
 
@@ -260,12 +260,12 @@
                                             épocas</a>
                                     </div>
                                     <div class="mt-2 mb-2">
-                                        <a href="./epoch.html" class="menuHamburguerOption"
+                                        <a href="./epoch.html" class="menuHamburguerOption epoch-item"
                                             style="font-family: mplus-medium;font-size:14px;">Tempo dos
                                             Descobrimentos</a>
                                     </div>
                                     <div class="mt-2 mb-2">
-                                        <a href="./epoch.html" class="menuHamburguerOption"
+                                        <a href="./epoch.html" class="menuHamburguerOption epoch-item"
                                             style="font-family: mplus-medium;font-size:14px">Da Únião
                                             Ibérica à Restauração
                                             da
@@ -562,7 +562,7 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Adicionar uma questão nova</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Adicionar uma nova questão</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -576,66 +576,46 @@
                                 <option value="dropdown">Dropdown</option>
                             </select>
                         </div>
+                        <div id="quizzForm" style="display:none">
+                            <form >
+                                
+                                <label for="txtQuestion">Questão</label>
+                                <input type="text" id="txtQuestion">
+                                <br><br>
+                                <label for="correctAnswerQuizz">Resposta correta</label>
+                                <input type="text" id="correctAnswerQuizz">
+                                <br><br>
+                                <label for="correctAnswerQuizz">Resposta errada</label>
+                                <input type="text" class="incorrectQuestion">
+                                <br><br>
+                                <label for="correctAnswerQuizz">Resposta errada</label>
+                                <input type="text" class="incorrectQuestion">
+                                <br><br><br><br>
+    
+                            </form>
+                        </div>
                         
-                        <!-- <div class="row">
-                            <div class="mb-3">
-                            <label for="txtQuestion class="form-label">Questão</label>
-                            <input type="txt" class="form-control" id="txtQuestion">
-                            </div>
+                        <div id="fillForm" style="display:none">
+                            <form >
+                                <label for="txtQuestion">Questão</label>
+                                <input type="text" id="txtQuestion">
+                                <br><br>
+                                <label for="correctAnswerQuizz">Resposta correta</label>
+                                <input type="text" id="correctAnswerQuizz">
+                                <br><br>
+                                <label for="correctAnswerQuizz">Resposta errada</label>
+                                <input type="text" class="incorrectQuestion">
+                                <br><br>
+                                <label for="correctAnswerQuizz">Resposta errada</label>
+                                <input type="text" class="incorrectQuestion">
+                                <br><br><br><br>
+                            </form>
                         </div>
-    
-                        <div class="row">
-                            <div class="mb-3">
-                            <label for="txtCorrectAnswer" class="form-label">Resposta Certa</label>
-                            <input type="text" class="form-control" name="" id="txtCorrectAnswer">
-                            </div>
-                        </div>
-    
-                        <div class="row">
-                            <div class="mb-3">
-                            <label for="txtDwrongAnswer1" class="form-label">Resposta Errada </label>
-                            <input type="text" class="form-control" id="txtDwrongAnswer1">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="mb-3">
-                            <label for="txtDwrongAnswer2" class="form-label">Resposta Errada </label>
-                            <input type="text" class="form-control" id="txtDwrongAnswer2">
-                            </div>
-                        </div>
-    
-                        <div class="row">
-                            <div class="mb-3">
-                                <label for="quantityXP" class="form-label">Pontos(xp)</label>
-                                <input type="number" class="form-control" id="quantityXP">
-                            </div>
-                        </div>
-     -->
-                        <div class="row p-3" id="ckeckBoxs">
-                            <!-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check1">
-                                <label class="form-check-label" for="check1">
-                                    Tempo dos descobrimentos
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check2">
-                                <label class="form-check-label" for="check2">
-                                    Da União Ibérica à Restauração da Independência
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check3" >
-                                <label class="form-check-label" for="check3">
-                                Teste 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check4">
-                                <label class="form-check-label" for="check4">
-                                Teste 2
-                                </label>
-                            </div> -->
+                        
+                        <div id="dropForm" style="display:none">
+                            <form >
+                            
+                            </form>
                         </div>
     
                         <div class="col text-end">

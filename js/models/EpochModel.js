@@ -16,7 +16,17 @@ export function sortEpoch() {
     epochs.sort((a, b) => a.epochTitle.localeCompare(b.epochTitle));
 }
 
+export function removeAchievement(idAchievement) {
+    const newEpochsInfo = epochs.filter(epoch => epoch.medals.some(idMedal => idMedal === idAchievement === true ))
+    for (const epoch of newEpochsInfo) {
+        const index = epoch.medals.findIndex(medal => medal === idAchievement)
+        epoch.medals.splice(index, 1)
+        updateEpochInfo(epoch)
+    }
+    
+   
 
+}
 
 //MARCAR A ÉPOCA ESCOLHIDA
 export function setChoosenEpoch(epoch) {
@@ -27,7 +37,7 @@ export function setChoosenEpoch(epoch) {
 export function add(period, epochTitle, image, description, requirement) {
 
     if (epochs.some((epoch) => epoch.epochTitle === epochTitle)) {
-        throw Error(`Period with name "${epochTitle}" already exists!`);
+        throw Error(`O nome do período "${epochTitle}" já existe!`);
     } else {
         epochs.push(new Epoch(period, epochTitle, image, description, requirement));
         localStorage.setItem("epochs", JSON.stringify(epochs));
@@ -73,16 +83,16 @@ class Epoch {
     questions = [] //LISTA COM OS IDS DAS QUESTÕES
     medals = [] //MEDALHA QUE O UTILIZADOR GANHA QUANDO COMPLETA UMA ÉPOCA
     requirement = "" //REQUISITO PARA DESBLOQUEAR A ÉPOCA
-
-    constructor(period = '', 
-        epochTitle = '', 
-        image = '', 
-        description = '', 
+    constructor(period = '',
+        epochTitle = '',
+        image = '',
+        description = '',
+        requirement = '',
         imageStyle = "background-size: contain;background-repeat: no-repeat;background-position: center bottom;",
         videos = [],
         questions = [],
-        medals = [],
-        requirement = ''
+        medals = []
+
     ) {
         this.idEpoch = epochs.length === 0 ? 1 : epochs.length + 1;
         this.period = period;

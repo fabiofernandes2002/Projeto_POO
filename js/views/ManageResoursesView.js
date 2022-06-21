@@ -11,6 +11,7 @@ function epochResoursesManageView() {
 
 function renderChapterForm() {
     document.querySelector('#chapters').innerHTML = `
+                        <div>
                         <label for="nrMinutes">Minutos</label>
                         <input type="number" class="nrMinutes">
                         <br><br>
@@ -20,9 +21,13 @@ function renderChapterForm() {
                         <label>Descrição</label>
                         <input type="text" class="descriptionChapter">
                         <br><br><br>
+                        </div>
                         `
     document.querySelector('#addChapter').addEventListener('click', () => {
-        document.querySelector('#chapters').innerHTML += ` <label for="nrMinutes">Minutos</label>
+        
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <label for="nrMinutes">Minutos</label>
         <input type="number" class="nrMinutes">
         <br><br>
         <label for="nrSeconds">Segundos</label>
@@ -31,6 +36,7 @@ function renderChapterForm() {
         <label>Descrição</label>
         <input type="text" class="descriptionChapter">
         <br><br><br>`
+        document.querySelector('#chapters').appendChild(div)
     })
 }
 
@@ -66,11 +72,11 @@ function renderResoursesManage(videos = []) {
     for (const button of btnRemoves) {
         button.addEventListener("click", () => {
             Swal.fire({
-                title: `Tens a certeza que queres eliminar o(a) " ${button.id} "!`,
+                title: `Tens a certeza que queres eliminar " ${button.id} "!`,
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
-                denyButtonText: 'No',
+                confirmButtonText: 'Sim',
+                denyButtonText: 'Não',
                 customClass: {
                     actions: 'my-actions',
                     cancelButton: 'order-1 right-gap',
@@ -80,10 +86,8 @@ function renderResoursesManage(videos = []) {
             }).then((result) => {
                 if (result.isConfirmed) {
                     Video.removeVideo(button.id)
-                    setTimeout(function () {
-                        window.location.reload()
-                    }, 2000);;
-                    Swal.fire('Saved!', '', 'success')
+                    button.parentNode.parentNode.remove()
+                    Swal.fire('Feito!')
 
                 } else if (result.isDenied) {
                     Swal.fire(`O video "${button.id}" não foi eliminada! `)
@@ -113,7 +117,7 @@ document.querySelector('#manageResourses').addEventListener('submit', function (
     let chapters = [];
     for (let index = 0; index < document.querySelectorAll(".nrMinutes").length; index++) {
         const obj = {
-            time: document.querySelectorAll(".nrMinutes")[index].value + ":" + document.querySelectorAll(".nrSeconds")[index].value,
+            time: document.querySelectorAll(".nrMinutes")[index].value + ":" + (document.querySelectorAll(".nrSeconds")[index].value.length === 1 ? "0" + document.querySelectorAll(".nrSeconds")[index].value : document.querySelectorAll(".nrSeconds")[index].value),
             seconds:Math.floor(+document.querySelectorAll(".nrMinutes")[index].value * 60) + +document.querySelectorAll(".nrSeconds")[index].value,
             content:document.querySelectorAll('.descriptionChapter')[index].value,
         }
@@ -129,14 +133,13 @@ document.querySelector('#manageResourses').addEventListener('submit', function (
             document.querySelector('#txtTags').value,
             chapters
         );
-        renderSltEpochs()
-        alert("Video added with success!");
+        alert("Video adicionado com sucesso!");
+        renderChapterForm()
         renderResoursesManage(Video.getvideos())
 
     } catch (error) {
         alert(error.message);
     }
-    e.target.reset();
 })
 
 epochResoursesManageView()

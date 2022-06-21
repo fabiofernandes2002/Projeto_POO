@@ -7,7 +7,7 @@ function epochView() {
     Video.init()
     Epoch.init()
     renderEpoch()
-    shareVideo()
+    // shareVideo()
 }
 
 function renderEpoch() {
@@ -44,7 +44,7 @@ function renderEpoch() {
             </div>
         </div>
         <div class="col-6 d-flex justify-content-end" style="margin:0;padding:0">
-            <div width="180" height="180" alt="" style="height:100%;width:180px;background-image: url('.${epoch.image}');${epoch.imageStyle}"></div>
+            <div width="180" height="180" alt="" style="height:100%;width:180px;${epoch.image.includes('/assets/img') ? 'background-image: url(.' + epoch.image + ')' : 'background-image: url(' + epoch.image + ')'};${epoch.imageStyle}"></div>
         </div>`
 
     let resourcesHTML = ""
@@ -89,6 +89,7 @@ function bindLearnButtons(videos, choosenEpoch, user) {
 }
 
 function renderVideo(video, user,firstTimeBindingModalElements,modal) {
+    
     Video.setIdChoosenVideo(video)
     if (!(user.videosSeen.some(idVideo => idVideo === video.idVideo)) && !User.isTeacher()) {
         //ATUALIZAR NA PARTE DO UTILIZADOR

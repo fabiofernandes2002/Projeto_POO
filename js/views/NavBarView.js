@@ -57,10 +57,12 @@ function navbarView() {
 
 }
 
-function bindLearnButtons(epochs) {
-    document.querySelectorAll('.menuHamburguerOption').forEach((element,index) => {
-        element.addEventListener("click", () => {
-            Epoch.setChoosenEpoch(epochs[index])
+function bindLearnButtons() {
+    document.querySelectorAll('.epoch-item').forEach((element) => {
+        element.addEventListener("click", function() {
+            
+            const epoch = Epoch.getEpochs().find(epoch => epoch.epochTitle === this.innerHTML)
+            Epoch.setChoosenEpoch(epoch)
             location.href = "./epoch.html";
         })
     });
