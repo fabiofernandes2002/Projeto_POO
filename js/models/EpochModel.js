@@ -1,4 +1,5 @@
 import * as User from "../models/UserModel.js";
+
 let epochs;
 
 // CARREGAR ÉPOCAS DA LOCALSTORAGE
@@ -15,8 +16,19 @@ export function getEpochs() {
 export function sortEpoch() {
     epochs.sort((a, b) => a.epochTitle.localeCompare(b.epochTitle));    
 }
-  
-
+//ULTIMAS PUBLICADAS
+export function sortEpochPublicacion() {
+    epochs.reverse() 
+}
+/*   
+export function getEpochsByName(filteredEpoch= "") {
+    let filteredEpoch = epochs.filter(
+        (epoch) => {
+            return (epoch.epochTitle.toLowerCase().includes(filteredEpoch.toLowerCase()) || filteredEpoch === "");
+        }
+      );
+}
+ */
 
 //MARCAR A ÉPOCA ESCOLHIDA
 export function setChoosenEpoch(epoch) {

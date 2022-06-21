@@ -4,7 +4,7 @@ import * as Epoch from "../models/EpochModel.js";
 function epochsView(epochs= []) {
     User.init()
     Epoch.init()
-
+    //searchEpoch()
     //as funções a seguir já estão documentadas
 
     renderEpochs()
@@ -13,12 +13,25 @@ function epochsView(epochs= []) {
         removeBlockedEpochs(this)
     })
 
+    //ORDENAR ULTIMAS PUBLICADAS
+    const ordenarAsc = document.querySelector("#ordenarAsc")
+    
+    ordenarAsc.addEventListener("click", ()=>{
+        Epoch.sortEpochPublicacion(); 
+        renderEpochs(Epoch.getEpochs());
+        document.querySelectorAll(".btnOrdenar") 
+
+        let btnOrdenar = document.querySelectorAll(".btnOrdenar")
+        for (const btn of btnOrdenar) {
+            btn.innerHTML =  ordenarAsc.innerHTML
+        }
+    })
 
     // ORDENAR EPOCAS
     
     //ORDENAR POR ORDEM DECRESCENTE
     
-    const ordenarAsc = document.querySelector("#ordenarAsc")
+  /*   const ordenarAsc = document.querySelector("#ordenarAsc")
     
     ordenarAsc.addEventListener("click", ()=>{
         let epochs = Epoch.getEpochs()
@@ -40,7 +53,7 @@ function epochsView(epochs= []) {
         //romanToInt()
         document.querySelector(".btnOrdenar").innerHTML = ordenarAsc.innerHTML
         
-    })
+    }) 
     
     //ORDENAR POR ORDEM DECRESCENTE
     const ordenarDesc = document.querySelector("#ordenarDesc")
@@ -53,7 +66,7 @@ function epochsView(epochs= []) {
        // romanToInt()
         document.querySelector(".btnOrdenar").innerHTML = ordenarDesc.innerHTML
         
-    })
+    })*/
     
     //ORDENAR AS EPOCAS POR ORDEM ALFABETICA
     
@@ -62,8 +75,10 @@ function epochsView(epochs= []) {
     ordenarAlf.addEventListener("click", ()=>{
         Epoch.sortEpoch();
         renderEpochs(Epoch.getEpochs());
-        document.querySelector(".btnOrdenar").innerHTML = ordenarAlf.innerHTML 
-        
+        let btnOrdenar = document.querySelectorAll(".btnOrdenar")
+        for (const btn of btnOrdenar) {
+            btn.innerHTML = ordenarAlf.innerHTML
+        }
 
     })
 
@@ -136,37 +151,25 @@ function bindLearnButtons(epochs) {
     });
 }
 
-//PROCURAR EPOCAS 
-function searchEpoch(){
-    let epochs = Epoch.getEpochs()
-    Epoch.init()
+/* PROCURAR EPOCAS 
+let btnFilter = document.querySelector("#btnFilter")
 
-    let placeCardsHere = document.querySelector("#placeCardsHere").value
-    for (let i = 0; i < epochs.length; i++) {
-        
-        
-    }
-}
+document.querySelector(".btn-search").addEventListener("click", ()=>{
 
-function myFunction() {
-    // Declare variables
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
-  
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      txtValue = a.textContent || a.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-  }
+    epochsView(
+        Epoch.getEpochsByName(
+        btnFilter.value,
+        )
+    );
+    
+})
+console.log(btnFilter.value) */
+
+
+
+
+
+
 
 /**
  * ESCONDER/MOSTRAR AS ÉPOCAS BLOQUEADAS
