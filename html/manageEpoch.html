@@ -17,6 +17,9 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
+    <!-- sweetalert biblioteca -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Fonts awesome -->
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
     <style>
@@ -51,13 +54,13 @@
             
         }
 
-        .table {border: 3px solid black!important;} 
-        .table tr, .table td, .table th {border: 0!important;}
+        .table {border: 1px solid black!important;} 
+        /* .table tr, .table td, .table th {border: 0!important;} */
         .table tr td, 
-        .table tr {border-left: 3px solid #363F73!important;}
+        .table tr {border-left: 1px solid #363F73!important;}
         /* .table th {border-left: 3px solid #FFF!important;} */
         .table tr td:nth-child(1), 
-        .table tr th:nth-child(1) {border-left: 0!important;}
+        .table tr th:nth-child(1) {border-left: 1px!important;}
 
         thead{
             background-color: #f2f2f2;
@@ -496,42 +499,45 @@
 
     <!-- Gerencia das epocas disponiveis -->
     <div class="container">
-        <form class="row g-3 mt-5">
-          <p id="epocaDisponivel">Tempo dos descobrimentos</p>
+        <form class="row g-3 mt-5" id="manageResourses">
+          <p id="epocaDisponivel">Gestão de Recursos</p>
+          <div class="col-6">
+            <select class="form-select" aria-label="Default select example" id="sltEpochs">
+                <option selected>Seleciona uma época</option>
+                <!-- <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option> -->
+            </select>
+          </div>
           <div class="col-6">
             <!-- <label for="validationCustom01" class="form-label">First name</label> -->
-            <input type="text" class="form-control" id="validationCustom01" value="nome do recurso" required>
+            <input type="text" class="form-control" id="txtNameResourse" value="nome do recurso" required>
             <div class="valid-feedback">
               Looks good!
             </div>
           </div>
           <div class="col-6">
             <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="url" class="form-control" id="validationCustom02" value="url(video)" required>
+            <input type="url" class="form-control" id="txtUrlVideo" value="url(video)" required>
             <div class="valid-feedback">
               Looks good!
             </div>
           </div>
           <div class="col-6">
             <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="text" class="form-control" id="validationCustom02" value="tags" required>
+            <input type="text" class="form-control" id="txtTags" value="tags" required>
             <div class="valid-feedback">
               Looks good!
             </div>
           </div>
-          <div class="col-4">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Seleciona uma época
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Tempo dos descobrimentos</a></li>
-                  <li><a class="dropdown-item" href="#">Da União Ibérica à Restauração da Independência</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </div>
+          <div class="col-6">
+            <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
+            <input type="text" class="form-control" id="txtChapters" value="capítulos" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
           </div>
-          <div class="col-2 text-end">
+          <div class="col-6 text-end">
             <button class="btn btn-primary" id="btnAddEpochs" type="submit">Adicionar</button>
           </div>
           <div class="col-12 text-end">
@@ -545,17 +551,18 @@
 
         <!-- tabela que lista as epoca especifica -->
         <div class="mt-5">
-            <table class="table table-bordered">
+            <table class="table table-bordered" cellspacing="0" cellpadding="0" style="table-layout: fixed; width: 100%">
                 <thead class="text-center align-items-center">
                   <tr>
                     <th scope="col">NOME</th>
                     <th scope="col">URL(VIDEO)</th>
                     <th scope="col">TAGS</th>
+                    <th scope="col">CAPÍTULOS</th>
                     <th scope="col">ELIMINAR</th>
                   </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="bodyResoursesManage" style="word-break:break-word">
+                    <!-- <tr>
                       <td>Chegada a Cabo Branco</td>
                       <td>https://www.youtube.com/embed/tgbNymZ7vq  </td>
                       <td>#cabo #branco #chegada</td>
@@ -572,7 +579,7 @@
                         <td>https://www.youtube.com/embed/tgbNymZ7vq</td>
                         <td>#cabo #branco #chegada</td>
                         <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                    </tr>
+                    </tr> -->
                   </tbody>
             </table>
         </div>
@@ -587,7 +594,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- REFERÊNCIA AOS JS -->
-    <!-- <script type="module" src="js/views/indexView.js"></script> -->
+    <script type="module" src="../js/views/ManageResoursesView.js"></script>
     <script type="module" src="../js/views/NavbarView.js"></script>
     
     <!-- Bootstrap Bundle with Popper -->

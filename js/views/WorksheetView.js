@@ -27,6 +27,7 @@ function worksheetView() {
     questions = questions.filter(question => question.idEpoch === epoch.idEpoch)
 
     renderWorksheet(isTeacher, questions, epoch)
+    renderSltTypeQuestions()
 }
 
 
@@ -66,6 +67,10 @@ function renderWorksheet(isTeacher, questions, epoch) {
                 }
                 if (index + 1 == question.questions.length) {
                     result += ` ${statement.charAt(statement.length - 1) === "." ? "" :"."}
+                    
+                    </div>
+                    <div class="mb-5 p-3 text-end">
+                        <button type="button" id="${question.idQuestion}" class="btn btn-danger btnRemove rounded-pill">Remover</button>
                     </div>
                     </div>`
                 }
@@ -97,11 +102,17 @@ function renderWorksheet(isTeacher, questions, epoch) {
                                         ${answers[randomIndex]}
                                     </button><br>
                                 </div>
-                            </div>`
-
+                            </div>
+                            `
+                    
                 answers.splice(randomIndex, 1)
 
             }
+            result += `
+                <div class="mb-5 p-3 text-end">
+                    <button type="button" id="${question.idQuestion}" class="btn btn-danger btnRemove rounded-pill">Remover</button>
+                </div>
+            `
 
         } else {
             result = `
@@ -127,6 +138,9 @@ function renderWorksheet(isTeacher, questions, epoch) {
                         </p>
                     </div>
                 </div>
+                <div class="mb-5 p-3 text-end">
+                        <button type="button" id="${question.idQuestion}" class="btn btn-danger btnRemove rounded-pill">Remover</button>
+                </div>
             `
         }
 
@@ -136,10 +150,14 @@ function renderWorksheet(isTeacher, questions, epoch) {
 
     result = `
             <div class="mb-5 p-3 text-end">
-                <button type="button" class="btn btn-success rounded-pill">Submeter</button>
+                <button type="button" class="btn btn-success btnSubmit rounded-pill">Submeter</button>
+            </div>
+            <div class="mb-5 p-3">
+                <button type="button" class="btn btn-success btnAddQuestion rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Adicionar Questão</button>
             </div>
         `
     document.querySelector('#worksheetBody').innerHTML += result
+
 
     if (!isTeacher) {
         bindQuizzBtns(questions)
@@ -150,6 +168,56 @@ function renderWorksheet(isTeacher, questions, epoch) {
         })
     }
 
+    // esconder botão de remover se não for professor
+    const btnRemoves = document.querySelectorAll('.btnRemove')
+    for (const btn of btnRemoves){
+        if (isTeacher) {
+            btn.style.display = ''
+        }
+        else {
+            btn.style.display = 'none'
+        }
+    }
+
+    // esconder o botão de submeter quando é professor
+    const btnSubmits = document.querySelectorAll('.btnSubmit')
+    for (const btnSubmit of btnSubmits) {
+        if (isTeacher) {
+            btnSubmit.style.display = 'none'
+        }
+        else {
+            btnSubmit.style.display = ''
+        }
+    }
+
+    // CLICAR NO BOTÃO REMOVER
+    const btnRemovesQuestions = document.querySelectorAll(".btnRemove");
+    for (const button of btnRemovesQuestions) {
+        button.addEventListener("click", () => {
+            Swal.fire({
+                title: `Tens a certeza que queres eliminar a questão " ${button.id} "!`,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: 'No',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 right-gap',
+                    confirmButton: 'order-2',
+                    denyButton: 'order-3',
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Question.removeQuestions(button.id)
+                    setTimeout(function(){window.location.reload()}, 2000);;
+                    Swal.fire('Saved!', '', 'success')
+                     
+                } else if (result.isDenied) {
+                  Swal.fire(`A Questão "${button.id}" não foi eliminada! `)
+                }
+            })   
+        });
+    }
 }
 
 function bindQuizzBtns(questions) {
@@ -323,6 +391,55 @@ function updateGrade(grade, epoch){
     userInfo.epochs[indexChoosenEpoch][2] = grade
 
     User.updateLoggedUserInfo(userInfo)
+}
+
+// Sessaõ de gerencia de questões
+function renderSltTypeQuestions() {
+    
+    const selector = document.querySelector('#sltCategoryQuestion')
+    let result = ''
+    selector.addEventListener('click', function () {
+        if (this.value == 'quizz') {
+           
+            result += `
+                <div class="row">
+                    <div class="mb-3">
+                    <label for="txtQuestion class="form-label">Questão</label>
+                    <input type="txt" class="form-control" id="txtQuestion">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3">
+                    <label for="txtCorrectAnswer" class="form-label">Resposta Certa</label>
+                    <input type="text" class="form-control" name="" id="txtCorrectAnswer">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3">
+                    <label for="txtDwrongAnswer1" class="form-label">Resposta Errada </label>
+                    <input type="text" class="form-control" id="txtDwrongAnswer1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                    <label for="txtDwrongAnswer2" class="form-label">Resposta Errada </label>
+                    <input type="text" class="form-control" id="txtDwrongAnswer2">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="quantityXP" class="form-label">Pontos(xp)</label>
+                        <input type="number" class="form-control" id="quantityXP">
+                    </div>
+                </div>
+            `
+          
+        }
+        document.querySelector('#modalAddNewQuestion').innerHTML += result
+    })
 }
 
 worksheetView()

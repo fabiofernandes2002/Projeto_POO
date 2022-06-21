@@ -1,8 +1,10 @@
 // o catálogo recorre à classe Cat, descrita em CatModel.js
 import * as User from "../models/UserModel.js";
+import * as Epoch from "../models/EpochModel.js";
 
 function navbarView() {
     User.init();
+    Epoch.init()
 
     //as funções a seguir já estão documentadas
 
@@ -52,7 +54,17 @@ function navbarView() {
         User.logout(pathIndexPage);
 
     })
+    bindLearnButtons()
 
+}
+
+function bindLearnButtons(epochs) {
+    document.querySelectorAll('.menuHamburguerOption').forEach((element,index) => {
+        element.addEventListener("click", () => {
+            Epoch.setChoosenEpoch(epochs[index])
+            location.href = "./epoch.html";
+        })
+    });
 }
 
 
@@ -217,7 +229,7 @@ export function renderLoggedUserContent(path) {
                             <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>
                         </div>
                         <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="#">Gerir recursos</a></li>
+                            <li class="manageResources"><a class="dropdown-item" href="${path + "manageEpoch.html"}">Gerir recursos</a></li>
                         </div>
                         <div class="position-relative options-menu">
                             <li class="manageResources"><a class="dropdown-item" href="${path + "manageEpochs.html"}">Gerir épocas</a></li>

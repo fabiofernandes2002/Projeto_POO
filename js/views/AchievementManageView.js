@@ -60,10 +60,32 @@ function renderAchievement() {
     const btnRemoves = document.querySelectorAll(".btnRemove");
     for (const button of btnRemoves) {
         button.addEventListener("click", () => {
-        if (confirm("Deseja mesmo remover a conquista?")) {
-            Achievement.removeAchievement(button.id);
-            location.reload();
-        }
+            Swal.fire({
+                title: `Tens a certeza que queres eliminar o(a) " ${button.id} "!`,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: 'No',
+                customClass: {
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 right-gap',
+                    confirmButton: 'order-2',
+                    denyButton: 'order-3',
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Achievement.removeAchievement(button.id)
+                    setTimeout(function(){window.location.reload(); ;}, 2000);;
+                    Swal.fire('Saved!', '', 'success')
+                     
+                } else if (result.isDenied) {
+                  Swal.fire(`A conquista "${button.id}" não foi eliminada! `)
+                }
+              })   
+            // if (confirm("Deseja mesmo remover a conquista?")) {
+            //     Achievement.removeAchievement(button.id);
+            //     location.reload();
+            // }
         });
     }
     
@@ -127,8 +149,9 @@ document.querySelector('#modalAddNewAchievement').addEventListener('submit', fun
       } catch (error) {
         alert(error.message);
     }
-    configureMedals()
     e.target.reset();
+    configureMedals()
+    
     
 })
 

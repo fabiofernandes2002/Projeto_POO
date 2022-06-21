@@ -556,6 +556,95 @@
                 </div> -->
 
         </div>
+
+        <!-- Modal de Adicionar novas questões -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Adicionar uma questão nova</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="modalAddNewQuestion">
+                        <div class="row" style="margin-left:0; margin-right: 0;">
+                            <label for="form-select">Categoria</label>
+                            <select class="form-select mb-3" id="sltCategoryQuestion">
+                                <option selected>Escolha o tipo de Questão</option>
+                                <option value="fill-the-blanks">Fill-the-blanks</option>
+                                <option value="quizz">Quizz</option>
+                                <option value="dropdown">Dropdown</option>
+                            </select>
+                        </div>
+                        
+                        <!-- <div class="row">
+                            <div class="mb-3">
+                            <label for="txtQuestion class="form-label">Questão</label>
+                            <input type="txt" class="form-control" id="txtQuestion">
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="mb-3">
+                            <label for="txtCorrectAnswer" class="form-label">Resposta Certa</label>
+                            <input type="text" class="form-control" name="" id="txtCorrectAnswer">
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="mb-3">
+                            <label for="txtDwrongAnswer1" class="form-label">Resposta Errada </label>
+                            <input type="text" class="form-control" id="txtDwrongAnswer1">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                            <label for="txtDwrongAnswer2" class="form-label">Resposta Errada </label>
+                            <input type="text" class="form-control" id="txtDwrongAnswer2">
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="quantityXP" class="form-label">Pontos(xp)</label>
+                                <input type="number" class="form-control" id="quantityXP">
+                            </div>
+                        </div>
+     -->
+                        <div class="row p-3" id="ckeckBoxs">
+                            <!-- <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="check1">
+                                <label class="form-check-label" for="check1">
+                                    Tempo dos descobrimentos
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="check2">
+                                <label class="form-check-label" for="check2">
+                                    Da União Ibérica à Restauração da Independência
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="check3" >
+                                <label class="form-check-label" for="check3">
+                                Teste 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="check4">
+                                <label class="form-check-label" for="check4">
+                                Teste 2
+                                </label>
+                            </div> -->
+                        </div>
+    
+                        <div class="col text-end">
+                            <button type="submit" class="btn btn-primary">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
     </div>
 
     <!-- Sweetalert -->

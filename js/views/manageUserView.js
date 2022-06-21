@@ -1,21 +1,31 @@
 import * as User from "../models/UserModel.js"
 
 
-
 function catalog_user(users = []) {
     User.init()
     render_table();
+    //SearchBar()
     
     //RENDERIZAR A TABELA COM UM UNICO NOME PROCURADO
-    const btnProcurar = document.getElementById('procurar')
+    // const btnProcurar = document.getElementById('procurar')
     
-    btnProcurar.addEventListener("click", () => {        
-        let username_filter = document.querySelector('#username_filter')
-        User.getUsersByName()
-        render_table(User.getUsersByName(username_filter.value));
-        console.log(username_filter.value)
-        /*----------- */
-    })
+    // btnProcurar.addEventListener("click", () => {        
+    //     let username_filter = document.querySelector('#username_filter')
+    //     User.getUsersByName()
+    //     render_table(User.getUsersByName(username_filter.value));
+    //     console.log(username_filter.value)
+    //     /*----------- */
+    // })
+
+    // CLICAR NO BOTÃO FILTRAR
+    document.querySelector("#procurar").addEventListener("click", () => {
+        //alert('hdh')
+        render_table(
+        User.getUsersFilter(
+            document.getElementById("usernameFilter").value,
+        )
+        );
+    });
 
     /*ordenar tabela */
 
@@ -90,12 +100,12 @@ function render_table(users = []){
 
     let all_user = ` <thead >
     <tr>
-        <th scope="col">pontos</th>
+        <th scope="col">Pontos</th>
         <th scope="col">Nome</th>
-        <th scope="col">email</th>
-        <th scope="col">localidade</th>
-        <th scope="col">Eleminar</th>
-        <th scope="col">bloquear</th>
+        <th scope="col">Email</th>
+        <th scope="col">Localidade</th>
+        <th scope="col">Eliminar</th>
+        <th scope="col">Bloquear</th>
     </tr>
     </thead>
     <tbody class="tbody "> `
@@ -109,9 +119,9 @@ function render_table(users = []){
             <td>${user.email}</</td>
             <td>${user.city}</</td>
             <td><button type="button" id="${user.username}"
-            class="btn btn-danger eleminarUSer">Eliminar</button></td>
+            class="btn btn-danger eliminarUSer">Eliminar</button></td>
             <td><button type="button" id="${user.username}"
-            class="btn btn-secondary bluquearUser">bloquar</button></td>
+            class="btn btn-secondary bluquearUser">Bloquear</button></td>
             </tr>
             </tbody>
             `
@@ -121,7 +131,7 @@ function render_table(users = []){
     }
 
     let num_users = users.length - 1
-    document.querySelector('.text').innerHTML = ' o site já tem ' + num_users + ' utilizadores'
+    document.querySelector('.text').innerHTML = ' TOTAL UTILIZADORES: ' + num_users
 
 
 
@@ -131,11 +141,11 @@ function render_table(users = []){
 
 
     //remover utilizador  
-    let btnsRemove = document.querySelectorAll(".eleminarUSer");
+    let btnsRemove = document.querySelectorAll(".eliminarUSer");
     for (let button of btnsRemove) {
         button.addEventListener("click", () => {
             Swal.fire({
-                title: `tens a certeza que queres eleminar ${button.id}`,
+                title: `Tens a certeza que queres eliminar ${button.id}!`,
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: 'Yes',
@@ -153,7 +163,7 @@ function render_table(users = []){
                     Swal.fire('Saved!', '', 'success')
                      
                 } else if (result.isDenied) {
-                  Swal.fire(`o utilizador ${button.id} não foi eleminado `)
+                  Swal.fire(`O utilizador ${button.id} não foi eliminado! `)
                 }
               })
             
@@ -167,7 +177,34 @@ function render_table(users = []){
 
 
 
+
 }
+
+// function SearchBar() {
+    
+//     const result = `
+//         <div class="col-4">
+//             <div class="input-group">
+//                 <input type="search" class="form-control" id="usernameFilter" onkeyup="myFunction() placeholder="Procurar por nome" aria-label="Username" aria-describedby="basic-addon1">
+//             </div>
+//         </div>
+//         <div class="col-auto ">
+//                 <a class="btn btn-primary" id="procurar" href="#" role="button">Procurar </a>
+//         </div>
+            
+//         <div class="col  dropdown">    
+//             <button type="button" id="ordenarGeral"class="btn btn-dark dropdown-toggle" style="background-color:rgba(54, 63, 115, 1) ;" data-bs-toggle="dropdown">
+//             Ordenar
+//             </button>
+//             <ul class="dropdown-menu">
+//                 <li><a class="dropdown-item" id="btnSort">Por ordem alfabetica</a></li>
+//                 <li><a class="dropdown-item" id="btnPontos">Ordem por pontos</a></li>
+//             </ul>
+//         </div>
+//     `
+//     document.querySelector('#formFilter').innerHTML = result
+// }
+
 
 catalog_user()
 

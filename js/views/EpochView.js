@@ -7,6 +7,7 @@ function epochView() {
     Video.init()
     Epoch.init()
     renderEpoch()
+    shareVideo()
 }
 
 function renderEpoch() {
@@ -109,7 +110,6 @@ function renderVideo(video, user,firstTimeBindingModalElements,modal) {
 
 
     for (const chapter of video.chapters) {
-        console.log(chapter.seconds);
         result += `<li><span class="gotoFrame" id='${chapter.seconds}' style="color: #3DAAC5; cursor: pointer;">${chapter.time}</span>  ${chapter.content}</li>`
     }
 
@@ -264,5 +264,45 @@ function hideShowTags() {
         document.querySelector('#showMore').style.display = "none"
     }
 }
+
+function shareVideo() {
+    //const epoch = Epoch.getChoosenEpoch()
+    const shareVideo = document.querySelector('#modalShareLinkVideo')
+    const videos = Video.getvideos()
+    
+    let result = ''
+    for (const video of videos) {
+        if (video.idVideo === Video.getChoosenVideo().idVideo) {
+            result +=`
+
+                <div class="input-group">
+                    <input type="text" class="form-control" value="${video.urlVideo}" id="urlVideo"  aria-describedby="btnCopy">
+                    <button class="btn btn-outline-secondary" type="button" id="btnCopy">Copiar</button>
+                </div>
+                
+            `
+        }
+    }
+    shareVideo.innerHTML += result
+    
+    document.querySelector('#btnCopy').addEventListener('click', function () {
+        /* Get the text field */
+        const copyText = document.getElementById("urlVideo");
+      
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+      
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+        
+        /* Alert the copied text */
+        //alert("Copied the text: " + copyText.value);
+    
+    })
+    
+    
+}
+
 
 epochView()

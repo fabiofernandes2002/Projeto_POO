@@ -10,15 +10,21 @@ export function getQuestions() {
     return questions;
 }
 
+//REMOVER UMA QUESTIONS
+export function removeQuestions(idQuestion) {
+    questions = questions.filter((question) => question.idQuestion !== idQuestion);
+    localStorage.setItem("questions", JSON.stringify(questions));
+}
+
 class Question{
-    idQuestion
+    idQuestion 
     idEpoch = 0
     question = []
     category = ''
     incorrectAnswers = []
     correctAnswer = []
     points = 0
-    constructor(idEpoch, question, category, incorrectAnswers, correctAnswer, points) {
+    constructor(idEpoch, question = [], category = '', incorrectAnswers = [], correctAnswer = '', points = 0) {
         
         this.idQuestion = questions.length === 0 ? 1 : questions.length + 1;
         this.idEpoch = idEpoch;

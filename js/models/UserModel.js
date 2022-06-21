@@ -83,7 +83,7 @@ export function sortUsersByPoints() {
   
 }
 
-//BOSCAR USER POR NOME EM ESPECIFICO
+//BUSCAR USER POR NOME EM ESPECIFICO
 export function getUsersByName(filterName = ""  ) {
   let filteredUsers = users.filter(
   (user) =>(user.username.includes(filterName) || filterName === "")   );
@@ -136,6 +136,17 @@ export function updateLoggedUserInfo(newUserInfo) {
   localStorage.setItem("users", JSON.stringify(newUserList));
 
   users = newUserList
+}
+
+// OBTER USERS (COM SUPORTE A FILTROS)
+export function getUsersFilter(filterName = "") {
+  let filteredUsers = users.filter(
+    (user) =>
+      (user.username.toLowerCase().includes(filterName.toLowerCase()) ||
+        filterName === ""));
+
+
+  return filteredUsers;
 }
 
 

@@ -12,10 +12,10 @@ function renderEpochManage(epochs = []){
         
         result += `
             <tr>
-                <td>${epoch.period}</td>
-                <td>${epoch.epochTitle}</td>
-                <td  id="url">${epoch.image}</td>
-                <td>${epoch.description}</td>
+                <td style="word-break:break-word">${epoch.period}</td>
+                <td style="word-break:break-word">${epoch.epochTitle}</td>
+                <td style="word-break:break-word">${epoch.image}</td>
+                <td style="word-break:break-word">${epoch.description}</td>
                 <td><button type="button" class="btn btn-danger" id="${epoch.epochTitle}">Eliminar</button></td>
             </tr>
         ` 
@@ -27,7 +27,7 @@ function renderEpochManage(epochs = []){
     for (const btn of btnsRemove) {
         btn.addEventListener('click', ()=>{
             Swal.fire({
-                title: `tens a certeza que queres eleminar a " ${btn.id} "`,
+                title: `Tens a certeza que queres eliminar a " ${btn.id} "!`,
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: 'Yes',
@@ -45,7 +45,7 @@ function renderEpochManage(epochs = []){
                     Swal.fire('Saved!', '', 'success')
                      
                 } else if (result.isDenied) {
-                  Swal.fire(`A EPOCA  "${button.id}" não foi eleminadA `)
+                  Swal.fire(`A época  "${btn.id}" não foi eliminada! `)
                 }
               })
             
@@ -55,11 +55,12 @@ function renderEpochManage(epochs = []){
     
 }
 
+// atribuir o valor do requisito a época
 function renderRequeriment() {
-    const requirement = document.querySelector('#txtRequeriment').value
+    const requirement = document.querySelector('#txtRequeriment')
     const epochs = Epoch.getEpochs()
     for (const epoch of epochs) {
-        epoch.requirement = requirement
+        epoch.requirement = requirement.value
     }
 }
 
