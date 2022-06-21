@@ -1,4 +1,5 @@
 import * as User from "../models/UserModel.js";
+
 let epochs;
 
 // CARREGAR ÉPOCAS DA LOCALSTORAGE
@@ -15,6 +16,19 @@ export function getEpochs() {
 export function sortEpoch() {
     epochs.sort((a, b) => a.epochTitle.localeCompare(b.epochTitle));
 }
+//ULTIMAS PUBLICADAS
+export function sortEpochPublicacion() {
+    epochs.reverse() 
+}
+   
+export function getEpochsByName(filteredEpoch= "") {
+    let filteredEpochs = epochs.filter(
+    (epoch) => (epoch.epochTitle.toLowerCase().includes(filteredEpoch)));
+    console.log(filteredEpoch );
+    
+    return filteredEpochs;
+}
+
 
 
 

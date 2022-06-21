@@ -88,14 +88,14 @@ export function sortUsersByPoints() {
 }
 
 //BOSCAR USER POR NOME EM ESPECIFICO
-export function getUsersByName(filterName = "") {
+ export function getUsersByName(filterName = "") {
   let filteredUsers = users.filter(
     (user) => (user.username.toLowerCase().includes(filterName) && user.type !== 'professor'));
   console.log(filteredUsers);
 
   return filteredUsers;
 
-}
+} 
 
 //REMOVER UM UTLIZADOR 
 export function removeUser(name) {
