@@ -14,7 +14,7 @@ function renderEpochManage(epochs = []){
             <tr>
                 <td>${epoch.period}</td>
                 <td>${epoch.epochTitle}</td>
-                <td  id="url">${epoch.image}</td>
+                <td  class="url">${epoch.image}</td>
                 <td>${epoch.description}</td>
                 <td><button type="button" class="btn btn-danger" id="${epoch.epochTitle}">Eliminar</button></td>
             </tr>
@@ -30,8 +30,8 @@ function renderEpochManage(epochs = []){
                 title: `Tens a certeza que queres eliminar a " ${btn.id} "!`,
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
-                denyButtonText: 'No',
+                confirmButtonText: 'Sim',
+                denyButtonText: 'Não',
                 customClass: {
                     actions: 'my-actions',
                     cancelButton: 'order-1 right-gap',
@@ -40,12 +40,12 @@ function renderEpochManage(epochs = []){
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Epoch.removerEpoch(btn.id)
-                    setTimeout(function(){window.location.reload(); ;}, 2000);;
-                    Swal.fire('Saved!', '', 'success')
+                    Epoch.removeEpoch(btn.id)
+                    btn.parentNode.parentNode.remove()
+                    Swal.fire('Feito!')
                      
                 } else if (result.isDenied) {
-                  Swal.fire(`A época  "${btn.id}" não foi eliminada! `)
+                  Swal.fire(`A época "${btn.id}" não foi eliminada! `)
                 }
               })
             
@@ -53,14 +53,6 @@ function renderEpochManage(epochs = []){
         
     }
     
-}
-
-function renderRequeriment() {
-    const requirement = document.querySelector('#txtRequeriment').value
-    const epochs = Epoch.getEpochs()
-    for (const epoch of epochs) {
-        epoch.requirement = requirement
-    }
 }
 
 document.querySelector('#btnAddEpochs').addEventListener('click', function(e) {
@@ -73,7 +65,6 @@ document.querySelector('#btnAddEpochs').addEventListener('click', function(e) {
             document.querySelector('#txtDescription').value,
             document.querySelector('#txtRequeriment').value
         );
-        renderRequeriment()
         alert("Epoch added with success!");
         renderEpochManage(Epoch.getEpochs());
         

@@ -10,6 +10,12 @@ export function getAchievements() {
     return achievements;
 }
 
+// OBTER lista de avatares
+export function getAvatars() {
+    return achievements.filter(achievement => achievement.type === "avatar")
+}
+
+
 export function updateMedalsInfo(newMedalInfo) {
 
     //NA LOCAL STORAGE
@@ -22,15 +28,18 @@ export function updateMedalsInfo(newMedalInfo) {
 }
 
 // ADICIONAR ACHIEVEMENTS
-export function add(type, urlImage, achievementName, points, description) {
-    
-    if (achievements.some((achievement) => achievement.achievementName === achievementName)) {
-        throw Error(`Achievement with name "${achievementName}" already exists!`);
-      } 
-      else {
-        achievements.push(new Achievement(type, urlImage, achievementName, points, description));
-        localStorage.setItem("achievements", JSON.stringify(achievements));
+export function add(type, urlImage, achievementName, points, description, ckeckboxes) {
+
+    if (achievements.some((achievement) => achievement.achievementName.toLowerCase() === achievementName.toLowerCase())) {
+        throw Error(`Conquista com o nome "${achievementName}" já existe!`);
+    }else if (!["avatar", "medal"].includes(type)) {
+        throw Error(`Especifique o tipo`);
+
+    }else if (points === 0 && type === "medal" && ckeckboxes.length === 0) {
+        throw Error(`Especifique um número de pontos ou épocas`);
     }
+    achievements.push(new Achievement(type, urlImage, achievementName, points, description));
+    localStorage.setItem("achievements", JSON.stringify(achievements));
 }
 
 // REMOVER ACHIEVEMENTS
@@ -46,9 +55,9 @@ class Achievement {
     achievementName = ""
     points = 0
     description = ""
-    
+
     constructor(type, urlImage, achievementName, points, description) {
-        
+
         this.idAchievement = achievements.length === 0 ? 1 : achievements.length + 1;
         this.type = type;
         this.urlImage = urlImage;
@@ -57,18 +66,3 @@ class Achievement {
         this.description = description
     }
 }
-
-
-// let achievements = [{
-//     idAchievement : 0,
-//     type : "medal",
-//     urlImage : "http://",
-//     achievementName : "Mestre dos descobrimentos"
-// }, 
-// {
-//     idAchievement :1,
-//     type : "avatar",
-//     urlImage : "http://",
-//     achievementName : "shrek"
-// }
-// ]

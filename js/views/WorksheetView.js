@@ -390,7 +390,7 @@ function updateGrade(grade, epoch){
     userInfo.epochs[indexChoosenEpoch][1] = true
     userInfo.epochs[indexChoosenEpoch][2] = grade
 
-    User.updateLoggedUserInfo(userInfo)
+    User.updateUserInfo(userInfo)
 }
 
 // Sessaõ de gerencia de questões

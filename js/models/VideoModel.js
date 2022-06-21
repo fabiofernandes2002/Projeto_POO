@@ -22,20 +22,19 @@ export function getvideos() {
 }
 
 // ADICIONAR Videos
-export function add(idVideo,videoTitle, urlVideo,tags, chapters) {
-    
+export function add(idEpoch, videoTitle, urlVideo, tags, chapters) {
+
     if (videos.some((video) => video.videoTitle === videoTitle)) {
         throw Error(`Video with name "${videoTitle}" already exists!`);
-      } 
-      else {
-        videos.push(new Video(idVideo,videoTitle, urlVideo,tags, chapters));
+    } else {
+        videos.push(new Video(idEpoch, videoTitle, urlVideo, tags.split(','), chapters));
         localStorage.setItem("videos", JSON.stringify(videos));
     }
 }
 
 //REMOVER UMA Videos
 export function removeVideo(videoTitle) {
-    videos= videos.filter((video) => video.videoTitle !== videoTitle);
+    videos = videos.filter((video) => video.videoTitle !== videoTitle);
     localStorage.setItem("videos", JSON.stringify(videos));
 }
 
@@ -63,7 +62,7 @@ class Video {
     viewa = 0
     likes = 0
 
-    constructor(idEpoch, videoTitle,urlVideo, tags, chapters, likes, comments) {
+    constructor(idEpoch, videoTitle, urlVideo, tags, chapters, likes, comments) {
 
         this.idVideo = videos.length === 0 ? 1 : videos.length + 1;
         this.idEpoch = idEpoch;

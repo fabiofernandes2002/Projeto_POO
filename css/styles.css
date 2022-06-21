@@ -6,6 +6,7 @@
 body {
     overflow: overlay;
     padding-right: 0 !important;
+    overflow-x: hidden;
 }
 
 /* || FONTES */

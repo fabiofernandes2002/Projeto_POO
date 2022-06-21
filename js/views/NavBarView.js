@@ -1,4 +1,3 @@
-// o catálogo recorre à classe Cat, descrita em CatModel.js
 import * as User from "../models/UserModel.js";
 
 function navbarView() {
@@ -202,7 +201,7 @@ function displayMessage(element, message, type) {
 /**
  * RENDERIZAR NOVO CONTEÚDO NA NAVBAR SE O UTILIZADOR ESTIVER AUTENTICADO
  */
-export function renderLoggedUserContent(path) {
+function renderLoggedUserContent(path) {
     const menuDropdown = document.querySelector("[aria-labelledby='navbarDropdown1']")
     let result
 
@@ -217,7 +216,7 @@ export function renderLoggedUserContent(path) {
                             <li id="myProfile"><a class="dropdown-item" href=${path+ "myProfile.html"}>Meu Perfil</a></li>
                         </div>
                         <div class="position-relative options-menu">
-                            <li class="manageResources"><a class="dropdown-item" href="${path + "manageEpoch.html"}">Gerir recursos</a></li>
+                            <li class="manageResources"><a class="dropdown-item" href="${path + "manageResources.html"}">Gerir recursos</a></li>
                         </div>
                         <div class="position-relative options-menu">
                             <li class="manageResources"><a class="dropdown-item" href="${path + "manageEpochs.html"}">Gerir épocas</a></li>
@@ -249,11 +248,11 @@ function renderAvatarNavBar(){
     const imgUser = document.querySelector('#navbarDropdown1Image') 
     const user = User.getUserLogged()
 
-    if (user.avatarImg === './assets/img/avatars/') {
+    if (user.avatarImg === '') {
         imgUser.innerHTML = user.username.charAt(0)
     }
     else{
-        imgUser.style.background =`url(${"." + user.avatarImg}) center / contain no-repeat `
+        imgUser.style.background =`url(${user.avatarImg}) center / cover no-repeat `
         
     }
 }

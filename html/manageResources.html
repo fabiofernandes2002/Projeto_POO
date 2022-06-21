@@ -12,9 +12,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-        
+
     <link href="../css/styles.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <!-- sweetalert biblioteca -->
@@ -23,56 +23,63 @@
     <!-- Fonts awesome -->
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
     <style>
-        #epocaDisponivel{
+        #epocaDisponivel {
             font-family: 'mplus-bold';
             font-size: 25px;
         }
 
-        body{
+        body {
             font-family: 'mplus-medium';
         }
 
-        #btnAddEpochs{
+        #btnAddEpochs {
             font-family: 'mplus-bold';
             background-color: #363F73;
             border-style: none;
             box-shadow: none;
         }
 
-        input[type="url"]:focus{
+        input[type="url"]:focus {
             border-style: none;
             box-shadow: none;
             background-color: #f2f2f2;
             border-color: #f2f2f2;
         }
 
-        table{
+        table {
             border-collapse: collapse;
             border-radius: 0.625em;
             border: 1px solid #FFF;
-            overflow: hidden;
-            
+            overflow-x: auto;
+
         }
 
-        .table {border: 1px solid black!important;} 
-        /* .table tr, .table td, .table th {border: 0!important;} */
-        .table tr td, 
-        .table tr {border-left: 1px solid #363F73!important;}
-        /* .table th {border-left: 3px solid #FFF!important;} */
-        .table tr td:nth-child(1), 
-        .table tr th:nth-child(1) {border-left: 1px!important;}
+        .table {
+            border: 1px solid black !important;
+        }
 
-        thead{
+        /* .table tr, .table td, .table th {border: 0!important;} */
+        .table tr td,
+        .table tr {
+            border-left: 1px solid #363F73 !important;
+        }
+
+        /* .table th {border-left: 3px solid #FFF!important;} */
+        .table tr td:nth-child(1),
+        .table tr th:nth-child(1) {
+            border-left: 1px !important;
+        }
+
+        thead {
             background-color: #f2f2f2;
             color: #000;
             font-family: 'mplus-bold';
         }
 
-        tbody{
+        tbody {
             background-color: #f2f2f2;
             font-family: 'mplus-medium';
         }
-        
     </style>
 </head>
 
@@ -227,8 +234,8 @@
                             <!-- Barra de pesquisa -->
                             <div class="search-bar mt-3 d-sm-none">
                                 <div class="me-3 ms-3">
-                                    <input type="search" class="form-control imputProcurarMenu"
-                                        placeholder="Procurar" aria-label="Search">
+                                    <input type="search" class="form-control imputProcurarMenu" placeholder="Procurar"
+                                        aria-label="Search">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                         style="display: none" width="1em" height="1em"
                                         preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -354,8 +361,7 @@
                         <!-- Botão Entrar -->
                         <div class="row mb-3 me-3 mt-4">
                             <div class="col-12 col-sm-6 text-end">
-                                <button class="btn btn-primary" type="submit" 
-                                id="btnEntrarLogin">Entrar</button>
+                                <button class="btn btn-primary" type="submit" id="btnEntrarLogin">Entrar</button>
                             </div>
                         </div>
 
@@ -500,68 +506,72 @@
     <!-- Gerencia das epocas disponiveis -->
     <div class="container">
         <form class="row g-3 mt-5" id="manageResourses">
-          <p id="epocaDisponivel">Gestão de Recursos</p>
-          <div class="col-6">
-            <select class="form-select" aria-label="Default select example" id="sltEpochs">
-                <option selected>Seleciona uma época</option>
-                <!-- <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option> -->
-            </select>
-          </div>
-          <div class="col-6">
-            <!-- <label for="validationCustom01" class="form-label">First name</label> -->
-            <input type="text" class="form-control" id="txtNameResourse" value="nome do recurso" required>
-            <div class="valid-feedback">
-              Looks good!
+            <p id="epocaDisponivel">Gestão de Recursos</p>
+            <div class="col-6">
+                <select class="form-select" aria-label="Default select example" id="sltEpochs">
+                    <option selected style="display:none;">Seleciona uma época</option>
+                    
+                </select>
             </div>
-          </div>
-          <div class="col-6">
-            <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="url" class="form-control" id="txtUrlVideo" value="url(video)" required>
-            <div class="valid-feedback">
-              Looks good!
+            <div class="col-6">
+                <!-- <label for="validationCustom01" class="form-label">First name</label> -->
+                <input type="text" class="form-control" id="txtNameResourse" placeholder="nome do recurso" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
             </div>
-          </div>
-          <div class="col-6">
-            <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="text" class="form-control" id="txtTags" value="tags" required>
-            <div class="valid-feedback">
-              Looks good!
+            <div class="col-6">
+                <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
+                <input type="url" class="form-control" id="txtUrlVideo" placeholder="url(video)" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
             </div>
-          </div>
-          <div class="col-6">
-            <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
-            <input type="text" class="form-control" id="txtChapters" value="capítulos" required>
-            <div class="valid-feedback">
-              Looks good!
+            <div class="col-6">
+                <!-- <label for="validationCustom02" class="form-label">Last name</label> -->
+                <input type="text" class="form-control" id="txtTags" placeholder="tags" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
             </div>
-          </div>
-          <div class="col-6 text-end">
-            <button class="btn btn-primary" id="btnAddEpochs" type="submit">Adicionar</button>
-          </div>
-          <div class="col-12 text-end">
-            <button type="button" class="btn btn-outline-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M23.5 4h-1.67A3.001 3.001 0 0 0 19 2h-6a3.001 3.001 0 0 0-2.83 2H8.5A3.5 3.5 0 0 0 5 7.5v19A3.5 3.5 0 0 0 8.5 30h5.546a2.49 2.49 0 0 1 .032-1.129l.791-3.051a4.159 4.159 0 0 1 1.01-1.82H11a1 1 0 1 1 0-2h6.86l6.652-6.706A4.36 4.36 0 0 1 27 14.042V7.5A3.5 3.5 0 0 0 23.5 4ZM13 4h6a1 1 0 1 1 0 2h-6a1 1 0 1 1 0-2Zm-3 9a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H11a1 1 0 0 1-1-1Zm1 4h5a1 1 0 1 1 0 2h-5a1 1 0 1 1 0-2Zm18.652 3.425l-8.613 8.543c-.352.349-.79.598-1.27.721l-3.02.778a1 1 0 0 1-1.218-1.22l.79-3.051c.118-.456.355-.872.687-1.206l8.57-8.64a2.88 2.88 0 1 1 4.074 4.075Z"/></svg>
-                Teste de avaliação
-            </button>
-            
-          </div>
+            <div class="col-6">
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chaptersForm">
+                    Capítulos
+                </button>
+
+            </div>
+            <div class="col-6 text-end">
+                <button class="btn btn-primary" id="btnAddEpochs" type="submit">Adicionar</button>
+            </div>
+            <div class="col-12 text-end">
+                <button type="button" class="btn btn-outline-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
+                        style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 32 32">
+                        <path fill="currentColor"
+                            d="M23.5 4h-1.67A3.001 3.001 0 0 0 19 2h-6a3.001 3.001 0 0 0-2.83 2H8.5A3.5 3.5 0 0 0 5 7.5v19A3.5 3.5 0 0 0 8.5 30h5.546a2.49 2.49 0 0 1 .032-1.129l.791-3.051a4.159 4.159 0 0 1 1.01-1.82H11a1 1 0 1 1 0-2h6.86l6.652-6.706A4.36 4.36 0 0 1 27 14.042V7.5A3.5 3.5 0 0 0 23.5 4ZM13 4h6a1 1 0 1 1 0 2h-6a1 1 0 1 1 0-2Zm-3 9a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H11a1 1 0 0 1-1-1Zm1 4h5a1 1 0 1 1 0 2h-5a1 1 0 1 1 0-2Zm18.652 3.425l-8.613 8.543c-.352.349-.79.598-1.27.721l-3.02.778a1 1 0 0 1-1.218-1.22l.79-3.051c.118-.456.355-.872.687-1.206l8.57-8.64a2.88 2.88 0 1 1 4.074 4.075Z" />
+                    </svg>
+                    Teste de avaliação
+                </button>
+
+            </div>
         </form>
 
         <!-- tabela que lista as epoca especifica -->
-        <div class="mt-5">
-            <table class="table table-bordered" cellspacing="0" cellpadding="0" style="table-layout: fixed; width: 100%">
+        <div class="mt-5" style="overflow-x: auto;">
+            <table class="table table-bordered" cellspacing="0" cellpadding="1">
                 <thead class="text-center align-items-center">
-                  <tr>
-                    <th scope="col">NOME</th>
-                    <th scope="col">URL(VIDEO)</th>
-                    <th scope="col">TAGS</th>
-                    <th scope="col">CAPÍTULOS</th>
-                    <th scope="col">ELIMINAR</th>
-                  </tr>
+                    <tr>
+                        <th scope="col">NOME</th>
+                        <th scope="col">URL(VIDEO)</th>
+                        <th scope="col">TAGS</th>
+                        <th scope="col">CAPÍTULOS</th>
+                        <th scope="col">ELIMINAR</th>
+                    </tr>
                 </thead>
-                <tbody id="bodyResoursesManage" style="word-break:break-word">
+                <tbody id="bodyResoursesManage">
                     <!-- <tr>
                       <td>Chegada a Cabo Branco</td>
                       <td>https://www.youtube.com/embed/tgbNymZ7vq  </td>
@@ -580,13 +590,33 @@
                         <td>#cabo #branco #chegada</td>
                         <td><button type="button" class="btn btn-danger">Eliminar</button></td>
                     </tr> -->
-                  </tbody>
+                </tbody>
             </table>
         </div>
     </div>
-    
 
-     <!-- Optional JavaScript -->
+    <!-- Modal de capítulos -->
+    <div class="modal fade" id="chaptersForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div id="chapters">
+
+                        </div>
+                        <a class="btn btn-success btn-sm " href="#" id="addChapter" role="button"> +</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
     <!-- <script type="module" src="js/app.js"></script> -->
 
     <!-- Jquery -->
@@ -596,13 +626,12 @@
     <!-- REFERÊNCIA AOS JS -->
     <script type="module" src="../js/views/ManageResoursesView.js"></script>
     <script type="module" src="../js/views/NavbarView.js"></script>
-    
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 </body>
 
 </html>
-

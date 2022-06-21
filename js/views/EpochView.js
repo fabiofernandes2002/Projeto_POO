@@ -92,7 +92,7 @@ function renderVideo(video, user,firstTimeBindingModalElements,modal) {
     if (!(user.videosSeen.some(idVideo => idVideo === video.idVideo)) && !User.isTeacher()) {
         //ATUALIZAR NA PARTE DO UTILIZADOR
         user.videosSeen.push(video.idVideo)
-        User.updateLoggedUserInfo(user)
+        User.updateUserInfo(user)
 
         //ATUALIZAR NA PARTE DO VIDEO
         video.views += 1
@@ -109,7 +109,6 @@ function renderVideo(video, user,firstTimeBindingModalElements,modal) {
 
 
     for (const chapter of video.chapters) {
-        console.log(chapter.seconds);
         result += `<li><span class="gotoFrame" id='${chapter.seconds}' style="color: #3DAAC5; cursor: pointer;">${chapter.time}</span>  ${chapter.content}</li>`
     }
 
@@ -174,15 +173,15 @@ function renderComments(video, comments) {
     let result = ""
     for (const comment of comments) {
         const user = User.getUsers().find(user => user.idUser === comment.idUser)
-        let hasAvatar 
-        if (user.avatarImg === './assets/img/avatars/') {
-            hasAvatar = 0
-        }else{
-            hasAvatar = 1
+        let avatarImg = ""
+
+        if (user.avatarImg !== "") {
+            avatarImg =`background:url(${user.avatarImg}) center / cover no-repeat `
+            
         }
         result += `<div class="comment-card">
-                        <div class="pic center-display" style="${hasAvatar ? "background:url(." + user.avatarImg + ") center / contain no-repeat" : ""}">
-                            ${hasAvatar ? "" : user.username.charAt(0)}
+                        <div class="pic center-display" style="${avatarImg}" >
+                            ${avatarImg === "" ? user.username.charAt(0) : ""}
                         </div>
                         <div class="comment-info">
                             <small class="nickname">
@@ -245,7 +244,7 @@ function addRemoveLike(isToAdd, user, video) {
         user.videosLiked.splice(indexVideo, 1)
     }
 
-    User.updateLoggedUserInfo(user)
+    User.updateUserInfo(user)
     Video.updateVideoInfo(video)
 }
 
