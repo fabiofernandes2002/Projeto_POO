@@ -17,6 +17,10 @@
 
     <link href="css/styles.css" rel="stylesheet">
 
+    
+    <!-- sweetalert biblioteca -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Fonts awesome -->
     <script src="https://kit.fontawesome.com/d425faded4.js" crossorigin="anonymous"></script>
 </head>
@@ -478,7 +482,8 @@
         </div>
     </section>
 
-    <!-- Cards -->
+    <!-- Cards 
+    organizado pelas 4 primeiras postas  -->
     <section style="background-color:#F2F2F2;">
 
         <div class="d-flex justify-content-center">
@@ -683,11 +688,12 @@
         <div class="container">
             <div class="row">
                 <div class="col div-headings-index" style="margin-top:91px;">
-                    <h3>Épocas Mais Populares</h3>
+                    <h3>Épocas mais recentes </h3>
                 </div>
             </div>
 
-            <div class="row mt-5 row-cols-1 row-cols-md-2">
+            <div class="row mt-5 row-cols-1 row-cols-md-2" id="primeirasEpochs">
+          <!--   
 
                 <div class="col">
                     <div class="card card-most-popular-left mb-4"
@@ -790,19 +796,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col d-flex justify-content-center mt-5 mb-5">
-                    <a class="btn btn-see-all mb-5" href="./html/epochs.html" role="button">Ver Todas</a>
-                </div>
-            </div>
-        </div>
+            </div> 
+            
+        -->
+    </div>
+</div>
+<div class="row  d-flex justify-content-center">
+    <div class="col d-flex justify-content-center mt-5 mb-5">
+        <a class="btn btn-see-all mb-5" href="./html/epochs.html"  data-bs-target=""role="button">Ver Todas</a>
+    </div>
 
 
         <!-- Conheça os fundadores -->
         <section style="background-color:#F2F2F2;">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col div-headings-index" style="margin-top:91px;">
                         <h3>Conheça os Fundadores</h3>

@@ -1,3 +1,4 @@
+import * as User from "../models/UserModel.js";
 let epochs;
 
 // CARREGAR ÉPOCAS DA LOCALSTORAGE

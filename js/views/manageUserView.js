@@ -149,7 +149,7 @@ function render_table(users = []){
             }).then((result) => {
                 if (result.isConfirmed) {
                     User.removeUser(button.id)
-                    setTimeout(function(){window.location.reload(); ;}, 2000);;
+                    setTimeout(function(){window.location.reload();}, 2000);;
                     Swal.fire('Saved!', '', 'success')
                      
                 } else if (result.isDenied) {
