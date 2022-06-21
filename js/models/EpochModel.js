@@ -20,15 +20,15 @@ export function sortEpoch() {
 export function sortEpochPublicacion() {
     epochs.reverse() 
 }
-/*   
+   
 export function getEpochsByName(filteredEpoch= "") {
-    let filteredEpoch = epochs.filter(
-        (epoch) => {
-            return (epoch.epochTitle.toLowerCase().includes(filteredEpoch.toLowerCase()) || filteredEpoch === "");
-        }
-      );
+    let filteredEpochs = epochs.filter(
+    (epoch) => (epoch.epochTitle.toLowerCase().includes(filteredEpoch)));
+    console.log(filteredEpoch );
+    
+    return filteredEpochs;
 }
- */
+
 
 
 

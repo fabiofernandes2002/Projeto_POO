@@ -27,6 +27,10 @@ function epochsView(epochs= []) {
         }
     })
 
+    //RENDARIZAR  EPOCA EXPECIFICA 
+    document.querySelector('.imputProcurar').addEventListener("input", () => {
+        renderEpochs(document.querySelector('.imputProcurar').value)
+    })
     // ORDENAR EPOCAS
     
     //ORDENAR POR ORDEM DECRESCENTE
@@ -87,7 +91,7 @@ function epochsView(epochs= []) {
 /**
  * RENDERIZAR AS CARDS 
  */
-function renderEpochs() {
+function renderEpochs(filterTxt = "") {
     let epochs = Epoch.getEpochs()
     let result = ""
 
@@ -99,7 +103,8 @@ function renderEpochs() {
     const unlockedEpochs = User.isLogged() ? User.getUserLogged().epochs.map(element => element = element[0] ) : []
 
     let index = 0
-    for (const epoch of epochs) {
+
+    for (const epoch of epochs && Epoch.getEpochsByName(filterTxt))  {
         /**
          * INDEX DO ELEMENTO DO ARRAY {@link unlockedEpochs} QUE PROVA QUE A {@link epoch} ESTÁ DESBLOQUEADA
          * @type {number}
@@ -110,6 +115,8 @@ function renderEpochs() {
          * @type {string}
          */
         const blockingDiv = indexId === -1 ? `<div class="blocked">${epoch.requirement}</div>` : ''
+        
+        
         result += `
         <div class="col">
             <div class="card card-most-popular-right mb-4 position-relative" style="max-width: 514px;max-height: 180px;">
@@ -132,6 +139,7 @@ function renderEpochs() {
                 </div>
             </div>
         </div>`
+
         index++
     }
     document.querySelector('#placeCardsHere').innerHTML = result
@@ -150,26 +158,6 @@ function bindLearnButtons(epochs) {
         })
     });
 }
-
-/* PROCURAR EPOCAS 
-let btnFilter = document.querySelector("#btnFilter")
-
-document.querySelector(".btn-search").addEventListener("click", ()=>{
-
-    epochsView(
-        Epoch.getEpochsByName(
-        btnFilter.value,
-        )
-    );
-    
-})
-console.log(btnFilter.value) */
-
-
-
-
-
-
 
 /**
  * ESCONDER/MOSTRAR AS ÉPOCAS BLOQUEADAS
