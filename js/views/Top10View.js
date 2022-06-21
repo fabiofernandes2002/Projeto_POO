@@ -13,7 +13,7 @@ function top10View(){
 
 
 
-
+// renderizar o top 10 
 function top10ListUsers(allStudentUsers) {
 
     const loggedUsername = User.isLogged() ? User.getUserLogged().username : ""

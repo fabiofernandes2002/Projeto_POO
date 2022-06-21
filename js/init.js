@@ -89,7 +89,7 @@ function initdata() {
                 "1 de dezembro de 1640",
                 "guerra da restauração"
             ],
-            urlVideo: "../assets/videos/Expansao_maritima_2.mp4",
+            urlVideo: "../assets/videos/y2mate.com - Portugal da União Ibérica à Restauração_360p.mp4",
             chapters: [
                 {time:"0:00", seconds:'0', content:"Começo da lenda de D. Sebastião (Batalha de Alcácer-Quibir)"},
                 {time:"2:16", seconds:'136', content:"Desputa da herança da coroa"},
@@ -103,7 +103,197 @@ function initdata() {
             ], 
             views:0,
             likes:0
-        }];
+        },
+        {
+            idVideo: 4,
+            idEpoch: 2,
+            videoTitle: 'O Misterioso Desaparecimento de D. Sebastião & Batalha de Alcácer-Quibir',
+            tags: [
+                "historia de D.Sebastião",
+                "começo da viagem a Alcácer Quibir",
+                "batalha de Alcácer Quibir",
+                "consequências futuras da derrota",
+                "desaparecimento",
+            ],
+            urlVideo: "../assets/videos/y2mate.com - O Misterioso Desaparecimento de D Sebastião  Batalha de AlcácerQuibir_360p.mp4",
+            chapters: [
+                {time:"0:00", seconds:'0', content:"introdução"},
+                {time:"0:34", seconds:'34', content:"historia de D.Sebastião"},
+                {time:"5:00", seconds:'300', content:"começo da viagem a Alcácer Quibir"},
+                {time:"6:56", seconds:'416', content:"batalha de Alcácer Quibir"},
+                {time:"11:28", seconds:'688', content:"consequências futuras da derrota e desaparecimento"}
+            ],
+            comments: [
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
+        },
+        {
+            idVideo: 5,
+            idEpoch: 2,
+            videoTitle: 'O Domínio Filipino e a Restauração 1993 EBM',
+            tags: [
+                "historia de evora",
+                "miados do seculo 16 decdencia do imperio",
+                "susseção",
+                "batalha",
+                "coroação de Filipe II",
+                "decadencia do imperio espanhol",
+                "protestos populares",
+                "revolta da nobreza",
+                "reinado de D. João IX"
+            ],
+            urlVideo: "../assets/videos/y2mate.com - 15 O Domínio Filipino e a Restauração 1993 EBM_360p.mp4.webm",
+            chapters: [
+                {time:"0:00", seconds:'0', content:"historia de evora "},
+                {time:"2:27", seconds:'147', content:" miados do seculo 16 decdencia do imperio"},
+                {time:"5:00", seconds:'300', content:"susseção e a sua batalha "},
+                {time:"7:20", seconds:'440', content:"coroação de Filipe II"},
+                {time:"8:17", seconds:'497', content:"decadencia do imperio espanhol"},
+                {time:"9:20", seconds:'560', content:"protestos populares e revolta da nobreza"},
+                {time:"10:34", seconds:'634', content:"reinado de D. João IX"}
+            ],
+            comments: [
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
+        },
+        {
+            idVideo: 5,
+            idEpoch: 3,
+            videoTitle: ' Os Anos da Ditadura Salazarista 1993 EBM',
+            tags: [
+                "guerra mundial",
+                "instablidade politica",
+                "movimento",
+                "nomeação do ministro das finanças",
+                "medidas tomadas por salazar",
+                "estagnação evidente do estado portugues",
+                "colonias de africa",
+                "criação do MUD",
+                "revolta dos estudantes",
+                "guerra colonial"
+
+            ],
+            urlVideo: "../assets/videos/y2mate.com - 23 Os Anos da Ditadura Salazarista 1993 EBM_360p.mp4",
+            chapters: [
+                {time:"0:00", seconds:'0', content:"1 guerra mundial"},
+                {time:"1:10", seconds:'70', content:"instablidade politica"},
+                {time:"1:51", seconds:'111', content:"movimento 1926"},
+                {time:"2:50", seconds:'170', content:"nomeação do ministro das finanças "},
+                {time:"3:25", seconds:'205', content:"medidas tomadas por salazar "},
+                {time:"4:35", seconds:'275', content:"implementação do estado novo"},
+                {time:"7:29", seconds:'449', content:"estagnação evidente do estado portugues"},
+                {time:"10:00", seconds:'600', content:"colonias de africa"},
+                {time:"10:30", seconds:'630', content:"criação do MUD"},
+                {time:"11:57", seconds:'717', content:"revolta dos estudantes e guerra colonial"},
+                {time:"14:10", seconds:'850', content:"protestos culturais"}
+            ],
+            comments: [
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
+        },
+        {
+            idVideo: 6,
+            idEpoch: 3,
+            videoTitle: 'A Guerra do Colonial Portuguesa',
+            tags: [
+                "vinheta",
+                "guerra colonial",
+                "guerra ultramar",
+                "angola é Nossa ",
+                "Hino nacional de Portuga",
+
+            ],
+            urlVideo: "../assets/videos/y2mate.com - A Guerra do Ultramar 19611975_360p.mp4",
+            chapters: [
+                {time:"0:00", seconds:'0', content:"vinheta"},
+                {time:"0:46", seconds:'46', content:"Royalty Free Military Music"},
+                {time:"4:00", seconds:'240', content:"Musica de Guerra"},
+                {time:"6:20", seconds:'380', content:"Angola é Nossa "},
+                {time:"10:06", seconds:'606', content:"A War Without End - Sad String Music"},
+                {time:"12:01", seconds:'721', content:"Hino nacional de Portugal"},
+            ],
+            comments: [
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
+        },
+        {
+            idVideo: 7,
+            idEpoch: 4,
+            videoTitle: '25 de abril - História',
+            tags: [
+                "Ditadura",
+                "regime",
+                "estado novo",
+                "Óscar Carmona",
+                "Craveiro Lopes",
+                "Américo Tomás"
+
+
+            ],
+            urlVideo: "../assets/videos/y2mate.com - 25 de abril  História 1º ciclo  O Troll explica_360p.mp4",
+            chapters: [
+                {time:"0:00", seconds:'0', content:" Introdução"},
+                {time:"0:31", seconds:'48', content:" Ditadura do regime do estado novo"},
+            ],
+            comments: [
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
+        },
+        {
+            idVideo: 8,
+            idEpoch: 4,
+            videoTitle: '25 de Abril de 1974: A Revolução dos Cravos',
+            tags: [
+                "25 de Abril",
+                "Estado Novo",
+                "Guerra Colonial",
+                "Revolução dos Cravos ",
+                "Ponte ",
+                "Consequências políticas",
+                "Consequências sociais",
+                "Consequências económicas",
+                "Grândola Vila Morena"
+
+            ],
+            urlVideo: "../assets/videos/y2mate.com - 25 de Abril de 1974 A Revolução dos Cravos  História de Portugal_v240P.mp4",
+            chapters: [
+                {time:"0:00", seconds:'0', content:" Introdução"},
+                {time:"0:48", seconds:'48', content:"O que foi o 25 de Abril?"},
+                {time:"1:09", seconds:'69', content:"O Estado Novo"},
+                {time:"4:00", seconds:'240', content:"A Guerra Colonial Portuguesa"},
+                {time:"6:00", seconds:'360', content:" O Estado Novo"},
+                {time:"7:08", seconds:'428', content:"A Revolução dos Cravos"},
+                {time:"10:03", seconds:'603', content:"A Ponte 25 de Abril"},
+                {time:"11:07", seconds:'667', content:"Depois da Revolução dos Cravos"},
+                {time:"11:42", seconds:'702', content:"Consequências políticas do 25 de Abril"},
+                {time:"12:36", seconds:'756', content:"Consequências sociais do 25 de Abril"},
+                {time:"14:17", seconds:'857', content:"Consequências económicas do 25 de Abril"},
+                {time:"16:00", seconds:'960', content:"Final"},
+                {time:"17:12", seconds:'1032', content:"Grândola Vila Morena"},
+            ],
+            comments: [
+                {idUser:8, comment:"Gostei muito!"},
+                {idUser:7, comment:"Ganda explicação, obrigado!"}
+            ], 
+            views:0,
+            likes:0
+        },
+        ];
         localStorage.setItem("videos", JSON.stringify(videos));
     }
 
@@ -275,7 +465,8 @@ function initdata() {
             period : "Séc. XV - XVI",
             image: "./assets/img/tempo_dos_descobrimentos.png",
             imageStyle:"background-size: contain;background-repeat: no-repeat;background-position: center bottom;",
-            description: "Aprende!",
+            description: "Época das grandes navegações, descobrimentos maritímos, e muito mais ",
+            videos: [0],
             questions: [0],
             medals: [1],
             requirement: "Inicie Sessão"
@@ -286,29 +477,32 @@ function initdata() {
             period : "Séc. XVII",
             image: "./assets/img/uniao_iberica.png",
             imageStyle:"background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;",
-            description: "Aprende1!",
+            description: "Aprenda sobre a revolta que cresceu entre a população, culminando no processo da restauração da independência!",
+            videos: [0],
             questions: [0],
             medals: [2],
             requirement: "Inicie Sessão"
         },
         {
             idEpoch: 3,
-            epochTitle: "Teste 1",
-            period : "Séc. XVIII",
-            image: "./assets/img/uniao_iberica.png",
+            epochTitle: "O Estado Novo",
+            period : "Séc. XX",
+            image: "./assets/img/estadoNovo.jpg",
             imageStyle:"background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;",
-            description: "Aprende2!",
+            description: "Aprenda os movimentos e regimes autoritários nascidos na Europa da primeira metade do século XX.",
+            videos: [0],
             questions: [0],
             medals: [3],
             requirement: "Complete as Duas Primeiras Épocas"
         },
         {
             idEpoch: 4,
-            epochTitle: "Teste 2",
-            period : "Séc. XVIII",
-            image: "./assets/img/uniao_iberica.png",
+            epochTitle: "25 de Abril de 1974 e o Regime Democrático",
+            period : "Séc. XX",
+            image: "./assets/img/25_Abril.webp",
             imageStyle:"background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;",
-            description: "Aprende2!",
+            description: "Saiba tudo sobre os maiores narcos da revolução de 25 de Abril.",
+            videos: [0],
             questions: [0],
             medals: [3],
             requirement: "Complete as Duas Primeiras Épocas"

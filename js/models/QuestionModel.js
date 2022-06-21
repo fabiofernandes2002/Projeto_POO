@@ -24,7 +24,7 @@ class Question{
     incorrectAnswers = []
     correctAnswer = []
     points = 0
-    constructor(idEpoch, question, category, incorrectAnswers, correctAnswer, points) {
+    constructor(idEpoch, question = [], category = '', incorrectAnswers = [], correctAnswer = '', points = 0) {
         
         this.idQuestion = questions.length === 0 ? 1 : questions.length + 1;
         this.idEpoch = idEpoch;

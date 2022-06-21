@@ -1,7 +1,6 @@
 import * as User from "../models/UserModel.js"
 
 
-
 function catalog_user(users = []) {
     User.init()
     renderTable();
@@ -150,6 +149,7 @@ function renderTable(filterTxt = "") {
     }
 
     return all_user
+
 
 
 

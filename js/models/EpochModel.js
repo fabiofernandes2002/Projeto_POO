@@ -1,3 +1,4 @@
+import * as User from "../models/UserModel.js";
 let epochs;
 
 // CARREGAR ÉPOCAS DA LOCALSTORAGE
@@ -73,16 +74,15 @@ class Epoch {
     medals = [] //MEDALHA QUE O UTILIZADOR GANHA QUANDO COMPLETA UMA ÉPOCA
     requirement = "" //REQUISITO PARA DESBLOQUEAR A ÉPOCA
 
-    constructor(period,
-        epochTitle,
-        image,
-        description,
-        requirement = "",
+    constructor(period = '', 
+        epochTitle = '', 
+        image = '', 
+        description = '', 
         imageStyle = "background-size: contain;background-repeat: no-repeat;background-position: center bottom;",
         videos = [],
         questions = [],
-        medals = []
-        
+        medals = [],
+        requirement = ''
     ) {
         this.idEpoch = epochs.length === 0 ? 1 : epochs.length + 1;
         this.period = period;
@@ -96,19 +96,3 @@ class Epoch {
         this.requirement = requirement;
     }
 }
-
-// let epochs = [{
-//     idEpoch:0,
-//     epochTitle: "Tempo dos descobrimentos",
-//     image:"http://",
-//     description:"lasdasd",
-//     videos: {
-//         1:0,
-//         2:1
-//     },
-//     questions: {
-//         1:0,
-//         2:1
-//     },
-//     medal:0
-// }]

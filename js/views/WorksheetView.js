@@ -394,7 +394,6 @@ function updateGrade(grade, epoch){
 }
 
 // Sessaõ de gerencia de questões
-
 function renderSltTypeQuestions() {
     
     const selector = document.querySelector('#sltCategoryQuestion')
