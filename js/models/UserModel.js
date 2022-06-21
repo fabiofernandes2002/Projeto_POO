@@ -27,15 +27,19 @@ export function login(usernameOrEmail, password) {
   const userByUsername = users.find(
     (user) => user.username === usernameOrEmail && user.password === password
   );
-  if (userByUsername != null ) { //Se o utilizador e a password estão válidos
+  if (userByUsername != null) { //Se o utilizador e a password estão válidos
+
+    if(userByUsername.block){ //Se o utilizador está bloqueado
+      throw Error("Desculpa, estás bloqueado.");
+    }
     sessionStorage.setItem("loggedUser", JSON.stringify(userByUsername));
     return true;
   }
 
   const userByEmail = checkLoginWithEmail(usernameOrEmail, password)
-  if (userByEmail != null ) { //Se o email e a password estão válidos
+  if (userByEmail != null) { //Se o email e a password estão válidos
     sessionStorage.setItem("loggedUser", JSON.stringify(userByEmail));
-    return true;
+    return true
   }
 
   throw Error("Login Inválido!");
@@ -65,7 +69,7 @@ export function getUserLogged() {
 }
 
 // OBTER lista de Users 
-export function getUsers( ) {
+export function getUsers() {
   return users;
 }
 
@@ -74,25 +78,24 @@ export function getUsers( ) {
 //ORDENAR OS UTILIZADORES POR PONTOS
 export function sortUsers() {
   users.sort((a, b) => a.username.localeCompare(b.username));
-  
+
 }
 
 //ORDENAR POR PONTOS
 export function sortUsersByPoints() {
-  users.sort((a, b) => b.totalPoints - a.totalPoints );
-  
+  users.sort((a, b) => b.totalPoints - a.totalPoints);
+
 }
 
-//BUSCAR USER POR NOME EM ESPECIFICO
-export function getUsersByName(filterName = ""  ) {
+//BOSCAR USER POR NOME EM ESPECIFICO
+export function getUsersByName(filterName = "") {
   let filteredUsers = users.filter(
-  (user) =>(user.username.includes(filterName) || filterName === "")   );
+    (user) => (user.username.toLowerCase().includes(filterName) && user.type !== 'professor'));
   console.log(filteredUsers);
-    
-  return filteredUsers;
-    
-}
 
+  return filteredUsers;
+
+}
 
 //REMOVER UM UTLIZADOR 
 export function removeUser(name) {
@@ -124,10 +127,12 @@ export function isTeacher() {
   return getUserLogged().type === "professor" ? true : false
 }
 
-export function updateLoggedUserInfo(newUserInfo) {
+export function updateUserInfo(newUserInfo, onlyLocalStorage = 0) {
 
-  //NA SESSION STORAGE 
-  sessionStorage.setItem("loggedUser", JSON.stringify(newUserInfo));
+  if (!onlyLocalStorage) {
+    //NA SESSION STORAGE 
+    sessionStorage.setItem("loggedUser", JSON.stringify(newUserInfo));
+  }
 
   //NA LOCAL STORAGE
   const newUserList = users.map((userItem) =>
@@ -138,17 +143,14 @@ export function updateLoggedUserInfo(newUserInfo) {
   users = newUserList
 }
 
-// OBTER USERS (COM SUPORTE A FILTROS)
-export function getUsersFilter(filterName = "") {
-  let filteredUsers = users.filter(
-    (user) =>
-      (user.username.toLowerCase().includes(filterName.toLowerCase()) ||
-        filterName === ""));
+export function removeAchievement(urlImage) {
+  const newUserInfo = users.filter(user => user.avatarImg === urlImage)
+  newUserInfo.forEach(user => {
+    user.avatarImg = ""
+  })
+  updateUserInfo(newUserInfo[0], 1)
 
-
-  return filteredUsers;
 }
-
 
 /**
  * CLASSE QUE MODELA UM UTILIZADOR NA APLICAÇÃO
@@ -173,11 +175,11 @@ class User {
     [1, false, 0],
     [2, false, 0]
   ]
-  block = 'false' 
-  
+  block = 'false'
 
 
-  constructor(username, email, city, password, birthDate, sex , totalPoints = 0 , block  , avatarImg = "./assets/img/avatars/',") {
+
+  constructor(username, email, city, password, birthDate, sex, totalPoints = 0, block, avatarImg = "") {
 
     this.idUser = users.length === 0 ? 1 : users.length + 1;
     this.type = "aluno";

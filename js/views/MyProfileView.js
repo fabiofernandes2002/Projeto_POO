@@ -5,13 +5,13 @@ function UserProfileView() {
     User.init()
     Achievement.init()
 
-    changeUserPhoto()
+    renderAvatars()
 
     const userPoints = document.querySelectorAll('.userPoints')
     const quantityMedal = document.querySelectorAll('.quantityMedal')
     const quantityAvatar = document.querySelectorAll('.quantityAvatar')
     const UserPosition = document.querySelectorAll('.UserPosition')
-    
+
     const userInfo = User.getUserLogged();
 
     for (const element of userPoints) {
@@ -30,60 +30,123 @@ function UserProfileView() {
         position.innerHTML = User.getUserPosition(userInfo.username);
     }
 
-    // const user = User.getUserLogged()
-
-    // if (user.avatarImg === './assets/img/avatars/') {
-    //     imgUser.innerHTML = User.getUserLogged().username.charAt(0)
-    // }
-    // else{
-    //     User.updateLoggedUserInfo(user)
-    // }
-    
-    //imgUser.innerHTML = User.getUserLogged().username.charAt(0)
-
 
     updateDataUsers(userInfo)
-    renderMedal()
+    renderMedals()
     renderAvatar()
 }
 
-function renderAvatar(){
-    const imgUser = document.querySelector('.imgUser') 
+function renderAvatar() {
+    const imgUser = document.querySelector('.imgUser')
     const user = User.getUserLogged()
 
-    if (user.avatarImg === './assets/img/avatars/') {
+    if (user.avatarImg === '') {
         imgUser.innerHTML = user.username.charAt(0)
-    }
-    else{
-        imgUser.style.background =`url(${"." + user.avatarImg}) center / contain no-repeat `
-        
+    } else {
+        imgUser.style.background = `url(${user.avatarImg}) center / cover no-repeat `
+
     }
 }
 
 
-function renderMedal() {
+function renderMedals() {
 
-    const achievement = Achievement.getAchievements()
+    const achievements = Achievement.getAchievements()
     const userMedalProfile = User.getUserLogged()
 
     let result = ''
-    for (const idMedal of userMedalProfile.medals) {
-        
-        const medal = achievement.filter(achievement => achievement.idAchievement === idMedal )
-        //console.log(medal);
+    for (const idMedal of userMedalProfile.medals) { //de todas as medalhas do utilizador
+
+        let medal = achievements.find(achievement => achievement.idAchievement === idMedal)
         result += `
-            <div class="ms-4"
-                style="transform:translateY(35%);background:url(${medal[0].urlImage}) center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
+            <div class="medal_owned"
+                style="margin-left:10%;transform:translate(calc(0%),35%);background:url(${medal.urlImage}) center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
             </div>
 
         `
     }
 
-    document.querySelector('#medalsUser').innerHTML += result
-    
+
+    for (const element of document.getElementsByClassName('medalsUser')) {
+        element.innerHTML += result
+    }
+
+    animateMedalsInventory()
+
 
 }
 
+let xPosition = 0, running = false
+
+function animateMedalsInventory() {
+    for (const arrowRight of document.querySelectorAll('.arrow-right-medal')) {
+        if (document.querySelectorAll('.medal_owned').length/2 <= 1) { 
+            arrowRight.style.display = "none"
+            continue
+        }
+        arrowRight.addEventListener('mousedown', ()=>{
+            running = true
+            pushMedalsLeft(arrowRight)
+        })
+        arrowRight.addEventListener('mouseup', () => {
+            running = false
+        })
+    }
+    for (const arrowLeft of document.querySelectorAll('.arrow-left-medal')) {
+        if (document.querySelectorAll('.medal_owned').length/2 <= 1) {
+            arrowLeft.style.display = "none"
+            continue
+        }
+        arrowLeft.addEventListener('mousedown', ()=>{
+            running = true
+            pushMedalsRight(arrowLeft)
+        })
+        arrowLeft.addEventListener('mouseup', () => {
+            running = false
+        })
+    }
+
+}
+function pushMedalsRight(arrowLeft){
+    if (xPosition >= 0) {
+        running = false
+        arrowLeft.style.display = 'none'
+    } else {
+
+        if (xPosition > -docum) {
+            for (const arrowRight of document.querySelectorAll('.arrow-right-medal')) {
+                arrowRight.style.display=""
+            }
+        }
+        xPosition += 1
+        for (const medal of document.querySelectorAll('.medal_owned')) {
+            medal.style.transform = `translate(calc(${xPosition}%),35%)`
+        }
+    }
+    if (running) {
+        window.requestAnimationFrame(()=>pushMedalsRight(arrowLeft))
+    }
+}
+function pushMedalsLeft(arrowRight){
+    if (xPosition <= (document.querySelectorAll('.medal_owned').length*33.5)+50) {
+        running = false
+        arrowRight.style.display = 'none'
+    } else {
+        if (xPosition < 0) {
+            for (const arrowLeft of document.querySelectorAll('.arrow-left-medal')) {
+                arrowLeft.style.display=""
+            }
+        }
+        xPosition -= 1
+        for (const medal of document.querySelectorAll('.medal_owned')) {
+            medal.style.transform = `translate(calc(${xPosition}%),35%)`
+        }
+    }
+    if (running) {
+        window.requestAnimationFrame(()=>pushMedalsLeft(arrowRight))
+    }
+    
+}
 function updateDataUsers(userInfo) {
 
     const profileForm = document.querySelector('#profileForm')
@@ -95,15 +158,14 @@ function updateDataUsers(userInfo) {
         const newPw = document.querySelector('#newPw')
 
         if (txtUsernameChange.value.trim() === userInfo.username ||
-            User.getUsers().some(user => user.username === txtUsernameChange.value.trim())) 
-        {
+            User.getUsers().some(user => user.username === txtUsernameChange.value.trim())) {
             Swal.fire({
                 icon: 'error',
                 title: "Nome de utilizador inválido!",
                 confirmButtonColor: "#4DB964",
                 confirmButtonText: "Tentar novamente",
             });
-            
+
         } else if (oldPw.value !== userInfo.password) {
             Swal.fire({
                 icon: 'error',
@@ -120,7 +182,7 @@ function updateDataUsers(userInfo) {
             });
         } else {
 
-            User.updateLoggedUserInfo({
+            User.updateUserInfo({
                 ...userInfo,
                 username: txtUsernameChange.value.trim(),
                 password: newPw.value
@@ -141,7 +203,7 @@ function updateDataUsers(userInfo) {
 }
 
 
-function changeUserPhoto() {
+function renderAvatars() {
 
     const avatars = Achievement.getAchievements().filter((u) => u.type === "avatar");
     const userInfo = User.getUserLogged()
@@ -149,25 +211,22 @@ function changeUserPhoto() {
 
     let modalBody = ''
 
-    //console.log(userInfo);
-    for (let pos = 0; pos < avatars.length; pos++) {  
-        //console.log(points,avatars[pos].points);
-        
+    for (let pos = 0; pos < avatars.length; pos++) {
+
         if (points >= avatars[pos].points) {
             modalBody += `
                 <div class="col mt-4">
-                    <button id="btnAvatarsImg" type="button" class="col rounded bntDesbloqueado">
-                        <img src="${avatars[pos].urlImage}" id=${pos+1} alt="" width="100%">
+                    <button type="button" class="col rounded bntDesbloqueado btnAvatarsImg">
+                        <img src="${avatars[pos].urlImage}" id=${pos+1} alt="" width="100%" height="70%">
                         <p style="color: #45BF63">Desbloqueado</p>
                     </button>
                 </div>
-            `   
-        }
-        else{
+            `
+        } else {
             modalBody += `
                 <div class="col mt-4">
                     <button  type="button" class="col rounded" disabled>
-                        <img src="${avatars[pos].urlImage}" id=${pos+1} alt="" width="100%">
+                        <img src="${avatars[pos].urlImage}" id=${pos+1} alt="" width="100%" height="70%">
                         <p style="color: #D9674E">${avatars[pos].points}XP</p>
                     </button>
                 </div>
@@ -176,18 +235,19 @@ function changeUserPhoto() {
     }
 
     document.querySelector('#modalBodyAvatars').innerHTML = modalBody
-    modalChangeAvatars()
+    modalChangeAvatar()
     bindModal()
-    
+
 }
 
-function modalChangeAvatars() {
-    const btnAvatarsImg = document.querySelectorAll('#btnAvatarsImg')
-
+function modalChangeAvatar() {
+    const btnAvatarsImg = document.querySelectorAll('.btnAvatarsImg')
+    const avatars = Achievement.getAchievements().filter(achivement => achivement.type === "avatar")
     for (const btnAvatar of btnAvatarsImg) {
         btnAvatar.addEventListener('click', () => {
             const id = btnAvatar.children[0].id
-            changeUserAvatars(id)
+
+            changeUserAvatars(avatars[id - 1])
 
             setTimeout(() => {
                 location.reload()
@@ -196,14 +256,13 @@ function modalChangeAvatars() {
     }
 }
 
-function changeUserAvatars(idAvatar) {
-    const users = User.getUsers()
+function changeUserAvatars(avatar) {
+    
     const user = User.getUserLogged()
-    console.log(user);
-    user.avatarImg = `./assets/img/avatars/${idAvatar}.png`
-    
-    User.updateLoggedUserInfo(user)
-    
+    user.avatarImg = avatar.urlImage
+
+    User.updateUserInfo(user)
+
 }
 
 function bindModal() {
@@ -212,7 +271,7 @@ function bindModal() {
 
     btnAvatars.addEventListener('click', () => {
         exampleModal.style.display = "block";
-        changeUserPhoto();
+        renderAvatars();
     })
 }
 

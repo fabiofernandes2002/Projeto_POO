@@ -22,20 +22,19 @@ export function getvideos() {
 }
 
 // ADICIONAR Videos
-export function add(idVideo,videoTitle, urlVideo,tags, chapters) {
-    
+export function add(idEpoch, videoTitle, urlVideo, tags, chapters) {
+
     if (videos.some((video) => video.videoTitle === videoTitle)) {
         throw Error(`Video with name "${videoTitle}" already exists!`);
-      } 
-      else {
-        videos.push(new Video(idVideo,videoTitle, urlVideo,tags, chapters));
+    } else {
+        videos.push(new Video(idEpoch, videoTitle, urlVideo, tags.split(','), chapters));
         localStorage.setItem("videos", JSON.stringify(videos));
     }
 }
 
 //REMOVER UMA Videos
 export function removeVideo(videoTitle) {
-    videos= videos.filter((video) => video.videoTitle !== videoTitle);
+    videos = videos.filter((video) => video.videoTitle !== videoTitle);
     localStorage.setItem("videos", JSON.stringify(videos));
 }
 
@@ -78,39 +77,3 @@ class Video {
     }
 
 }
-
-
-// let videos = [{
-//     idVideo: 0,
-//     epochTitle: "Tempo dos descobrimentos",
-//     videoTitle: 'Expansão Marítima Portuguesa (Parte 1)',
-//     tags: [
-//         "idade",
-//         "moderna",
-//         "motivos",
-//         "expansão",
-//         "estado",
-//         "morte",
-//         "fernando",
-//         "rei",
-//         "castela",
-//         "mestre",
-//         "avis",
-//         "aljubarrota",
-//         "centralizaçao",
-//         "genova",
-//         "italia"
-//     ],
-//     urlVideo: "https://www.youtube.com/watch?v=On2TAh0EejI",
-//     chapters: [
-//         ["0:00", "Introdução"],
-//         ["2:40", "Ínicio da Idade Moderna"],
-//         ["3:53", "Os motivos da expansão"],
-//         ["10:40", "O estado português"]
-//     ],
-//     likes: 20,
-//     comments: {
-//         tomas: "Muito bom",
-//         fabio: "ok"
-//     }
-// }]

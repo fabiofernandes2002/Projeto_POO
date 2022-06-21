@@ -14,7 +14,7 @@ export function getEpochs() {
 
 //ORDENAR EPOCAS ALFABETICAMENTE
 export function sortEpoch() {
-    epochs.sort((a, b) => a.epochTitle.localeCompare(b.epochTitle));    
+    epochs.sort((a, b) => a.epochTitle.localeCompare(b.epochTitle));
 }
 //ULTIMAS PUBLICADAS
 export function sortEpochPublicacion() {
@@ -30,32 +30,29 @@ export function getEpochsByName(filteredEpoch= "") {
 }
  */
 
+
+
 //MARCAR A ÉPOCA ESCOLHIDA
 export function setChoosenEpoch(epoch) {
     sessionStorage.setItem("choosenEpoch", JSON.stringify(epoch));
 }
 
 // ADICIONAR EPOCHS
-export function add(period, epochTitle, image, description) {
-    
+export function add(period, epochTitle, image, description, requirement) {
+
     if (epochs.some((epoch) => epoch.epochTitle === epochTitle)) {
         throw Error(`Period with name "${epochTitle}" already exists!`);
-      } 
-      else {
-        epochs.push(new Epoch(period, epochTitle, image, description));
+    } else {
+        epochs.push(new Epoch(period, epochTitle, image, description, requirement));
         localStorage.setItem("epochs", JSON.stringify(epochs));
     }
 }
 
 //REMOVER UMA EPOCA
-export function removerEpoch(name) {
+export function removeEpoch(name) {
     epochs = epochs.filter((epochs) => epochs.epochTitle !== name);
     localStorage.setItem("epochs", JSON.stringify(epochs));
 }
-
-
-
-
 
 // VERIFICA EXISTÊNCIA DE ÉPOCA ESCOLHIDA
 export function isChoosen() {
@@ -66,6 +63,19 @@ export function isChoosen() {
 export function getChoosenEpoch() {
     return JSON.parse(sessionStorage.getItem("choosenEpoch"));
 }
+
+// ATUALIZA A LISTA DE ÉPOCAS
+export function updateEpochInfo(newEpochInfo) {
+
+    //NA LOCAL STORAGE
+    newEpochInfo = epochs.map((epochItem) =>
+        epochItem.idEpoch === newEpochInfo.idEpoch ? newEpochInfo : epochItem
+    );
+    localStorage.setItem("epochs", JSON.stringify(newEpochInfo));
+
+    epochs = newEpochInfo
+}
+
 class Epoch {
     idEpoch = 0
     period = "" // P.E "SÉC. XV"
@@ -100,19 +110,3 @@ class Epoch {
         this.requirement = requirement;
     }
 }
-
-// let epochs = [{
-//     idEpoch:0,
-//     epochTitle: "Tempo dos descobrimentos",
-//     image:"http://",
-//     description:"lasdasd",
-//     videos: {
-//         1:0,
-//         2:1
-//     },
-//     questions: {
-//         1:0,
-//         2:1
-//     },
-//     medal:0
-// }]

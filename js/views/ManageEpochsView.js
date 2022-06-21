@@ -12,10 +12,10 @@ function renderEpochManage(epochs = []){
         
         result += `
             <tr>
-                <td style="word-break:break-word">${epoch.period}</td>
-                <td style="word-break:break-word">${epoch.epochTitle}</td>
-                <td style="word-break:break-word">${epoch.image}</td>
-                <td style="word-break:break-word">${epoch.description}</td>
+                <td>${epoch.period}</td>
+                <td>${epoch.epochTitle}</td>
+                <td  class="url">${epoch.image}</td>
+                <td>${epoch.description}</td>
                 <td><button type="button" class="btn btn-danger" id="${epoch.epochTitle}">Eliminar</button></td>
             </tr>
         ` 
@@ -30,8 +30,8 @@ function renderEpochManage(epochs = []){
                 title: `Tens a certeza que queres eliminar a " ${btn.id} "!`,
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
-                denyButtonText: 'No',
+                confirmButtonText: 'Sim',
+                denyButtonText: 'Não',
                 customClass: {
                     actions: 'my-actions',
                     cancelButton: 'order-1 right-gap',
@@ -40,12 +40,12 @@ function renderEpochManage(epochs = []){
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Epoch.removerEpoch(btn.id)
-                    setTimeout(function(){window.location.reload(); ;}, 2000);;
-                    Swal.fire('Saved!', '', 'success')
+                    Epoch.removeEpoch(btn.id)
+                    btn.parentNode.parentNode.remove()
+                    Swal.fire('Feito!')
                      
                 } else if (result.isDenied) {
-                  Swal.fire(`A época  "${btn.id}" não foi eliminada! `)
+                  Swal.fire(`A época "${btn.id}" não foi eliminada! `)
                 }
               })
             
@@ -53,15 +53,6 @@ function renderEpochManage(epochs = []){
         
     }
     
-}
-
-// atribuir o valor do requisito a época
-function renderRequeriment() {
-    const requirement = document.querySelector('#txtRequeriment')
-    const epochs = Epoch.getEpochs()
-    for (const epoch of epochs) {
-        epoch.requirement = requirement.value
-    }
 }
 
 document.querySelector('#btnAddEpochs').addEventListener('click', function(e) {
@@ -74,7 +65,6 @@ document.querySelector('#btnAddEpochs').addEventListener('click', function(e) {
             document.querySelector('#txtDescription').value,
             document.querySelector('#txtRequeriment').value
         );
-        renderRequeriment()
         alert("Epoch added with success!");
         renderEpochManage(Epoch.getEpochs());
         

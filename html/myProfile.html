@@ -22,6 +22,12 @@
             background-color: #f2f2f2;
         }
 
+        @media only screen and (max-width: 767px) {
+            #bodyP {
+                height: 1400px
+            }
+        }
+
         .imgUser {
             background: #3DAAC5;
             border-radius: 50%;
@@ -40,19 +46,19 @@
             color: #FFFFFF;
         }
 
-        .bntDesbloqueado{
+        .bntDesbloqueado {
             border-style: none;
             background-color: #f2f2f2;
         }
 
-        .bntDesbloqueado:hover{
+        .bntDesbloqueado:hover {
             border: 1px solid #3DAAC5;
         }
-        
 
-        /* #imgUser{
-
-        } */
+        .btnAvatarsImg{
+            height: 100%;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -207,8 +213,8 @@
                             <!-- Barra de pesquisa -->
                             <div class="search-bar mt-3 d-sm-none">
                                 <div class="me-3 ms-3">
-                                    <input type="search" class="form-control imputProcurarMenu"
-                                        placeholder="Procurar" aria-label="Search">
+                                    <input type="search" class="form-control imputProcurarMenu" placeholder="Procurar"
+                                        aria-label="Search">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="x"
                                         style="display: none" width="1em" height="1em"
                                         preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -477,25 +483,25 @@
     </div>
 
     <!-- Perfil do utilizador -->
-    <section style="background-color: #fff; height: 60px;"></section>
-    <div class="container rounded mt-5 mb-5" id="bodyP">
+    <div class="container rounded mt-5" id="bodyP">
 
-        <div class="row position-relative">
+        <div class="row position-relative mb-0 mb-sm-0 mb-md-5">
             <div class="col d-none d-md-block">
                 <div id="barSeparator1"></div>
             </div>
 
-            <div class="col-12 mt-5 ms-5" style="font-family: 'mplus-bold';">
-                <h4>Perfil de Utilizador</h4>
+            <div class="col-12" style="font-family: 'mplus-bold';">
+                <h4 class="mt-5 ms-5">Perfil de Utilizador</h4>
             </div>
 
             <div class="col-11 me-5 me-md-0 col-md-4 border-right">
                 <div class="row">
-                    <div class=" ms-5 d-flex flex-column align-items-rigth text-right p-3 py-5">
+                    <div class="col ms-5 d-flex flex-column align-items-rigth text-right p-3 py-5">
                         <div class="imgUser"></div>
                         <span><a class="btn btn-primary btn-sm mt-3 align-items-center text-center "
                                 style="width: 150px; background-color: #D9674E; font-family: 'mplus-bold'; border-style: none;"
-                             role="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnAvatars">Alterar imagem </a></span>
+                                role="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                id="btnAvatars">Alterar imagem </a></span>
                     </div>
                 </div>
                 <form id="profileForm">
@@ -506,7 +512,7 @@
                                 style="box-shadow: 0px 4px 4px #D9674E;" placeholder="" required>
                         </div>
                     </div>
-    
+
                     <div class="row">
                         <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
                             <label for="oldPw" class="form-label">Palavra passe atual</label>
@@ -517,7 +523,7 @@
                             </label>
                         </div>
                     </div>
-    
+
                     <div class="row">
                         <div class="col ms-5 mt-3" style="font-family: 'mplus-medium';">
                             <label for="newPw" class="form-label">Palavra passe nova</label>
@@ -528,13 +534,15 @@
                             </label>
                         </div>
                     </div>
-    
+
                     <div class="row">
                         <div class="col mt-5 ms-5 mb-5">
                             <!-- <a class="btn btn-primary" href="#" type="submit"
                                 style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;"
                                 role="button">Alterar dados</a> -->
-                            <button class="btn btn-primary" type="submit" style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;">Alterar dados</button>
+                            <button class="btn btn-primary" type="submit"
+                                style="font-family: 'mplus-bold'; background-color: #D9674E; border-style: none;">Alterar
+                                dados</button>
                         </div>
                     </div>
                 </form>
@@ -624,12 +632,23 @@
                     <h5 style="font-family: 'mplus-bold';">Medalhas</h5>
                 </div>
                 <div class="row me-5 mt-2">
-                    <div class="col" id="medalsUser"
+                    <div class="col medalsUser"
                         style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
                         border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
                         <!-- https://stackoverflow.com/questions/43645577/how-to-force-inline-divs-inside-another-div -->
                         <button
-                            style="z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;right:2%;transform:translateY(-50%);background-color:transparent; border:none;">
+                            style="display:none;z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;left:2%;transform:translateY(-50%);background-color:transparent; border:none;"
+                            class="arrow-left-medal">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
+                                style="width:'2em';transform: rotate(180deg);" height="1.5em"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
+                            </svg>
+                        </button>
+                        <button
+                            style="z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;right:2%;transform:translateY(-50%);background-color:transparent; border:none;"
+                            class="arrow-right-medal">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="width:'2em'"
                                 height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -737,45 +756,44 @@
             <h5 style="font-family: 'mplus-bold';">Medalhas</h5>
         </div>
         <div class="row me-5 ms-5 mt-2 d-block d-md-none">
-            <div class="col" id="medalsUser"
-                style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
+            <div class="col">
+                <div class="medalsUser mb-5"
+                    style="background-color: #fff; box-shadow: 0px 4px 4px #D9674E;
                 border-radius: 10px; font-family: 'mplus-medium';height: 150px;white-space: nowrap;margin:0;padding:0;max-width: 100%;overflow: hidden; position: relative;">
-                <!-- https://stackoverflow.com/questions/43645577/how-to-force-inline-divs-inside-another-div -->
+                    <!-- https://stackoverflow.com/questions/43645577/how-to-force-inline-divs-inside-another-div -->
+                    <button
+                            style="display:none;z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;left:2%;transform:translateY(-50%);background-color:transparent; border:none;" 
+                            class="arrow-left-medal">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="width:'2em';transform: rotate(180deg);"  
+                                height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
+                            </svg>
+                    </button>
+                    <button
+                        style="z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;right:2%;transform:translateY(-50%);background-color:transparent; border:none;"
+                        class="arrow-right-medal">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="width:'2em'"
+                            height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
+                        </svg>
+                    </button>
+                </div>
 
-                <button
-                    style="z-index:4;width: 1.5em;height: 1.6em;;position:absolute;top:50%;right:2%;transform:translateY(-50%);background-color:transparent; border:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="width:'2em'"
-                        height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                        <path fill="currentColor"
-                            d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z" />
-                    </svg>
-                </button>
-
-                <!-- <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
-                <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
-                <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div>
-                <div class="ms-4"
-                    style="transform:translateY(35%);background:url('../assets/img/medals/medal.jpg') center / contain no-repeat; width:33.3%;height:60%;display: inline-block">
-                </div> -->
             </div>
         </div>
 
 
     </div>
-    
+
     <!-- Modal de avatares -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content" id="modalBody">
-            <div class="modal-body">
-                <div class="row row-cols-3" id="modalBodyAvatars">
-                    <!-- <div class="col">
+            <div class="modal-content" id="modalBody">
+                <div class="modal-body">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3" id="modalBodyAvatars">
+                        <!-- <div class="col">
                         <button id="btnAvatarsImg" type="button" class="col rounded" disabled>
                             <img src="../assets/img/avatars/profile1.png" alt="" width="100%">
                             <p style="color: #D9674E">100XP</p>
@@ -807,14 +825,14 @@
                             <p style="color: #D9674E;">500XP</p>
                         </button>
                     </div> -->
+                    </div>
+
                 </div>
-                
-            </div>
-            <!-- <div class="modal-footer">
+                <!-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
             </div> -->
-          </div>
+            </div>
         </div>
     </div>
 

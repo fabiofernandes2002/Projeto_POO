@@ -506,7 +506,7 @@ function initdata() {
             questions: [0],
             medals: [3],
             requirement: "Complete as Duas Primeiras Épocas"
-        }
+        },
     ];
         localStorage.setItem("epochs", JSON.stringify(epochs));
     }
@@ -554,7 +554,7 @@ function initdata() {
                 urlImage: "../assets/img/medals/bronze-medal.png",
                 achievementName: "Medalha bronze",
                 description:"Acertar 100% numa ficha de exercícios",
-                points: "",
+                points: 0,
                 idEpochs : []
             },
             {
@@ -563,7 +563,7 @@ function initdata() {
                 urlImage: "../assets/img/medals/bronze-medal2.png",
                 achievementName: "Medalha de bronze-2",
                 description:"Concluir as duas primeiras epócas",
-                points: "",
+                points: 0,
                 idEpochs : [2]
             },
             {
@@ -572,7 +572,7 @@ function initdata() {
                 urlImage: "../assets/img/medals/silver-medal.png",
                 achievementName: "Medalha de prata",
                 description:"Desbloquear todas as epócas",
-                points:"",
+                points:0,
                 idEpochs : []
             },
             {
@@ -581,7 +581,7 @@ function initdata() {
                 urlImage: "../assets/img/medals/medal2.png",
                 achievementName: "Medalha de Ouro",
                 description:"Concluir a terceira epóca",
-                points:"",
+                points:0,
                 idEpochs : [2]
             },
             {
@@ -616,8 +616,8 @@ function initdata() {
             birthDate: "20-05-2002",
             sex: "female",
             avatars: [1],
-            medals: [0],
-            avatarImg:'./assets/img/avatars/',
+            medals: [6],
+            avatarImg:'',
             totalPoints: 2000,
             videosSeen: [],
             videosLiked: [],
@@ -634,7 +634,7 @@ function initdata() {
             sex: "male",
             avatars: [1],
             medals: [7, 8, 9,],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 20,
             videosSeen: [],
             videosLiked: [],
@@ -652,7 +652,7 @@ function initdata() {
             sex: "female",
             avatars: [],
             medals: [10,6],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 50,
             videosSeen: [],
             videosLiked: [],
@@ -670,7 +670,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 100,
             videosSeen: [],
             videosLiked: [],
@@ -688,7 +688,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -706,7 +706,7 @@ function initdata() {
             sex: "female",
             avatars: [],
             medals: [],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -724,7 +724,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -734,7 +734,7 @@ function initdata() {
         {
             idUser: 8,
             type: 'aluno',
-            username: "Sebatião",
+            username: "Sebastião",
             email: "sebastiao@gmail.com",
             city: "Porto",
             password: "123",
@@ -742,7 +742,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'../assets/img/avatars/1.png',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
@@ -760,7 +760,7 @@ function initdata() {
             sex: "female",
             avatars: [],
             medals: [],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 1400,
             videosSeen: [],
             videosLiked: [],
@@ -779,7 +779,7 @@ function initdata() {
             sex: "male",
             avatars: [],
             medals: [],
-            avatarImg:'./assets/img/avatars/',
+            avatarImg:'',
             totalPoints: 150,
             videosSeen: [],
             videosLiked: [],
