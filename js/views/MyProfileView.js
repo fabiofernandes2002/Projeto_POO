@@ -194,6 +194,7 @@ function updateDataUsers(userInfo) {
                 confirmButtonColor: "#4DB964",
                 confirmButtonText: "Voltar",
             })
+            window.location = window.location.href;
             e.target.reset();
 
         }

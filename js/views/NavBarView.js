@@ -5,6 +5,7 @@ function navbarView() {
     User.init();
     Epoch.init()
 
+    searchEpoch()
     //as funções a seguir já estão documentadas
 
     //***DESIGN***********************
@@ -289,6 +290,17 @@ function showHidePassword() {
         });
     });
 }
+
+
+
+
+function searchEpoch(){
+    
+}
+
+
+
+
 
 // ****************************  DESIGN ********************************************************************************************************************************************
 /**

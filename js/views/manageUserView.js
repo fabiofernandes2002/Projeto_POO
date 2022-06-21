@@ -74,7 +74,7 @@ function catalog_user(users = []) {
 }
 
 
-
+//RENDARIZAR TABELA COM OS NOME DOS UTILIZADORES 
 function renderTable(filterTxt = "") {
 
     const table = document.querySelector('table')
@@ -149,10 +149,6 @@ function renderTable(filterTxt = "") {
     }
 
     return all_user
-
-
-
-
 }
 
 catalog_user()

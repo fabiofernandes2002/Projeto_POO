@@ -87,14 +87,19 @@ export function sortUsersByPoints() {
 
 }
 
+<<<<<<< HEAD
 //BUSCAR USER POR NOME EM ESPECIFICO
 export function getUsersByName(filterName = "") {
+=======
+//BOSCAR USER POR NOME EM ESPECIFICO
+ export function getUsersByName(filterName = "") {
+>>>>>>> 3ed94e7c4edeb9129f4c0692f35ca00806c49048
   let filteredUsers = users.filter(
     (user) => (user.username.toLowerCase().includes(filterName.toLowerCase()) && user.type !== 'professor'));
 
   return filteredUsers;
 
-}
+} 
 
 //REMOVER UM UTLIZADOR 
 export function removeUser(name) {
