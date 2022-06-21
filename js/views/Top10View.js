@@ -33,9 +33,9 @@ function top10ListUsers(allStudentUsers) {
                         </div>
                     </td>
                     <td style="${styleColor}">
-                    <div>
-                        <img src="../assets/img/man (1).png" class="imgTop10" alt="" width="40" height="35" srcset="">
-                        <span>${allStudentUsers[index].username}</span>
+                    <div class="input-group">
+                        <div class="imgUser"></div>
+                        <span class = 'mt-1 px-2'>${allStudentUsers[index].username}</span>
                     </div>
                     </td>
                     <td style="${styleColor}" class="tdPoints">${allStudentUsers[index].totalPoints}</td>
@@ -104,20 +104,19 @@ function top10ListUsers(allStudentUsers) {
 
     }
     document.getElementById("top10Table").innerHTML = leaderboardList;
-    renderAvatarNavBar()
+    renderAvatar()
 }
 
-// função que renderiza o avatar da navbar
-function renderAvatarNavBar(){
-    const imgUser = document.querySelector('#imgUser') 
+// função que renderiza o avatar
+function renderAvatar() {
+    const imgUser = document.querySelector('.imgUser')
     const user = User.getUserLogged()
 
-    if (user.avatarImg === './assets/img/avatars/') {
+    if (user.avatarImg === '') {
         imgUser.innerHTML = user.username.charAt(0)
-    }
-    else{
-        imgUser.src =`url(${"." + user.avatarImg}) center / contain no-repeat `
-        
+    } else {
+        imgUser.style.background = `url(${user.avatarImg}) center / cover no-repeat `
+
     }
 }
 

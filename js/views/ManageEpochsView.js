@@ -65,7 +65,7 @@ document.querySelector('#btnAddEpochs').addEventListener('click', function(e) {
             document.querySelector('#txtDescription').value,
             document.querySelector('#txtRequeriment').value
         );
-        alert("Epoch added with success!");
+        alert("Época adicionada com sucesso!");
         renderEpochManage(Epoch.getEpochs());
         
       } catch (error) {

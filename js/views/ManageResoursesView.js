@@ -130,7 +130,7 @@ document.querySelector('#manageResourses').addEventListener('submit', function (
             chapters
         );
         renderSltEpochs()
-        alert("Video added with success!");
+        alert("Video adicionado com sucesso!");
         renderResoursesManage(Video.getvideos())
 
     } catch (error) {
