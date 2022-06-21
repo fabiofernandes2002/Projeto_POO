@@ -683,7 +683,7 @@
                                         <button type="button" id="btnHeart"></button>
                                     </div>
                                     <div class="col-2 col-sm-1 mt-2 mb-5">
-                                        <button type="button" id="btnShare"></button>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnShare"></button>
                                     </div>
 
                                 </div>
@@ -727,6 +727,26 @@
         </div>
     </div>
 
+    <!-- Modal de compartilhar o video -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> -->
+            <div class="modal-body" id="modalShareLinkVideo">
+                <!-- <div class="disabled">
+                    <p>https://www.youtube.com/watch?v=uKz4Fu2JYHs&ab_channel=TrolldosLivros</p><span><button class="rounded pill" style="width: 70px;">Copiar</button></span>
+                </div> -->
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+    </div>
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

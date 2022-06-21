@@ -1,8 +1,10 @@
 // o catálogo recorre à classe Cat, descrita em CatModel.js
 import * as User from "../models/UserModel.js";
+import * as Epoch from "../models/EpochModel.js";
 
 function navbarView() {
     User.init();
+    Epoch.init()
 
     //as funções a seguir já estão documentadas
 
@@ -52,7 +54,17 @@ function navbarView() {
         User.logout(pathIndexPage);
 
     })
+    bindLearnButtons()
 
+}
+
+function bindLearnButtons(epochs) {
+    document.querySelectorAll('.menuHamburguerOption').forEach((element,index) => {
+        element.addEventListener("click", () => {
+            Epoch.setChoosenEpoch(epochs[index])
+            location.href = "./epoch.html";
+        })
+    });
 }
 
 

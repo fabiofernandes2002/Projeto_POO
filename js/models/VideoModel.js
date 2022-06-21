@@ -60,10 +60,10 @@ class Video {
     chapters = []
     likes = 0
     comments = []
-    viewa = 0
+    views = 0
     likes = 0
 
-    constructor(idEpoch, videoTitle,urlVideo, tags, chapters, likes, comments) {
+    constructor(idEpoch, videoTitle = '',urlVideo = '', tags = [], chapters = [], comments = [], views = 0, likes = 0,) {
 
         this.idVideo = videos.length === 0 ? 1 : videos.length + 1;
         this.idEpoch = idEpoch;
@@ -71,8 +71,10 @@ class Video {
         this.tags = tags
         this.urlVideo = urlVideo
         this.chapters = chapters
-        this.likes = likes
         this.comments = comments
+        this.views = views
+        this.likes = likes
+        
     }
 
 }

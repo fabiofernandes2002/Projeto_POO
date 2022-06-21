@@ -65,15 +65,15 @@ class Epoch {
     medals = [] //MEDALHA QUE O UTILIZADOR GANHA QUANDO COMPLETA UMA ÉPOCA
     requirement = "" //REQUISITO PARA DESBLOQUEAR A ÉPOCA
 
-    constructor(period, 
-        epochTitle, 
-        image, 
-        description, 
+    constructor(period = '', 
+        epochTitle = '', 
+        image = '', 
+        description = '', 
         imageStyle = "background-size: contain;background-repeat: no-repeat;background-position: center bottom;",
         videos = [],
         questions = [],
         medals = [],
-        requirement = ""
+        requirement = ''
     ) {
         this.idEpoch = epochs.length === 0 ? 1 : epochs.length + 1;
         this.period = period;

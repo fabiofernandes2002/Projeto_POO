@@ -47,7 +47,7 @@ class Achievement {
     points = 0
     description = ""
     
-    constructor(type, urlImage, achievementName, points, description) {
+    constructor(type = '', urlImage = '', achievementName = '', points = 0, description = '') {
         
         this.idAchievement = achievements.length === 0 ? 1 : achievements.length + 1;
         this.type = type;
