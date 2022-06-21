@@ -133,13 +133,8 @@ document.querySelector('#manageResourses').addEventListener('submit', function (
             document.querySelector('#txtTags').value,
             chapters
         );
-<<<<<<< HEAD
         alert("Video adicionado com sucesso!");
         renderChapterForm()
-=======
-        renderSltEpochs()
-        alert("Video adicionado com sucesso!");
->>>>>>> 3ed94e7c4edeb9129f4c0692f35ca00806c49048
         renderResoursesManage(Video.getvideos())
 
     } catch (error) {
