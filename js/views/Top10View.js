@@ -33,9 +33,9 @@ function top10ListUsers(allStudentUsers) {
                         </div>
                     </td>
                     <td style="${styleColor}">
-                    <div class="input-group">
-                        <div class="imgUser"></div>
-                        <span class = 'mt-1 px-2'>${allStudentUsers[index].username}</span>
+                    <div>
+                        <img src="../assets/img/man (1).png" class="imgTop10" alt="" width="40" height="35" srcset="">
+                        <span>${allStudentUsers[index].username}</span>
                     </div>
                     </td>
                     <td style="${styleColor}" class="tdPoints">${allStudentUsers[index].totalPoints}</td>
@@ -107,7 +107,7 @@ function top10ListUsers(allStudentUsers) {
     renderAvatar()
 }
 
-// função que renderiza o avatar
+// função que renderiza o avatar da navbar
 function renderAvatar() {
     const imgUser = document.querySelector('.imgUser')
     const user = User.getUserLogged()
