@@ -14,18 +14,18 @@ function epochsView(epochs= []) {
     })
 
     //ORDENAR ULTIMAS PUBLICADAS
-    const ordenarAsc = document.querySelector("#ordenarAsc")
+    // const ordenarAsc = document.querySelector("#ordenarAsc")
     
-    ordenarAsc.addEventListener("click", ()=>{
-        Epoch.sortEpochPublicacion(); 
-        renderEpochs(Epoch.getEpochs());
-        document.querySelectorAll(".btnOrdenar") 
+    // ordenarAsc.addEventListener("click", ()=>{
+    //     Epoch.sortEpochPublicacion(); 
+    //     renderEpochs(Epoch.getEpochs());
+    //     document.querySelectorAll(".btnOrdenar") 
 
-        let btnOrdenar = document.querySelectorAll(".btnOrdenar")
-        for (const btn of btnOrdenar) {
-            btn.innerHTML =  ordenarAsc.innerHTML
-        }
-    })
+    //     let btnOrdenar = document.querySelectorAll(".btnOrdenar")
+    //     for (const btn of btnOrdenar) {
+    //         btn.innerHTML =  ordenarAsc.innerHTML
+    //     }
+    // })
 
     //RENDARIZAR  EPOCA EXPECIFICA 
     document.querySelector('.imputProcurar').addEventListener("input", () => {
@@ -74,17 +74,17 @@ function epochsView(epochs= []) {
     
     //ORDENAR AS EPOCAS POR ORDEM ALFABETICA
     
-    const ordenarAlf = document.querySelector("#ordenarAlf")
+    // const ordenarAlf = document.querySelector("#ordenarAlf")
     
-    ordenarAlf.addEventListener("click", ()=>{
-        Epoch.sortEpoch();
-        renderEpochs(Epoch.getEpochs());
-        let btnOrdenar = document.querySelectorAll(".btnOrdenar")
-        for (const btn of btnOrdenar) {
-            btn.innerHTML = ordenarAlf.innerHTML
-        }
+    // ordenarAlf.addEventListener("click", ()=>{
+    //     Epoch.sortEpoch();
+    //     renderEpochs(Epoch.getEpochs());
+    //     let btnOrdenar = document.querySelectorAll(".btnOrdenar")
+    //     for (const btn of btnOrdenar) {
+    //         btn.innerHTML = ordenarAlf.innerHTML
+    //     }
 
-    })
+    // })
 
 }
 
