@@ -171,6 +171,17 @@ function renderWorksheet(isTeacher, questions, epoch) {
         }
     }
 
+    // esconder o botão de Adicionar questão quando é não professor
+    const btnAddQuestions = document.querySelectorAll('.btnAddQuestion')
+    for (const btnAddQuestion of btnAddQuestions) {
+        if (isTeacher) {
+            btnAddQuestion.style.display = ''
+        }
+        else {
+            btnAddQuestion.style.display = 'none'
+        }
+    }
+
     // esconder o botão de submeter quando é professor
     const btnSubmits = document.querySelectorAll('.btnSubmit')
     for (const btnSubmit of btnSubmits) {
